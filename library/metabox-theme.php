@@ -155,7 +155,7 @@ Best regards,
 	        'options' => array( 'textarea_rows' => 15 ),
 	        'default' => "Hello [first-name],
 
-We received a password reset request from LSCU for your user account ([user-login]). To complete the password reset, click the link below to have a new password sent to you.
+We received a password reset request from NWCUA for your user account ([user-login]). To complete the password reset, click the link below to have a new password sent to you.
 
 [password-reset-url]
 
