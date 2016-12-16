@@ -1,0 +1,200 @@
+
+
+.wrap {
+	max-width: 1350px;
+	margin: 0 auto;
+}
+
+.content {
+
+}
+
+.content-narrow {
+	padding: 40px 20px;
+	max-width: 900px;
+	margin: 0 auto;
+	@extend .content-style;
+}
+
+.content-wide {
+	@include clearfix;
+	padding: 40px 20px;
+	@extend .content-style;
+}
+
+.content-header {
+	@include clearfix;
+	padding: 10px 20px;
+	@extend .content-style;
+
+	@include respond-to( 768px ) {
+		padding: 10px 40px;
+	}
+}
+
+.content-two-column {
+	@extend .content-style;
+}
+
+
+.fluid-width-video-wrapper {
+	margin: 15px 0;
+}
+
+
+.quarter, .third, .half, .two-third, .three-quarter {
+	padding: 20px;
+}
+
+@include respond-to( 768px ) {
+	.quarter, .third, .half, .two-third, .three-quarter, .twenty, .thirty {
+		float: left;
+
+		&.right {
+			float: right;
+		}
+	}
+
+	.quarter {
+		width: 22.5%;
+		margin: 0 1%;
+	}
+
+	.third {
+		width: 31%;
+		margin: 0 1%;
+	}
+
+	.two-third {
+		width: 65%;
+		margin: 0 1%;
+	}
+
+	.three-quarter {
+		width: 73%;
+		margin: 0 1%;
+	}
+
+	.twenty {
+		width: 18%;
+		margin: 0 1%;
+	}
+
+	.thirty {
+		width: 28%;
+		margin: 0 1%;
+	}
+}
+
+.text-center {
+	text-align: center;
+}
+.text-right {
+	text-align: right;
+}
+
+table {
+	width: 100%;
+
+	tr {
+		td {
+			vertical-align: top;
+			padding: 6px 10px;
+		}
+	}
+}
+
+
+.content-style {
+	ol, ul {
+		padding: 5px 0 5px 35px;
+
+		li {
+			padding: 3px 0;
+		}
+
+		&.gform_fields {
+			padding: 5px 0;
+		}
+	}
+
+	ul {
+		list-style-type: disc;
+	}
+
+	ol {
+		list-style-type: decimal;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-style: italic;
+		color: $navy;
+		padding: 10px 0 5px;
+	}
+
+	h3 {
+		color: $navy;
+	}
+
+	h5 {
+		color: $gold;
+	}
+
+	blockquote {
+		padding: 10px 25px;
+		font-style: italic;
+		font-size: 1.2em;
+		line-height: 1.5em;
+		color: $grey;
+		border-left: 3px solid lighten( $grey, 25% );
+		margin: 10px 0 10px 20px;
+	}
+
+	hr {
+		border: 0;
+		border-bottom: 1px solid lighten( $grey, 25% );
+		padding: 0;
+		margin: 25px 0;
+	}
+
+	a.button-gold {
+		display: block;
+		padding: 20px;
+		background: $gold;
+		color: white;
+		transition: opacity 400ms ease-in-out;
+		font-size: 1.3em;
+		font-weight: bold;
+		text-align: center;
+		text-decoration: none;
+		border-radius: 3px;
+
+		&:hover {
+			opacity: .8;
+		}
+
+		@include respond-to( 768px ) {
+			padding: 30px;
+		}
+	}
+	
+	img {
+		&.alignleft {
+			float: left;
+			margin: 0 10px 10px 0;
+		}
+
+		&.alignright {
+			float: right;
+			margin: 0 0 10px 10px;
+		}
+		
+		&.aligncenter {
+			display: block;
+			margin: 0 auto;
+		}
+	}
+
+}
+
+

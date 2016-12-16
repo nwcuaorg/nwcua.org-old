@@ -1,0 +1,108 @@
+
+
+footer {
+	background: $grey-dark url(../img/bg-stripes.png) center center no-repeat;
+	background-size: cover;
+	color: white;
+	@include clearfix;
+
+	.column {
+		padding: 20px;
+
+		@include respond-to( 768px ) {
+			float: left;
+			border-left: 4px solid white;
+			min-height: 400px;
+
+			&.no-border {
+				border-left: 0;
+			}
+		}
+
+		@include respond-to( 1024px ) {
+			padding: 30px;
+		}
+	}
+	
+	h3 {
+		@include font;
+		text-transform: uppercase;
+		font-size: 1.5em;
+		line-height: 1.2em;
+	}
+
+	a {
+		color: white;
+		text-decoration: none;
+	}
+
+	nav {
+		a {
+			display: block;
+			padding: 3px;
+		}
+	}
+
+	.social {
+		padding: 10px 0;
+		text-align: center;
+
+		img {
+			width: 20%;
+			float: left;
+		}
+	}
+
+	.social-icons img {
+		width: 20%;
+		max-width: 60px;
+		display: inline-block;
+	}
+}
+
+
+
+//urls
+$button_arrow: url(../img/icon-arrow-lime.png);
+
+//@extend-elements
+//original selectors
+//.footer-bar .subscribe-form input[type=text], .sidebar .subscribe-form input[type=text]
+%text_field_style {
+	display: block;
+	padding: 12px 3%;
+	width: 90%;
+}
+
+//original selectors
+//.footer-bar .subscribe-form button, .sidebar .subscribe-form button
+%button_style {
+	position: absolute;
+	right: -5px;
+	top: -15px;
+	width: 70px;
+	height: 70px;
+	background: transparent;
+	background-image: $button_arrow;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border: 0;
+	color: transparent;
+}
+
+
+
+.subscribe-form {
+	position: relative;
+	input[type=text] {
+		@extend %text_field_style;
+	}
+	button {
+		@extend %button_style;
+	}
+	.required {
+		color: red;
+	}
+}
+

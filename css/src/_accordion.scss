@@ -1,0 +1,156 @@
+
+
+.accordions-wide {
+	padding: 0 20px;
+}
+
+
+.accordion {
+	padding: 30px 0 6px;
+	padding-bottom: 6px;
+
+	&.no-icons {
+		padding-top: 0;
+		margin: 0;
+
+		.accordion-box-title h4 {
+			padding: 30px 20px;
+		}
+	}
+	
+	.accordion-box-title {
+		position: relative;
+		background: url(../img/bg-stripes.png) center center no-repeat;
+		background-size: cover;
+		cursor: pointer;
+
+		.wrap {
+			position: relative;
+		}
+		
+		span.accordion-box-title-icon {
+			position: absolute;
+			top: 50%;
+			left: 20px;
+			margin-top: -20px;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			border: 2px solid white;
+			padding: 0;
+			text-align: center;
+			font-size: 25px;
+			line-height: 40px;
+			color: white;
+
+			@include respond-to( 1024px ) {
+				left: 15px;
+				margin-top: -30px;
+				width: 60px;
+				height: 60px;
+				line-height: 60px;
+			}
+		}
+
+		h4 {
+			@include font-medium;
+			font-size: 18px;
+			line-height: 22px;
+			font-style: normal;
+			color: white;
+			text-transform: uppercase;
+			padding: 20px 0 20px 80px;
+			
+			@include respond-to( 1024px ) {
+				padding: 30px 20px 30px 100px;
+			}
+		}
+	}
+
+	.accordion-box-content {
+		display: none;
+		padding: 20px;
+	
+		.wrap {
+			max-width: 1180px;
+		}
+	}
+
+	.accordion-box.open .accordion-box-content {
+		display: block;
+	}
+
+	.accordion-box {
+		margin-top: 6px;
+
+		&.bg-teal .accordion-box-content, &.bg-teal-light .accordion-box-content, &.bg-teal-lighter .accordion-box-content, &.bg-teal-lightest .accordion-box-content { background-color: lighten( $teal, 55% ); }
+		&.bg-river .accordion-box-content, &.bg-river-light .accordion-box-content { background-color: lighten( $river, 65% ); }
+		&.bg-navy .accordion-box-content, &.bg-navy-light .accordion-box-content { background-color: lighten( $navy, 65% ); }
+		&.bg-lime .accordion-box-content, &.bg-lime-light .accordion-box-content { background-color: lighten( $lime, 50% ); }
+		&.bg-forest .accordion-box-content, &.bg-forest-light .accordion-box-content { background-color: lighten( $forest, 45% ); }
+		&.bg-orange .accordion-box-content, &.bg-orange-light .accordion-box-content { background-color: lighten( $orange, 30% ); }
+		&.bg-grey-light .accordion-box-content, &.bg-grey-dark .accordion-box-content, &.bg-grey-light-light .accordion-box-content, &.bg-grey-dark-light .accordion-box-content { background-color: lighten( $grey, 30% ); }
+	}
+}
+
+
+
+
+.expandable-divs {
+  padding: 0px 0 25px;
+  .expandable {
+    &.handle {
+      margin-top: 10px;
+      position: relative;
+      cursor: pointer;
+      p {
+      	padding: 0;
+      }
+      img {
+        display: none;
+      }
+      h3 {
+        padding: 10px;
+        font-size: 24px;
+        text-transform: uppercase;
+        color: white;
+        font-style: normal;
+        background: url(/assets_site/img/expandable-arrow-down.png) center right no-repeat;
+      }
+      &.expanded h3 {
+        background: url(/assets_site/img/expandable-arrow-up.png) center right no-repeat;
+      }
+    }
+    &.block {
+      display: none;
+      padding: 15px 20px;
+      color: #60605b;
+      h3:first-child, h4:first-child {
+        padding-top: 15px;
+      }
+      &.expanded {
+        display: block;
+      }
+    }
+    &.handle {
+      img {
+        display: block;
+        position: absolute;
+        width: 74px;
+        left: 15px;
+        top: 50%;
+        margin-top: -37px;
+      }
+      h3 {
+        font-size: 24px;
+        line-height: 30px;
+        padding: 40px 40px 40px 100px;
+        font-weight: normal;
+        font-family: Arial, sans-serif;
+        text-transform: uppercase;
+        color: white;
+      }
+    }
+  }
+}
+

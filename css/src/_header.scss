@@ -1,0 +1,285 @@
+
+
+$menu-bp: 1024px;
+
+header {
+	padding-top: 20px;
+
+	.logo {
+		margin-right: 60px;
+		padding: 5px 0 5px 20px;
+		max-width: 450px;
+	}
+
+	nav {
+		position: relative;
+
+		button {
+			position: absolute;
+			right: 5px;
+			top: -150px;
+			width: 40px;
+			height: 40px;
+			border: 0;
+			padding: 0;
+			background: white;
+			color: black;
+			background: url(../img/icon-menu.png) center center no-repeat;
+	
+			@include respond-to( 768px ) {
+				top: -60px;
+			}
+
+			@include respond-to( $menu-bp ) {
+				display: none;
+			}
+		}
+
+		ul.nav-menu {
+			display: none;
+			background: $grey-dark;
+			position: relative;
+			z-index: 1000;
+			text-align: center;
+			box-shadow: inset 0px 15px 22px -10px rgba(100, 100, 100, 0.3);
+			
+			@include respond-to( $menu-bp ) {
+				display: block;
+				@include clearfix;
+				padding-left: 7px;
+			}
+
+			li {
+				box-shadow: inset 0px 15px 22px -10px rgba(100, 100, 100, 0.3);
+
+				@include respond-to( $menu-bp ) {
+					box-shadow: none;
+					position: relative;
+					display: inline-block;
+				}
+
+				a {
+					display: block;
+					@include font;
+					padding: 15px 5px;
+					font-size: 16px;
+					line-height: 16px;
+					color: white;
+					text-align: center;
+					text-decoration: none;
+					text-transform: uppercase;
+
+					@include respond-to( $menu-bp ) {
+						display: inline-block;
+						padding: 15px 8px;
+					}
+
+					@include respond-to( 1220px ) {
+						padding: 15px 15px;
+					}
+				}
+
+				&:hover, &.open {
+					a {
+						background: $teal;
+					}
+
+					ul.sub-menu {
+						@include respond-to( $menu-bp ) {
+							display: block;
+						}
+					}
+				}
+
+				&:nth-child(1):hover, &:nth-child(1).open {
+					a { background: $navy; }
+					ul a:hover { background: lighten( $navy, 5% ); }
+				}
+
+				&:nth-child(2):hover, &:nth-child(2).open {
+					a { background: $orange; }
+					ul a:hover { background: lighten( $orange, 5% ); }
+				}
+
+				&:nth-child(3):hover, &:nth-child(3).open {
+					a { background: $green; }
+					ul a:hover { background: lighten( $green, 5% ); }
+				}
+
+				&:nth-child(4):hover, &:nth-child(4).open {
+					a { background: $lime; }
+					ul a:hover { background: lighten( $lime, 5% ); }
+				}
+
+				&:nth-child(5):hover, &:nth-child(5).open {
+					a { background: $yellow; }
+					ul a:hover { background: lighten( $yellow, 5% ); }
+				}
+
+				&:nth-child(6):hover, &:nth-child(6).open {
+					a { background: $orange; }
+					ul a:hover { background: lighten( $orange, 5% ); }
+				}
+
+				&:nth-child(8):hover, &:nth-child(8).open {
+					a { background: lighten( $grey-dark, 5% ); }
+					ul a:hover { background: lighten( $grey-dark, 10% ); }
+				}
+	
+				&:nth-child(8) ul, &:nth-child(9) ul {
+
+				}
+
+				ul.sub-menu {
+					display: none;
+					margin-bottom: 3px;
+
+					@include respond-to( $menu-bp ) {
+						position: absolute;
+						left: 0;
+						top: 46px;
+						width: 270px;
+						background: $teal;
+						@include clearfix;
+						text-align: left;
+						z-index: 1001;
+					}
+
+					li {
+						box-shadow: inset 0px 5px 12px -10px rgba(100, 100, 100, 0.69);
+						display: block;
+
+						a {
+							padding: 7px 5px;
+							font-size: .9em;
+							display: block;
+
+							@include respond-to( $menu-bp ) {
+								text-align: left;
+								padding: 8px 12px;
+
+								&:hover {
+									background: lighten( $teal, 2% );
+								}
+							}
+						}
+					}
+				}
+	
+				&:nth-child(8) ul, &:nth-child(9) ul {
+					left: auto;
+					right: 0px;
+				}
+			}
+		}
+	}
+
+	.search {
+		position: relative;
+
+		@include respond-to( 768px ) {
+			position: absolute;
+			top: 30px;
+			right: 48px;			
+			width: 285px;
+		}
+
+		input[type=text] {
+			display: block;
+			top: 5px;
+			right: 35px;
+			bottom: 5px;
+			left: 5px;
+			width: 100%;
+			background: lighten( $grey, 30% );
+			border: 0;
+			padding: 0 15px;
+			font-size: 15px;
+			line-height: 35px;
+		}
+
+		input[type=submit] {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			width: 35px;
+			height: 35px;
+			border: 0;
+			background: darken( $grey, 10% ) url(../img/icon-search.png) center center no-repeat;
+			text-indent: -400px;
+			cursor: pointer;
+
+			@include respond-to( 768px ) {
+				right: -6px;
+				top: -6px;
+				bottom: -6px;
+				width: 47px;
+				height: 47px;
+				border-radius: 50%;
+				border: 6px solid white;
+			}
+		}
+	}
+
+    .tools {
+		width: 300px;
+		margin: 10px 0;
+		@include clearfix;
+
+		@include respond-to( 768px ) {
+			position: absolute;
+			top: 70px;
+			right: 43px;
+			margin: 0;
+		}
+
+    	.button {
+			float: left;
+			text-decoration: none;
+			color: white;
+			font-size: 12px;
+			line-height: 20px;
+			padding: 10px 12px;
+
+		  	&:hover {
+			    opacity: .9; 
+			}
+
+			&.account {
+		        background: url(../img/bg-header-account.png) center center no-repeat;
+		        width: 50%;
+		        padding: 10px 12px 10px 20px;
+		    }
+
+		  	&.cart {
+		        background: url(../img/bg-header-cart.png) center center no-repeat;
+		        width: 50%;
+		    }
+		}
+	}
+	
+	/*
+	.tagline {
+		font-style: italic;
+		color: $navy;
+		padding: 5px 45px 15px 20px;
+
+		@include respond-to( 1100px ) {
+			padding: 0;
+			position: absolute;
+			left: 380px;
+			top: 85px;
+		}
+	}
+	*/
+	
+	@include respond-to( 768px ) {
+		position: relative;
+
+		.wrap {
+			position: relative;
+		}
+	}
+}
+

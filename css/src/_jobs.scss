@@ -1,0 +1,54 @@
+
+
+.job-info {
+	padding: 0;
+	
+	@include respond-to( 768px ) {
+		padding: 0 20px;
+		border-left: 4px solid lighten( $grey, 25% );
+		margin: 0 0 50px 30px;
+	}
+
+	label {
+		@include font-bold;
+	}	
+}
+
+
+.entry-job {
+	border-bottom: 3px solid lighten( $grey, 25% );
+	padding: 20px 0;
+
+	.two-third {
+		margin: 0;
+		padding: 0;
+
+		@include respond-to( 768px ) {
+			width: 60%;
+		}
+	}
+
+	.job-info {
+		@include respond-to( 768px ) {
+			margin-bottom: 10px;
+		}
+	}
+}
+
+
+.job-count {
+	border-bottom: 3px solid lighten( $grey, 25% );
+	padding: 20px 0;
+}
+
+
+.job-search {
+	float: right;
+	max-width: 40%;
+	padding-top: 10px;
+
+	input[type=text] {
+		padding: 10px;
+	}
+}
+

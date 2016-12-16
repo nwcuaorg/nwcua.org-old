@@ -1,0 +1,21 @@
+
+
+@mixin font-title {
+	font-family: Georgia, "Palatino Linotype", serif;
+}
+
+@mixin font {
+	font-family: Arial, sans-serif;
+	font-weight: 300;
+}
+
+@mixin font-medium {
+	font-family: Arial, sans-serif;
+	font-weight: 500;
+}
+
+@mixin font-bold {
+	font-family: Arial, sans-serif;
+	font-weight: 700;
+}
+

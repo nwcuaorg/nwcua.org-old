@@ -1,0 +1,35 @@
+<?php
+
+
+function call_associo_api( $endpoint, $data='' ) {
+	
+	// encode string as JSON
+	$data_string = json_encode($data);
+
+	// set endpoint, method, and headers
+	$ch = curl_init( 'http://nwcua.ditest.us/api/' . $endpoint );
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+		'Authorization: Token token="' . ASSOCIO_TOKEN . '"',
+		'Content-Type: application/json'
+	) );
+
+	// set the data being posted to the server
+	if ( !empty( $data ) ) curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+
+	// execute the curl call.
+	$result = curl_exec($ch);
+
+	// return the response
+	return $result;
+
+}
+
+
+function get_associo_events() {
+	return json_decode( call_associo_api( 'events' ) );
+}
+
+
+?>

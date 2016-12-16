@@ -1,0 +1,43 @@
+
+
+.sidebar {
+	.widget {
+		padding: 5px 0;
+		font-size: 15px;
+
+		h4 {
+			@include font-bold;
+			color: $navy;
+			padding: 15px 0 7px 10px;
+			font-size: 20px;
+			font-style: normal;
+		}
+
+		ol.tribe-list-widget {
+			padding: 0;
+		}
+
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+
+			li a {
+				display: block;
+				padding: 6px 0 6px 10px;
+				color: $grey-dark;
+				text-transform: uppercase;
+				border-bottom: 1px dotted lighten( $grey, 10% );
+			}
+		}
+	}
+
+	.tribe-events-list-widget ol li {
+		margin-bottom: 10px;
+
+		h4 {
+			font-size: .9em;
+		}
+	}
+}
+

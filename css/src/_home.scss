@@ -1,0 +1,144 @@
+
+
+.browse-by {
+	background: #eee;
+	
+	.browse-by-filters {
+		display: none;
+	}
+
+	.quarter {
+		padding: 0 20px;
+
+		@include respond-to( 768px ) {
+			padding: 20px 20px 0;
+		}
+	}
+
+	label {
+		display: block;
+		font-size: .9em;
+	}
+
+	.filter-button {
+		width: 25%;
+		float: right;
+		text-align: center;
+
+		input[type=submit] {
+			padding: 20px;
+			font-family: Arial;
+			display: inline-block;
+		}
+	}
+
+	a.browse-by-handle {
+		display: block;
+		text-align: center;
+		padding: 12px 0;
+		color: $grey;
+		font-size: .8em;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+}
+
+
+.home-list {
+
+	.entry {
+		padding: 10px;
+
+		@include respond-to( 768px ) {
+			float: left;
+
+			&:nth-child(1) {
+				width: 70%;
+			}
+
+			&:nth-child(2), &:nth-child(3) {
+				width: 30%;
+			}
+
+			&:nth-child(3) {
+				float: right
+			}
+			
+			&:nth-child(4) {
+				clear: both;
+			}
+
+			&:nth-child(4), &:nth-child(5) {
+				width: 50%;
+			}
+
+			&:nth-child(6) {
+				clear: left;
+			}
+
+			&:nth-child(6), &:nth-child(7), &:nth-child(8) {
+				width: 33.333%;
+			}
+
+			&:nth-child(9) {
+				clear: left;
+			}
+
+			&:nth-child(9), &:nth-child(10) {
+				width: 50%;
+			}
+		}
+
+		img {
+			width: 100%;
+		}
+
+		h3 {
+			@include font;
+			font-style: normal;
+			font-size: 1.1em;
+			padding-left: 35px;
+			position: relative;
+			
+			&:before {
+				content: '';
+				position: absolute;
+				top: 10px;
+				left: 5px;
+				width: 20px;
+				height: 20px;
+				background: $green;
+				border-radius: 10px;
+			}
+		}
+		&.priority-1 h3:before { background: #e9dc07; }
+		&.priority-2 h3:before { background: $red; }
+
+		p {
+			font-size: .85em;
+		}
+
+		.entry-image {
+			position: relative;
+			min-height: 46px;
+
+			.post-category {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				background: $grey;
+				padding: 14px;
+				font-size: 18px;
+				line-height: 18px;
+				color: white;
+
+				&.cat-29, &.cat-44 { background: $navy; }
+				&.cat-40, &.cat-1286, &.cat-32 { background: $orange; }
+				&.cat-35, &.cat-36 { background: $green; }
+				&.cat-52 { background: $yellow; }
+			}
+		}
+	}
+
+}

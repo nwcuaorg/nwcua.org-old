@@ -1,0 +1,65 @@
+
+
+// set colors
+$teal: #0491C1;
+$river: #09416d;
+$navy: #0F4469;
+$orange: #f8981d;
+$lime: #aabb38;
+$forest: #6e8d56;
+$gold: #9baf2c;
+$green: #83a53e;
+$red: #e15829;
+$yellow: #D6CE49;
+$grey: #9C9FA0;
+$grey-dark: #60605b;
+$stone: $grey-dark;
+
+// link color
+$link-color: $teal;
+
+// text and background colors
+@import "colors";
+
+
+// mixin library
+@import "mixins";
+
+// font import and mixins
+@import "fonts";
+
+// css reset
+@import "reset";
+
+// base text and element styles
+@import "base";
+
+
+// header styles
+@import "header";
+
+
+// general styles
+@import "title";
+@import "showcase";
+@import "content";
+@import "accordion";
+@import "jobs";
+@import "events";
+
+
+// sidebar styles
+@import "sidebar";
+
+
+// footer styles
+@import "footer";
+
+
+// home-specific styles
+@import "home";
+
+
+// include magnific popup styles
+@import "magnific";
+
