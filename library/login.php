@@ -56,8 +56,8 @@ function remove_admin_bar() {
 
 
 // add a new password encryption schema that includes the username.
-add_filter( 'authenticate', 'lscu_signon', 30, 3 );
-function lscu_signon( $user, $username, $password ) {
+add_filter( 'authenticate', 'nwcua_signon', 30, 3 );
+function nwcua_signon( $user, $username, $password ) {
 
 	$creds = array(
 		'user_login' => $username,
@@ -78,7 +78,7 @@ function lscu_signon( $user, $username, $password ) {
 
 
 /*
-// when the user authenticates on LSCU, also authenticate them on InfoSight
+// when the user authenticates on NWCUA`, also authenticate them on InfoSight
 function infosight_authenticate() {
 
 	// let's redirect to infosight's login endpoint so that it can authenticate us on there as well.
