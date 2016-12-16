@@ -27,8 +27,36 @@ get_header();
 			// Start the Loop.
 			while ( have_posts() ) : the_post(); 
 				?>
-				<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-				<?php the_excerpt(); ?>
+				<div class="entry priority-<?php show_cmb_value( 'priority' ); ?>">
+					<div class="entry-image">
+						<a href="<?php the_permalink() ?>">
+							<?php
+							$thumbnail_id = get_post_thumbnail_id();
+							$thumbnail_url = wp_get_attachment_url( $thumbnail_id );
+							if ( !empty( $thumbnail_url ) ) {
+								?>
+							<img src="<?php print p_image_resize( $thumbnail_url, 800, ( $count==1 ? 600 : 500 ), 1, 1 ); ?>" />
+								<?php
+							}
+
+							//the_post_thumbnail( 'large' ); 
+
+							$categories = get_the_category();
+							if ( !empty( $categories ) ) { ?>
+							<div class="post-category cat-<?php print $categories[0]->term_id; ?>">
+								<?php print get_cat_name( $categories[0]->term_id ); ?>
+							</div>
+								<?php
+							}
+
+							?>
+						</a>
+					</div>
+					<div class="description">
+						<h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
+						<?php the_excerpt(); ?>
+					</div>
+				</div>
 				<?php
 			endwhile;
 
