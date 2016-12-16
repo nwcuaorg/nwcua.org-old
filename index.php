@@ -11,7 +11,7 @@ get_header(); ?>
 			<div class="browse-by-filters">
 				<form name="category-filter" action="/" method="get">
 				<?php 
-				$categories = get_categories( 'exclude=1,1238,36,53,48,42,39,1284,1286,35,50,52,43,55,1282,1278,45,51,31,1239,4,49,20,30,1285,56,33,1276,44,1277,1315,34,47' );
+				$categories = get_categories( 'exclude=1,1238,36,53,48,42,39,1284,1286,35,50,52,43,55,1282,1278,45,51,31,1239,4,49,30,1285,56,33,1276,44,1277,1315,34,47' );
 				$col_break = ceil( count( $categories )/4 );
 				$cnt = 1;
 				foreach ( $categories as $cat ) {
@@ -56,41 +56,45 @@ get_header(); ?>
 			} else {
 				$count = 1;
 			}
-			while ( have_posts() ) : the_post();
-				?>
-				<div class="entry priority-<?php show_cmb_value( 'priority' ); ?>">
-					<div class="entry-image">
-						<a href="<?php the_permalink() ?>">
-							<?php
-							$thumbnail_id = get_post_thumbnail_id();
-							$thumbnail_url = wp_get_attachment_url( $thumbnail_id );
-							if ( !empty( $thumbnail_url ) ) {
+			if ( have_posts() ) {
+				while ( have_posts() ) : the_post();
+					?>
+					<div class="entry priority-<?php show_cmb_value( 'priority' ); ?>">
+						<div class="entry-image">
+							<a href="<?php the_permalink() ?>">
+								<?php
+								$thumbnail_id = get_post_thumbnail_id();
+								$thumbnail_url = wp_get_attachment_url( $thumbnail_id );
+								if ( !empty( $thumbnail_url ) ) {
+									?>
+								<img src="<?php print p_image_resize( $thumbnail_url, 800, ( $count==1 ? 600 : 500 ), 1, 1 ); ?>" />
+									<?php
+								}
+
+								//the_post_thumbnail( 'large' ); 
+
+								$categories = get_the_category();
+								if ( !empty( $categories ) ) { ?>
+								<div class="post-category cat-<?php print $categories[0]->term_id; ?>">
+									<?php print get_cat_name( $categories[0]->term_id ); ?>
+								</div>
+									<?php
+								}
+
 								?>
-							<img src="<?php print p_image_resize( $thumbnail_url, 800, ( $count==1 ? 600 : 500 ), 1, 1 ); ?>" />
-								<?php
-							}
-
-							//the_post_thumbnail( 'large' ); 
-
-							$categories = get_the_category();
-							if ( !empty( $categories ) ) { ?>
-							<div class="post-category cat-<?php print $categories[0]->term_id; ?>">
-								<?php print get_cat_name( $categories[0]->term_id ); ?>
-							</div>
-								<?php
-							}
-
-							?>
-						</a>
+							</a>
+						</div>
+						<div class="description">
+							<h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
+							<?php the_excerpt(); ?>
+						</div>
 					</div>
-					<div class="description">
-						<h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
-						<?php the_excerpt(); ?>
-					</div>
-				</div>
-				<?php
-				$count++;
-			endwhile;
+					<?php
+					$count++;
+				endwhile;
+			} else {
+				print "<p>Sadly, there is no content to show for these categories. Please try another.</p>";
+			}
 			?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
