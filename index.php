@@ -11,7 +11,7 @@ get_header(); ?>
 			<div class="browse-by-filters">
 				<form name="category-filter" action="/" method="get">
 				<?php 
-				$categories = get_categories( 'exclude=1,1238,36,53,48,42,39,1284,1286,35,50,52,43,55,1282,1278,45,51,31,1239,4,49,20,30,1285,56,33,1276,44,1277,1315,34' );
+				$categories = get_categories( 'exclude=1,1238,36,53,48,42,39,1284,1286,35,50,52,43,55,1282,1278,45,51,31,1239,4,49,20,30,1285,56,33,1276,44,1277,1315,34,47' );
 				$col_break = ceil( count( $categories )/4 );
 				$cnt = 1;
 				foreach ( $categories as $cat ) {
