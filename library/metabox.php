@@ -12,14 +12,16 @@ function page_metaboxes( $meta_boxes ) {
 
     // set up the colors
     $colors = array(
-        'teal' => 'Teal',
-        'river' => 'River',
-        'navy' => 'Navy',
+        'aqua' => 'Aqua',
+        'grey-dark' => 'Grey - Dark',
+        'grey-light' => 'Grey - Light',
         'forest' => 'Forest',
         'lime' => 'Lime',
+        'navy' => 'Navy',
         'orange' => 'Orange',
-        'grey-light' => 'Grey - Light',
-        'grey-dark' => 'Grey - Dark',
+        'river' => 'River',
+        'teal' => 'Teal',
+        'yellow' => 'Yellow'
     );
 
 

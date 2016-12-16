@@ -117,8 +117,8 @@ header {
 				}
 
 				&:nth-child(6):hover, &:nth-child(6).open {
-					a { background: $orange; }
-					ul a:hover { background: lighten( $orange, 5% ); }
+					a { background: $aqua; }
+					ul a:hover { background: lighten( $aqua, 5% ); }
 				}
 
 				&:nth-child(8):hover, &:nth-child(8).open {
@@ -128,6 +128,11 @@ header {
 	
 				&:nth-child(8) ul, &:nth-child(9) ul {
 
+				}
+
+				&:nth-child(9):hover, &:nth-child(9).open {
+					a { background: $lime; }
+					ul a:hover { background: lighten( $lime, 5% ); }
 				}
 
 				ul.sub-menu {
