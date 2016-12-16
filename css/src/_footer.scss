@@ -12,7 +12,7 @@ footer {
 		@include respond-to( 768px ) {
 			float: left;
 			border-left: 4px solid white;
-			min-height: 400px;
+			min-height: 500px;
 
 			&.no-border {
 				border-left: 0;
