@@ -10,13 +10,10 @@ add_action( 'login_enqueue_scripts', 'nwcua_login_stylesheet' );
 
 
 // display the my account/login links based on user state.
-function account_link() {
+function account_button() {
 
 	// set up a global for the current user info
 	global $current_user;
-
-	// current user information
-	get_currentuserinfo();
 
 	// get the account page link.
     $account_page = get_post( pure_get_option( 'account-page' ) );

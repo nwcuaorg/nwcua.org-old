@@ -42,7 +42,8 @@
 		</div>
 
 		<div class='tools'>
-			<a href="/login" class="button account">Login</a>
+			<!--<a href="/login" class="button account">Login</a>-->
+			<?php account_button(); ?>
 			<a href="/cart" class="button cart">Shopping Cart</a>
 		</div>
 

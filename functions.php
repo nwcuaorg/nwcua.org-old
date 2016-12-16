@@ -9,6 +9,10 @@ ini_set( "display_errors", 1 );
 define( "CMB_PREFIX", "_p_" );
 
 
+// include the login library
+include( "library/login.php" );
+
+
 // include the content type
 include( "library/post-type/job.php" );
 include( "library/post-type/event.php" );
@@ -25,6 +29,7 @@ include( "library/images.php" );
 
 // include our metaboxes library
 include( "library/metabox.php" );
+include( "library/metabox-theme.php" );
 
 
 // include quote metaboxes/functions
