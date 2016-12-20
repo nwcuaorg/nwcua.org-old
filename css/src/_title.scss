@@ -2,6 +2,7 @@
 
 .large-title {
 	padding: 20px;
+	box-shadow: inset 0 40px 40px -40px rgba( black, .5 );
 	
 	@include respond-to( 900px ) { padding: 30px; }
 
