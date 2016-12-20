@@ -8,7 +8,7 @@ get_header();
 
 	<?php the_showcase(); ?>
 	
-	<div id="content" class="wrap group content-two-column <?php print $color; ?>" role="main">
+	<div id="content" class="wrap group content-two-column <?php print $color; ?> content-style" role="main">
 		<div class="content-header">
 			<h2><?php the_excerpt(); ?></h2>
 		</div>
