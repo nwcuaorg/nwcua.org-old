@@ -33,29 +33,31 @@ get_header(); ?>
 		</div>
 	</div>
 	<div id="primary" class="wrap">
+		<?php
+		if ( is_search() ) {
+			?><h1>Search Results for <span>'<?php print $_REQUEST["s"]; ?>'</span></h1><?php
+		}
+
+		$query_args = array(
+		    'post_type' => array( 'post', 'page' ),
+		    'orderby'  => array( 'meta_value_num' => 'DESC', 'date' => 'DESC' ),
+		    'meta_key' => '_p_priority'
+		);
+
+		if ( isset( $_GET['category'] ) ) {
+			$query_args['cat'] = implode( ',', $_GET['category'] );
+		}
+
+		query_posts( $query_args );
+
+		if ( isset( $_GET['p'] ) ) {
+			$count = 2;
+		} else {
+			$count = 1;
+		}
+		?>
 		<div id="content" class="site-content content-wide home-list" role="main">
 			<?php
-			if ( is_search() ) {
-				?><h1>Search Results for <span>'<?php print $_REQUEST["s"]; ?>'</span></h1><?php
-			}
-
-			$query_args = array(
-			    'post_type' => array( 'post', 'page' ),
-			    'orderby'  => array( 'meta_value_num' => 'DESC', 'date' => 'DESC' ),
-			    'meta_key' => '_p_priority'
-			);
-
-			if ( isset( $_GET['category'] ) ) {
-				$query_args['cat'] = implode( ',', $_GET['category'] );
-			}
-
-			query_posts( $query_args );
-
-			if ( isset( $_GET['p'] ) ) {
-				$count = 2;
-			} else {
-				$count = 1;
-			}
 			if ( have_posts() ) {
 				while ( have_posts() ) : the_post();
 					?>
@@ -90,6 +92,28 @@ get_header(); ?>
 						</div>
 					</div>
 					<?php
+
+					if ( $count == 1 ) {						
+						// use any supplied category, or empty for all.
+						$category = ( isset( $query_args['cat'] ) ? $query_args['cat'] : 0 );
+
+						// get the events
+						$events = get_upcoming_events( 3, $category );
+
+						print "<div class='entry'>";
+						print "<div class='description home-events'>";
+						print "<h3>Upcoming Events</h3>";
+						// list the events
+						if ( !empty( $events ) ) {
+							foreach ( $events as $event ) {
+								print '<h4><a href="' . get_permalink( $event->ID ) . '">' . $event->post_title . '</a></h4>';
+								print "<span class='date'>" . date( 'n/j/Y g:ia', $event->_p_event_start ) . "</span>";
+							}
+						}
+						print "</div>";
+						print "</div>";
+					}
+
 					$count++;
 				endwhile;
 			} else {

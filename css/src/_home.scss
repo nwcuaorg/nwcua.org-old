@@ -142,3 +142,17 @@
 	}
 
 }
+
+.home-events {
+	h4 {
+		font-size: .9em;
+		line-height: 1.4em;
+		@include font;
+		font-style: normal;
+	}
+
+	.date {
+		color: $grey;
+		font-size: .8em;
+	}
+}
