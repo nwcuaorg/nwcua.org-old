@@ -9,50 +9,61 @@
  * @since Twenty Fourteen 1.0
  */
 
-get_header(); ?>
+get_header(); 
+
+?>
 
 	<section id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
-
-			<?php if ( have_posts() ) : ?>
-
-			<header class="archive-header">
-				<h1 class="archive-title"><?php printf( __( 'Category Archives: %s', 'twentyfourteen' ), single_cat_title( '', false ) ); ?></h1>
-
-				<?php
-					// Show an optional term description.
-					$term_description = term_description();
-					if ( ! empty( $term_description ) ) :
-						printf( '<div class="taxonomy-description">%s</div>', $term_description );
-					endif;
-				?>
-			</header><!-- .archive-header -->
+		<div id="content" class="site-content content-wide home-list" role="main">
 
 			<?php
-					// Start the Loop.
-					while ( have_posts() ) : the_post();
+			if ( have_posts() ) {
+				$count = 1;
 
-					/*
-					 * Include the post format-specific template for the content. If you want to
-					 * use this in a child theme, then include a file called called content-___.php
-					 * (where ___ is the post format) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format() );
+				while ( have_posts() ) : the_post();
+					?>
+					<div class="entry priority-<?php show_cmb_value( 'priority' ); ?>">
+						<div class="entry-image">
+							<a href="<?php the_permalink() ?>">
+								<?php
+								$thumbnail_id = get_post_thumbnail_id();
+								$thumbnail_url = wp_get_attachment_url( $thumbnail_id );
+								if ( !empty( $thumbnail_url ) ) {
+									?>
+								<img src="<?php print p_image_resize( $thumbnail_url, 800, ( $count==1 ? 600 : 500 ), 1, 1 ); ?>" />
+									<?php
+								}
 
-					endwhile;
-					// Previous/next page navigation.
-					twentyfourteen_paging_nav();
+								$categories = get_the_category();
+								if ( !empty( $categories ) ) { ?>
+								<div class="post-category cat-<?php print $categories[0]->term_id; ?>">
+									<?php print get_cat_name( $categories[0]->term_id ); ?>
+								</div>
+									<?php
+								}
 
-				else :
-					// If no content, include the "No posts found" template.
-					get_template_part( 'content', 'none' );
+								?>
+							</a>
+						</div>
+						<div class="description">
+							<h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
+							<?php the_excerpt(); ?>
+						</div>
+					</div>
+					<?php
+					$count++;
+				endwhile;
 
-				endif;
+			} else {
+				print "<p>Sadly, there is no content to show for this categories. Please try another.</p>";
+			}
 			?>
+
 		</div><!-- #content -->
 	</section><!-- #primary -->
 
 <?php
-get_sidebar( 'content' );
-get_sidebar();
+
 get_footer();
+
+?>

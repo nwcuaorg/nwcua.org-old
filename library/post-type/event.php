@@ -669,7 +669,7 @@ class event_widget extends WP_Widget {
 			wp_dropdown_categories( array(
 				'show_option_all' => 'All Event Categories',
 				'orderby' => 'NAME', 
-				'taxonomy' => 'event_cat',
+				'taxonomy' => 'post_cat',
 				'class' => 'event-category',
 				'id' => $this->get_field_id( 'category' ),
 				'name' => $this->get_field_name( 'category' ),
