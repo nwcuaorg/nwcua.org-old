@@ -32,4 +32,9 @@ function get_associo_events() {
 }
 
 
+function get_associo_event_tags() {
+	return json_decode( call_associo_api( 'event_tags' ) );
+}
+
+
 ?>

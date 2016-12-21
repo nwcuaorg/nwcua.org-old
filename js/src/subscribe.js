@@ -86,7 +86,7 @@ function hide_overlay() {
 
 
 
-$(document).ready(function(){
+jQuery(document).ready(function($){
 	fullURL = document.URL
 	sAlertStr = ''
 	nLoc = fullURL.indexOf('&')

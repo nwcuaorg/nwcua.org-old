@@ -34,33 +34,43 @@ get_header(); ?>
 	</div>
 	<div id="primary" class="wrap">
 		<?php
+
+		// if it's a search, display the search term.
 		if ( is_search() ) {
 			?><h1>Search Results for <span>'<?php print $_REQUEST["s"]; ?>'</span></h1><?php
 		}
 
+
+		// get the events
+		$events = get_upcoming_events( 3, ( isset( $_GET['category'] ) ? implode( ',', $_GET['category'] ) : 0 ) );
+
+
+		// set up our query arguments
 		$query_args = array(
+			'post_status' => 'publish',
 		    'post_type' => array( 'post', 'page' ),
-		    'orderby'  => array( 'meta_value_num' => 'DESC', 'date' => 'DESC' ),
 		    'meta_key' => '_p_priority',
-		    'posts_per_page' => 19
+		    'orderby'  => array( 'meta_value_num' => 'DESC', 'date' => 'DESC' ),
+		    'posts_per_page' => ( !empty( $events ) ? 19 : 20 )
 		);
 
+
+		// if there was a category set in the arguments
 		if ( isset( $_GET['category'] ) ) {
-			$query_args['cat'] = implode( ',', $_GET['category'] );
+			$query_args['cat'] = ( isset( $_GET['category'] ) ? implode( ',', $_GET['category'] ) : 0 );
 		}
 
-		query_posts( $query_args );
 
-		if ( isset( $_GET['p'] ) ) {
-			$count = 2;
-		} else {
-			$count = 1;
-		}
+		//query the posts with the supplied arguments
+		$home_query = new WP_Query( $query_args );
+
+
 		?>
 		<div id="content" class="site-content content-wide home-list" role="main">
 			<?php
-			if ( have_posts() ) {
-				while ( have_posts() ) : the_post();
+			if ( $home_query->have_posts() ) {
+				$count = 1;
+				while ( $home_query->have_posts() ) : $home_query->the_post();
 					?>
 					<div class="entry priority-<?php show_cmb_value( 'priority' ); ?>">
 						<div class="entry-image">
@@ -68,7 +78,7 @@ get_header(); ?>
 								<?php
 								$thumbnail_id = get_post_thumbnail_id();
 								$thumbnail_url = wp_get_attachment_url( $thumbnail_id );
-								if ( !empty( $thumbnail_url ) ) {
+								if ( !empty( $thumbnail_url ) && $count < 9 ) {
 									?>
 								<img src="<?php print p_image_resize( $thumbnail_url, 800, ( $count==1 ? 600 : 500 ), 1, 1 ); ?>" />
 									<?php
@@ -93,28 +103,21 @@ get_header(); ?>
 						</div>
 					</div>
 					<?php
-
-					if ( $count == 1 ) {						
-						// use any supplied category, or empty for all.
-						$category = ( isset( $query_args['cat'] ) ? $query_args['cat'] : 0 );
-
-						// get the events
-						$events = get_upcoming_events( 3, $category );
+					if ( $count == 1 && !empty( $events ) ) {						
 
 						print "<div class='entry'>";
 						print "<div class='description home-events'>";
 						print "<h3>Upcoming Events</h3>";
 						// list the events
-						if ( !empty( $events ) ) {
-							foreach ( $events as $event ) {
-								print '<h4><a href="' . get_permalink( $event->ID ) . '">' . $event->post_title . '</a></h4>';
-								print "<span class='date'>" . date( 'n/j/Y g:ia', $event->_p_event_start ) . "</span>";
-							}
+						foreach ( $events as $event ) {
+							print '<h4><a href="' . get_permalink( $event->ID ) . '">' . $event->post_title . '</a></h4>';
+							print "<span class='date'>" . date( 'n/j/Y g:ia', $event->_p_event_start ) . "</span>";
 						}
 						print "</div>";
 						print "</div>";
-					}
+						$count++;
 
+					}
 					$count++;
 				endwhile;
 			} else {
