@@ -5,24 +5,28 @@
 
 get_header(); 
 
+$category = get_the_category(); 
+$color = get_category_color( $category[0]->cat_ID );
+
 ?>
-	<div class="large-title bg-<?php show_cmb_value( 'large-title-color' ) ?>">
+	<div class="large-title bg-<?php print $color ?>">
 		<div class="wrap">
-			<?php if ( has_cmb_value( 'large-title-icon' ) ) { ?>
-			<div class="large-title-icon bg-<?php show_cmb_value( 'large-title-color' ) ?>">
-				<img src="<?php show_cmb_value( 'large-title-icon' ) ?>">
+			<div class="large-title-icon bg-<?php print $color ?>">
+				<img src="/wp-content/uploads/2011/12/iconnwcua.png">
 			</div>
-			<?php } ?>
 			<div class="large-title-text">
 				<h1><?php single_cat_title(); ?></h1>
 			</div>
 		</div>
 	</div>
 
-	<section id="primary" class="content-area wrap group" role="main">
+	<section id="primary" class="content-area wrap group home-list" role="main">
 
-		<?php if ( have_posts() ) : ?>
 		<?php
+		global $wp_query;
+		print_r( $wp_query );
+
+		if ( have_posts() ) : 
 		
 			// Start the Loop.
 			while ( have_posts() ) : the_post(); 
@@ -35,7 +39,7 @@ get_header();
 							$thumbnail_url = wp_get_attachment_url( $thumbnail_id );
 							if ( !empty( $thumbnail_url ) ) {
 								?>
-							<img src="<?php print p_image_resize( $thumbnail_url, 800, ( $count==1 ? 600 : 500 ), 1, 1 ); ?>" />
+							<img src="<?php print p_image_resize( $thumbnail_url, 800, 500, 1, 1 ); ?>" />
 								<?php
 							}
 

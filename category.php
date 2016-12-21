@@ -11,7 +11,20 @@
 
 get_header(); 
 
+$category = get_the_category(); 
+$color = get_category_color( $category[0]->cat_ID );
+
 ?>
+	<div class="large-title bg-<?php print $color ?>">
+		<div class="wrap">
+			<div class="large-title-icon bg-<?php print $color ?>">
+				<img src="/wp-content/uploads/2011/12/iconnwcua.png">
+			</div>
+			<div class="large-title-text">
+				<h1><?php single_cat_title(); ?> Blog</h1>
+			</div>
+		</div>
+	</div>
 
 	<section id="primary" class="content-area">
 		<div id="content" class="site-content content-wide home-list" role="main">
