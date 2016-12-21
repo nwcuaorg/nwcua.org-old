@@ -80,7 +80,7 @@ get_header(); ?>
 								$thumbnail_url = wp_get_attachment_url( $thumbnail_id );
 								if ( !empty( $thumbnail_url ) && $count < 9 ) {
 									?>
-								<img src="<?php print p_image_resize( $thumbnail_url, 800, ( $count==1 ? 600 : 500 ), 1, 1 ); ?>" />
+								<img src="<?php print p_image_resize( $thumbnail_url, 800, 500, 1, 1 ); ?>" />
 									<?php
 								}
 
