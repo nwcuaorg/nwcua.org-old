@@ -21,7 +21,7 @@ $color = get_category_color( $category[0]->cat_ID );
 				<img src="/wp-content/uploads/2011/12/iconnwcua.png">
 			</div>
 			<div class="large-title-text">
-				<h1><?php single_cat_title(); ?> Blog</h1>
+				<h1><?php single_cat_title(); ?></h1>
 			</div>
 		</div>
 	</div>
