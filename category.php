@@ -30,6 +30,11 @@ $color = get_category_color( $category[0]->cat_ID );
 		<div id="content" class="site-content content-wide home-list" role="main">
 
 			<?php
+			global $wp_query;
+			$query_args = $wp_query->query;
+			$query_args['posts_per_page'] = 20;
+			query_posts( $query_args );
+
 			if ( have_posts() ) {
 				$count = 1;
 

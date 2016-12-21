@@ -24,7 +24,9 @@ $color = get_category_color( $category[0]->cat_ID );
 
 		<?php
 		global $wp_query;
-		print_r( $wp_query );
+		$query_args = $wp_query->query;
+		$query_args['posts_per_page'] = 20;
+		query_posts( $query_args );
 
 		if ( have_posts() ) : 
 		
