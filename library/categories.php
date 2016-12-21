@@ -10,7 +10,7 @@ function get_category_color( $category_id ) {
 			$color='river'; 
 		break;
 		default: 
-			$color='teal';
+			$color='lime';
 		break; 
 	}
 	return $color;
