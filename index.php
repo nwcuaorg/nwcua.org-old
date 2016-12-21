@@ -41,7 +41,8 @@ get_header(); ?>
 		$query_args = array(
 		    'post_type' => array( 'post', 'page' ),
 		    'orderby'  => array( 'meta_value_num' => 'DESC', 'date' => 'DESC' ),
-		    'meta_key' => '_p_priority'
+		    'meta_key' => '_p_priority',
+		    'posts_per_page' => 19
 		);
 
 		if ( isset( $_GET['category'] ) ) {
