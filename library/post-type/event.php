@@ -56,6 +56,8 @@ function lscu_events() {
 			'supports' => array( 'title', 'editor', 'excerpt' )
 		) /* end of options */
 	); /* end of register post type */
+
+	register_taxonomy_for_object_type( 'category', 'event' );	
 	
 }
 

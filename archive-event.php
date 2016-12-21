@@ -6,7 +6,7 @@
 get_header(); 
 
 if ( isset( $_REQUEST['event_category'] ) && $_REQUEST['event_category']!=0 ) {
-	$category_info = get_term_by( 'id', $_REQUEST['event_category'], 'event_cat' );
+	$category_info = get_term_by( 'id', $_REQUEST['event_category'], 'category' );
 	$page_title = $category_info->name;
 } else {
 	$page_title = "Events Calendar";
@@ -15,8 +15,8 @@ if ( isset( $_REQUEST['event_category'] ) && $_REQUEST['event_category']!=0 ) {
 ?>
 	<div class="large-title bg-green">
 		<div class="wrap">
-			<!--<div class="large-title-icon bg-green" style="background-image: url(<?php print get_bloginfo('template_url') . '/img/event-image.png' ?>);">
-			</div>-->
+			<div class="large-title-icon bg-green" style="background-image: url(<?php print get_bloginfo('template_url') . '/img/icon-events.png' ?>); background-repeat: no-repeat; background-position: center center;">
+			</div>
 			<div class="large-title-text">
 				<h1><?php print $page_title; ?></h1>
 			</div>
