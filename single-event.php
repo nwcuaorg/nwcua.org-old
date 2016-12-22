@@ -8,9 +8,7 @@ get_header();
 ?>
 	<div class="large-title bg-lime">
 		<div class="wrap">
-			<div class="large-title-icon bg-lime" style="background-image: url(<?php print get_bloginfo('template_url') . '/img/event-image.png' ?>);">
-				<div class="hex1"></div>
-				<div class="hex2"></div>
+			<div class="large-title-icon bg-green" style="background-image: url(<?php print get_bloginfo('template_url') . '/img/icon-events.png' ?>); background-repeat: no-repeat; background-position: center center;">
 			</div>
 			<div class="large-title-text">
 				<h1><?php the_title(); ?></h1>
