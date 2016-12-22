@@ -105,7 +105,57 @@
 
 	.col1.last, .col2.last, .col3.last, .col4.last, .col5.last, .col6.last, .col7.last, .col8.last, .col9.last, .col10.last, .col11.last, .col12.last {
 		 margin: 0;
-	}	
+	}
+	
+	.col1 {
+	width: 5.5%; }
+
+	.col2 {
+	width: 14%; }
+
+	.col3 {
+	width: 22.5%; }
+
+	.col4 {
+	width: 31%; }
+
+	.col5 {
+	width: 39.5%; }
+
+	.col6 {
+	width: 48%; }
+
+	.col7 {
+	width: 56.5%; }
+
+	.col8 {
+	width: 65%; }
+
+	.col9 {
+	width: 73.5%; }
+
+	.col10 {
+	width: 82%; }
+
+	.col11 {
+	width: 90.5%; }
+
+	.col12 {
+	width: 99%;
+	margin: 0; }
+
+	.col12 .sectionExpand {
+	padding-top:15px;
+	}
+
+	.col12.staff {
+	border-top: 1px dotted #60605b;
+	border-bottom: 1px dotted #60605b;
+	padding: 20px 0px;}
+
+	.col12.speaker, .col12.champion {
+	border-bottom: 1px dotted #60605b;
+	padding: 20px 0px;}
 }
 
 
