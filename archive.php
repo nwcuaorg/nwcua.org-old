@@ -20,7 +20,7 @@ $color = get_category_color( $category[0]->cat_ID );
 		</div>
 	</div>
 
-	<section id="primary" class="content-area wrap group home-list" role="main">
+	<section id="primary" class="wrap content-wide group home-list" role="main">
 
 		<?php
 		global $wp_query;
