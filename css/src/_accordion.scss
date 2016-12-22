@@ -68,6 +68,7 @@
 	}
 
 	.accordion-box-content {
+		@include clearfix;
 		display: none;
 		padding: 20px;
 	
