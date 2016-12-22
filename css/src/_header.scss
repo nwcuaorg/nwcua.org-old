@@ -130,7 +130,7 @@ header {
 
 				}
 
-				&:nth-child(9):hover, &:nth-child(9).open {
+				&:nth-child(9), &:nth-child(9):hover, &:nth-child(9).open {
 					a { background: $lime; }
 					ul a:hover { background: lighten( $lime, 5% ); }
 				}
