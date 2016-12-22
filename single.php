@@ -6,9 +6,8 @@
 get_header();
 
 ?>
-	<div id="primary" class="site-content">
-
-		<div id="content" class="site-content content-wide content-style" role="main">
+	<div id="primary" class="site-content wrap">
+		<div id="content" class="site-content content-two-column content-style" role="main">
 			<?php 
 			if ( have_posts() ) :
 				while ( have_posts() ) : the_post(); 
