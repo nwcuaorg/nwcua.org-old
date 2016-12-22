@@ -299,13 +299,17 @@ table {
 	.anthem-art {
 		color: $lime;
 
+		p {
+			padding: 4px 0;
+		}
+
 		@include respond-to( 768px ) {
 			float: right;
 			margin: 0 0 20px 20px;
 		}
 
 		.caption {
-			font-size: .8em;
+			font-size: .9em;
 			font-style: italic;
 		}
 	}
