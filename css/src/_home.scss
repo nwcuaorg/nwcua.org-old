@@ -23,7 +23,7 @@
 	.filter-button {
 		width: 25%;
 		float: right;
-		text-align: center;
+		text-align: left;
 
 		input[type=submit] {
 			padding: 8px 20px;
@@ -32,7 +32,7 @@
 			background: $grey;
 			color: white;
 			font-size: 15px;
-			margin: 5px 0;
+			margin: 5px 0 0 35px;
 			border: 0;
 			cursor: pointer;
 
