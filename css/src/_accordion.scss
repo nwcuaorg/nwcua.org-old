@@ -89,6 +89,7 @@
 		&.bg-lime .accordion-box-content, &.bg-lime-light .accordion-box-content { background-color: lighten( $lime, 50% ); }
 		&.bg-forest .accordion-box-content, &.bg-forest-light .accordion-box-content { background-color: lighten( $forest, 45% ); }
 		&.bg-orange .accordion-box-content, &.bg-orange-light .accordion-box-content { background-color: lighten( $orange, 30% ); }
+		&.bg-yellow .accordion-box-content, &.bg-yellow-light .accordion-box-content { background-color: lighten( $yellow, 30% ); }
 		&.bg-grey-light .accordion-box-content, &.bg-grey-dark .accordion-box-content, &.bg-grey-light-light .accordion-box-content, &.bg-grey-dark-light .accordion-box-content { background-color: lighten( $grey, 30% ); }
 	}
 }
