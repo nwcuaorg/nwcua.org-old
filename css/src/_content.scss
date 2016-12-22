@@ -34,7 +34,6 @@
 
 .content-two-column {
 	@include clearfix;
-	padding: 40px 20px;
 	@extend .content-style;
 }
 
