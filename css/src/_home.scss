@@ -139,6 +139,25 @@
 			position: relative;
 			min-height: 46px;
 
+			.post-edit-link {
+				position: absolute;
+				top: 5px;
+				right: 5px;
+				background: white;
+				color: $grey-dark;
+				padding: 7px 12px;
+				border-radius: 4px;
+				z-index: 20;
+				opacity: .7;
+				font-size: .8em;
+				text-transform: uppercase;
+
+				&:hover {
+					opacity: 1;
+					text-decoration: none;
+				}
+			}
+
 			.post-category {
 				position: absolute;
 				bottom: 0;
@@ -149,6 +168,7 @@
 				font-size: 18px;
 				line-height: 18px;
 				color: white;
+				z-index: 10;
 
 				&.cat-29, &.cat-44 { background: $navy; }
 				&.cat-40, &.cat-1286, &.cat-32 { background: $orange; }
