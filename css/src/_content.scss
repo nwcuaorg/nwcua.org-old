@@ -44,12 +44,12 @@
 }
 
 
-.quarter, .third, .half, .two-third, .three-quarter {
+.quarter, .third, .half, .two-third, .three-quarter, .three-fifth, .two-fifth {
 	padding: 20px;
 }
 
 @include respond-to( 768px ) {
-	.quarter, .third, .half, .two-third, .three-quarter, .twenty, .thirty {
+	.quarter, .third, .half, .two-third, .three-quarter, .twenty, .thirty, .three-fifth, .two-fifth {
 		float: left;
 
 		&.right {
@@ -84,6 +84,16 @@
 
 	.thirty {
 		width: 28%;
+		margin: 0 1%;
+	}
+
+	.two-fifth {
+		width: 38%;
+		margin: 0 1%;		
+	}
+
+	.three-fifth {
+		width: 58%;
 		margin: 0 1%;
 	}
 }
