@@ -164,17 +164,11 @@
 				bottom: 0;
 				right: 0;
 				left: 0;
-				background: $grey;
 				padding: 14px;
 				font-size: 18px;
 				line-height: 18px;
 				color: white;
 				z-index: 10;
-
-				&.cat-29, &.cat-44 { background: $navy; }
-				&.cat-40, &.cat-1286, &.cat-32 { background: $orange; }
-				&.cat-35, &.cat-36 { background: $green; }
-				&.cat-52 { background: $yellow; }
 			}
 		}
 	}
