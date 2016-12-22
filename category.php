@@ -32,7 +32,9 @@ $color = get_category_color( $category[0]->cat_ID );
 			<?php
 			global $wp_query;
 			$query_args = $wp_query->query;
-			$query_args['posts_per_page'] = 20;
+			$query_args['orderby'] = array( 'meta_value_num' => 'DESC', 'date' => 'DESC' );
+			$query_args['meta_key'] = '_p_priority';
+			$query_args['posts_per_page'] = 14;
 			query_posts( $query_args );
 
 			if ( have_posts() ) {
@@ -72,12 +74,17 @@ $color = get_category_color( $category[0]->cat_ID );
 					$count++;
 				endwhile;
 
+
 			} else {
 				print "<p>Sadly, there is no content to show for this categories. Please try another.</p>";
 			}
 			?>
-
+			
 		</div><!-- #content -->
+		
+		<div class="pagination group">
+			<?php pagination(); ?>
+		</div>
 	</section><!-- #primary -->
 
 <?php

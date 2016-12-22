@@ -32,7 +32,7 @@ get_header(); ?>
 			</div>
 		</div>
 	</div>
-	<div id="primary" class="wrap">
+	<div id="primary" class="site-content">
 		<?php
 
 		// if it's a search, display the search term.
@@ -46,14 +46,17 @@ get_header(); ?>
 		$events = get_upcoming_events( 3, 0 );
 
 
+		// get existing query to work from.
+		global $wp_query;
+		$query_args = $wp_query->query;
+
+
 		// set up our query arguments
-		$query_args = array(
-			'post_status' => 'publish',
-		    'post_type' => array( 'post', 'page' ),
-		    'meta_key' => '_p_priority',
-		    'orderby'  => array( 'meta_value_num' => 'DESC', 'date' => 'DESC' ),
-		    'posts_per_page' => ( !empty( $events ) ? 13 : 14 )
-		);
+		$query_args['post_status'] = 'publish';
+		$query_args['post_type'] = array( 'post', 'page' );
+		$query_args['meta_key'] = '_p_priority';
+		$query_args['orderby'] = array( 'meta_value_num' => 'DESC', 'date' => 'DESC' );
+		$query_args['posts_per_page'] = ( !empty( $events ) ? 13 : 14 );
 
 
 		// if there was a category set in the arguments
@@ -67,7 +70,7 @@ get_header(); ?>
 
 
 		?>
-		<div id="content" class="site-content content-wide home-list" role="main">
+		<div id="content" class="wrap content-wide home-list" role="main">
 			<?php
 			if ( $home_query->have_posts() ) {
 				$count = 1;
@@ -129,6 +132,10 @@ get_header(); ?>
 			}
 			?>
 		</div><!-- #content -->
+		
+		<div class="pagination group">
+			<?php pagination(); ?>
+		</div>
 	</div><!-- #primary -->
 
 
