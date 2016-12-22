@@ -10,14 +10,14 @@ get_header(); ?>
 		<div class="wrap">
 			<div class="browse-by-filters">
 				<form name="category-filter" action="/" method="get">
+				<div class="quarter">
 				<?php 
 				$categories = get_categories( 'exclude=1,1238,36,53,48,42,39,1284,1286,35,50,52,43,55,1282,1278,45,51,31,1239,4,49,30,1285,56,33,1276,44,1277,1315,34,47,7582,20,54' );
 				$col_break = ceil( count( $categories )/4 );
 				$cnt = 1;
 				foreach ( $categories as $cat ) {
-					if ( $cnt==1 || $cnt==$col_break+1 || $cnt==(($col_break*2)+1) || $cnt==(($col_break*3)+1) ) print '<div class="quarter">';
 					print '<label><input type="checkbox" name="category[]" value="' . $cat->term_id . '" /> ' . $cat->name . '</label>';
-					if ( $cnt==$col_break || $cnt==$col_break*2 || $cnt==$col_break*3 ) print '</div>';
+					if ( $cnt==$col_break || $cnt==$col_break*2 || $cnt==$col_break*3 ) print '</div><div class="quarter">';
 					$cnt++;
 				}
 				print "</div>";
