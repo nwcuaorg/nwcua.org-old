@@ -61,7 +61,7 @@ function pagination($prev = '&laquo;', $next = '&raquo;') {
     $pagination = array(
         'base' => @add_query_arg('paged','%#%'),
         'format' => '',
-        'total' => 100,
+        'total' => 20,
         'current' => $current,
         'prev_text' => __($prev),
         'next_text' => __($next),
