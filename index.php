@@ -110,10 +110,12 @@ get_header(); ?>
 						print "<div class='description home-events'>";
 						print "<h3>Upcoming Events</h3>";
 						// list the events
+						print "<div class='event-list'>";
 						foreach ( $events as $event ) {
 							print '<h4><a href="' . get_permalink( $event->ID ) . '">' . $event->post_title . '</a></h4>';
 							print "<span class='date'>" . date( 'n/j/Y g:ia', $event->_p_event_start ) . "</span>";
 						}
+						print "</div>";
 						print "</div>";
 						print "</div>";
 						$count++;
