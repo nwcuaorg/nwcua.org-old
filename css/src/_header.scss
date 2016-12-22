@@ -117,8 +117,8 @@ header {
 				}
 
 				&:nth-child(6):hover, &:nth-child(6).open {
-					a { background: $aqua; }
-					ul a:hover { background: lighten( $aqua, 5% ); }
+					a { background: $seafoam; }
+					ul a:hover { background: lighten( $seafoam, 5% ); }
 				}
 
 				&:nth-child(8):hover, &:nth-child(8).open {

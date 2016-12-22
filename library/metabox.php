@@ -21,6 +21,7 @@ function page_metaboxes( $meta_boxes ) {
         'navy' => 'Navy',
         'orange' => 'Orange',
         'river' => 'River',
+        'seafoam' => 'Seafoam',
         'teal' => 'Teal',
         'yellow' => 'Yellow'
     );
