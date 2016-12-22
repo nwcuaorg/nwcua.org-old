@@ -571,6 +571,8 @@
 
 
 
+.bg-aqua { background-color: $aqua; }
+.bg-aqua-light { background-color: lighten( $aqua, 7.5% ); }
 .bg-teal { background-color: $teal; }
 .bg-teal-light { background-color: lighten( $teal, 7.5% ); }
 .bg-teal-lighter { background-color: lighten( $teal, 15% ); }
@@ -594,6 +596,7 @@
 .bg-grey-dark, .bg-stone { background-color: $grey-dark; }
 .bg-grey-dark-light { background-color: lighten( $grey-dark, 7.5% ); }
 
+.text-aqua { color: $aqua; }
 .text-teal { color: $teal; }
 .text-river { color: $river; }
 .text-navy { color: $navy; }
