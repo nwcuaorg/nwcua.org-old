@@ -11,7 +11,7 @@ get_header(); ?>
 			<div class="browse-by-filters">
 				<form name="category-filter" action="/" method="get">
 				<?php 
-				$categories = get_categories( 'exclude=1,1238,36,53,48,42,39,1284,1286,35,50,52,43,55,1282,1278,45,51,31,1239,4,49,30,1285,56,33,1276,44,1277,1315,34,47' );
+				$categories = get_categories( 'exclude=1,1238,36,53,48,42,39,1284,1286,35,50,52,43,55,1282,1278,45,51,31,1239,4,49,30,1285,56,33,1276,44,1277,1315,34,47,7582,20,54' );
 				$col_break = ceil( count( $categories )/4 );
 				$cnt = 1;
 				foreach ( $categories as $cat ) {
@@ -52,7 +52,7 @@ get_header(); ?>
 		    'post_type' => array( 'post', 'page' ),
 		    'meta_key' => '_p_priority',
 		    'orderby'  => array( 'meta_value_num' => 'DESC', 'date' => 'DESC' ),
-		    'posts_per_page' => ( !empty( $events ) ? 19 : 20 )
+		    'posts_per_page' => ( !empty( $events ) ? 13 : 14 )
 		);
 
 
