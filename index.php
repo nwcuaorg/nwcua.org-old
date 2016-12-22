@@ -22,7 +22,7 @@ get_header(); ?>
 				}
 				print "</div>";
 				?>
-				<div class="filter-button">
+				<div class="filter-button quarter right">
 					<input type="submit" value="Filter" />
 				</div>
 				</form>
