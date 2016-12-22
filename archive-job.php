@@ -64,8 +64,11 @@ query_posts( $args );
 $job_count = $wp_query->found_posts;
 
 ?>
-	<div class="large-title bg-grey-light">
+	<div class="large-title bg-green">
 		<div class="wrap">
+			<div class="large-title-icon bg-green">
+				<img src="/wp-content/uploads/2011/12/iconnwcua.png">
+			</div>
 			<div class="large-title-text">
 				<h1>Career Center</h1>
 			</div>
