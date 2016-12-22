@@ -128,13 +128,6 @@
 	@include respond-to( 768px ) {
 		padding: 0 20px;
 		border-left: 4px solid lighten( $grey, 25% );
-		margin-left: 20px;
-		float: right;
-		width: 33%;
-	}
-	
-	@include respond-to( 1024px ) {
-		width: 25%;
 	}
 
 	label {

@@ -25,7 +25,7 @@ get_header();
 		if ( have_posts() ) :
 			while ( have_posts() ) : the_post(); 
 				?>
-			<div class="two-fifth right event-info">
+			<div class="quarter right event-info">
 				<?php 
 				// display credit union name
 				if ( has_cmb_value( 'event_start' ) ) {
@@ -114,7 +114,7 @@ get_header();
 				}
 				?>
 			</div>
-			<div class="three-fifth right"><?php the_content(); ?></div>
+			<div class="three-quarter right"><?php the_content(); ?></div>
 			<div class="group">
 				<?php the_accordion(); ?>
 			</div>
