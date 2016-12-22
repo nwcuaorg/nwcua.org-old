@@ -12,7 +12,7 @@ get_header(); ?>
 				<form name="category-filter" action="/" method="get">
 				<div class="quarter">
 				<?php 
-				$categories = get_categories( 'exclude=1,1238,36,53,48,42,39,1284,1286,35,50,52,43,55,1282,1278,45,51,31,1239,4,49,30,1285,56,33,1276,44,1277,1315,34,47,7582,20,54,7581,7586,7585' );
+				$categories = get_categories( 'exclude=1,1238,36,53,48,42,39,1284,1286,35,50,52,43,55,1282,1278,45,51,31,1239,4,49,30,1285,56,33,1276,44,1277,1315,34,47,7582,20,54,7581,7586,7585,7580' );
 				$col_break = ceil( count( $categories )/4 );
 				$cnt = 1;
 				foreach ( $categories as $cat ) {
