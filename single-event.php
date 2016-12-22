@@ -6,7 +6,7 @@
 get_header();
 
 ?>
-	<div class="large-title bg-lime">
+	<div class="large-title bg-green">
 		<div class="wrap">
 			<div class="large-title-icon bg-green" style="background-image: url(<?php print get_bloginfo('template_url') . '/img/icon-events.png' ?>); background-repeat: no-repeat; background-position: center center;">
 			</div>
