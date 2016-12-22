@@ -53,10 +53,6 @@ jQuery(document).ready(function($){
 		window.location.href = $( this ).attr( 'data-url' );
 	});
 
-	$( '.browse-by-handle' ).click(function(){
-		$( '.browse-by-filters' ).slideToggle( 400 );
-	});
-
 });
 
 
