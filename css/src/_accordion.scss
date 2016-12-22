@@ -85,14 +85,14 @@
 		margin-top: 6px;
 
 		&.bg-teal .accordion-box-content, &.bg-teal-light .accordion-box-content, &.bg-teal-lighter .accordion-box-content, &.bg-teal-lightest .accordion-box-content { background-color: lighten( $teal, 55% ); }
-		&.bg-aqua .accordion-box-content, &.bg-aqua-light .accordion-box-content { background-color: lighten( $aqua, 65% ); }
-		&.bg-seafoam .accordion-box-content, &.bg-seafoam-light .accordion-box-content { background-color: lighten( $seafoam, 65% ); }
 		&.bg-river .accordion-box-content, &.bg-river-light .accordion-box-content { background-color: lighten( $river, 65% ); }
 		&.bg-navy .accordion-box-content, &.bg-navy-light .accordion-box-content { background-color: lighten( $navy, 65% ); }
 		&.bg-lime .accordion-box-content, &.bg-lime-light .accordion-box-content { background-color: lighten( $lime, 50% ); }
 		&.bg-forest .accordion-box-content, &.bg-forest-light .accordion-box-content { background-color: lighten( $forest, 45% ); }
 		&.bg-orange .accordion-box-content, &.bg-orange-light .accordion-box-content { background-color: lighten( $orange, 30% ); }
 		&.bg-yellow .accordion-box-content, &.bg-yellow-light .accordion-box-content { background-color: lighten( $yellow, 30% ); }
+		&.bg-aqua .accordion-box-content, &.bg-aqua-light .accordion-box-content { background-color: lighten( $aqua, 30% ); }
+		&.bg-seafoam .accordion-box-content, &.bg-seafoam-light .accordion-box-content { background-color: lighten( $seafoam, 30% ); }
 		&.bg-grey-light .accordion-box-content, &.bg-grey-dark .accordion-box-content, &.bg-grey-light-light .accordion-box-content, &.bg-grey-dark-light .accordion-box-content { background-color: lighten( $grey, 30% ); }
 	}
 }
