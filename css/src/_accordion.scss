@@ -85,6 +85,8 @@
 		margin-top: 6px;
 
 		&.bg-teal .accordion-box-content, &.bg-teal-light .accordion-box-content, &.bg-teal-lighter .accordion-box-content, &.bg-teal-lightest .accordion-box-content { background-color: lighten( $teal, 55% ); }
+		&.bg-aqua .accordion-box-content, &.bg-aqua-light .accordion-box-content { background-color: lighten( $aqua, 65% ); }
+		&.bg-seafoam .accordion-box-content, &.bg-seafoam-light .accordion-box-content { background-color: lighten( $seafoam, 65% ); }
 		&.bg-river .accordion-box-content, &.bg-river-light .accordion-box-content { background-color: lighten( $river, 65% ); }
 		&.bg-navy .accordion-box-content, &.bg-navy-light .accordion-box-content { background-color: lighten( $navy, 65% ); }
 		&.bg-lime .accordion-box-content, &.bg-lime-light .accordion-box-content { background-color: lighten( $lime, 50% ); }
