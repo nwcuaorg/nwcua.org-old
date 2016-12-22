@@ -61,7 +61,7 @@ function pagination($prev = '&laquo;', $next = '&raquo;') {
     $pagination = array(
         'base' => @add_query_arg('paged','%#%'),
         'format' => '',
-        'total' => $wp_query->max_num_pages,
+        'total' => 100,
         'current' => $current,
         'prev_text' => __($prev),
         'next_text' => __($next),
