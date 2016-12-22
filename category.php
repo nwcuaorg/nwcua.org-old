@@ -55,8 +55,10 @@ $color = get_category_color( $category[0]->cat_ID );
 								}
 
 								$categories = get_the_category();
-								if ( !empty( $categories ) ) { ?>
-								<div class="post-category cat-<?php print $categories[0]->term_id; ?>">
+								if ( !empty( $categories ) ) { 
+									$color = get_category_color( $categories[0]->term_id );
+									?>
+								<div class="post-category bg-<?php print $color; ?>">
 									<?php print get_cat_name( $categories[0]->term_id ); ?>
 								</div>
 									<?php
