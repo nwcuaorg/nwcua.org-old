@@ -5,15 +5,6 @@
 add_action( 'after_switch_theme', 'flush_rewrite_rules' );
 
 
-//add_filter('query_vars', 'parameter_queryvars' );
-function parameter_queryvars( $qvars ) {
-	$qvars[] = ' price';
-	$qvars[] = ' name';
-	$qvars[] = ' qty';
-	return $qvars;
-}
-
-
 
 // let's create the function for the custom type
 function event_post_type() { 
