@@ -16,7 +16,7 @@ function parameter_queryvars( $qvars ) {
 
 
 // let's create the function for the custom type
-function lscu_events() { 
+function event_post_type() { 
 
 	// creating (registering) the custom type 
 	register_post_type( 'event', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
@@ -63,7 +63,7 @@ function lscu_events() {
 
 
 // adding the function to the Wordpress init
-add_action( 'init', 'lscu_events');
+add_action( 'init', 'event_post_type');
 
 
 

@@ -7,7 +7,7 @@ add_action( 'after_switch_theme', 'flush_rewrite_rules' );
 
 
 // let's create the function for the custom type
-function lscu_post_types() { 
+function job_post_type() { 
 
 
 	// creating (registering) the custom type 
@@ -57,7 +57,7 @@ function lscu_post_types() {
 
 
 // adding the function to the Wordpress init
-add_action( 'init', 'lscu_post_types');
+add_action( 'init', 'job_post_type');
 
 
 
