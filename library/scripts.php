@@ -10,15 +10,19 @@ add_action( 'wp_enqueue_scripts', 'p_scripts' );
 
 
 
-function add_taxonomies_to_pages() {
+function add_page_features() {
 
-	// Add tag metabox to page
+	// add tag metabox to page
 	register_taxonomy_for_object_type('post_tag', 'page'); 
-	// Add category metabox to page
+
+	// add category metabox to page
 	register_taxonomy_for_object_type('category', 'page');  
 	
+	// add support for excerpts in pages
+	add_post_type_support( 'page', 'excerpt' );
+	
 }
-add_action( 'init', 'add_taxonomies_to_pages' );
+add_action( 'init', 'add_page_features' );
 
 
 
