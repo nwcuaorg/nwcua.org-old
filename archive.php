@@ -3,6 +3,8 @@
  * The template for displaying Archive pages
  */
 
+$is_anthem = true;
+
 get_header(); 
 
 $category = get_the_category(); 
