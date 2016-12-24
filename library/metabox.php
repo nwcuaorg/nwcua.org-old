@@ -32,7 +32,7 @@ function page_metaboxes( $meta_boxes ) {
     $title_metabox = new_cmb2_box( array(
         'id' => 'title_metabox',
         'title' => 'Large Title',
-        'object_types' => array( 'page', 'product' ), // post type
+        'object_types' => array( 'page', 'product', 'person' ), // post type
         'context' => 'normal',
         'priority' => 'high',
     ));
@@ -64,7 +64,7 @@ function page_metaboxes( $meta_boxes ) {
     $showcase_metabox = new_cmb2_box( array(
         'id' => 'showcase_metabox',
         'title' => 'Showcase',
-        'object_types' => array( 'page', 'partner', 'post' ), // post type
+        'object_types' => array( 'page', 'partner', 'post', 'person' ), // post type
         'show_on' => array(
             'key' => 'template',
             'value' => array( '', 'page-front' )
@@ -211,6 +211,61 @@ function page_metaboxes( $meta_boxes ) {
         'name' => 'Job Expires',
         'id'   => CMB_PREFIX . 'job_expires',
         'type' => 'text_datetime_timestamp'
+    ) );
+
+
+
+    // person metabox
+    $person_metabox = new_cmb2_box( array(
+        'id' => 'person_metabox',
+        'title' => 'Person',
+        'object_types' => array( 'person' ), // post type
+        'context' => 'normal',
+        'priority' => 'high',
+    ));
+
+    $person_metabox->add_field( array(
+        'name' => 'Education',
+        'id'   => CMB_PREFIX . 'person_education',
+        'type' => 'wysiwyg',
+        'options' => array( 'textarea_rows' => 7 )
+    ) );
+
+    $person_metabox->add_field( array(
+        'name' => 'Comments',
+        'id'   => CMB_PREFIX . 'person_comments',
+        'type' => 'wysiwyg',
+        'options' => array( 'textarea_rows' => 7 )
+    ) );
+
+    $person_metabox->add_field( array(
+        'name' => 'Title',
+        'id'   => CMB_PREFIX . 'person_title',
+        'type' => 'text'
+    ) );
+
+    $person_metabox->add_field( array(
+        'name' => 'Email',
+        'id'   => CMB_PREFIX . 'person_email',
+        'type' => 'text_email'
+    ) );
+
+    $person_metabox->add_field( array(
+        'name' => 'Phone',
+        'id'   => CMB_PREFIX . 'person_phone',
+        'type' => 'text'
+    ) );
+
+    $person_metabox->add_field( array(
+        'name' => 'Phone (Toll Free)',
+        'id'   => CMB_PREFIX . 'person_phone_tf',
+        'type' => 'text'
+    ) );
+
+    $person_metabox->add_field( array(
+        'name' => 'Company',
+        'id'   => CMB_PREFIX . 'person_company',
+        'type' => 'text',
     ) );
 
 

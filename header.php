@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php global $is_anthem; ?><!DOCTYPE html>
 <!--[if IE 7]><html class="ie ie7" <?php language_attributes(); ?>><![endif]-->
 <!--[if IE 8]><html class="ie ie8" <?php language_attributes(); ?>><![endif]-->
 <!--[if !(IE 7) | !(IE 8)  ]><!--><html <?php language_attributes(); ?>><!--<![endif]-->
@@ -25,11 +25,23 @@
 
 	<div class="wrap">
 
+		<?php if ( $is_anthem ) { ?>
+		<div class="logo">
+			<a href="/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+				<img src="<?php bloginfo( "template_url" ) ?>/img/logo-anthem.png" alt="<?php bloginfo( 'name' ); ?>">
+			</a>
+		</div>
+		<div class="slogan">
+			News &amp; Info for Northwest Credit Unions
+			<span>From Northwest Credit Union Association</span>
+		</div>
+		<?php } else { ?>
 		<div class="logo">
 			<a href="/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 				<img src="<?php bloginfo( "template_url" ) ?>/img/logo.png" alt="<?php bloginfo( 'name' ); ?>">
 			</a>
 		</div>
+		<?php } ?>
 	
 		<!--
 		<div class="tagline">

@@ -37,7 +37,7 @@ function person_post_type() {
 			'show_ui' => true,
 			'query_var' => true,
 			'show_in_menu' => true, 
-			'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */ 
+			'menu_position' => 11, /* this is what order you want it to appear in on the left hand side menu */ 
 			'menu_icon' => 'dashicons-groups', /* the icon for the custom post type menu */
 			'rewrite'	=> array( 
 				'slug' => 'bio', 

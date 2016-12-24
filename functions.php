@@ -1,8 +1,8 @@
 <?php
 
 
-// error_reporting( E_ALL & ~E_NOTICE & ~E_STRICT );
-error_reporting( E_ALL );
+error_reporting( E_ALL & ~E_NOTICE & ~E_STRICT );
+// error_reporting( E_ALL );
 ini_set( "display_errors", 1 );
 
 
@@ -17,7 +17,7 @@ include( "library/login.php" );
 // include the content type
 include( "library/post-type/job.php" );
 include( "library/post-type/event.php" );
-require( "library/post-type/person.php" );
+include( "library/post-type/person.php" );
 
 
 // include some theme-related things

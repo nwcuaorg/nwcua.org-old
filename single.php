@@ -3,6 +3,8 @@
  * The Template for displaying all single posts
  */
 
+$is_anthem = true;
+
 get_header();
 
 ?>

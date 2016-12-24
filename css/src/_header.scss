@@ -11,6 +11,25 @@ header {
 		max-width: 450px;
 	}
 
+	.slogan {
+		display: none;
+		padding: 20px;
+		font-size: .9em;
+		line-height: 1.4em;
+
+		span {
+			display: block;
+			color: $grey;
+		}
+
+		@include respond-to( 1024px ) {
+			display: block;
+			position: absolute;
+			left: 320px;
+			top: 30px;
+		}
+	}
+
 	nav {
 		position: relative;
 
@@ -263,22 +282,7 @@ header {
 		    }
 		}
 	}
-	
-	/*
-	.tagline {
-		font-style: italic;
-		color: $navy;
-		padding: 5px 45px 15px 20px;
-
-		@include respond-to( 1100px ) {
-			padding: 0;
-			position: absolute;
-			left: 380px;
-			top: 85px;
-		}
-	}
-	*/
-	
+		
 	@include respond-to( 768px ) {
 		position: relative;
 
