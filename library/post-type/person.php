@@ -48,7 +48,7 @@ function person_post_type() {
 			'capability_type' => 'person',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
-			'supports' => array( 'title', 'editor', 'excerpt' )
+			'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail' )
 		) /* end of options */
 	); /* end of register post type */
 	

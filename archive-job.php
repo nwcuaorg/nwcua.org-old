@@ -77,7 +77,7 @@ $job_count = $wp_query->found_posts;
 
 	<div id="content" class="wrap groupcontent-two-column" role="main">
 		<div class="quarter sidebar">
-			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('sidebar-jobs') ) : ?><!-- no sidebar --><?php endif; ?>
+			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('page-sidebar-jobssidebar') ) : ?><!-- no sidebar --><?php endif; ?>
 		</div>
 		<div class="three-quarter">
 			<div class="job-search"><input type="text" id="job-search" value="" placeholder="Search Jobs"></div>

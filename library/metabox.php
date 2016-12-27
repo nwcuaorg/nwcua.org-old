@@ -32,7 +32,7 @@ function page_metaboxes( $meta_boxes ) {
     $title_metabox = new_cmb2_box( array(
         'id' => 'title_metabox',
         'title' => 'Large Title',
-        'object_types' => array( 'page', 'product', 'person' ), // post type
+        'object_types' => array( 'page', 'person' ), // post type
         'context' => 'normal',
         'priority' => 'high',
     ));
@@ -64,7 +64,7 @@ function page_metaboxes( $meta_boxes ) {
     $showcase_metabox = new_cmb2_box( array(
         'id' => 'showcase_metabox',
         'title' => 'Showcase',
-        'object_types' => array( 'page', 'partner', 'post', 'person' ), // post type
+        'object_types' => array( 'page', 'person', 'post' ), // post type
         'show_on' => array(
             'key' => 'template',
             'value' => array( '', 'page-front' )
@@ -115,7 +115,7 @@ function page_metaboxes( $meta_boxes ) {
     $left_metabox = new_cmb2_box( array(
         'id' => 'left_metabox',
         'title' => 'Left Column',
-        'object_types' => array( 'page', 'product' ), // post type
+        'object_types' => array( 'page' ), // post type
         'context' => 'normal',
         'priority' => 'high',
         'show_names' => false, // Show field names on the left
@@ -430,7 +430,7 @@ function page_metaboxes( $meta_boxes ) {
     $accordion_metabox = new_cmb2_box( array(
         'id' => 'accordion_metabox',
         'title' => 'General Accordions',
-        'object_types' => array( 'page', 'post', 'event' ), // post type
+        'object_types' => array( 'page', 'post', 'event', 'person' ), // post type
         'show_on' => array(
             'key' => 'template',
             'value' => array( "" )
