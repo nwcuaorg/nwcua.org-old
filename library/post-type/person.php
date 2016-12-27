@@ -32,12 +32,13 @@ function person_post_type() {
 			), /* end of arrays */
 			'description' => __( 'Manage the people listed on the site.', 'ptheme' ), /* Custom Type Description */
 			'public' => true,
+			'show_in_menu' => true,
 			'publicly_queryable' => true,
 			'exclude_from_search' => false,
 			'show_ui' => true,
 			'query_var' => true,
 			'show_in_menu' => true, 
-			'menu_position' => 11, /* this is what order you want it to appear in on the left hand side menu */ 
+			'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */ 
 			'menu_icon' => 'dashicons-groups', /* the icon for the custom post type menu */
 			'rewrite'	=> array( 
 				'slug' => 'bio', 
@@ -56,6 +57,29 @@ function person_post_type() {
 
 // adding the function to the Wordpress init
 add_action( 'init', 'person_post_type');
+
+
+
+// add person caps
+function add_person_caps() {
+
+    // gets the admin role
+    $role = get_role( 'administrator' );
+
+    // This only works, because it accesses the class instance.
+    // would allow the author to edit others' posts for current theme only
+    $role->add_cap( 'read_person' );
+    $role->add_cap( 'edit_person' );
+    $role->add_cap( 'delete_person' );
+    $role->add_cap( 'edit_person' );
+    $role->add_cap( 'edit_others_person' );
+    $role->add_cap( 'publish_person' );
+    $role->add_cap( 'read_private_person' );
+    $role->add_cap( 'edit_private_person' );
+    $role->add_cap( 'edit_published_person' );
+
+}
+add_action( 'admin_init', 'add_person_caps');
 
 
 
