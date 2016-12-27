@@ -241,7 +241,7 @@ function page_metaboxes( $meta_boxes ) {
     $person_metabox->add_field( array(
         'name' => 'Title',
         'id'   => CMB_PREFIX . 'person_title',
-        'type' => 'text'
+        'type' => 'textarea_small'
     ) );
 
     $person_metabox->add_field( array(
