@@ -43,16 +43,11 @@
 		</div>
 		<?php } ?>
 	
-		<!--
-		<div class="tagline">
-			Serving Idaho, Oregon, &amp; Washington Credit Unions
-		</div>
-		-->
 		
 		<div class="search">
 			<?php get_search_form(); ?>
 		</div>
-
+		
 		<div class='tools'>
 			<!--<a href="/login" class="button account">Login</a>-->
 			<?php account_button(); ?>

@@ -20,8 +20,12 @@ get_header();
 			<h5>Phone:</h5>
 			<p><?php show_cmb_value( 'person_phone' ); ?></p>
 			<?php if ( has_cmb_value( 'person_phone_tf') ) { ?>
-			<h5>Phone (Toll Free):</h5>
+			<h5>Toll Free:</h5>
 			<p><?php show_cmb_value( 'person_phone_tf' ); ?></p>
+			<?php } ?>
+			<?php if ( has_cmb_value( 'person_email') ) { ?>
+			<h5>Email:</h5>
+			<p><a href="mailto:<?php show_cmb_value( 'person_email' ); ?>"><?php show_cmb_value( 'person_email' ); ?></a></p>
 			<?php } ?>
 		</div>
 		<div class="half right">
