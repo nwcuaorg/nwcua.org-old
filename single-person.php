@@ -15,7 +15,7 @@ get_header();
 		<div class="quarter sidebar right">
 			<?php the_post_thumbnail(); ?>
 			<h4><?php the_title(); ?></h4>
-			<p class='quiet'><?php show_cmb_value( 'person_title' ); ?></p>
+			<p class='quiet'><?php print nl2br( get_cmb_value( 'person_title' ) ); ?></p>
 			<hr>
 			<h5>Phone:</h5>
 			<p><?php show_cmb_value( 'person_phone' ); ?></p>
