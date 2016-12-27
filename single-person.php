@@ -19,8 +19,10 @@ get_header();
 			<hr>
 			<h5>Phone:</h5>
 			<p><?php show_cmb_value( 'person_phone' ); ?></p>
+			<?php if ( has_cmb_value( 'person_phone_tf') ) { ?>
 			<h5>Phone (Toll Free):</h5>
 			<p><?php show_cmb_value( 'person_phone_tf' ); ?></p>
+			<?php } ?>
 		</div>
 		<div class="half right">
 			<?php 
