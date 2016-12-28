@@ -239,7 +239,8 @@ function page_metaboxes( $meta_boxes ) {
     $person_metabox->add_field( array(
         'name' => 'Title',
         'id'   => CMB_PREFIX . 'person_title',
-        'type' => 'textarea_small'
+        'type' => 'textarea_small',
+        'options' => array( 'textarea_rows' => 2 )
     ) );
 
     $person_metabox->add_field( array(
@@ -278,6 +279,21 @@ function page_metaboxes( $meta_boxes ) {
         'id'   => CMB_PREFIX . 'person_comments',
         'type' => 'wysiwyg',
         'options' => array( 'textarea_rows' => 7 )
+    ) );
+
+    $person_metabox->add_field( array(
+        'name' => 'No Bio',
+        'desc' => 'Do not link to the bio page from people listings.',
+        'id'   => CMB_PREFIX . 'person_link',
+        'type' => 'checkbox',
+    ) );
+
+    $person_metabox->add_field( array(
+        'name' => 'sort',
+        'desc' => 'Sort Value',
+        'id'   => CMB_PREFIX . 'person_sort',
+        'type' => 'text_small',
+        'default' => 99
     ) );
 
 

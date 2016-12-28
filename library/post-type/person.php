@@ -116,19 +116,32 @@ function people_shortcode( $atts = [], $content = null, $tag = '' ) {
     $atts = array_change_key_case((array)$atts, CASE_LOWER);
  
     // override default attributes with user attributes
-    $people_atts = shortcode_atts( [ 
-    	'group' => 0,
-    	'title' => 'Connect With Us',], $atts, $tag );
+    $people_atts = shortcode_atts( [ 'group' => 0 ], $atts, $tag );
 	
 
+    // sort by sort value and then last name.
 	$people_args = array(
 		'post_type' => 'person',
 		'posts_per_page' => '-1',
-		'orderby' => 'meta_value',
-		'meta_key' => '_p_person_lname',
-		'order' => 'ASC'
+		'meta_query' => array(
+			'relation' => 'OR',
+			'sort_value' => array(
+				'key' => '_p_person_sort',
+				'orderby' => 'meta_value_num',
+			),
+			'sort_lname' => array(
+				'key' => '_p_person_lname',
+				'orderby' => 'meta_value',
+			),
+		),
+		'orderby' => array(
+			'sort_value' => 'ASC',
+			'sort_lname' => 'ASC'
+		),
 	);
 
+
+	// filter by group
 	if ( !empty( $people_atts['group'] ) ) {
 		$people_args['tax_query'] = array(
 			array(
@@ -138,6 +151,7 @@ function people_shortcode( $atts = [], $content = null, $tag = '' ) {
 			)
 		);
 	}
+
 
   	// the people query
     $the_people_query = new WP_Query( $people_args );
