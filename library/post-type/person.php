@@ -124,7 +124,8 @@ function people_shortcode( $atts = [], $content = null, $tag = '' ) {
 	$people_args = array(
 		'post_type' => 'person',
 		'posts_per_page' => '-1',
-		'orderby' => 'title',
+		'orderby' => 'meta_value',
+		'meta_key' => '_p_person_lname',
 		'order' => 'ASC'
 	);
 
@@ -227,6 +228,7 @@ function add_person_columns($columns) {
 
 }
 add_filter('manage_person_posts_columns' , 'add_person_columns');
+
 
 
 ?>
