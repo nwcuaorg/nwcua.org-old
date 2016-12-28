@@ -183,4 +183,50 @@ add_action('init', 'people_shortcodes_init');
 
 
 
+add_action( 'manage_person_posts_custom_column' , 'person_columns', 10, 2 );
+function person_columns( $column, $post_id ) {
+	switch ( $column ) {
+
+		case 'fname':
+			echo get_post_meta( $post_id, '_p_person_fname', true ); 
+			break;
+
+		case 'lname':
+			echo get_post_meta( $post_id, '_p_person_lname', true ); 
+			break;
+	}
+}
+
+
+function add_person_columns($columns) {
+    
+	// remove three columns we don't need
+    unset($columns['author']);
+    unset($columns['date']);
+    unset($columns['title']);
+
+    // merge the first and last name to existing stuff
+	$columns = array_merge( $columns, 
+		array(
+			'fname' => __('First Name'),
+        	'lname' =>__( 'Last Name')
+        )
+    );
+
+	// set a custom order for all columns
+	$customOrder = array( 'cb', 'fname', 'lname', 'taxonomy-person_cat' );
+
+	// create empty column object
+	$new = array();
+	
+	// loop through and set our new order
+	foreach ( $customOrder as $colname ) $new[$colname] = $columns[$colname]; 
+
+	// return the new order.
+	return $new;
+
+}
+add_filter('manage_person_posts_columns' , 'add_person_columns');
+
+
 ?>
