@@ -110,6 +110,22 @@ register_taxonomy( 'person_cat',
 
 
 
+function wpa_order_people( $query ){
+    if( !is_admin() )
+        return;
+
+    $screen = get_current_screen();
+    if( 'edit' == $screen->base
+    && 'person' == $screen->post_type
+    && !isset( $_GET['orderby'] ) ){
+        $query->set( 'orderby', 'meta_value' );
+    	$query->set( 'meta_key', '_p_person_lname' );
+        $query->set( 'order', 'ASC' );
+    }
+}
+add_action( 'pre_get_posts', 'wpa_order_states' );
+
+
 
 function people_shortcode( $atts = [], $content = null, $tag = '' ) {
     // normalize attribute keys, lowercase
