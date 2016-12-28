@@ -110,7 +110,7 @@ register_taxonomy( 'person_cat',
 
 
 
-function wpa_order_people( $query ){
+function admin_order_people( $query ){
     if( !is_admin() )
         return;
 
@@ -123,7 +123,7 @@ function wpa_order_people( $query ){
         $query->set( 'order', 'ASC' );
     }
 }
-add_action( 'pre_get_posts', 'wpa_order_states' );
+add_action( 'pre_get_posts', 'admin_order_people' );
 
 
 
