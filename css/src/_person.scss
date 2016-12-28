@@ -55,7 +55,7 @@
 
 
 @include respond-to( 900px ) {	
-	.quarter, .three-quarter, .half, .sixty {
+	.three-quarter, .half, .sixty {
 		.person-list {
 			.person {
 				float: left;
