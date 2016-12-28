@@ -165,18 +165,26 @@ function people_shortcode( $atts = [], $content = null, $tag = '' ) {
 	    // loop through the people
 	    while ( $the_people_query->have_posts() ) {
 	    	$the_people_query->the_post();
-
-	    	$o .= '<div class="person">';
-	    	$o .= '<div class="person-image"><a href="' . get_the_permalink() . '"><img src="' . get_the_post_thumbnail_url() . '" /></a></div>';
-	    	$o .= '<div class="person-info">' . 
-	    		'<span class="person-name"><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></span>' . 
-	    		( has_cmb_value( 'person_title' ) ? '<br><span class="person-title">' . get_cmb_value( 'person_title' ) . "</span>" : '' ) . 
-	    		( has_cmb_value( 'person_phone' ) ? '<br>Direct: ' . get_cmb_value( 'person_phone' ) . "" : '' ) . 
-	    		( has_cmb_value( 'person_phone_tf' ) ? '<br>Toll Free: ' . get_cmb_value( 'person_phone_tf' ) . "" : '' ) . 
-	    		( has_cmb_value( 'person_email' ) ? '<br><a href="' . get_cmb_value( 'person_email' ) . '">' . get_cmb_value( 'person_email' ) . "</a>" : '' ) . 
-	    		'</div>';
-	    	$o .= '<div class="group"></div>';
-	    	$o .= '</div>';
+	    	$link_person = ( !empty( get_cmb_value( 'person_link' ) ) ? false : true );
+			$o .= '<div class="person">';
+			$o .= '<div class="person-image">' . 
+				( $link_person ? '<a href="' . get_the_permalink() . '">' : '' ) . 
+				'<img src="' . get_the_post_thumbnail_url() . '" />' . 
+				( $link_person ? '</a>' : '' ) . 
+				'</div>' . 
+				'<div class="person-info">' . 
+				'<span class="person-name">' . 
+				( $link_person ? '<a href="' . get_the_permalink() . '">' : '' ) . 
+				get_the_title() . 
+				( $link_person ? '</a>' : '' ) . 
+				'</span>' . 
+				( has_cmb_value( 'person_title' ) ? '<br><span class="person-title">' . nl2br( get_cmb_value( 'person_title' ) ) . "</span>" : '' ) . 
+				( has_cmb_value( 'person_phone' ) ? '<br>Direct: ' . get_cmb_value( 'person_phone' ) . "" : '' ) . 
+				( has_cmb_value( 'person_phone_tf' ) ? '<br>Toll Free: ' . get_cmb_value( 'person_phone_tf' ) . "" : '' ) . 
+				( has_cmb_value( 'person_email' ) ? '<br><a href="' . get_cmb_value( 'person_email' ) . '">' . get_cmb_value( 'person_email' ) . "</a>" : '' ) . 
+				'</div>';
+			$o .= '<div class="group"></div>';
+			$o .= '</div>';
 	    }
 
 	    // end box
