@@ -21,17 +21,26 @@
 			list-style: none;
 			padding: 0;
 			margin: 0;
+			border-bottom: 0;
 
 			li a {
 				display: block;
 				padding: 6px 0 6px 10px;
 				color: $grey-dark;
 				text-transform: uppercase;
-				border-bottom: 1px dotted lighten( $grey, 10% );
+				border-top: 1px dotted lighten( $grey, 10% );
+			}
+
+			li:first-child a {
+				border-top: 0;
 			}
 
 			ul.sub-menu {
 				padding-left: 15px;
+
+				li a {
+					border-top: 0;
+				}
 			}
 		}
 	}
