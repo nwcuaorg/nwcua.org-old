@@ -1,0 +1,66 @@
+
+
+
+.person-sidebar {
+	h5 {
+		color: lighten( $grey-dark, 20% );
+		padding-top: 20px;
+	}
+
+	.person-title {
+		color: $green;
+		padding-top: 0;
+	}
+
+	.person-value {
+		padding-top: 0;
+	}
+}
+
+
+.person-list {
+	.person {
+		display: block;
+		padding: 10px 0;
+		border-bottom: 1px dotted $grey;
+
+		.person-image {
+			float: left;
+			width: 30%;
+		}
+
+		.person-info {
+			float: right;
+			width: 70%;
+			padding-left: 10px;
+			font-size: .9em;
+
+			.person-name {
+				font-size: 1em;
+				font-weight: bold;
+			}
+
+			.person-title {
+				color: $green;
+			}
+		}
+	}
+}
+
+
+@include respond-to( 900px ) {	
+	.quarter, .three-quarter, .half, .sixty {
+		.person-list {
+			.person {
+				float: left;
+				width: 48%;
+				margin-left: 4%;
+			}
+
+			.person:nth-child(1), .person:nth-child(3), .person:nth-child(5), .person:nth-child(7), .person:nth-child(9), .person:nth-child(11), .person:nth-child(13), .person:nth-child(15), .person:nth-child(17), .person:nth-child(19), .person:nth-child(21), .person:nth-child(23), .person:nth-child(25), .person:nth-child(27), .person:nth-child(29), .person:nth-child(31),.person:nth-child(33), .person:nth-child(35), .person:nth-child(37), .person:nth-child(39), .person:nth-child(41), .person:nth-child(43), .person:nth-child(45), .person:nth-child(47), .person:nth-child(49), .person:nth-child(51) {
+				clear: left;
+				margin-left: 0;
+			}
+		}
+	}
+}

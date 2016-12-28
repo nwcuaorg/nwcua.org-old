@@ -116,28 +116,59 @@ function people_shortcode( $atts = [], $content = null, $tag = '' ) {
     $atts = array_change_key_case((array)$atts, CASE_LOWER);
  
     // override default attributes with user attributes
-    $people_atts = shortcode_atts([
-                                     'title' => 'WordPress.org',
-                                 ], $atts, $tag);
- 
-    // start output
-    $o = '';
- 
-    // start box
-    $o .= '<div class="person-list">';
-  
-    $the_people_query = new WP_Query( array(
-		'post_type' => 'person',
-		'tax_query' => array(
-			'taxonomy' => 'person_cat',
-			'field' => 'slug',
-			'terms' => $people_atts['group'],
-		),
-	) );
+    $people_atts = shortcode_atts( [ 
+    	'group' => 0,
+    	'title' => 'Connect With Us',], $atts, $tag );
+	
 
-    // end box
-    $o .= '</div>';
+	$people_args = array(
+		'post_type' => 'person',
+		'posts_per_page' => '-1',
+	);
+
+	if ( !empty( $people_atts['group'] ) ) {
+		$people_args['tax_query'] = array(
+			array(
+				'taxonomy' => 'person_cat',
+				'field' => 'slug',
+				'terms' => $people_atts['group'],
+			)
+		);
+	}
+
+  	// the people query
+    $the_people_query = new WP_Query( $people_args );
+    
+    // if we have autographs
+    if ( $the_people_query->have_posts() ) {
+	 
+	    // start person
+	    $o = '<div class="person-list group">';
+
+	    // loop through the people
+	    while ( $the_people_query->have_posts() ) {
+	    	$the_people_query->the_post();
+
+	    	$o .= '<div class="person">';
+	    	$o .= '<div class="person-image"><a href="' . get_the_permalink() . '"><img src="' . get_the_post_thumbnail_url() . '" /></a></div>';
+	    	$o .= '<div class="person-info">' . 
+	    		'<span class="person-name"><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></span>' . 
+	    		( has_cmb_value( 'person_title' ) ? '<br><span class="person-title">' . get_cmb_value( 'person_title' ) . "</span>" : '' ) . 
+	    		( has_cmb_value( 'person_phone' ) ? '<br>Direct: ' . get_cmb_value( 'person_phone' ) . "" : '' ) . 
+	    		( has_cmb_value( 'person_phone_tf' ) ? '<br>Toll Free: ' . get_cmb_value( 'person_phone_tf' ) . "" : '' ) . 
+	    		( has_cmb_value( 'person_email' ) ? '<br><a href="' . get_cmb_value( 'person_email' ) . '">' . get_cmb_value( 'person_email' ) . "</a>" : '' ) . 
+	    		'</div>';
+	    	$o .= '<div class="group"></div>';
+	    	$o .= '</div>';
+	    }
+
+	    // end box
+	    $o .= '</div>';
+
+    }
  
+    wp_reset_postdata();
+
     // return output
     return $o;
 }
