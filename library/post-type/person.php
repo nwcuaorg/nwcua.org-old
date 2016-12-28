@@ -124,6 +124,8 @@ function people_shortcode( $atts = [], $content = null, $tag = '' ) {
 	$people_args = array(
 		'post_type' => 'person',
 		'posts_per_page' => '-1',
+		'orderby' => 'title',
+		'order' => 'ASC'
 	);
 
 	if ( !empty( $people_atts['group'] ) ) {

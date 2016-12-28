@@ -225,6 +225,18 @@ function page_metaboxes( $meta_boxes ) {
     ));
 
     $person_metabox->add_field( array(
+        'name' => 'First Name',
+        'id'   => CMB_PREFIX . 'person_fname',
+        'type' => 'text'
+    ) );
+
+    $person_metabox->add_field( array(
+        'name' => 'Last Name',
+        'id'   => CMB_PREFIX . 'person_lname',
+        'type' => 'text'
+    ) );
+
+    $person_metabox->add_field( array(
         'name' => 'Title',
         'id'   => CMB_PREFIX . 'person_title',
         'type' => 'textarea_small'
