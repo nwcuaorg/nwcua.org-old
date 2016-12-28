@@ -182,6 +182,7 @@ function people_shortcode( $atts = [], $content = null, $tag = '' ) {
 				( has_cmb_value( 'person_phone' ) ? '<br>Direct: ' . get_cmb_value( 'person_phone' ) . "" : '' ) . 
 				( has_cmb_value( 'person_phone_tf' ) ? '<br>Toll Free: ' . get_cmb_value( 'person_phone_tf' ) . "" : '' ) . 
 				( has_cmb_value( 'person_email' ) ? '<br><a href="' . get_cmb_value( 'person_email' ) . '">' . get_cmb_value( 'person_email' ) . "</a>" : '' ) . 
+				( has_cmb_value( 'person_company' ) ? '<br>' . get_cmb_value( 'person_company' ) . "" : '' ) . 
 				'</div>';
 			$o .= '<div class="group"></div>';
 			$o .= '</div>';
