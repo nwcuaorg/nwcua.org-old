@@ -225,20 +225,6 @@ function page_metaboxes( $meta_boxes ) {
     ));
 
     $person_metabox->add_field( array(
-        'name' => 'Education',
-        'id'   => CMB_PREFIX . 'person_education',
-        'type' => 'wysiwyg',
-        'options' => array( 'textarea_rows' => 7 )
-    ) );
-
-    $person_metabox->add_field( array(
-        'name' => 'Comments',
-        'id'   => CMB_PREFIX . 'person_comments',
-        'type' => 'wysiwyg',
-        'options' => array( 'textarea_rows' => 7 )
-    ) );
-
-    $person_metabox->add_field( array(
         'name' => 'Title',
         'id'   => CMB_PREFIX . 'person_title',
         'type' => 'textarea_small'
@@ -266,6 +252,20 @@ function page_metaboxes( $meta_boxes ) {
         'name' => 'Company',
         'id'   => CMB_PREFIX . 'person_company',
         'type' => 'text',
+    ) );
+
+    $person_metabox->add_field( array(
+        'name' => 'Education',
+        'id'   => CMB_PREFIX . 'person_education',
+        'type' => 'wysiwyg',
+        'options' => array( 'textarea_rows' => 7 )
+    ) );
+
+    $person_metabox->add_field( array(
+        'name' => 'Comments',
+        'id'   => CMB_PREFIX . 'person_comments',
+        'type' => 'wysiwyg',
+        'options' => array( 'textarea_rows' => 7 )
     ) );
 
 
