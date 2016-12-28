@@ -41,3 +41,20 @@
 	}
 }
 
+
+.person-info {
+	h5 {
+		color: lighten( $grey-dark, 10% );
+		padding-top: 20px;
+	}
+
+	.person-title {
+		color: $green;
+		padding-top: 0;
+	}
+
+	.person-value {
+		padding-top: 0;
+	}
+}
+

@@ -12,20 +12,19 @@ get_header();
 		<div class="content-header">
 			<h2><?php the_excerpt(); ?></h2>
 		</div>
-		<div class="quarter sidebar right">
+		<div class="quarter sidebar right person-info person-info">
 			<?php the_post_thumbnail(); ?>
 			<h4><?php the_title(); ?></h4>
-			<p class='quiet'><?php print nl2br( get_cmb_value( 'person_title' ) ); ?></p>
-			<hr>
+			<p class='quiet person-title'><?php print nl2br( get_cmb_value( 'person_title' ) ); ?></p>
 			<h5>Phone:</h5>
-			<p><?php show_cmb_value( 'person_phone' ); ?></p>
+			<p class="person-value"><?php show_cmb_value( 'person_phone' ); ?></p>
 			<?php if ( has_cmb_value( 'person_phone_tf') ) { ?>
 			<h5>Toll Free:</h5>
-			<p><?php show_cmb_value( 'person_phone_tf' ); ?></p>
+			<p class="person-value"><?php show_cmb_value( 'person_phone_tf' ); ?></p>
 			<?php } ?>
 			<?php if ( has_cmb_value( 'person_email') ) { ?>
 			<h5>Email:</h5>
-			<p><a href="mailto:<?php show_cmb_value( 'person_email' ); ?>"><?php show_cmb_value( 'person_email' ); ?></a></p>
+			<p class="person-value"><a href="mailto:<?php show_cmb_value( 'person_email' ); ?>"><?php show_cmb_value( 'person_email' ); ?></a></p>
 			<?php } ?>
 		</div>
 		<div class="half right">
