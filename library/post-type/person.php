@@ -124,7 +124,7 @@ function people_shortcode( $atts = [], $content = null, $tag = '' ) {
 		'post_type' => 'person',
 		'posts_per_page' => '-1',
 		'meta_query' => array(
-			'relation' => 'OR',
+			'relation' => 'AND',
 			'sort_value' => array(
 				'key' => '_p_person_sort',
 				'orderby' => 'meta_value_num',
