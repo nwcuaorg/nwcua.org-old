@@ -35,7 +35,7 @@ function the_accordion() {
 				</div>
 				<div class="accordion-box-content">
 					<?php if ( $accordion_location == 'bottom' ) { ?><div class="wrap"><?php } ?>
-					<?php print wpautop( $content ); ?>
+					<?php print wpautop( do_shortcode( $content ) ); ?>
 					<?php if ( $accordion_location == 'bottom' ) { ?></div><?php } ?>
 				</div>
 			</div>
