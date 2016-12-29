@@ -57,6 +57,8 @@
 @include respond-to( 900px ) {	
 	.three-quarter, .half, .sixty {
 		.person-list {
+			padding: 5px 0 20px;
+
 			.person {
 				float: left;
 				width: 48%;
