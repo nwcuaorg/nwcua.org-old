@@ -45,7 +45,7 @@ function person_post_type() {
 				'with_front' => false 
 			), /* you can specify its url slug */
 			'has_archive' => false, /* you can rename the slug here */
-			'capability_type' => 'person',
+			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
 			'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail' )
