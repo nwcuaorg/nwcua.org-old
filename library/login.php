@@ -88,7 +88,7 @@ function nwcua_signon( $user, $username, $password ) {
 		if ( empty( $user ) ) {
 
 			// build an insert query
-			$insert_user = 'INSERT INTO `nwcua_users` ( `ID`, `user_login`, `user_pass`, `user_email`, `user_registered`, `display_name` ) VALUES ( ' . $associo_user->id . ', "' . $associo_user->username . '", "' . md5( $associo_user->username ) . '", "' . date( strtotime( $associo_user->created_at ) ). '", "' . $associo_user->email . '", "' . $associo_user->first_name . ' ' . $associo_user->last_name . '" );';
+			$insert_user = 'INSERT INTO `nwcua_users` ( `ID`, `user_login`, `user_pass`, `user_email`, `user_registered`, `display_name` ) VALUES ( ' . $associo_user->id . ', "' . $associo_user->username . '", "' . md5( $associo_user->username ) . '", "' . $associo_user->email . '", "' . date( "Y-m-d H:i:s", strtotime( $associo_user->created_at ) ) . '", "' . $associo_user->first_name . ' ' . $associo_user->last_name . '" );';
 
 			// insert the user
 			$wpdb->query( $insert_user );
@@ -303,12 +303,20 @@ function pure_reset_password( $user, $new_pass ) {
 	wp_set_password( $new_pass, $user->ID );
 	update_user_option( $user->ID, 'default_password_nag', false, true );
 
+	$update_credentials = array(
+		'password' => $new_pass
+	);
+
+	$update_user = call_associo_api( 'account/' . $user->ID, $update_credentials );
+	
+	print_r( $update_user ); die;
+
 	wp_password_change_notification( $user );
 
 	$login_page = get_post( pure_get_option( 'login-page' ) );
 	$login_url = get_permalink( $login_page->ID );
 
-    wp_redirect( $login_url . '?reset=success' ); 
+    wp_redirect( $login_url . '?reset=success' );
     exit;
 
 }

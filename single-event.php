@@ -78,11 +78,13 @@ get_header();
 						print "<p><label>Email:</label> <a href=\"mailto:" . $venue_email . "\">" . $venue_email . "</a></p>";
 					}
 
+				}
+
+				if ( has_cmb_value( 'event_location_link' ) ) {
 					// gmap embed api key: AIzaSyB0FlglKxf0TJtQZJlbrCa5q836iyMRcYE
 					?>
 				<p><iframe width="100%" height="250" frameborder="0" style="border: 0;"
-				src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB0FlglKxf0TJtQZJlbrCa5q836iyMRcYE
-				&q=<?php print urlencode( $address . ", " . $city . ", "  . $state . ", " . $zipcode ) ?>" allowfullscreen></iframe></p>
+				src="<?php show_cmb_value( 'event_location_link' ) ?>" allowfullscreen></iframe></p>
 					<?php
 				}
 

@@ -3,8 +3,8 @@
 
 function call_associo_api( $endpoint, $data='' ) {
 	
-	// encode string as JSON
-	$data = json_encode($data);
+	// encode data array as JSON
+	$data = json_encode( $data );
 
 
 	// set endpoint, method, and headers 

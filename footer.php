@@ -49,7 +49,16 @@
 			</div>
 		</div>
 	</footer><!-- #colophon -->
-
+	<div class='wrapper'>
+		<div class='colophon'>
+			<p>Copyright &copy; <?php print date( 'Y' ); ?> NWCUA. All Rights Reserved.</p>
+		</div>
+	</div>
+	<div class='overlay-container'>
+		<div class='overlay-box'>
+			<div class='overlay-inner'></div>
+		</div>
+	</div>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
