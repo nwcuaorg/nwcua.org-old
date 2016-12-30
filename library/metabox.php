@@ -476,6 +476,13 @@ function page_metaboxes( $meta_boxes ) {
         'type' => 'text'
     ) );
 
+    $event_metabox->add_field( array(
+        'name' => 'Registration Link (Override)',
+        'id'   => CMB_PREFIX . 'event_registration',
+        'desc' => 'Just in case we need to override the registration button URL.',
+        'type' => 'text'
+    ) );
+
 
 
     // accordion metabox

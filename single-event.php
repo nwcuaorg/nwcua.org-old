@@ -24,6 +24,8 @@ get_header();
 		<?php 
 		if ( have_posts() ) :
 			while ( have_posts() ) : the_post(); 
+				global $post;
+    			$slug = $post->post_name;
 				?>
 			<div class="quarter right event-info">
 				<?php 
@@ -58,8 +60,8 @@ get_header();
 				$current_price = ( $is_early ? $early_price : ( $is_late ? $late_price : $regular_price ) );
 				if ( $current_price != '0' ) {
 					print "<p><label>Price:</label><br>$" . $current_price . ( $is_early ? ' (early bird price)' : ( $is_late ? ' (late registration price)' : '' ) ) . "</p>";
-					//print '<p class="text-center"><a href="/event-registration/?event_price=' . $current_price . '&event_name=' . get_the_title() . '&event_qty=1" class="button">Register Now</a></p>';
 				}
+				print '<p style="padding-top: 20px;"><a href="' ( has_cmb_value( 'event_registration' ) ? get_cmb_value( 'event_registration' ) : 'https://app.nwcua.org/events/' . $slug . '/registrations/new' ) . '" class="btn-arrow green">Register Now</a></p>';
 
 				// get address values and display them.
 				$venue = get_cmb_value( 'event_venue' );
