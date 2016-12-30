@@ -5,13 +5,13 @@
 define('WP_USE_THEMES', false);
 require( '../../../../wp-load.php' );
 
-// include the Associo library
-require( '../library/associo.php' );
-
 
 // get all the events from the API
 $events = get_associo_events();
 
+
+// display events in test before anything else happen
+// print_r( $events ); die;
 
 
 // database object
@@ -152,11 +152,14 @@ foreach ( $events as $event ) {
 				WHERE `ID`=" . $previous_post->ID . ";";
 			if ( $db->update( $update_query ) ) {
 	    		print 'existing post - updated.' . "\n";
-	    		set_meta( $previous_post->ID, '_p_event_website', $event->location_link );
+	    		set_meta( $previous_post->ID, '_p_event_location_text', $event->location_text );
+	    		set_meta( $previous_post->ID, '_p_event_location_link', $event->location_link );
 	    		set_meta( $previous_post->ID, '_p_event_start', strtotime( $event->start_date ) );
 	    		set_meta( $previous_post->ID, '_p_event_end', strtotime( $event->end_date ) );
-	    		set_meta( $previous_post->ID, '_p_event_early_date', strtotime( $event->late_date ) );
-	    		set_meta( $previous_post->ID, '_p_event_price_early', $event->price );
+	    		set_meta( $previous_post->ID, '_p_event_early_date', strtotime( $event->early_price_until ) );
+	    		set_meta( $previous_post->ID, '_p_event_early_price', $event->early_price );
+	    		set_meta( $previous_post->ID, '_p_event_late_date', strtotime( $event->late_date ) );
+	    		set_meta( $previous_post->ID, '_p_event_late_price', $event->late_price );
 	    		if ( !empty( $event->event_type ) ) set_term( $previous_post->ID, $event->event_type );
 			} else {
 				print 'existing post - failed.' . "\n";
@@ -166,11 +169,14 @@ foreach ( $events as $event ) {
 			$post_id = $db->insert( "INSERT INTO `nwcua_posts` ( `post_author`, `post_date`, `post_date_gmt`, `post_name`, `post_title`, `post_content`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_type`, `to_ping`, `pinged`, `post_content_filtered`, `old_id` ) VALUES ( 1, \"" . date( 'Y-m-d H:i:s', strtotime( $event->created_at ) ) . "\", \"" . date( 'Y-m-d H:i:s', strtotime( $event->created_at ) ) . "\", \"" . sanitize_title( $event->name ) . "\", \"" . $db->cn->real_escape_string( $event->name ) . "\", \"" . $db->cn->real_escape_string( $event->content ) . "\", \"" . $db->cn->real_escape_string( $event->content ) . "\", \"publish\", \"open\", \"open\", \"event\", '', '', '', " . $event->id . " );" );
 			if ( $post_id ) {
 				print 'new event - inserted.' . "\n";
-	    		set_meta( $post_id, '_p_event_website', $event->location_link );
+	    		set_meta( $post_id, '_p_event_location_text', $event->location_text );
+	    		set_meta( $post_id, '_p_event_location_link', $event->location_link );
 	    		set_meta( $post_id, '_p_event_start', strtotime( $event->start_date ) );
 	    		set_meta( $post_id, '_p_event_end', strtotime( $event->end_date ) );
-	    		set_meta( $post_id, '_p_event_early_date', strtotime( $event->late_date ) );
-	    		set_meta( $post_id, '_p_event_price_early', $event->price );
+	    		set_meta( $post_id, '_p_event_early_date', strtotime( $event->early_price_until ) );
+	    		set_meta( $post_id, '_p_event_early_price', $event->early_price );
+	    		set_meta( $post_id, '_p_event_late_date', strtotime( $event->late_date ) );
+	    		set_meta( $post_id, '_p_event_late_price', $event->late_price );
 	    		if ( !empty( $event->event_type ) ) set_term( $post_id, $event->event_type );
 			} else {
 				print 'new post - failed.' . "\n";

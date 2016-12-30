@@ -5,10 +5,11 @@ function call_associo_api( $endpoint, $data='' ) {
 	
 	// encode string as JSON
 	$data = json_encode($data);
-	
 
-	// set endpoint, method, and headers
-	$ch = curl_init( 'http://nwcua.ditest.us/api/' . $endpoint );
+
+	// set endpoint, method, and headers 
+	// $ch = curl_init( 'http://nwcua.ditest.us/api/' . $endpoint );
+	$ch = curl_init( 'https://app.nwcua.org/api/' . $endpoint );
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array(

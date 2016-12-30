@@ -327,7 +327,7 @@ function page_metaboxes( $meta_boxes ) {
 
     $event_metabox->add_field( array(
         'name' => 'Early Bird Price',
-        'id'   => CMB_PREFIX . 'event_price_early',
+        'id'   => CMB_PREFIX . 'event_early_price',
         'type' => 'text_money'
     ) );
 
@@ -335,6 +335,30 @@ function page_metaboxes( $meta_boxes ) {
         'name' => 'Regular Price',
         'id'   => CMB_PREFIX . 'event_price',
         'type' => 'text_money'
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Late Registration Date',
+        'id'   => CMB_PREFIX . 'event_late_date',
+        'type' => 'text_datetime_timestamp'
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Late Registration Price',
+        'id'   => CMB_PREFIX . 'event_late_price',
+        'type' => 'text_money'
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Location Description',
+        'id'   => CMB_PREFIX . 'event_location_text',
+        'type' => 'text',
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Map Embed URL',
+        'id'   => CMB_PREFIX . 'event_location_link',
+        'type' => 'text',
     ) );
 
     $event_metabox->add_field( array(

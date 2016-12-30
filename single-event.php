@@ -49,12 +49,15 @@ get_header();
 
 				// display price
 				$early_date = get_cmb_value( 'event_early_date' );
-				$early_price = get_cmb_value( 'event_price_early' );
+				$early_price = get_cmb_value( 'event_early_price' );
 				$regular_price = get_cmb_value( 'event_price' );
+				$late_date = get_cmb_value( 'event_late_date' );
+				$late_price = get_cmb_value( 'event_late_price' );
 				$is_early = ( time() < $early_date );
-				$current_price = ( $is_early ? $early_price : $regular_price );
+				$is_late = ( time() < $late_date );
+				$current_price = ( $is_early ? $early_price : ( $is_late ? $late_price : $regular_price ) );
 				if ( $current_price != '0' ) {
-					print "<p><label>Price:</label><br>$" . $current_price . ( $is_early ? ' (early registration price)' : '' ) . "</p>";
+					print "<p><label>Price:</label><br>$" . $current_price . ( $is_early ? ' (early bird price)' : ( $is_late ? ' (late registration price)' : '' ) ) . "</p>";
 					//print '<p class="text-center"><a href="/event-registration/?event_price=' . $current_price . '&event_name=' . get_the_title() . '&event_qty=1" class="button">Register Now</a></p>';
 				}
 
