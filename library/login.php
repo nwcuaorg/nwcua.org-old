@@ -54,24 +54,85 @@ function remove_admin_bar() {
 }
 
 
+function update_user_meta_item( $associo_user, $field_label ) {
+	if ( !empty( $associo_user->$field_label ) ) {
+		update_user_meta( $associo_user->id, $field_label, $associo_user->$field_label );
+	}
+}
+
 
 // add a new password encryption schema that includes the username.
 add_filter( 'authenticate', 'nwcua_signon', 30, 3 );
 function nwcua_signon( $user, $username, $password ) {
 
-	$creds = array(
-		'user_login' => $username,
-		'user_password' => $username . "\n" . $password,
-		'remember' => true
-	);
-	$user_check = get_user_by( 'login', $username );
-	
-	if ( $user_check->user_pass == md5( $username . "\n" . $password ) ) {
-		return $user_check;
-	}
+	global $wpdb;
 
-	// return the user
-    return $user;
+	// get wp user
+	$user = get_user_by( 'login', $username );
+
+	// set up a credential array in 
+	$credentials = array(
+		"username" => $username,
+		"password" => $password
+	);
+
+	// get response from associo api
+	$associo_user = json_decode( call_associo_api( 'account/authenticate/', $credentials ) );
+
+	// show what we get from associo without allowing the rest to happen
+	// print_r( $associo_user ); die;
+
+	// if the response is a valid user object
+	if ( isset( $associo_user->username ) ) {
+
+		if ( empty( $user ) ) {
+
+			// build an insert query
+			$insert_user = 'INSERT INTO `nwcua_users` ( `ID`, `user_login`, `user_pass`, `user_email`, `user_registered`, `display_name` ) VALUES ( ' . $associo_user->id . ', "' . $associo_user->username . '", "' . md5( $associo_user->username ) . '", "' . date( strtotime( $associo_user->created_at ) ). '", "' . $associo_user->email . '", "' . $associo_user->first_name . ' ' . $associo_user->last_name . '" );';
+
+			// insert the user
+			$wpdb->query( $insert_user );
+
+			// set new user role.
+			wp_update_user( array( 'ID' => $associo_user->id, 'role' => ( $associo_user->member ? 'member' : 'subscriber' ) ) );
+
+			// retrieve our new user
+			$user = get_user_by( 'login', $username );
+
+		} else if ( $user->user_login != $associo_user->username ) {
+
+			// build an insert query
+			$insert_user = 'UPDATE `nwcua_users` SET `user_login`="' . $associo_user->username . '", `user_email`="' . $associo_user->email . '" WHERE `ID`=' . $associo_user->id . ';';
+
+			// insert the user
+			$wpdb->query( $update_user );
+
+			// set updated user role.
+			wp_update_user( array( 'ID' => $associo_user->id, 'role' => ( $associo_user->member ? 'member' : 'subscriber' ) ) );
+
+			// retrieve our new user
+			$user = get_user_by( 'login', $username );
+
+		}
+
+		// update some user meta data
+		// update_user_meta_item( $associo_user, 'mailing_address_1' );
+		
+		// one final user retrieval to make sure we have all the fields
+		$user = get_user_by( 'login', $username );
+
+		// show final user object before returning, and die so we can inspect it.
+		// print_r( $user ); die;
+
+		// return the new user
+		return $user;
+
+	} else {
+
+		// no user found
+		return false;
+
+	}
 
 }
 

@@ -4,7 +4,8 @@
 function call_associo_api( $endpoint, $data='' ) {
 	
 	// encode string as JSON
-	$data_string = json_encode($data);
+	$data = json_encode($data);
+	
 
 	// set endpoint, method, and headers
 	$ch = curl_init( 'http://nwcua.ditest.us/api/' . $endpoint );
@@ -15,11 +16,12 @@ function call_associo_api( $endpoint, $data='' ) {
 		'Content-Type: application/json'
 	) );
 
+
 	// set the data being posted to the server
-	if ( !empty( $data ) ) curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+	if ( !empty( $data ) ) curl_setopt( $ch, CURLOPT_POSTFIELDS, $data );
 
 	// execute the curl call.
-	$result = curl_exec($ch);
+	$result = curl_exec( $ch );
 
 	// return the response
 	return $result;

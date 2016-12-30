@@ -11,6 +11,7 @@ define( "CMB_PREFIX", "_p_" );
 
 
 // include the login library
+include( "library/associo.php" );
 include( "library/login.php" );
 
 
