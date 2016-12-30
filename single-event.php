@@ -58,7 +58,7 @@ get_header();
 				$is_early = ( time() < $early_date );
 				$is_late = ( time() < $late_date );
 				$current_price = ( $is_early ? $early_price : ( $is_late ? $late_price : $regular_price ) );
-				if ( $current_price != '0' ) {
+				if ( !empty( $current_price ) ) {
 					print "<p><label>Price:</label><br>$" . $current_price . ( $is_early ? ' (early bird price)' : ( $is_late ? ' (late registration price)' : '' ) ) . "</p>";
 				}
 				print '<p style="padding-top: 20px;"><a href="' . ( has_cmb_value( 'event_registration' ) ? get_cmb_value( 'event_registration' ) : 'https://app.nwcua.org/events/' . $slug . '/registrations/new' ) . '" class="btn-arrow green">Register Now</a></p>';
