@@ -148,9 +148,9 @@ foreach ( $events as $event ) {
 				`post_status`=\"publish\",
 				`comment_status`=\"open\",
 				`ping_status`=\"open\",
-				`post_type`=\"event\"
+				`post_type`=\"event\",
 				`post_modified`=\"" . date( 'Y-m-d H:i:s' ) . "\",
-				`post_modified_gmt`=\"" . date( 'Y-m-d H:i:s' ) . "\",
+				`post_modified_gmt`=\"" . date( 'Y-m-d H:i:s' ) . "\"
 				WHERE `ID`=" . $previous_post->ID . ";";
 			if ( $db->update( $update_query ) ) {
 	    		print 'existing post - updated.' . "\n";
