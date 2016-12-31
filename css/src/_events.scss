@@ -63,6 +63,10 @@
 			background: lighten( $grey, 30% );
 		}
 
+		.day-number {
+			text-align: right;
+		}
+
 		.day-events {
 			display: none;
 
