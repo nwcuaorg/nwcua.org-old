@@ -68,3 +68,73 @@
 	}
 }
 
+
+
+
+.masthead-title {
+	box-shadow: inset 0 40px 40px -40px rgba( black, .5 );
+	position: relative;
+	background-image: none;
+	padding: 20px;
+
+	@include respond-to( 900px ) { padding: 30px; }
+
+	.app_page {
+		background-color: #60605b;
+	}
+
+	.wrapper {
+	    padding: 15px 15px 15px 30px; 
+
+		img {
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-top: -30px;
+			height: 60px;
+
+
+			@include respond-to( 768px ) { 
+				width: 80px;
+				height: 80px;
+				margin-top: -40px;
+			}
+
+			@include respond-to( 900px ) { 
+				width: 100px;
+				height: 100px;
+				margin-top: -50px;
+			}
+
+		}
+
+		h1 {
+			color: white;
+			border: 3px solid white;
+			padding: 15px 15px 15px 30px;
+			line-height: 1.1em;
+			font-size: 20px;
+			*text-align: left; 
+
+			@include respond-to( 480px ) { 
+				margin: 0 30px;
+			}
+
+			@include respond-to( 768px ) { 
+				margin: 0 40px;
+				padding: 30px 30px 30px 60px; 
+			}
+
+			@include respond-to( 900px ) { 
+				margin: 0 50px;
+				padding: 30px 30px 30px 70px; 
+			}
+			
+			@include respond-to( 480px ) { font-size: 30px; }
+			@include respond-to( 768px ) { font-size: 40px; }
+			@include respond-to( 900px ) { font-size: 50px; }
+		}
+	}
+}
+
