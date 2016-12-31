@@ -52,7 +52,7 @@ $color = get_category_color( $category[0]->cat_ID );
 						$thumbnail_url = wp_get_attachment_url( $thumbnail_id );
 						if ( !empty( $thumbnail_url ) ) {
 							?>
-						<img src="<?php print p_image_resize( $thumbnail_url, 800, 500, 1, 1 ); ?>" />
+						<img src="<?php print $thumbnail_url; ?>" />
 							<?php
 						}
 
