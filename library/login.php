@@ -88,7 +88,7 @@ function nwcua_signon( $user, $username, $password ) {
 		if ( empty( $user ) ) {
 
 			// build an insert query
-			$insert_user = 'INSERT INTO `nwcua_users` ( `ID`, `user_login`, `user_pass`, `user_email`, `user_registered`, `display_name` ) VALUES ( ' . $associo_user->id . ', "' . $associo_user->username . '", "' . md5( $associo_user->username ) . '", "' . $associo_user->email . '", "' . date( "Y-m-d H:i:s", strtotime( $associo_user->created_at ) ) . '", "' . $associo_user->first_name . ' ' . $associo_user->last_name . '" );';
+			$insert_user = 'INSERT INTO `nwcua_users` ( `ID`, `user_login`, `user_pass`, `user_email`, `user_nicename`, `user_registered`, `display_name` ) VALUES ( ' . $associo_user->id . ', "' . $associo_user->username . '", "' . md5( $associo_user->username ) . '", "' . $associo_user->email . '", "' . $associo_user->username . '", ' . date( "Y-m-d H:i:s", strtotime( $associo_user->created_at ) ) . '", "' . $associo_user->first_name . ' ' . $associo_user->last_name . '" );';
 
 			// insert the user
 			$wpdb->query( $insert_user );
@@ -102,7 +102,7 @@ function nwcua_signon( $user, $username, $password ) {
 		} else if ( $user->user_login != $associo_user->username ) {
 
 			// build an insert query
-			$insert_user = 'UPDATE `nwcua_users` SET `user_login`="' . $associo_user->username . '", `user_email`="' . $associo_user->email . '" WHERE `ID`=' . $associo_user->id . ';';
+			$insert_user = 'UPDATE `nwcua_users` SET `user_login`="' . $associo_user->username . '", `user_nicename`="' . $associo_user->username . '", `user_email`="' . $associo_user->email . '", `display_name`="' . $associo_user->first_name . ' ' . $associo_user->last_name . '" WHERE `ID`=' . $associo_user->id . ';';
 
 			// insert the user
 			$wpdb->query( $update_user );
