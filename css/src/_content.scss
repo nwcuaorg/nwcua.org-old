@@ -30,6 +30,10 @@
 	@include respond-to( 768px ) {
 		padding: 10px 40px;
 	}
+
+	.members-access-error {
+		display: none;
+	}
 }
 
 .content-two-column {
@@ -328,3 +332,4 @@ table {
 		opacity: .9;
 	}
 }
+
