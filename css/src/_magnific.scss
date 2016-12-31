@@ -372,35 +372,4 @@ img.mfp-img {
   top: 0;
   right: 0;
   padding-top: 0; }
-
-
-// old overlay css, just in case.
-
-.overlay-container {
-  display: none;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 2000;
-  background: url(../img/bg-black-translucent.png); }
-  .overlay-container .overlay-box {
-    background: white;
-    box-shadow: 3px 3px 20px black;
-    overflow: auto; }
-    .overlay-container .overlay-box .overlay-inner {
-      padding: 10px 15px; }
-    .overlay-container .close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      z-index: 300;
-      width: 30px;
-      height: 30px;
-      color: transparent;
-      background: url(../img/icon-close.png) center center no-repeat;
-      cursor: pointer; }
-
-
       
