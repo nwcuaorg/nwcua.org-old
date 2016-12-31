@@ -37,9 +37,9 @@ get_header();
 						print " - " . date( "g:i a", get_cmb_value( 'event_end' ) );
 					}
 					print " P" . ( date('I') == 1 ? "S" : "D" ) . "T<br>";
-					print date( "g:i a", get_cmb_value( 'event_start' )+3600 );
+					print date( "g:i a", get_cmb_value( 'event_start' ) );
 					if ( has_cmb_value( 'event_end' ) ) {
-						print " - " . date( "g:i a", get_cmb_value( 'event_end' )+3600 );
+						print " - " . date( "g:i a", get_cmb_value( 'event_end' ) );
 					}
 					print " M" . ( date('I') == 1 ? "S" : "D" ) . "T</p>";
 				}
