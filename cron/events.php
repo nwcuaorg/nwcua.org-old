@@ -130,13 +130,14 @@ function set_term( $post_id, $slug ) {
 }
 
 
-$tz_offset = ( 3600 * 7 );
 
 
 // loop through the events
 foreach ( $events as $event ) {
 
 	if ( !empty( $event ) ) {
+		$tz_offset = ( 3600 * ( stristr( $event->start_date, '-07:00' ) ? 7 : 8 ) );
+
 		// get a previous post if it exists.
 		$previous_post = $db->query_one( "SELECT * FROM `nwcua_posts` WHERE `old_id`=" . $event->id . ";" );
 		if ( !empty( $previous_post ) ) {
