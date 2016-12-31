@@ -312,6 +312,11 @@ table {
 		color: $grey;
 		font-style: italic;
 	}
+
+	.frame-shadow {
+		box-shadow: 0 0 50px rgba( $grey, .2 );
+		border: 1px solid lighten( $grey , 20% );
+	}
 }
 
 
