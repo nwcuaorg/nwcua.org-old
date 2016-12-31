@@ -49,9 +49,8 @@
 		</div>
 		
 		<div class='tools'>
-			<!--<a href="/login" class="button account">Login</a>-->
 			<?php account_button(); ?>
-			<a href="/cart" class="button cart">Shopping Cart</a>
+			<a href="https://app.nwcua.org/cart" class="button cart">Shopping Cart</a>
 		</div>
 
 	</div>

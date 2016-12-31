@@ -33,7 +33,7 @@ function account_button() {
 	// if the user is logged in.
 	if ( is_user_logged_in() ) { 
 		?>
-		<a href="<?php print $account_url ?>" class='account button'>My Account</a>
+		<a href="<?php echo wp_logout_url( '/' ); ?> " class='account button'>Logout</a>
 		<?php 
 	} else { 
 		?>
@@ -88,7 +88,7 @@ function nwcua_signon( $user, $username, $password ) {
 		if ( empty( $user ) ) {
 
 			// build an insert query
-			$insert_user = 'INSERT INTO `nwcua_users` ( `ID`, `user_login`, `user_pass`, `user_email`, `user_nicename`, `user_registered`, `display_name` ) VALUES ( ' . $associo_user->id . ', "' . $associo_user->username . '", "' . md5( $associo_user->username ) . '", "' . $associo_user->email . '", "' . $associo_user->username . '", ' . date( "Y-m-d H:i:s", strtotime( $associo_user->created_at ) ) . '", "' . $associo_user->first_name . ' ' . $associo_user->last_name . '" );';
+			$insert_user = 'INSERT INTO `nwcua_users` ( `ID`, `user_login`, `user_pass`, `user_email`, `user_nicename`, `user_registered`, `display_name` ) VALUES ( ' . $associo_user->id . ', "' . $associo_user->username . '", "' . md5( $associo_user->username ) . '", "' . $associo_user->email . '", "' . $associo_user->username . '", "' . date( "Y-m-d H:i:s", strtotime( $associo_user->created_at ) ) . '", "' . $associo_user->first_name . ' ' . $associo_user->last_name . '" );';
 
 			// insert the user
 			$wpdb->query( $insert_user );
@@ -212,7 +212,8 @@ function login_form_shortcode( $atts, $content = null ) {
 
 	if ( !is_user_logged_in() ) {
 		$form .= wp_login_form( array('echo' => false, 'redirect' => $redirect ) );
-		$form .= '<p><a href="' . $reset_url . '">Lost/forgotten Password</a></p>';
+		// $form .= '<p><a href="' . $reset_url . '">Lost/forgotten Password</a></p>';
+		$form .= '<p><a href="https://app.nwcua.org/forgot_password">Lost/forgotten Password</a></p>';
 	} else {
 		$form .= "You are currently logged in, please visit <a href='" . $account_url . "'>your account</a> for more options.";
 	}
