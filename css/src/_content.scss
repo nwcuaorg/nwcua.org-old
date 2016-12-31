@@ -285,24 +285,6 @@ table {
 		}
 	}
 
-	.btn-arrow, .button {
-		padding: 12px 35px 12px 20px;
-		background-image: url(../img/icon-arrow-white-right.png);
-		background-position: right center;
-		background-repeat: no-repeat;
-		background-color: $river;
-		color: white;
-		font-size: .9em;
-		margin: 3px 10px 3px 0;
-		
-		&.green { background-color: $green; }
-
-		&:hover {
-			text-decoration: none;
-			opacity: .9;
-		}
-	}
-
 	.anthem-art, .wp-caption {
 		color: $lime;
 		max-width: 40%;
@@ -328,3 +310,21 @@ table {
 	}
 }
 
+
+.btn-arrow, .button {
+	padding: 12px 35px 12px 20px;
+	background-image: url(../img/icon-arrow-white-right.png);
+	background-position: right center;
+	background-repeat: no-repeat;
+	background-color: $river;
+	color: white;
+	font-size: .9em;
+	margin: 3px 10px 3px 0;
+	
+	&.green { background-color: $green; }
+
+	&:hover {
+		text-decoration: none;
+		opacity: .9;
+	}
+}
