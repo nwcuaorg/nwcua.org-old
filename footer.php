@@ -43,7 +43,8 @@
 				); ?>
 			</div>
 			<div class="column quarter">
-				<h3>Set Your Preferences</h3>
+				<h3>Customize
+				<br>Your Experience</h3>
 				<p>Sign up for our Anthem Newsletter, and other alerts, updates, and marketing messages.</p>
 				<!--<div class="subscribe-form"><input id="subscribe-email" type="text" /> <button value="Subscribe"> </button></div>-->
 				<p><a href="/assets_site/ajax/subscribe-form.htm" class="btn-arrow lightbox-iframe" style="background-color: #aabb38;">Subscribe</a></p>
