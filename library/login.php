@@ -232,7 +232,7 @@ function reset_form_shortcode( $atts, $content = null ) {
     $account_url = get_permalink( $account_page->ID );
  	
  	// they're logged in, what do they need a password reset for?!
-	if ( is_user_logged_in() ) return "You are currently logged in, please visit <a href='" . $account_url . "'>your account</a> for more options.";
+	if ( is_user_logged_in() ) return "You are already logged in.";
 
 	// empty form variable.
 	$form = '';
