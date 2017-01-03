@@ -16,7 +16,7 @@
 <![endif]-->
 
 <?php wp_head(); ?>
-<link href="<?php bloginfo( "template_url" ) ?>/css/main.css?ver=16" rel="stylesheet" type="text/css">
+<link href="<?php bloginfo( "template_url" ) ?>/css/main.css?v=<?php print time(); ?>" rel="stylesheet" type="text/css">
 
 </head>
 <body <?php body_class(); ?>>
