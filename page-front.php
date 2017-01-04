@@ -58,7 +58,13 @@ get_header();
 		$query_args['meta_key'] = '_p_priority';
 		$query_args['orderby'] = array( 'meta_value_num' => 'DESC', 'date' => 'DESC' );
 		$query_args['posts_per_page'] = ( !empty( $events ) ? 13 : 14 );
-
+		$query_arts['meta_query'] = array(
+			array(
+				'key'=>'_p_priority',
+				'value'=>'-1',
+				'compare'=>'!=',
+			),
+		);
 
 		// if there was a category set in the arguments
 		if ( isset( $_GET['category'] ) ) {

@@ -564,7 +564,9 @@ function page_metaboxes( $meta_boxes ) {
         'name' => 'Priority',
         'id'   => CMB_PREFIX . 'priority',
         'type' => 'select',
+        'default' => 0,
         'options' => array(
+            -1 => 'Do Not Show',
             0 => 'Low',
             1 => 'Medium',
             2 => 'High'
