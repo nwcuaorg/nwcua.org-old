@@ -103,15 +103,15 @@ if ( isset( $_REQUEST['category'] ) ) {
 
 
 		//query the posts with the supplied arguments
-		$home_query = new WP_Query( $query_args );
+		$wp_query = new WP_Query( $query_args );
 
 
 		?>
 		<div id="content" class="wrap content-wide home-list" role="main">
 			<?php
-			if ( $home_query->have_posts() ) {
+			if ( $wp_query->have_posts() ) {
 				$count = 1;
-				while ( $home_query->have_posts() ) : $home_query->the_post();
+				while ( $wp_query->have_posts() ) : $wp_query->the_post();
 					?>
 					<div class="entry priority-<?php show_cmb_value( 'priority' ); ?>">
 						<div class="entry-image">

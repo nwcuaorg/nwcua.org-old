@@ -53,10 +53,10 @@ add_filter( 'widget_text', array( $wp_embed, 'autoembed'), 8 );
 
 
 // pagination
-function pagination($prev = '&laquo;', $next = '&raquo;') {
+function pagination( $prev = '&laquo;', $next = '&raquo;' ) {
     global $wp_query, $wp_rewrite;
 
-    $wp_query->query_vars['paged'] > 1 ? $current = $wp_query->query_vars['paged'] : $current = 1;
+    $current = ( $wp_query->query_vars['paged'] > 1 ? $wp_query->query_vars['paged'] : 1 );
 
     $pagination = array(
         'base' => @add_query_arg('paged','%#%'),
