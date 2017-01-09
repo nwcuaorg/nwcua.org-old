@@ -13,9 +13,6 @@ Array.prototype.remove = function() {
 };
 
 
-//
-
-
 // tab controls
 jQuery(document).ready(function($){
 
@@ -27,22 +24,19 @@ jQuery(document).ready(function($){
 			$( '.browse-by-filters' ).slideToggle( 400 );
 		});
 
-		// get the current categories
-		var category = $.query.get( "category" );
+		$( '.browse-by input[type=submit]' ).click(function(e){
+			e.preventDefault();
 
-		if ( category.indexOf( '-' ) ) {
-			category = category.split('-');
-		}
+			var category = [];
 
-		// on checkbox click
-		$( '.browse-by input[type=checkbox]' ).change(function(){
-			if ( $(this).is(':checked') ) {
-				category.push( $(this).val() );
+			// loop through checkboxes and populate our array
+			$( '.browse-by input[type=checkbox]' ).each(function(){
+				if ( $(this).is(':checked') ) {
+					category.push( $(this).val() );
+				}
 				location.href = $.query.set( "category", category.join('-') );
-			} else {
-				category.remove( $(this).val() );
-				location.href = $.query.set( "category", category.join('-') );
-			}
+			});
+
 		});
 
 	}
