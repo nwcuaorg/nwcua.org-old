@@ -5,7 +5,16 @@ Template Name: Front Page
 
 get_header();
 
-if ( isset( $_REQUEST['category'] ) ) $current_categories = explode( '-', $_REQUEST['category'] );
+$current_user = get_current_user_id();
+$user_categories = get_user_meta( $current_user, 'categories', 1 );
+
+if ( isset( $_REQUEST['category'] ) ) {
+	$current_categories = explode( '-', $_REQUEST['category'] );
+
+	update_user_meta( $current_user, 'categories', $_REQUEST['category'] );
+} else if ( !empty( $user_categories ) ) {
+	$current_categories = explode( '-', $user_categories );
+}
 
 ?>
 
@@ -69,9 +78,8 @@ if ( isset( $_REQUEST['category'] ) ) $current_categories = explode( '-', $_REQU
 		);
 
 		// if there was a category set in the arguments
-		if ( isset( $_GET['category'] ) ) {
-			$categories = explode( '-', $_GET['category'] );
-			$query_args['cat'] = ( isset( $categories ) ? implode( ',', $categories ) : 0 );
+		if ( isset( $current_categories ) ) {
+			$query_args['cat'] = implode( ',', $current_categories );
 		}
 
 

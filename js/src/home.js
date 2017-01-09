@@ -34,7 +34,11 @@ jQuery(document).ready(function($){
 				if ( $(this).is(':checked') ) {
 					category.push( $(this).val() );
 				}
-				location.href = $.query.set( "category", category.join('-') );
+				if ( category.length > 0 ) {
+					location.href = $.query.set( "category", category.join('-') );
+				} else {
+					location.href = $.query.set( "category", 0 );
+				}
 			});
 
 		});
