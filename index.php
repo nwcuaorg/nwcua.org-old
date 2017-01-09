@@ -103,17 +103,22 @@ get_header();
 							<?php edit_post_link( 'Edit' ); ?>
 							<a href="<?php the_permalink() ?>">
 								<?php
+								// get categories
+								$categories = get_the_category();
+
+								// get thumbnail url
 								$thumbnail_id = get_post_thumbnail_id();
 								$thumbnail_url = wp_get_attachment_url( $thumbnail_id );
 								if ( !empty( $thumbnail_url ) ) {
 									?>
 								<img src="<?php print $thumbnail_url; ?>" />
 									<?php
+								} else {
+									?>
+								<img src="<?php print get_default_thumbnail( $categories[0]->term_id ); ?>" />
+									<?php
 								}
 
-								//the_post_thumbnail( 'large' ); 
-
-								$categories = get_the_category();
 								if ( !empty( $categories ) ) { 
 									$color = get_category_color( $categories[0]->term_id );
 									?>

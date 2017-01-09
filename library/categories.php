@@ -83,8 +83,8 @@ function get_default_thumbnail( $category_id ) {
 		case 7581:
 		case 7586:
 		case 7585:
-			$image='green';
-			$image=get_bloginfo('template_url') . '/img/category/compliance.jpg'; 
+			//$image='green';
+			$image=get_bloginfo('template_url') . '/img/category/financialeducation.jpg'; 
 		break;
 
 		case 32:
@@ -96,7 +96,7 @@ function get_default_thumbnail( $category_id ) {
 		case 42:
 		case 50:
 		case 20:
-			$image='teal';
+			// $image='teal';
 			$image=get_bloginfo('template_url') . '/img/category/strategiclink.jpg'; 
 		break;
 
