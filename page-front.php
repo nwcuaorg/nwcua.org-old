@@ -5,15 +5,34 @@ Template Name: Front Page
 
 get_header();
 
+
+// get the current user, and their category preferences.
 $current_user = get_current_user_id();
 $user_categories = get_user_meta( $current_user, 'categories', 1 );
 
+
+// if we have a category parameter
 if ( isset( $_REQUEST['category'] ) ) {
+
+	// split it into an array of ids
 	$current_categories = explode( '-', $_REQUEST['category'] );
 
-	update_user_meta( $current_user, 'categories', $_REQUEST['category'] );
+	// also, update the user preference with the string from the url
+	if ( !empty( $current_user ) ) update_user_meta( $current_user, 'categories', $_REQUEST['category'] );
+
+	// set a session variable to store current session category preferences
+	$_SESSION['user_categories'] = $_REQUEST['category'];
+
 } else if ( !empty( $user_categories ) ) {
+
+	// use the user categories if we don't have a request
 	$current_categories = explode( '-', $user_categories );
+
+} else if ( isset( $_SESSION['user_categories'] ) ) {
+
+	// use the session variable if we don't have a request and user isn't logged in.
+	$current_categories = explode( '-', $_SESSION['user_categories'] );
+
 }
 
 ?>

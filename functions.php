@@ -1,5 +1,8 @@
 <?php
 
+// start a session
+if ( session_id() == '' ) session_start(); 
+
 
 // set a custom field prefix
 define( "CMB_PREFIX", "_p_" );
@@ -35,7 +38,6 @@ include( "library/metabox-theme.php" );
 include( "library/title.php" );
 include( "library/showcase.php" );
 include( "library/accordion.php" );
-
 
 
 // [anchor] shortcode
