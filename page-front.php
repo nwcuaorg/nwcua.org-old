@@ -5,6 +5,8 @@ Template Name: Front Page
 
 get_header();
 
+if ( isset( $_REQUEST['category'] ) ) $current_categories = explode( '-', $_REQUEST['category'] );
+
 ?>
 
 	<div class="browse-by">
@@ -17,7 +19,7 @@ get_header();
 				$col_break = ceil( count( $categories )/4 );
 				$cnt = 1;
 				foreach ( $categories as $cat ) {
-					print '<label><input type="checkbox" name="category[]" value="' . $cat->term_id . '" /> ' . $cat->name . '</label>';
+					print '<label><input type="checkbox" name="category[]" value="' . $cat->term_id . '" '. ( isset( $current_categories ) ? ( in_array( $cat->term_id, $current_categories ) ? 'checked ' : '' ) : '' ) . '/> ' . $cat->name . '</label>';
 					if ( $cnt==$col_break || $cnt==$col_break*2 || $cnt==$col_break*3 ) print '</div><div class="quarter">';
 					$cnt++;
 				}
@@ -68,7 +70,8 @@ get_header();
 
 		// if there was a category set in the arguments
 		if ( isset( $_GET['category'] ) ) {
-			$query_args['cat'] = ( isset( $_GET['category'] ) ? implode( ',', $_GET['category'] ) : 0 );
+			$categories = explode( '-', $_GET['category'] );
+			$query_args['cat'] = ( isset( $categories ) ? implode( ',', $categories ) : 0 );
 		}
 
 

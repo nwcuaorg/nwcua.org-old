@@ -33,7 +33,7 @@ function account_button() {
 	// if the user is logged in.
 	if ( is_user_logged_in() ) { 
 		?>
-		<a href="<?php echo wp_logout_url( '/' ); ?> " class='account button'>Logout</a>
+		<a href="https://app.nwcua.org/account/" class='account button'>My Account</a>
 		<?php 
 	} else { 
 		?>
