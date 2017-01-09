@@ -40,7 +40,7 @@ jQuery(document).ready(function($){
 		$( this ).parent( '.accordion-box' ).children( '.accordion-box-content' ).slideToggle( 600 );
 	});
 
-	$(".expandable.handle").click(function(){
+	$( ".site-content .expandable.handle").click(function(){
 		$(this).toggleClass( "expanded" );
 		$(this).next(".expandable.block").slideToggle( 300 );
 	});
