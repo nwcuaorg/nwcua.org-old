@@ -33,7 +33,7 @@
 		</div>
 		<div class="slogan">
 			News &amp; Info for Northwest Credit Unions
-			<span>From Northwest Credit Union Association</span>
+			<span>From <a href="/">Northwest Credit Union Association</a></span>
 		</div>
 		<?php } else { ?>
 		<div class="logo">

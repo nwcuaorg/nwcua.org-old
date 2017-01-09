@@ -3,9 +3,13 @@
 Blog Template
 */
 
-$is_anthem = true;
+if ( !is_search() ) {
+	$is_anthem = true;
+}
 
-get_header(); ?>
+get_header(); 
+
+?>
 
 	
 	<div id="primary" class="site-content">
@@ -25,6 +29,7 @@ get_header(); ?>
 
 		// if it's a search, display the search term.
 		if ( is_search() ) {
+			$query_args['post_type'] = array( 'post', 'page', 'event', 'job' );
 			$query_args['posts_per_page'] = 100;
 			query_posts( $query_args );
 

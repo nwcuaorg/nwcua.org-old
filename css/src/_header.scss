@@ -20,6 +20,10 @@ header {
 		span {
 			display: block;
 			color: $grey;
+
+			a {
+				color: $grey;
+			}
 		}
 
 		@include respond-to( 1024px ) {
