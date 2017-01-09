@@ -1,0 +1,25 @@
+
+
+.search-list {
+	.entry {
+		padding: 15px 0 35px 0;
+		border-bottom: 1px solid lighten( $grey, 20% );
+		
+		h3 {
+			@include font;
+			font-style: normal;
+			font-size: 1.1em;
+		}
+
+		.post-category {
+			display: inline-block;
+			color: white;
+			padding: 8px 12px;
+		}
+
+		&.total-results {
+			padding: 0 0 10px;
+		}
+	}
+}
+

@@ -11,16 +11,10 @@ get_header(); ?>
 	<div id="primary" class="site-content">
 		<?php
 
-		// if it's a search, display the search term.
-		if ( is_search() ) {
-			?><h1>Search Results for <span>'<?php print $_REQUEST["s"]; ?>'</span></h1><?php
-		}
-
 		global $wp_query;
 		$query_args = $wp_query->query;
 		$query_args['orderby'] = array( 'meta_value_num' => 'DESC', 'date' => 'DESC' );
 		$query_args['meta_key'] = '_p_priority';
-		$query_args['posts_per_page'] = 14;
 		$query_arts['meta_query'] = array(
 			array(
 				'key'=>'_p_priority',
@@ -28,11 +22,73 @@ get_header(); ?>
 				'compare'=>'!=',
 			),
 		);
-		query_posts( $query_args );
 
-		?>
+		// if it's a search, display the search term.
+		if ( is_search() ) {
+			$query_args['posts_per_page'] = 100;
+			query_posts( $query_args );
+
+			?>
+		<div class="large-title bg-grey-dark">
+			<div class="wrap">
+				<div class="large-title-icon bg-grey-dark">
+					<img src="/wp-content/uploads/2011/12/iconnwcua.png">
+				</div>
+				<div class="large-title-text">
+					<h1>Search: <span>'<?php print $_REQUEST["s"]; ?>'</h1>
+				</div>
+			</div>
+		</div>
+		<div id="content" class="wrap content-wide search-list" role="main">
+			<div class="entry quiet total-results">
+				Found <strong><?php echo $wp_query->found_posts; ?></strong> total results. Showing <strong>100</strong>.
+			</div>
+			<?php
+			if ( have_posts() ) {
+				$count = 1;
+				while ( have_posts() ) : the_post();
+					?>
+					<div class="entry priority-<?php show_cmb_value( 'priority' ); ?>">
+						<div class="entry-image">
+							<a href="<?php the_permalink() ?>">
+							</a>
+						</div>
+						<div class="description">
+							<h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
+							<?php 
+
+							// strip tags from the excerpt and output it.
+							echo wpautop( wp_trim_words( strip_tags( get_the_excerpt() ), 50 ) ); 
+							
+							$categories = get_the_category();
+							if ( !empty( $categories ) ) { 
+								$color = get_category_color( $categories[0]->term_id );
+								?>
+							<span class="quiet">Posted in:</span> 
+							<div class="post-category bg-<?php print $color; ?>">
+								<?php print get_cat_name( $categories[0]->term_id ); ?>
+							</div>
+								<?php
+							}
+
+							?>
+						</div>
+					</div>
+					<?php
+					$count++;
+				endwhile;
+			} else {
+				print "<p>Sadly, your search returned no results. Please try another or navigate using the main menu.</p>";
+			}
+			?>
+		</div><!-- #content -->
+			<?php 
+		} else {
+			?>
 		<div id="content" class="wrap content-wide home-list" role="main">
 			<?php
+			$query_args['posts_per_page'] = 14;
+			query_posts( $query_args );
 			if ( have_posts() ) {
 				$count = 1;
 				while ( have_posts() ) : the_post();
@@ -78,10 +134,13 @@ get_header(); ?>
 			}
 			?>
 		</div><!-- #content -->
-		
+
 		<div class="pagination group">
 			<?php pagination(); ?>
 		</div>
+			<?php 
+		} 
+	?>
 	</div><!-- #primary -->
 
 

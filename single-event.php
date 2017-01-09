@@ -5,13 +5,17 @@
 
 get_header();
 
+$header_title = has_cmb_value( '_p_large-title' ) ? get_cmb_value( '_p_large-title' ) : get_the_title();
+$header_icon = has_cmb_value( '_p_large-title-icon' ) ? get_cmb_value( '_p_large-title-icon' ) : get_bloginfo('template_url') . '/img/icon-events.png';
+$header_color = has_cmb_value( '_p_large-title-color' ) ? get_cmb_value( '_p_large-title-color' ) : 'green';
+
 ?>
-	<div class="large-title bg-green">
+	<div class="large-title bg-<?php print $header_color; ?>">
 		<div class="wrap">
-			<div class="large-title-icon bg-green" style="background-image: url(<?php print get_bloginfo('template_url') . '/img/icon-events.png' ?>); background-repeat: no-repeat; background-position: center center;">
+			<div class="large-title-icon bg-<?php print $header_color; ?>" style="background-image: url(<?php print $header_icon ?>); background-repeat: no-repeat; background-position: center center;">
 			</div>
 			<div class="large-title-text">
-				<h1><?php the_title(); ?></h1>
+				<h1><?php print $header_title; ?></h1>
 			</div>
 		</div>
 	</div>
