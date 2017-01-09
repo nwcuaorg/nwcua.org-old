@@ -121,7 +121,7 @@ get_header();
 
 						print "<div class='entry'>";
 						print "<div class='description home-events'>";
-						print "<h3>Upcoming Events</h3>";
+						print "<h3><a href='/events/'>Upcoming Events</a></h3>";
 						// list the events
 						print "<div class='event-list'>";
 						foreach ( $events as $event ) {
