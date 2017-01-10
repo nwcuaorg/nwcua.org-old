@@ -30,7 +30,7 @@ $color = get_category_color( $category[0]->cat_ID );
 		$query_args['orderby'] = array( 'meta_value_num' => 'DESC', 'date' => 'DESC' );
 		$query_args['meta_key'] = '_p_priority';
 		$query_args['posts_per_page'] = 14;
-		$query_arts['meta_query'] = array(
+		$query_args['meta_query'] = array(
 			array(
 				'key'=>'_p_priority',
 				'value'=>'-1',
