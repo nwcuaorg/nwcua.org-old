@@ -185,7 +185,7 @@ function people_shortcode( $atts = [], $content = null, $tag = '' ) {
 			$o .= '<div class="person">';
 			$o .= '<div class="person-image">' . 
 				( $link_person ? '<a href="' . get_the_permalink() . '">' : '' ) . 
-				'<img src="' . get_the_post_thumbnail_url() . '" />' . 
+				'<img src="' . get_the_post_thumbnail_url( null, 'square' ) . '" />' . 
 				( $link_person ? '</a>' : '' ) . 
 				'</div>' . 
 				'<div class="person-info">' . 

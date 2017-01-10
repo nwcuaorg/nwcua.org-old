@@ -16,6 +16,9 @@ if ( function_exists( 'add_image_size' ) ) {
 	// set the default story thumbnail size
 	add_image_size( 'large', 800, 500, true );
 
+	// set the default story thumbnail size
+	add_image_size( 'square', 500, 500, true );
+
 }
 
 
