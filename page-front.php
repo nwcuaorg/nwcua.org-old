@@ -88,13 +88,15 @@ if ( isset( $_REQUEST['category'] ) ) {
 		$query_args['meta_key'] = '_p_priority';
 		$query_args['orderby'] = array( 'meta_value_num' => 'DESC', 'date' => 'DESC' );
 		$query_args['posts_per_page'] = ( !empty( $events ) ? 13 : 14 );
-		$query_arts['meta_query'] = array(
+		$query_args['meta_query'] = array(
 			array(
 				'key'=>'_p_priority',
 				'value'=>'-1',
 				'compare'=>'!=',
 			),
 		);
+		$paged = ( get_query_var('page') ) ? get_query_var('page') : 1;
+		$query_args['paged'] = $paged;
 
 		// if there was a category set in the arguments
 		if ( isset( $current_categories ) ) {

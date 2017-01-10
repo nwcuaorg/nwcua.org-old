@@ -37,6 +37,8 @@ $color = get_category_color( $category[0]->cat_ID );
 				'compare'=>'!=',
 			),
 		);
+		$paged = ( get_query_var('page') ) ? get_query_var('page') : 1;
+		$query_args['paged'] = $paged;
 		query_posts( $query_args );
 
 		if ( have_posts() ) : 
