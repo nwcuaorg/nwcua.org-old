@@ -7,14 +7,14 @@ if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' ); 
 	
 	// set the default thumbnail size
-	set_post_thumbnail_size( 800, 600, true );
+	set_post_thumbnail_size( 800, 500, true );
 
 }
 
 if ( function_exists( 'add_image_size' ) ) {
 
 	// set the default story thumbnail size
-	add_image_size( 'large', 800, 600, true );
+	add_image_size( 'large', 800, 500, true );
 
 }
 
