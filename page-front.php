@@ -7,8 +7,8 @@ get_header();
 
 
 // get the current user, and their category preferences.
-$current_user = get_current_user_id();
-$user_categories = get_user_meta( $current_user, 'categories', 1 );
+$the_current_user = get_current_user_id();
+$user_categories = get_user_meta( $the_current_user, 'categories', 1 );
 
 
 // if we have a category parameter
@@ -18,7 +18,7 @@ if ( isset( $_REQUEST['category'] ) ) {
 	$current_categories = explode( '-', $_REQUEST['category'] );
 
 	// also, update the user preference with the string from the url
-	if ( !empty( $current_user ) ) update_user_meta( $current_user, 'categories', $_REQUEST['category'] );
+	if ( !empty( $the_current_user ) ) update_user_meta( $the_current_user, 'categories', $_REQUEST['category'] );
 
 	// set a session variable to store current session category preferences
 	$_SESSION['user_categories'] = $_REQUEST['category'];
