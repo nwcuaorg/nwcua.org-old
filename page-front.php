@@ -95,13 +95,17 @@ if ( isset( $_REQUEST['category'] ) ) {
 				'compare'=>'!=',
 			),
 		);
-		$paged = ( get_query_var('page') ) ? get_query_var('page') : 1;
-		$query_args['paged'] = $paged;
+
 
 		// if there was a category set in the arguments
 		if ( isset( $current_categories ) ) {
 			$query_args['cat'] = implode( ',', $current_categories );
 		}
+
+
+		// handle paginating results
+		$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+		$query_args['paged'] = $paged;
 
 
 		//query the posts with the supplied arguments

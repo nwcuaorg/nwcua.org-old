@@ -25,8 +25,12 @@ $color = get_category_color( $category[0]->cat_ID );
 	<section id="primary" class="wrap content-wide group home-list" role="main">
 
 		<?php
+		// get global wp_query
 		global $wp_query;
 		$query_args = $wp_query->query;
+
+
+		// set our query arguments
 		$query_args['orderby'] = array( 'meta_value_num' => 'DESC', 'date' => 'DESC' );
 		$query_args['meta_key'] = '_p_priority';
 		$query_args['posts_per_page'] = 14;
@@ -37,14 +41,22 @@ $color = get_category_color( $category[0]->cat_ID );
 				'compare'=>'!=',
 			),
 		);
-		$paged = ( get_query_var('page') ) ? get_query_var('page') : 1;
-		$query_args['paged'] = $paged;
-		query_posts( $query_args );
 
-		if ( have_posts() ) : 
+
+		// handle paginating results
+		$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+		$query_args['paged'] = $paged;
+
+
+		// run the query
+		$wp_query = new WP_Query( $query_args );
+
+
+		if ( $wp_query->have_posts() ) : 
 		
 			// Start the Loop.
-			while ( have_posts() ) : the_post(); 
+			$count = 0;
+			while ( $wp_query->have_posts() ) : $wp_query->the_post(); 
 				?>
 				<div class="entry priority-<?php show_cmb_value( 'priority' ); ?>">
 					<div class="entry-image">
