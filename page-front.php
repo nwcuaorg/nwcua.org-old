@@ -112,6 +112,7 @@ if ( isset( $_REQUEST['category'] ) ) {
 			if ( $wp_query->have_posts() ) {
 				$count = 1;
 				while ( $wp_query->have_posts() ) : $wp_query->the_post();
+					global $post;
 					?>
 					<div class="entry priority-<?php show_cmb_value( 'priority' ); ?>">
 						<div class="entry-image">
@@ -123,7 +124,8 @@ if ( isset( $_REQUEST['category'] ) ) {
 
 								// get thumbnail url
 								$thumbnail_id = get_post_thumbnail_id();
-								$thumbnail_url = wp_get_attachment_url( $thumbnail_id );
+								//$thumbnail_url = wp_get_attachment_url( $thumbnail_id );
+								$thumbnail_url = get_the_post_thumbnail_url( $post, 'large' );
 								if ( !empty( $thumbnail_url ) ) {
 									?>
 								<img src="<?php print $thumbnail_url; ?>" />
