@@ -60,6 +60,7 @@ $color = get_category_color( $category[0]->cat_ID );
 				?>
 				<div class="entry priority-<?php show_cmb_value( 'priority' ); ?>">
 					<div class="entry-image">
+						<?php edit_post_link( 'Edit' ); ?>
 						<a href="<?php the_permalink() ?>">
 							<?php
 							$thumbnail_id = get_post_thumbnail_id();
