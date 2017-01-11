@@ -210,7 +210,8 @@ function page_metaboxes( $meta_boxes ) {
     $job_metabox->add_field( array(
         'name' => 'Job Expires',
         'id'   => CMB_PREFIX . 'job_expires',
-        'type' => 'text_datetime_timestamp'
+        'type' => 'text_date',
+        'date_format' => "Y-m-d"
     ) );
 
 
