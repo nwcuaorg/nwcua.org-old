@@ -195,6 +195,14 @@ table {
 }
 
 
+@mixin field-styles {
+	padding: 10px 12px;
+	border: 1px solid lighten( $grey , 20% );
+	font-size: 1em;
+	color: #333;	
+}
+
+
 .content-style {
 	ol, ul {
 		padding: 5px 0 5px 35px;
@@ -320,11 +328,12 @@ table {
 
 	.gform_wrapper {
 		input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), textarea {
-			padding: 8px 12px;
-			border: 1px solid lighten( $grey , 20% );
-			font-size: 1em;
-			color: #333;
+			@include field-styles;
 		}
+	}
+
+	input[type=text] {
+		@include field-styles
 	}
 }
 
@@ -338,6 +347,7 @@ table {
 	color: white;
 	font-size: .9em;
 	margin: 3px 10px 3px 0;
+	border: 0;
 	
 	&.green { background-color: $green; }
 
