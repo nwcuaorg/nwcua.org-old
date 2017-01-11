@@ -19,7 +19,7 @@ $args = array_merge( $wp_query->query_vars, array(
 
 
 // start building meta query for job expiration
-$today = mktime( 0, 0, 0 );
+$today = date( 'Y-m-d' );
 $expires_query = array(
 	'relation' => 'OR',
 	array(

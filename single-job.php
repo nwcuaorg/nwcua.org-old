@@ -8,16 +8,25 @@ get_header();
 ?>
 	<div id="primary" class="site-content">
 
+		<?php 
+		if ( have_posts() ) :
+			while ( have_posts() ) : the_post(); 
+				?>
+		<div class="large-title bg-green">
+			<div class="wrap">
+				<div class="large-title-icon bg-green">
+					<img src="/wp-content/uploads/2011/12/iconnwcua.png">
+				</div>
+				<div class="large-title-text">
+					<h1><?php the_title(); ?></h1>
+				</div>
+			</div>
+		</div>
 		<div id="content" class="wrap group content-two-column" role="main">
 			<div class="quarter sidebar">
 				<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('page-sidebar-jobssidebar') ) : ?><!-- no sidebar --><?php endif; ?>
 			</div>
 			<div class="three-quarter">
-			<?php 
-			if ( have_posts() ) :
-				while ( have_posts() ) : the_post(); 
-					?>
-				<h1><?php the_title(); ?></h1>
 				<div class="third right job-info">
 					<?php
 					// display credit union name
@@ -59,12 +68,14 @@ get_header();
 
 					edit_job_form();
 
-				endwhile;
-			endif;
-			?>
+					?>
 	
 			</div>
 		</div><!-- #content -->
+				<?php
+			endwhile;
+		endif;
+		?>
 
 	</div><!-- #primary -->
 <?php
