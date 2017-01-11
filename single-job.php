@@ -36,7 +36,7 @@ get_header();
 
 				<?php
 				// display job type
-				print ( has_cmb_value( 'job_expires' ) ? "<p><label>Closing:</label> " . date( "n/j/Y", get_cmb_value( 'job_expires' ) ) . "</p>" : '' );
+				print ( has_cmb_value( 'job_expires' ) ? "<p><label>Closing:</label> " . date( "n/j/Y", strtotime( get_cmb_value( 'job_expires' ) ) ) . "</p>" : '' );
 				?>
 			</div>
 			<p><strong>Job Description:</strong></p>

@@ -318,9 +318,13 @@ table {
 		border: 1px solid lighten( $grey , 20% );
 	}
 
-	.gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
-		padding: 6px 8px;
-		border: 1px solid lighten( $grey , 20% );
+	.gform_wrapper {
+		input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), textarea {
+			padding: 8px 12px;
+			border: 1px solid lighten( $grey , 20% );
+			font-size: 1em;
+			color: #333;
+		}
 	}
 }
 
