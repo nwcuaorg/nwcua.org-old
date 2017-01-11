@@ -1,66 +1,32 @@
 <?php
-/**
- * The template for displaying Archive pages
- */
 
-get_header(); 
+/*
+Template Name: Job Manager
+*/
 
+get_header();
+
+
+// global query object
 global $wp_query;
 
 
 // start building args for query_posts
-$args = array_merge( $wp_query->query_vars, array(
+$args = array(
 	'post_type' => 'job',
 	'orderby' => 'meta_value',
 	'order' => 'ASC',
 	'meta_key' => '_p_job_expires',
-	'posts_per_page' => 1000
-) );
-
-
-// start building meta query for job expiration
-$today = mktime( 0, 0, 0 );
-$expires_query = array(
-	'relation' => 'OR',
-	array(
-		'key' => '_p_job_expires',
-		'value' => 0,
-		'compare' => '='
-	),
-	array(
-		'key' => '_p_job_expires',
-		'value' => $today,
-		'compare' => '>='
-	)
+	'posts_per_page' => 1000,
+	'author' => get_current_user_id(),
 );
 
 
-// add meta_query for job type if set
-if ( isset( $_GET['job_type'] ) ) {
-	$type_query = array(
-		'key' => '_p_job_type',
-		'value' => $_GET['job_type'],
-		'compare' => '='
-	);
-}
-
-
-// if we have a type query
-if ( !empty( $type_query ) ) {
-	// add it in addition to the expiration query
-	$args['meta_query'] = array(
-		'relation' => 'AND',
-		$expires_query,
-		$type_query
-	);
-} else {
-	// othewise just use the expiration query.
-	$args['meta_query'] = $expires_query;
-}
-
-
+// query the posts
 query_posts( $args );
 
+
+// get job count
 $job_count = $wp_query->found_posts;
 
 ?>
@@ -70,7 +36,7 @@ $job_count = $wp_query->found_posts;
 				<img src="/wp-content/uploads/2011/12/iconnwcua.png">
 			</div>
 			<div class="large-title-text">
-				<h1>Career Center</h1>
+				<h1>My Job Listings</h1>
 			</div>
 		</div>
 	</div>

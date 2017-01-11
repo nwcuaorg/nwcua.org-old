@@ -53,9 +53,13 @@ get_header();
 					print apply_filters( 'the_content', get_cmb_value( 'job_comments' ) ) . "<br>";
 				}
 
+				edit_job_form();
+
 			endwhile;
 		endif;
-		 ?>
+		?>
+	
+
 		</div><!-- #content -->
 
 	</div><!-- #primary -->

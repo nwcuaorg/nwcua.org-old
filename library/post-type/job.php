@@ -111,6 +111,18 @@ add_action( 'admin_init', 'add_job_caps');
 
 
 
+// edit job form
+function edit_job_form() {
+	global $post;
+
+	$user = get_current_user_id();
+	if ( $post->post_author == $user ) {
+		print do_shortcode( '[gravityforms id="6" update]' );
+	}
+}
+
+
+
 // list a specific job category
 function list_job_category( $category ) {
 
