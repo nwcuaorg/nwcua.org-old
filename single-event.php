@@ -60,7 +60,7 @@ $header_color = has_cmb_value( '_p_large-title-color' ) ? get_cmb_value( '_p_lar
 				$late_date = get_cmb_value( 'event_late_date' );
 				$late_price = get_cmb_value( 'event_late_price' );
 				$is_early = ( time() < $early_date );
-				$is_late = ( time() < $late_date );
+				$is_late = ( time() > $late_date );
 				$current_price = ( $is_early ? $early_price : ( $is_late ? $late_price : $regular_price ) );
 				if ( !empty( $current_price ) ) {
 					print "<p><label>Price:</label><br>$" . $current_price . ( $is_early ? ' (early bird price)' : ( $is_late ? ' (late registration price)' : '' ) ) . "</p>";

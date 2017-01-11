@@ -131,7 +131,6 @@ function set_term( $post_id, $slug ) {
 
 
 
-
 // loop through the events
 foreach ( $events as $event ) {
 
@@ -163,6 +162,7 @@ foreach ( $events as $event ) {
 	    		set_meta( $previous_post->ID, '_p_event_end', strtotime( $event->end_date )-$tz_offset );
 	    		set_meta( $previous_post->ID, '_p_event_early_date', strtotime( $event->early_price_until )-$tz_offset );
 	    		set_meta( $previous_post->ID, '_p_event_early_price', $event->early_price );
+	    		set_meta( $previous_post->ID, '_p_event_price', $event->price );
 	    		set_meta( $previous_post->ID, '_p_event_late_date', strtotime( $event->late_date )-$tz_offset );
 	    		set_meta( $previous_post->ID, '_p_event_late_price', $event->late_price );
 	    		if ( !empty( $event->event_type ) ) set_term( $previous_post->ID, $event->event_type );
@@ -180,6 +180,7 @@ foreach ( $events as $event ) {
 	    		set_meta( $post_id, '_p_event_end', strtotime( $event->end_date )-$tz_offset );
 	    		set_meta( $post_id, '_p_event_early_date', strtotime( $event->early_price_until )-$tz_offset );
 	    		set_meta( $post_id, '_p_event_early_price', $event->early_price );
+	    		set_meta( $post_id, '_p_event_price', $event->price );
 	    		set_meta( $post_id, '_p_event_late_date', strtotime( $event->late_date )-$tz_offset );
 	    		set_meta( $post_id, '_p_event_late_price', $event->late_price );
 	    		if ( !empty( $event->event_type ) ) set_term( $post_id, $event->event_type );
