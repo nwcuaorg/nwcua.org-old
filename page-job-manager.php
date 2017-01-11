@@ -36,7 +36,7 @@ $job_count = $wp_query->found_posts;
 				<img src="/wp-content/uploads/2011/12/iconnwcua.png">
 			</div>
 			<div class="large-title-text">
-				<h1>My Job Listings</h1>
+				<h1>Job Manager</h1>
 			</div>
 		</div>
 	</div>
