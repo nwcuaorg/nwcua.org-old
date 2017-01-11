@@ -70,10 +70,14 @@ $job_count = $wp_query->found_posts;
 			</div>
 					<?php
 				endwhile;
+			
 			else :
+			
 				// If no content, include the "No posts found" template.
 				get_template_part( 'content', 'none' );
+			
 			endif;
+
 			?>
 		</div>
 	</div><!-- #content -->
