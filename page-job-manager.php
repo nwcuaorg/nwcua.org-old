@@ -11,6 +11,9 @@ get_header();
 global $wp_query;
 
 
+print "<!--" . get_current_user_id() . "-->";
+
+
 // start building args for query_posts
 $args = array(
 	'post_type' => 'job',
