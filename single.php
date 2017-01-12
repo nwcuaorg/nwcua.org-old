@@ -25,16 +25,12 @@ get_header();
 
 				$orig_post = $post;
 				global $post;
-				$tags = wp_get_post_tags( $post->ID );
+				$categories = wp_get_post_categories( $post->ID );
 
-				if ( $tags ) {
-					$tag_ids = array();
-					foreach ( $tags as $individual_tag ) {
-						$tag_ids[] = $individual_tag->term_id;
-					}
+				if ( $categories ) {
 
 					$args=array(
-						'tag__in' => $tag_ids,
+						'category__in' => $categories,
 						'post__not_in' => array( $post->ID ),
 						'posts_per_page' => 5, // Number of related posts to display.
 						'ignore_sticky_posts' => 1
