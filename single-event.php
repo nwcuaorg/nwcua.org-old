@@ -125,8 +125,8 @@ get_header();
 				}
 				?>
 			</div>
-			<div class="three-quarter right"><?php the_content(); ?></div>
-			<div class="group">
+			<div class="three-quarter right">
+				<?php the_content(); ?>
 				<?php the_accordion(); ?>
 			</div>
 		</div><!-- #content -->
