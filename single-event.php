@@ -5,11 +5,17 @@
 
 get_header();
 
-$header_title = has_cmb_value( '_p_large-title' ) ? get_cmb_value( '_p_large-title' ) : get_the_title();
-$header_icon = has_cmb_value( '_p_large-title-icon' ) ? get_cmb_value( '_p_large-title-icon' ) : get_bloginfo('template_url') . '/img/icon-events.png';
-$header_color = has_cmb_value( '_p_large-title-color' ) ? get_cmb_value( '_p_large-title-color' ) : 'green';
 
 ?>
+	<?php 
+	if ( have_posts() ) :
+		while ( have_posts() ) : the_post(); 
+			global $post;
+			$slug = $post->post_name;
+			$header_title = get_the_title();
+			$header_icon = get_bloginfo('template_url') . '/img/icon-events.png';
+			$header_color = ( has_cmb_value( 'event_color' ) ? get_cmb_value( 'event_color' ) : 'green' );
+			?>
 	<div class="large-title bg-<?php print $header_color; ?>">
 		<div class="wrap">
 			<div class="large-title-icon bg-<?php print $header_color; ?>" style="background-image: url(<?php print $header_icon ?>); background-repeat: no-repeat; background-position: center center;">
@@ -25,12 +31,6 @@ $header_color = has_cmb_value( '_p_large-title-color' ) ? get_cmb_value( '_p_lar
 	<div id="primary" class="site-content">
 
 		<div id="content" class="site-content content-wide wrap group" role="main">
-		<?php 
-		if ( have_posts() ) :
-			while ( have_posts() ) : the_post(); 
-				global $post;
-    			$slug = $post->post_name;
-				?>
 			<div class="quarter right event-info">
 				<?php 
 				// display credit union name
@@ -129,13 +129,13 @@ $header_color = has_cmb_value( '_p_large-title-color' ) ? get_cmb_value( '_p_lar
 			<div class="group">
 				<?php the_accordion(); ?>
 			</div>
-				<?php
-			endwhile;
-		endif;
-		 ?>
 		</div><!-- #content -->
 
 	</div><!-- #primary -->
+			<?php
+		endwhile;
+	endif;
+	?>
 <?php
 
 get_footer();

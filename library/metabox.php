@@ -309,6 +309,14 @@ function page_metaboxes( $meta_boxes ) {
     ) );
 
     $event_metabox->add_field( array(
+        'name' => 'Color',
+        'id'   => CMB_PREFIX . 'event_color',
+        'type' => 'select',
+        'default' => 'green',
+        'options' => $colors
+    ) );
+
+    $event_metabox->add_field( array(
         'name' => 'Start Date/Time',
         'id'   => CMB_PREFIX . 'event_start',
         'type' => 'text_datetime_timestamp'
