@@ -30,7 +30,7 @@ get_header();
 
 	<div id="primary" class="site-content">
 
-		<div id="content" class="site-content content-wide wrap group" role="main">
+		<div id="content" class="site-content content-two-column wrap group" role="main">
 			<div class="quarter right event-info">
 				<?php 
 				// display credit union name
