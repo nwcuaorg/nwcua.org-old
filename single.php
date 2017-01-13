@@ -5,6 +5,12 @@
 
 $is_anthem = true;
 
+if ( has_cmb_value( 'brand' ) ) {
+	if ( get_cmb_value( 'brand' ) == 'nwcua' ) {
+		$is_anthem = false;
+	}
+}
+
 get_header();
 
 ?>

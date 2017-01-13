@@ -559,7 +559,30 @@ function page_metaboxes( $meta_boxes ) {
 
 
 
-    // showcase metabox
+    // brand metabox
+    $brand_metabox = new_cmb2_box( array(
+        'id' => 'brand_metabox',
+        'title' => 'Branding',
+        'object_types' => array( 'post' ), // post type
+        'context' => 'side',
+        'priority' => 'high',
+        'show_names' => false
+    ));
+
+    $brand_metabox->add_field( array(
+        'name' => 'Brand',
+        'id'   => CMB_PREFIX . 'brand',
+        'type' => 'select',
+        'default' => 'anthem',
+        'options' => array(
+            'anthem' => 'Anthem',
+            'nwcua' => 'NWCUA'
+        )
+    ) );
+
+
+
+    // priority metabox
     $priority_metabox = new_cmb2_box( array(
         'id' => 'priority_metabox',
         'title' => 'Priority',
