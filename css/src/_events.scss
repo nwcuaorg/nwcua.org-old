@@ -126,7 +126,6 @@
 
 
 .event-info {
-	padding: 0;
 	@extend .content-style;
 	
 	@include respond-to( 768px ) {
