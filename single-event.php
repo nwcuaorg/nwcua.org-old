@@ -44,7 +44,6 @@ get_header();
 					}
 					print " M" . ( date('I') == 0 ? "S" : "D" ) . "T</p>";
 				}
-				show_cmb_value( 'event_timezone' );
 
 				// display the event duration.
 				if ( has_cmb_value( 'event_start' ) && has_cmb_value( 'event_end' ) ) {
