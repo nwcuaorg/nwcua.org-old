@@ -3,6 +3,8 @@
  * The Template for displaying all single posts
  */
 
+print '<!--' . date( 'I', strtotime( '1/1/17' ) ) . '-' . date( 'I', strtotime( '6/1/17' ) ) . '-->';
+
 get_header();
 
 	if ( have_posts() ) :
@@ -31,18 +33,26 @@ get_header();
 			<div class="quarter right event-info">
 				<?php 
 				// display credit union name
-				if ( has_cmb_value( 'event_start' ) ) {
-					print "<h3>" . date( "F jS", get_cmb_value( 'event_start' ) ) . "</h3>";
-					print "<p>" . date( "g:i a", get_cmb_value( 'event_start' ) );
-					if ( has_cmb_value( 'event_end' ) ) {
-						print " - " . date( "g:i a", get_cmb_value( 'event_end' ) );
+				if ( has_cmb_value( 'event_start' ) && has_cmb_value( 'event_end' ) ) {
+					/*
+					if ( get_cmb_value( 'event_timezone' ) == 'M' ) {
+						$start = get_cmb_value( 'event_start' ) - 3600;
+						$end = get_cmb_value( 'event_end' ) - 3600;
+					} else {
+						$start = get_cmb_value( 'event_start' );
+						$end = get_cmb_value( 'event_end' );
 					}
-					print " P" . ( date('I') == 0 ? "S" : "D" ) . "T<br>";
-					print date( "g:i a", get_cmb_value( 'event_start' ) + 3600 );
-					if ( has_cmb_value( 'event_end' ) ) {
-						print " - " . date( "g:i a", get_cmb_value( 'event_end' ) + 3600 );
-					}
-					print " M" . ( date('I') == 0 ? "S" : "D" ) . "T</p>";
+					*/
+					$start = get_cmb_value( 'event_start' );
+					$end = get_cmb_value( 'event_end' );
+					print "<h3>" . date( "F jS", $start ) . "</h3>";
+					print "<p>" . date( "g:i a", $start );
+					print " - " . date( "g:i a", $end );
+					print " P" . ( date( 'I', $start ) ? "D" : "S" ) . "T<br>";
+					print date( "g:i a", $start + 3600 );
+					print " - " . date( "g:i a", $end + 3600 );
+					print " M" . ( date( 'I', $start ) ? "D" : "S" ) . "T</p>";
+					print date( 'I', $start );
 				}
 
 				// display the event duration.

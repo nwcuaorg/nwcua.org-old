@@ -328,6 +328,19 @@ function page_metaboxes( $meta_boxes ) {
         'type' => 'text_datetime_timestamp'
     ) );
 
+    /*
+    $event_metabox->add_field( array(
+        'name' => 'Timezone',
+        'id'   => CMB_PREFIX . 'event_timezone',
+        'type' => 'select',
+        'default' => 'P',
+        'options' => array(
+            'P' => 'Pacific Time',
+            'M' => 'Mountain Time'
+        )
+    ) );
+    */
+
     $event_metabox->add_field( array(
         'name' => 'Early Bird Deadline',
         'id'   => CMB_PREFIX . 'event_early_date',
