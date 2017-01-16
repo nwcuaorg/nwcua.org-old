@@ -136,6 +136,7 @@ foreach ( $events as $event ) {
 
 	if ( !empty( $event ) ) {
 		$tz_offset = ( 3600 * ( stristr( $event->start_date, '-07:00' ) ? 7 : 8 ) );
+		$timezone = ( stristr( $event->start_date, '-07:00' ) ? 'M' : 'P' );
 
 		// get a previous post if it exists.
 		$previous_post = $db->query_one( "SELECT * FROM `nwcua_posts` WHERE `old_id`=" . $event->id . ";" );
@@ -160,6 +161,7 @@ foreach ( $events as $event ) {
 	    		set_meta( $previous_post->ID, '_p_event_location_link', $event->location_link );
 	    		set_meta( $previous_post->ID, '_p_event_start', strtotime( $event->start_date )-$tz_offset );
 	    		set_meta( $previous_post->ID, '_p_event_end', strtotime( $event->end_date )-$tz_offset );
+	    		set_meta( $previous_post->ID, '_p_event_timezone', $timezone );
 	    		set_meta( $previous_post->ID, '_p_event_early_date', strtotime( $event->early_price_until )-$tz_offset );
 	    		set_meta( $previous_post->ID, '_p_event_early_price', $event->early_price );
 	    		set_meta( $previous_post->ID, '_p_event_price', $event->price );
@@ -178,6 +180,7 @@ foreach ( $events as $event ) {
 	    		set_meta( $post_id, '_p_event_location_link', $event->location_link );
 	    		set_meta( $post_id, '_p_event_start', strtotime( $event->start_date )-$tz_offset );
 	    		set_meta( $post_id, '_p_event_end', strtotime( $event->end_date )-$tz_offset );
+	    		set_meta( $post_id, '_p_event_timezone', $timezone );
 	    		set_meta( $post_id, '_p_event_early_date', strtotime( $event->early_price_until )-$tz_offset );
 	    		set_meta( $post_id, '_p_event_early_price', $event->early_price );
 	    		set_meta( $post_id, '_p_event_price', $event->price );

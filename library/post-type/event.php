@@ -150,7 +150,7 @@ function get_month_events( $m, $y, $category='' ) {
 
 	$timestamp_start = mktime( 0, 0, 0, $m, 1, $y );
 	$timestamp_end = mktime( 23, 59, 59, $m, date( 't', $timestamp_start ), $y );
-	$timestamp_today = mktime();
+	$timestamp_today = time();
 
 	$args = array(
 		'meta_query' => array(

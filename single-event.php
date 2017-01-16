@@ -5,9 +5,6 @@
 
 get_header();
 
-
-?>
-	<?php 
 	if ( have_posts() ) :
 		while ( have_posts() ) : the_post(); 
 			global $post;
@@ -40,13 +37,14 @@ get_header();
 					if ( has_cmb_value( 'event_end' ) ) {
 						print " - " . date( "g:i a", get_cmb_value( 'event_end' ) );
 					}
-					print " P" . ( date('I') == 1 ? "S" : "D" ) . "T<br>";
-					print date( "g:i a", get_cmb_value( 'event_start' ) );
+					print " P" . ( date('I') == 0 ? "S" : "D" ) . "T<br>";
+					print date( "g:i a", get_cmb_value( 'event_start' ) + 3600 );
 					if ( has_cmb_value( 'event_end' ) ) {
-						print " - " . date( "g:i a", get_cmb_value( 'event_end' ) );
+						print " - " . date( "g:i a", get_cmb_value( 'event_end' ) + 3600 );
 					}
-					print " M" . ( date('I') == 1 ? "S" : "D" ) . "T</p>";
+					print " M" . ( date('I') == 0 ? "S" : "D" ) . "T</p>";
 				}
+				show_cmb_value( 'event_timezone' );
 
 				// display the event duration.
 				if ( has_cmb_value( 'event_start' ) && has_cmb_value( 'event_end' ) ) {
