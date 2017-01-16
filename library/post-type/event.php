@@ -1,6 +1,11 @@
 <?php
 
 
+// set the default timezone.
+date_default_timezone_set( 'America/Los_Angeles');
+
+
+
 // Flush rewrite rules for custom post types
 add_action( 'after_switch_theme', 'flush_rewrite_rules' );
 

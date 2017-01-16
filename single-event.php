@@ -45,14 +45,21 @@ get_header();
 					*/
 					$start = get_cmb_value( 'event_start' );
 					$end = get_cmb_value( 'event_end' );
-					print "<h3>" . date( "F jS", $start ) . "</h3>";
-					print "<p>" . date( "g:i a", $start );
-					print " - " . date( "g:i a", $end );
-					print " P" . ( date( 'I', $start ) ? "D" : "S" ) . "T<br>";
-					print date( "g:i a", $start + 3600 );
-					print " - " . date( "g:i a", $end + 3600 );
-					print " M" . ( date( 'I', $start ) ? "D" : "S" ) . "T</p>";
-					print date( 'I', $start );
+					print "<h3>Event Info</h3>";
+					if ( date( 'Ymd', $start ) != date( 'Ymd', $end ) ) {
+						print "<p>" . date( "F jS g:i a", $start ) . " -<br>";
+						print date( "F jS g:i a", $end ) . " P" . ( date( 'I', $start ) ? "D" : "S" ) . "T";
+						print "<p>" . date( "F jS g:i a", $start + 3600 ) . " -<br>";
+						print date( "F jS g:i a", $end + 3600 ) . " M" . ( date( 'I', $end ) ? "D" : "S" ) . "T";
+					} else {
+						print "<h4>" . date( "F jS", $start ) . "</h4>";
+						print "<p>" . date( "g:i a", $start );
+						print " - " . date( "g:i a", $end );
+						print " P" . ( date( 'I', $start ) ? "D" : "S" ) . "T<br>";
+						print date( "g:i a", $start + 3600 );
+						print " - " . date( "g:i a", $end + 3600 );
+						print " M" . ( date( 'I', $start ) ? "D" : "S" ) . "T</p>";
+					}
 				}
 
 				// display the event duration.
