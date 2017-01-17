@@ -320,8 +320,8 @@ function show_month_events( $month, $year ) {
 	$calendar .= '<tr class="calendar-row">';
 
 	// print "blank" days until the first of the current week
-	for($x = 0; $x < $running_day; $x++):
-		$calendar.= '<td class="calendar-day-np"> </td>';
+	for ( $x = 0; $x < $running_day; $x++ ) :
+		$calendar .= '<td class="calendar-day-np"> </td>';
 		$days_in_this_week++;
 	endfor;
 
@@ -336,7 +336,7 @@ function show_month_events( $month, $year ) {
 		$day_events = '';
 		foreach ( $events as $event ) {
 			if ( ( $event->_p_event_start > $day_start && $event->_p_event_start < $day_end ) || 
-				 ( $event->_p_event_end > $day_end && $event->_p_event_end < $day_end ) || 
+				 ( $event->_p_event_end > $day_start && $event->_p_event_end < $day_end ) || 
 				 ( $event->_p_event_start < $day_start && $event->_p_event_end > $day_end ) ) {
 				$day_events .= "<div class='event'><div class='event-title'><a href=\"" . ( !empty( $event->_p_event_website ) ? $event->_p_event_website : get_permalink( $event->ID ) ) . "\">" . $event->post_title . "</a></div><div class='event-time'>" . date( "n/j g:i a", $event->_p_event_start ) . " - " . date( "g:i a", $event->_p_event_end ) . "</div><div class='event-description'>" . $event->post_excerpt . "</div></div>";
 			}
@@ -374,8 +374,8 @@ function show_month_events( $month, $year ) {
 	endfor;
 
 	// finish the rest of the days in the week
-	if($days_in_this_week < 8):
-		for($x = 1; $x <= (8 - $days_in_this_week); $x++):
+	if ( $days_in_this_week < 8 ) :
+		for ( $x = 1; $x <= ( 8 - $days_in_this_week ); $x++ ) :
 			$calendar.= '<td class="calendar-day-np"> </td>';
 		endfor;
 	endif;
