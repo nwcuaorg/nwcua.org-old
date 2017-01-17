@@ -36,15 +36,6 @@ jQuery(document).ready(function($){
 
 	});
 
-	$( '.accordion-box-title' ).click(function(){
-		$( this ).parent( '.accordion-box' ).children( '.accordion-box-content' ).slideToggle( 600 );
-	});
-
-	$( ".site-content .expandable.handle").click(function(){
-		$(this).toggleClass( "expanded" );
-		$(this).next(".expandable.block").slideToggle( 300 );
-	});
-
 	// fluid width videos that maintain aspect ratio
 	$( '.content' ).fitVids();
 

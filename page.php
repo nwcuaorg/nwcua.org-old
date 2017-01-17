@@ -8,7 +8,7 @@ get_header();
 
 	<?php the_showcase(); ?>
 	
-	<div id="content" class="wrap group site-content content-two-column <?php print $color; ?> content-style" role="main">
+	<div id="content" class="wrap group site-content content-two-column content-style" role="main">
 		<div class="content-header">
 			<h2><?php the_excerpt(); ?></h2>
 		</div>
@@ -16,11 +16,14 @@ get_header();
 			<?php 
 			if ( have_posts() ) :
 				while ( have_posts() ) : the_post(); 
+					global $post;
 					the_content();
+
+					if ( members_can_current_user_view_post( $post->ID ) ) {
+						the_accordion();
+					}
 				endwhile;
 			endif;
-
-			the_accordion();
 			?>
 		</div>
 		<div class="quarter sidebar right">

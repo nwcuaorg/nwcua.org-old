@@ -28,7 +28,7 @@ get_header();
 	<div id="primary" class="site-content">
 
 		<div id="content" class="site-content content-two-column wrap group" role="main">
-			<div class="quarter right event-info">
+			<div class="third right event-info">
 				<?php 
 				// display credit union name
 				if ( has_cmb_value( 'event_start' ) && has_cmb_value( 'event_end' ) ) {
@@ -128,7 +128,7 @@ get_header();
 				}
 				?>
 			</div>
-			<div class="three-quarter right">
+			<div class="two-third right">
 				<?php the_content(); ?>
 				<?php the_accordion(); ?>
 			</div>
