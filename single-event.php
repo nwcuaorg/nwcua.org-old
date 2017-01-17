@@ -3,8 +3,6 @@
  * The Template for displaying all single posts
  */
 
-print '<!--' . date( 'I', strtotime( '1/1/17' ) ) . '-' . date( 'I', strtotime( '6/1/17' ) ) . '-->';
-
 get_header();
 
 	if ( have_posts() ) :
@@ -34,15 +32,6 @@ get_header();
 				<?php 
 				// display credit union name
 				if ( has_cmb_value( 'event_start' ) && has_cmb_value( 'event_end' ) ) {
-					/*
-					if ( get_cmb_value( 'event_timezone' ) == 'M' ) {
-						$start = get_cmb_value( 'event_start' ) - 3600;
-						$end = get_cmb_value( 'event_end' ) - 3600;
-					} else {
-						$start = get_cmb_value( 'event_start' );
-						$end = get_cmb_value( 'event_end' );
-					}
-					*/
 					$start = get_cmb_value( 'event_start' );
 					$end = get_cmb_value( 'event_end' );
 					print "<h3>Event Info</h3>";
