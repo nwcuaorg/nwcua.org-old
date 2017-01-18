@@ -9,6 +9,23 @@ header {
 		margin-right: 60px;
 		padding: 5px 0 5px 20px;
 		max-width: 450px;
+		position: relative;
+
+		&.anthem:before {
+			font-family: dashicons;
+			content: "\f102";
+			position: absolute;
+			bottom: 15px;
+			left: 30px;
+			font-size: 25px;
+			color: lighten( $grey, 25% );
+			pointer-events: none;
+			transition: 400ms color ease-in-out;
+		}
+
+		&.anthem:hover:before {
+			color: darken( $grey, 10% );
+		}
 	}
 
 	.slogan {

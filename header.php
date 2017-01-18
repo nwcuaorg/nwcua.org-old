@@ -26,7 +26,7 @@
 	<div class="wrap">
 
 		<?php if ( $is_anthem ) { ?>
-		<div class="logo">
+		<div class="logo anthem">
 			<a href="/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 				<img src="<?php bloginfo( "template_url" ) ?>/img/logo-anthem.png" alt="<?php bloginfo( 'name' ); ?>">
 			</a>
