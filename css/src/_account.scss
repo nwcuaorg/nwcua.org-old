@@ -2,7 +2,11 @@
 
 // some styles for the old site.
 .main-content {
-	padding: 15px 0;
+	padding: 30px 20px;
+
+	.main-content {
+		padding: 0;
+	}
 	
 	.inner_left, .inner_right {
 		padding-bottom: 25px;
