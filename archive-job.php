@@ -24,7 +24,7 @@ $expires_query = array(
 	'relation' => 'OR',
 	array(
 		'key' => '_p_job_expires',
-		'value' => 0,
+		'value' => '',
 		'compare' => '='
 	),
 	array(
