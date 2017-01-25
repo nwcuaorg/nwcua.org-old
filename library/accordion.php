@@ -43,74 +43,10 @@ function the_accordion() {
 				$count++;
 			}
 		}
-		product_accordion();
-		partner_accordion();
 		?>
 		</div>
 		<?php
 	}
-}
-
-
-
-function product_accordion() {
-	if ( has_cmb_value( 'prod_accordion_title' ) && has_cmb_value( 'prod_accordion_products' ) ) {
-		?>
-			<div class="accordion-box open bg-<?php show_cmb_value( 'prod_accordion_color' ) ?>">
-				<div class="accordion-box-title">
-					<div class="wrap">
-						<?php if ( has_cmb_value( 'prod_accordion_icon' ) ) { ?>
-						<span class="accordion-box-title-icon"><img src="<?php show_cmb_value( 'prod_accordion_icon' ) ?>"></span>
-						<?php } ?>
-						<h4><?php show_cmb_value( 'prod_accordion_title' ) ?></h4>
-					</div>
-				</div>
-				<div class="accordion-box-content">
-					<div class="wrap">
-						<div class="products">
-							<div class="product-list">
-								<?php the_product_list( get_cmb_value( 'prod_accordion_products' ) ); ?>
-							</div>
-							<button class="product-nav previous">Previous</button>
-							<button class="product-nav next">Next</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		<?php
-	}
-}
-
-
-
-function partner_accordion() {
-	if ( has_cmb_value( 'part_accordion_title' ) && has_cmb_value( 'part_accordion_partners' ) ) {
-		?>
-			<div class="accordion-box open bg-<?php show_cmb_value( 'part_accordion_color' ) ?>">
-				<div class="accordion-box-title">
-					<div class="wrap">
-						<?php if ( has_cmb_value( 'part_accordion_icon' ) ) { ?>
-						<span class="accordion-box-title-icon"><img src="<?php show_cmb_value( 'part_accordion_icon' ) ?>"></span>
-						<?php } ?>
-						<h4><?php show_cmb_value( 'part_accordion_title' ) ?></h4>
-					</div>
-				</div>
-				<div class="accordion-box-content">
-					<div class="wrap partner-logos group">
-					<?php the_partner_list( get_cmb_value( 'part_accordion_partners' ) ); ?>
-					</div>
-				</div>
-			</div>
-		<?php
-	}
-}
-
-
-
-function has_partner_or_product_accordion() {
-	if (( has_cmb_value( 'prod_accordion_title' ) && has_cmb_value( 'prod_accordion_products' ) ) ||
-		( has_cmb_value( 'part_accordion_title' ) && has_cmb_value( 'part_accordion_partners' ) )) return true;
-		else return false;
 }
 
 
