@@ -576,11 +576,35 @@ function manage_event_columns( $column, $post_id ) {
 
 
 
+// event shortcode
+function event_shortcode( $event_atts ) {
+
+	// set shortcode defaults
+	$a = shortcode_atts( array(
+		'limit' => 5,
+		'category' => 0,
+	), $event_atts );
+
+	// get the events
+	$events = get_upcoming_events( $a['limit'], $a['category'] );
+
+	// list the events
+	if ( !empty( $events ) ) {
+		print '<div class="event-list">';
+		foreach ( $events as $event ) {
+			print '<h5><a href="' . get_permalink( $event->ID ) . '">' . $event->post_title . '</a></h5>';
+			print '<span class="quiet">' . date( 'n/j/Y g:ia', $event->_p_event_start ) . '</span>';
+		}
+		print '</div>';
+	}
+
+}
+add_shortcode( 'event-list', 'event_shortcode' );
+
+
+
 // Creating the widget 
 class event_widget extends WP_Widget {
-
-	public $number_contacts = 6;
-
 
 	function __construct() {
 		parent::__construct(
