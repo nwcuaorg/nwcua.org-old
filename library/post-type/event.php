@@ -229,13 +229,24 @@ function get_upcoming_events( $limit, $category=0 ) {
 	);
 
 	if ( $category > 0 ) {
-		$args['tax_query'] = array(
-			array(
-				'taxonomy' => 'event_cat',
-				'field' => 'id',
-				'terms' => $category
-			)
-		);
+		$categories = explode( ',', $category );
+		if ( is_string( $categories[0] ) ) {
+			$args['tax_query'] = array(
+				array(
+					'taxonomy' => 'event_cat',
+					'field' => 'slug',
+					'terms' => $categories
+				)
+			);
+		} else {
+			$args['tax_query'] = array(
+				array(
+					'taxonomy' => 'event_cat',
+					'field' => 'id',
+					'terms' => $categories
+				)
+			);
+		}
 	}
 
 	$event_query = new WP_Query( $args );
