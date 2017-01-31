@@ -506,11 +506,18 @@ function page_metaboxes( $meta_boxes ) {
     ) );
 
     $event_metabox->add_field( array(
-        'name' => 'Save the Date',
-        'id'   => CMB_PREFIX . 'event_save',
-        'desc' => 'Upload a .ics (calendar format) to allow users to save events.',
+        'name' => 'Save the Date (.ics)',
+        'id'   => CMB_PREFIX . 'event_save_ical',
+        'desc' => 'Upload an .ics (calendar format) to allow users to save events to Outlook/iCal.',
         'type' => 'file',
         'preview_size' => false
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Save the Date (Google)',
+        'id'   => CMB_PREFIX . 'event_save_gcal',
+        'desc' => 'Set a URL for a Google Calendar event so users can add it to Google.',
+        'type' => 'text',
     ) );
 
 
