@@ -505,6 +505,14 @@ function page_metaboxes( $meta_boxes ) {
         'type' => 'text'
     ) );
 
+    $event_metabox->add_field( array(
+        'name' => 'Save the Date',
+        'id'   => CMB_PREFIX . 'event_save',
+        'desc' => 'Upload a .ics (calendar format) to allow users to save events.',
+        'type' => 'file',
+        'preview_size' => false
+    ) );
+
 
 
     // accordion metabox
