@@ -506,6 +506,13 @@ function page_metaboxes( $meta_boxes ) {
     ) );
 
     $event_metabox->add_field( array(
+        'name' => 'Hide Registration Link',
+        'id'   => CMB_PREFIX . 'event_registration_hide',
+        'desc' => 'Check to hide the registration link on the front-end.',
+        'type' => 'checkbox'
+    ) );
+
+    $event_metabox->add_field( array(
         'name' => 'Save the Date (.ics)',
         'id'   => CMB_PREFIX . 'event_save_ical',
         'desc' => 'Upload an .ics (calendar format) to allow users to save events to Outlook/iCal.',
