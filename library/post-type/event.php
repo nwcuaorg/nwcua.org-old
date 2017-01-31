@@ -635,7 +635,7 @@ function event_shortcode( $event_atts ) {
 		print '<div class="event-list">';
 		foreach ( $events as $event ) {
 			print '<h5><a href="' . get_permalink( $event->ID ) . '">' . $event->post_title . '</a></h5>';
-			print '<span class="quiet">' . date( 'n/j/Y g:ia', $event->_p_event_start ) . '</span>';
+			print '<span class="quiet">' . date( 'n/j/Y \a\t g:ia', $event->_p_event_start ) . '</span>';
 		}
 		print '</div>';
 	}
