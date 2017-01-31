@@ -239,6 +239,7 @@ function get_month_events( $m, $y, $category='' ) {
 
 function get_upcoming_events( $limit, $category=0 ) {
 
+
 	$timestamp_start = mktime( 0, 0, 0 );
 
 	$args = array(
@@ -257,7 +258,7 @@ function get_upcoming_events( $limit, $category=0 ) {
 		'posts_per_page' => $limit
 	);
 
-	if ( $category > 0 ) {
+	if ( !empty( $category ) ) {
 		$categories = explode( ',', $category );
 		if ( is_string( $categories[0] ) ) {
 			$args['tax_query'] = array(
@@ -624,6 +625,7 @@ function event_shortcode( $event_atts ) {
 		'limit' => 5,
 		'category' => 0,
 	), $event_atts );
+
 
 	// get the events
 	$events = get_upcoming_events( $a['limit'], $a['category'] );
