@@ -84,9 +84,38 @@ register_taxonomy( 'event_cat',
 		'query_var' => true,
 		'rewrite' => array( 
 			'slug' => 'events'
+		),
+		'capabilities' => array(
+			'manage_terms' => 'manage_event_cat',
+			'edit_terms' => 'edit_event_cat',
+			'delete_terms' => 'delete_event_cat',
+			'assign_terms' => 'assign_event_cat',
 		)
 	)
 );
+
+
+
+// add capabilities
+function add_event_caps() {
+
+    // gets the author role
+    $role = get_role( 'administrator' );
+
+    // This only works, because it accesses the class instance.
+    // would allow the author to edit others' posts for current theme only
+    $role->add_cap( 'read_event' );
+    $role->add_cap( 'edit_event' );
+    $role->add_cap( 'delete_event' );
+    $role->add_cap( 'edit_events' );
+    $role->add_cap( 'edit_others_events' );
+    $role->add_cap( 'publish_events' );
+    $role->add_cap( 'read_private_events' );
+    $role->add_cap( 'edit_private_events' );
+    $role->add_cap( 'edit_published_events' );
+
+}
+add_action( 'admin_init', 'add_event_caps');
 
 
 

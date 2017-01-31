@@ -63,7 +63,7 @@ add_action( 'init', 'job_post_type');
 
 // now let's add custom categories (these act like categories)
 register_taxonomy( 'job_cat', 
-	array( 'job', 'partner' ), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+	array( 'job' ), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
 	array('hierarchical' => true,     /* if this is true, it acts like categories */
 		'labels' => array(
 			'name' => __( 'Job Categories', 'ptheme' ), /* name of the custom taxonomy */
