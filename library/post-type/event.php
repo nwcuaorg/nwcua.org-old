@@ -624,21 +624,32 @@ function event_shortcode( $event_atts ) {
 	$a = shortcode_atts( array(
 		'limit' => 5,
 		'category' => 0,
+		'show_excerpt' => 0,
 	), $event_atts );
 
 
 	// get the events
 	$events = get_upcoming_events( $a['limit'], $a['category'] );
 
+	// start an empty event.
+	$list = '';
+
 	// list the events
 	if ( !empty( $events ) ) {
-		print '<div class="event-list">';
+		$list .= '<div class="event-list">';
 		foreach ( $events as $event ) {
-			print '<h5><a href="' . get_permalink( $event->ID ) . '">' . $event->post_title . '</a></h5>';
-			print '<span class="quiet">' . date( 'n/j/Y \a\t g:ia', $event->_p_event_start ) . '</span>';
+			$list .= '<div class="event-item">';
+			$list .= '<h5><a href="' . get_permalink( $event->ID ) . '">' . $event->post_title . '</a></h5>';
+			$list .= '<span class="quiet">' . date( 'n/j/Y \a\t g:ia', $event->_p_event_start ) . '</span>';
+			if ( $a['show_excerpt'] ) {
+				$list .= $event->post_excerpt;
+			}
+			$list .= '</div>';
 		}
-		print '</div>';
+		$list .= '</div>';
 	}
+
+	return $list;
 
 }
 add_shortcode( 'event-list', 'event_shortcode' );
