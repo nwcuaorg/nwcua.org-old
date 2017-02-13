@@ -117,10 +117,6 @@ function edit_job_form() {
 
 	$user = get_current_user_id();
 	if ( $post->post_author == $user ) {
-		print "<!--";
-		print_r( $post );
-		print_r( $user );
-		print "-->";
 		print "<hr />";
 
 		//even though they are not the author
