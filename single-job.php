@@ -11,6 +11,7 @@ get_header();
 		<?php 
 		if ( have_posts() ) :
 			while ( have_posts() ) : the_post(); 
+				global $post;
 				?>
 		<div class="large-title bg-green">
 			<div class="wrap">
@@ -65,6 +66,13 @@ get_header();
 						print "<p><strong>Additional Comments:</strong></p>";
 						print apply_filters( 'the_content', get_cmb_value( 'job_comments' ) ) . "<br>";
 					}
+
+					
+					print "<!--";
+					print_r( $user );
+					print_r( $post );
+					print "-->";
+
 
 					edit_job_form();
 

@@ -116,10 +116,6 @@ function edit_job_form() {
 	global $post;
 
 	$user = get_current_user_id();
-	print "<!--";
-	print_r( $user );
-	print_r( $post );
-	print "-->";
 	if ( $post->post_author == $user ) {
 		print "<hr />";
 		print do_shortcode( '[gravityforms id="6" update]' );
