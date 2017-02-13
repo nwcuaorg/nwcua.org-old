@@ -122,7 +122,15 @@ function edit_job_form() {
 		print_r( $user );
 		print "-->";
 		print "<hr />";
-		print do_shortcode( '[gravityforms id="6" update="' . $post->ID . '"]' );
+
+		//even though they are not the author
+		add_filter( 'gform_update_post/public_edit',  '__return_true' );
+
+		//update post action
+		do_action( 'gform_update_post/setup_form', array('post_id' => $post->ID, 'form_id' => 6 ) );
+
+		//actual form
+		echo gravity_form( 6, false, false );
 	}
 }
 
