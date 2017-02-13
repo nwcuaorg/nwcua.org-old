@@ -431,7 +431,7 @@ function user_role_update( $user_id, $new_role ) {
 
 	    // replace shortcodes in the email message body.
 	    $message = str_replace( '[user-id]', $user_id, $message );
-	    $message = str_replace( '[first-name]', $user_info->first_name, $message );
+	    if ( !empty( $user_info->first_name ) ) $message = str_replace( '[first-name]', $user_info->first_name, $message );
 	    $message = str_replace( '[last-name]', $user_info->last_name, $message );
 	    $message = str_replace( '[user-login]', $user_info->user_login, $message );
 	    $message = str_replace( '[email]', $user_info->user_email, $message );
