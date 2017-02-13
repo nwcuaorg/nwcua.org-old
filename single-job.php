@@ -57,6 +57,7 @@ get_header();
 				<?php the_content(); ?>
 				<br>
 					<?php
+					
 					if ( has_cmb_value( 'job_education' ) ) { 
 						print "<p><strong>Education/Experience Required:</strong></p>";
 						print apply_filters( 'the_content', get_cmb_value( 'job_education' ) ) . "<br>";
@@ -66,13 +67,6 @@ get_header();
 						print "<p><strong>Additional Comments:</strong></p>";
 						print apply_filters( 'the_content', get_cmb_value( 'job_comments' ) ) . "<br>";
 					}
-
-					
-					print "<!--";
-					print_r( get_current_user_id() );
-					print_r( $post );
-					print "-->";
-
 
 					edit_job_form();
 
