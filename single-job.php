@@ -69,7 +69,7 @@ get_header();
 
 					
 					print "<!--";
-					print_r( $user );
+					print_r( get_current_user_id() );
 					print_r( $post );
 					print "-->";
 
