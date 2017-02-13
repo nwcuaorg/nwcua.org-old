@@ -431,10 +431,10 @@ function user_role_update( $user_id, $new_role ) {
 
 	    // replace shortcodes in the email message body.
 	    $message = str_replace( '[user-id]', $user_id, $message );
-	    $message = str_replace( '[first-name]', $user_data->first_name, $message );
-	    $message = str_replace( '[last-name]', $user_data->last_name, $message );
-	    $message = str_replace( '[user-login]', $user_data->user_login, $message );
-	    $message = str_replace( '[email]', $user_data->user_email, $message );
+	    $message = str_replace( '[first-name]', $user_info->first_name, $message );
+	    $message = str_replace( '[last-name]', $user_info->last_name, $message );
+	    $message = str_replace( '[user-login]', $user_info->user_login, $message );
+	    $message = str_replace( '[email]', $user_info->user_email, $message );
 	    $message = str_replace( '[homepage]', get_home_url(), $message );
 	    $message = str_replace( '[admin-email]', get_option( 'admin_email' ), $message );
 	    $message = str_replace( '[date]', date( 'n/j/Y' ), $message );
@@ -447,7 +447,7 @@ function user_role_update( $user_id, $new_role ) {
 		$message = stripslashes ( $message );
 
 		// send email
-        wp_mail($to, $subject, $message);
+        wp_mail( $to, $subject, $message );
     }
 }
 add_action( 'set_user_role', 'user_role_update', 10, 2);
