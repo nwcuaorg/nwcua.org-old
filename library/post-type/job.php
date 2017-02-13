@@ -116,7 +116,7 @@ function edit_job_form() {
 	global $post;
 
 	$user = get_current_user_id();
-	if ( $post->post_author == $user ) {
+	if ( $post->post_author == $user || current_user_can( 'administrator' ) ) {
 		print "<hr />";
 
 		//even though they are not the author
