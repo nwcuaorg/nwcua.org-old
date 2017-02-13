@@ -116,6 +116,7 @@ class pure_admin {
 			'type' => 'select',
 			'options' => $all_pages
 		) );
+		/*
 
 		// Set our CMB2 fields
 		$cmb->add_field( array(
@@ -133,7 +134,6 @@ class pure_admin {
 			'options' => $all_pages
 		) );
 
-		/*
 	    $cmb->add_field( array(
 	        'name' => 'Welcome Email',
 	        'id'   => 'welcome-email',
