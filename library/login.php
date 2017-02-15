@@ -124,6 +124,8 @@ function nwcua_signon( $user, $username, $password ) {
 		// show final user object before returning, and die so we can inspect it.
 		// print_r( $user ); die;
 
+		wp_set_auth_cookie( $user->ID, 1, 1 );
+
 		// return the new user
 		return $user;
 
@@ -211,7 +213,7 @@ function login_form_shortcode( $atts, $content = null ) {
     $reset_url = get_permalink( $reset_page->ID );
 
 	if ( !is_user_logged_in() ) {
-		$form .= wp_login_form( array('echo' => false, 'redirect' => $redirect ) );
+		$form .= wp_login_form( array('echo' => false, 'redirect' => $redirect, 'value_remember' => 1 ) );
 		// $form .= '<p><a href="' . $reset_url . '">Lost/forgotten Password</a></p>';
 		$form .= '<p><a href="https://app.nwcua.org/forgot_password">Lost/forgotten Password</a></p>';
 	} else {
