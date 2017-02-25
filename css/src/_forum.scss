@@ -2,13 +2,16 @@
 
 
 
-.subscription-toggle {
-	@extend .btn-arrow;
+#bbpress-forums > #subscription-toggle {
 	float: right;
+	a.subscription-toggle {	
+		@extend .btn-arrow;
+		display: block;
+	}
 }
 
 #bbpress-forums {
-	font-size: 1em;
+	font-size: 15px;
 
 	div.bbp-topic-content a.subscription-toggle, #bbpress-forums div.bbp-reply-content a.subscription-toggle {
 		line-height: 1.4em;
