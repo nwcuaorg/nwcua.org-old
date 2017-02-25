@@ -9,9 +9,15 @@ get_header();
 	<?php the_showcase(); ?>
 	
 	<div id="content" class="wrap group site-content content-two-column content-style" role="main">
+		<?php
+		if ( !is_bbpress() ) {
+			?>
 		<div class="content-header">
 			<h2><?php the_excerpt(); ?></h2>
 		</div>
+			<?php
+		}
+		?>
 		<div class="three-quarter right">
 			<?php 
 			if ( have_posts() ) :
