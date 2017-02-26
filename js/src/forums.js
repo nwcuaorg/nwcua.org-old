@@ -12,6 +12,8 @@ jQuery(document).ready(function($){
 			pagination_divs.first().hide();
 		}
 
+		$forums.find('.bbp-breadcrumb-home').html( '<span class="dashicons dashicons-admin-home"></span>' );
+
 	}
 
 });
