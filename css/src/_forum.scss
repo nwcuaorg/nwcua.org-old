@@ -57,6 +57,10 @@
 			margin-bottom: 20px;
 			clear: both;
 		}
+
+		&.bbp-replies .bbp-footer {
+			display: none;
+		}
 	}
 
 	.reply {
@@ -1278,7 +1282,7 @@ body.my-account #bbpress-forums {
 
 #bbpress-forums {
 
-	#subscription-toggle a {
+	& > #subscription-toggle a {
 		float: right;
 		@extend .btn-arrow;
 	}
@@ -1303,6 +1307,10 @@ body.my-account #bbpress-forums {
 	.bbp-header {
 		font-size: .7em;
 		text-transform: uppercase;
+
+		.bbp-reply-author {
+			text-align: left;
+		}
 	}
 
 	.bbp-meta {
