@@ -1279,8 +1279,8 @@ body.my-account #bbpress-forums {
 
 
 
-
 #bbpress-forums {
+	padding-top: 15px;
 
 	& > #subscription-toggle a {
 		float: right;
@@ -1317,6 +1317,15 @@ body.my-account #bbpress-forums {
 		font-size: .8em;
 	}
 	
+	.bbp-breadcrumb-home {
+		opacity: 1;
+		transition: 300ms opacity ease-in-out;
+
+		&:hover {
+			text-decoration: none;
+			opacity: .8;
+		}
+	}
 }
 
 
@@ -1328,5 +1337,4 @@ body.my-account #bbpress-forums {
 		font-size: .8em;
 	}
 }
-
 
