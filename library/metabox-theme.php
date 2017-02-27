@@ -165,7 +165,6 @@ If you didn't request this password reset, please disregard this email - no furt
 Best regards,
 <strong>The Team</strong>"
 	    ) );
-	    */
 
 	    $cmb->add_field( array(
 	        'name' => 'Member Email Subject',
@@ -190,6 +189,7 @@ Your account ([email]) has been set up as a Member on our site. Visit the site b
 Best regards,
 <strong>The Team</strong>"
 	    ) );
+	    */
 
 	}
 

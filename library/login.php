@@ -418,7 +418,7 @@ function email_mime_type () {
 add_filter ( 'wp_mail_content_type', 'email_mime_type');		
 
 
-
+/*
 // send email when user upgraded to member
 function user_role_update( $user_id, $new_role ) {
     if ( $new_role == 'member' ) {
@@ -454,5 +454,5 @@ function user_role_update( $user_id, $new_role ) {
 }
 add_action( 'set_user_role', 'user_role_update', 10, 2);
 
-
+*/
 ?>
