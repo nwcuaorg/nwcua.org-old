@@ -18,6 +18,7 @@
 .entry-job {
 	border-bottom: 3px solid lighten( $grey, 25% );
 	padding: 20px 0;
+	position: relative;
 
 	.two-third {
 		margin: 0;
@@ -31,6 +32,27 @@
 	.job-info {
 		@include respond-to( 768px ) {
 			margin-bottom: 10px;
+		}
+	}
+
+	.job-delete {
+		float: right;
+		background: #e40d0d;
+		color: white;
+		padding: 7px 14px;
+		opacity: .8;
+		transition: 400ms opacity ease-in-out;
+
+		&:hover {
+			opacity: 1;
+			text-decoration: none;
+		}
+
+		@include respond-to( 600px ) {
+			float: none;
+			position: absolute;
+			right: 0;
+			top: 0;
 		}
 	}
 }

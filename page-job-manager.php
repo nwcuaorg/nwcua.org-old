@@ -4,14 +4,28 @@
 Template Name: Job Manager
 */
 
+
+global $post;
+$job_mgr_url = '/' . $post->post_name . '/';
+
+
+// delete a job based on the request variable in the URL.
+if ( isset( $_GET['del'] ) ) {
+	$the_post = get_post( $_GET['del'] );
+
+	if ( !empty( $the_post ) ) {
+		if ( $the_post->post_type == 'job' && ( $the_post->post_author == get_current_user_id() || current_user_can( 'administrator' ) ) ) {
+			wp_delete_post( $the_post->ID );
+		}
+	}
+}
+
+
 get_header();
 
 
 // global query object
 global $wp_query;
-
-
-print "<!--" . get_current_user_id() . "-->";
 
 
 // start building args for query_posts
@@ -58,6 +72,7 @@ $job_count = $wp_query->found_posts;
 				while ( have_posts() ) : the_post(); 
 					?>
 			<div class="entry-job group">
+				<a href="<?php print $job_mgr_url; ?>?del=<?php the_ID(); ?>" class="job-delete" onClick="return confirm('Are you sure you want to delete that job?');">Delete Job</a>
 				<div class="two-third no-margin">
 					<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 					<?php the_excerpt(); ?>
