@@ -70,9 +70,10 @@ $job_count = $wp_query->found_posts;
 			if ( have_posts() ) : 
 				// Start the Loop.
 				while ( have_posts() ) : the_post(); 
+					global $post;
 					?>
 			<div class="entry-job group">
-				<a href="<?php print $job_mgr_url; ?>?del=<?php the_ID(); ?>" class="job-delete" onClick="return confirm('Are you sure you want to delete that job?');">Delete Job</a>
+				<?php if ( get_current_user_id() == $post->post_author ) { ?><a href="<?php print $job_mgr_url; ?>?del=<?php the_ID(); ?>" class="job-delete" onClick="return confirm('Are you sure you want to delete that job?');">Delete Job</a><?php } ?>
 				<div class="two-third no-margin">
 					<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 					<?php the_excerpt(); ?>
