@@ -334,10 +334,6 @@ table {
 		@include respond-to( 1024px ) {
 			height: 650px;
 		}
-
-		@include respond-to( 1220px ) {
-			height: 750px;
-		}
 	}
 
 	.gform_wrapper {
