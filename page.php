@@ -36,12 +36,13 @@ get_header();
 		</div>
 		<div class="quarter sidebar right">
 			<?php 
+			/*
 			if ( is_bbpress() ) {
 				if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('sidebar-forums') ) : ?><!-- no sidebar --><?php endif;
 			} else {
 				if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('sidebar-generic') ) : ?><!-- no sidebar --><?php endif;
 			}
-
+			*/
 			?>
 		</div>
 	</div><!-- #content -->
