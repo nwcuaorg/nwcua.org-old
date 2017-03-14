@@ -10,15 +10,13 @@ get_header();
 	
 	<div id="content" class="wrap group site-content content-two-column content-style<?php /* print ( is_bbpress() ? ' content-forums' : '' ); */ ?>" role="main">
 		<?php
-		/*
-		if ( !is_bbpress() ) {
+		//if ( !is_bbpress() ) {
 			?>
 		<div class="content-header">
 			<h2><?php the_excerpt(); ?></h2>
 		</div>
 			<?php
-		}
-		*/
+		//}
 		?>
 		<div class="three-quarter right">
 			<?php 
@@ -40,7 +38,9 @@ get_header();
 			if ( is_bbpress() ) {
 				if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('sidebar-forums') ) : ?><!-- no sidebar --><?php endif;
 			} else {
+			*/
 				if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('sidebar-generic') ) : ?><!-- no sidebar --><?php endif;
+			/*
 			}
 			*/
 			?>
