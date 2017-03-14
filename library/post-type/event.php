@@ -640,7 +640,7 @@ function event_shortcode( $event_atts ) {
 		foreach ( $events as $event ) {
 			$list .= '<div class="event-item">';
 			$list .= '<h5><a href="' . get_permalink( $event->ID ) . '">' . $event->post_title . '</a></h5>';
-			$list .= '<span class="quiet">' . date( 'n/j/Y', $event->_p_event_start ) . '</span>';
+			$list .= '<span class="quiet">' . date( 'M j, Y', $event->_p_event_start ) . '</span>';
 			if ( $a['show_excerpt'] ) {
 				$list .= $event->post_excerpt;
 			}
@@ -695,7 +695,7 @@ class event_widget extends WP_Widget {
 		if ( !empty( $events ) ) {
 			foreach ( $events as $event ) {
 				print '<h4><a href="' . get_permalink( $event->ID ) . '">' . $event->post_title . '</a></h4>';
-				print date( 'n/j/Y', $event->_p_event_start );
+				print date( 'M j, Y', $event->_p_event_start );
 			}
 		}
 
