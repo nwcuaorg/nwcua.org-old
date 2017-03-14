@@ -455,4 +455,13 @@ function user_role_update( $user_id, $new_role ) {
 add_action( 'set_user_role', 'user_role_update', 10, 2);
 
 */
+
+
+function current_url_shortcode() {
+	return add_query_arg( '_', false );
+}
+add_shortcode('current-url', 'current_url_shortcode');
+
+
+
 ?>
