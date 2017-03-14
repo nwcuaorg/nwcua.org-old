@@ -8,7 +8,7 @@ get_header();
 
 	<?php the_showcase(); ?>
 	
-	<div id="content" class="wrap group site-content content-two-column content-style<?php print ( is_bbpress() ? ' content-forums' : '' ); ?>" role="main">
+	<div id="content" class="wrap group site-content content-two-column content-style<?php //print ( is_bbpress() ? ' content-forums' : '' ); ?>" role="main">
 		<?php
 		if ( !is_bbpress() ) {
 			?>
