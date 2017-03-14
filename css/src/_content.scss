@@ -324,11 +324,7 @@ table {
 	.frame-shadow {
 		box-shadow: 0 0 50px rgba( $grey, .2 );
 		border: 1px solid lighten( $grey , 20% );
-		margin: 10px -20px;
-
-		@include respond-to( 768px ) {
-			margin: 10px 0;
-		}
+		margin: 10px 0;
 	}
 
 	.gform_wrapper {
