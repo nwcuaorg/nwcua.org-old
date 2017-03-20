@@ -124,7 +124,7 @@ function nwcua_signon( $user, $username, $password ) {
 		// show final user object before returning, and die so we can inspect it.
 		// print_r( $user ); die;
 
-		// wp_set_auth_cookie( $user->ID, 1, 1 );
+		wp_set_auth_cookie( $user->ID, 1, 1 );
 
 		// return the new user
 		return $user;
