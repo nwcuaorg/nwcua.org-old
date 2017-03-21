@@ -6,6 +6,8 @@ function call_associo_api( $endpoint, $data='' ) {
 	// encode data array as JSON
 	$data = json_encode( $data );
 
+	error_reporting(E_ALL);
+	ini_set('display_errors', 1);
 
 	// set endpoint, method, and headers 
 	// $ch = curl_init( 'http://nwcua.ditest.us/api/' . $endpoint );
@@ -24,7 +26,12 @@ function call_associo_api( $endpoint, $data='' ) {
 
 	// execute the curl call.
 	$result = curl_exec( $ch );
+
 	
+	print_r( $data );
+	print_r( $result );
+	die;
+
 
 	// return the response
 	return $result;
