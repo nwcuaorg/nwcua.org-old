@@ -80,7 +80,7 @@ function nwcua_signon( $user, $username, $password ) {
 	$associo_user = json_decode( call_associo_api( 'account/authenticate/', $credentials ) );
 
 	// show what we get from associo without allowing the rest to happen
-	print_r( $associo_user ); die;
+	// print_r( $associo_user ); die;
 
 	// if the response is a valid user object
 	if ( isset( $associo_user->username ) ) {
