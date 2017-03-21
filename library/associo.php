@@ -18,17 +18,13 @@ function call_associo_api( $endpoint, $data='' ) {
 	) );
 
 
-
-
 	// set the data being posted to the server
 	if ( !empty( $data ) ) curl_setopt( $ch, CURLOPT_POSTFIELDS, $data );
+
 
 	// execute the curl call.
 	$result = curl_exec( $ch );
 	
-	print_r( $data );
-	print_r( $result );
-	die;
 
 	// return the response
 	return $result;
