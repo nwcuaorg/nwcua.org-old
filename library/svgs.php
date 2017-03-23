@@ -313,9 +313,10 @@ function register_cu4k_map_svg() {
         <text class="cls-8" transform="translate(76.66 365.15)">
           Asante Rogue Regional <tspan x="0" y="12">Medical Center</tspan>
         </text>
-        <text class="cls-8" transform="translate(322.66 146.48)">
-          Kootenai <tspan x="0" y="12">Medical </tspan><tspan x="0" y="24">Center</tspan>
+        <text class="cls-8" transform="translate(312.66 146.48)">
+          Sacred Heart <tspan x="0" y="12">Children&apos;s</tspan><tspan x="0" y="24">Hospital</tspan>
         </text>
+
         <text class="cls-8" transform="translate(319.66 333.12)">
           Intermountain<tspan x="0" y="12">Promary Children’s</tspan><tspan x="0" y="24">Hospital</tspan>
         </text>
