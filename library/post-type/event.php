@@ -53,7 +53,7 @@ function event_post_type() {
 		) /* end of options */
 	); /* end of register post type */
 
-	register_taxonomy_for_object_type( 'category', 'event' );	
+	// register_taxonomy_for_object_type( 'category', 'event' );	
 	
 }
 
