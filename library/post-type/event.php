@@ -205,6 +205,14 @@ function get_month_events( $m, $y, $category='' ) {
 				'compare' => '<='
 			)
 		),
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'event_cat',
+				'field'    => 'slug',
+				'terms'    => 'exclude',
+				'operator' => 'NOT IN',
+			),
+		),
 		'post_type' => 'event',
 		'orderby' => 'name',
 		'posts_per_page' => 100
@@ -214,6 +222,15 @@ function get_month_events( $m, $y, $category='' ) {
 		if ( $_GET['event_category'] != 0 ) {
 			$event_cat = get_term( $_GET['event_category'], 'event_cat' );
 			$args[ 'event_cat' ] = $event_cat->slug;
+		} else {
+			$args['tax_query'] = array(
+				array(
+					'taxonomy' => 'event_cat',
+					'field'    => 'slug',
+					'terms'    => 'exclude',
+					'operator' => 'NOT IN',
+				),
+			);
 		}
 	}
 
