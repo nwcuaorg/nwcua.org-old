@@ -1,13 +1,28 @@
 <?php
 
 
+// get the request URI and remove the query string
 $request = str_replace( "?" . $_SERVER['QUERY_STRING'], '',  $_SERVER['REQUEST_URI'] );
+
+
+// redirect if they go to the account page.
 if ( $request == '/account/' && !is_user_logged_in() ) {
 	header( 'Location: /account/login/?redirect_to=' . urlencode( 'https://app.nwcua.org/account/' ) );
 	exit;
 } else if ( $request == '/account/' && is_user_logged_in() ) {
 	header( 'Location: https://app.nwcua.org/account/' );
 }
+
+
+// logout and redirect if that's the request
+if ( $request == '/logout' || $request == '/logout/' ) {
+	wp_logout();
+	wp_redirect( '/' );
+	exit;
+}
+
+
+
 
 
 // add a custom stylesheet so we can customize the login page a bit.
