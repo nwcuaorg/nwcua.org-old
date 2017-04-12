@@ -149,7 +149,7 @@ function nwcua_authenticate( $username, $password ) {
 		wp_set_auth_cookie( $user->ID, 1, 1 );
 
 		// redirect the user
-		wp_redirect( $redirect_to );
+		wp_redirect( 'https://app.nwcua.org/api/account/token?token=' . $associo_user->token . '&redirect=' . $redirect_to );
 
 		// since we authenticated the user and redirected them, we'll exit here instead of returning back to the login function
 		exit;
@@ -162,8 +162,6 @@ function nwcua_authenticate( $username, $password ) {
 	}
 
 }
-
-
 
 
 /*
