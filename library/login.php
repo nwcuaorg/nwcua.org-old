@@ -22,6 +22,26 @@ if ( $request == '/logout' || $request == '/logout/' ) {
 }
 
 
+if ( $request == '/api/auth/generate_auth_cookie/' ) {
+
+	$auth_attempt = associo_authenticate( $_REQUEST['username'], $_REQUEST['password'] );
+	
+	if ( !$auth_attempt ) {
+
+		print '{"status":"error","error":"Invalid username and\/or password."}';
+		die;
+
+	} else {
+
+		$response = array(
+			'user' => $auth_attempt->data
+		);
+		print json_encode( $response );
+		die;
+	}
+
+}
+
 
 
 
@@ -86,13 +106,45 @@ function update_user_meta_item( $associo_user, $field_label ) {
 
 
 // add a new password encryption schema that includes the username.
-add_filter( 'wp_authenticate', 'nwcua_authenticate', 1, 3 );
+add_filter( 'wp_authenticate', 'nwcua_authenticate', 0, 3 );
 function nwcua_authenticate( $username, $password ) {
 
 	global $wpdb;
 
 	// capture redirect_to parameter
 	$redirect_to = ( isset( $_REQUEST['redirect_to'] ) ? $_REQUEST['redirect_to'] : '/' );
+
+	$auth_attempt = associo_authenticate( $username, $password );
+
+	// if the response is a valid user object
+	if ( !$auth_attempt ) {
+
+		// no user found
+		wp_redirect( '/account/login/?login-error=true&redirect_to=' . $redirect_to );
+
+	} else {
+
+		// retrieve our new user
+		$user = $auth_attempt;
+
+		// set a secure user auth token.
+		wp_set_auth_cookie( $user->ID, 1, 1 );
+
+		// set a non-secure user auth token.
+		wp_set_auth_cookie( $user->ID, 1, 0 );
+
+		// redirect the user
+		wp_redirect( 'https://app.nwcua.org/api/account/token?token=' . $auth_attempt->token . '&redirect=' . $redirect_to );
+
+		// don't return anything, just exit after redirecting.
+		exit;
+	}
+}
+
+
+
+// function to authenticate a user against Associo's APIs.
+function associo_authenticate( $username, $password ) {
 
 	// get wp user
 	$user = get_user_by( 'login', $username );
@@ -115,7 +167,7 @@ function nwcua_authenticate( $username, $password ) {
 		if ( empty( $user ) ) {
 
 			// build an insert query
-			$insert_user = 'INSERT INTO `nwcua_users` ( `ID`, `user_login`, `user_pass`, `user_email`, `user_nicename`, `user_registered`, `display_name` ) VALUES ( ' . $associo_user->id . ', "' . $associo_user->username . '", "' . md5( $associo_user->username ) . '", "' . $associo_user->email . '", "' . $associo_user->username . '", "' . date( "Y-m-d H:i:s", strtotime( $associo_user->created_at ) ) . '", "' . $associo_user->first_name . ' ' . $associo_user->last_name . '" );';
+			$insert_user = 'INSERT INTO `nwcua_users` ( `ID`, `user_login`, `user_pass`, `user_email`, `user_nicename`, `user_registered`, `display_name` ) VALUES ( ' . $associo_user->id . ', "' . $associo_user->username . '", "' . md5( $password ) . '", "' . $associo_user->email . '", "' . $associo_user->username . '", "' . date( "Y-m-d H:i:s", strtotime( $associo_user->created_at ) ) . '", "' . $associo_user->first_name . ' ' . $associo_user->last_name . '" );';
 
 			// insert the user
 			$wpdb->query( $insert_user );
@@ -123,13 +175,10 @@ function nwcua_authenticate( $username, $password ) {
 			// set new user role.
 			wp_update_user( array( 'ID' => $associo_user->id, 'role' => ( $associo_user->member ? 'member' : 'subscriber' ) ) );
 
-			// retrieve our new user
-			$user = get_user_by( 'login', $username );
-
 		} else if ( $user->user_login != $associo_user->username ) {
 
 			// build an insert query
-			$insert_user = 'UPDATE `nwcua_users` SET `user_login`="' . $associo_user->username . '", `user_nicename`="' . $associo_user->username . '", `user_email`="' . $associo_user->email . '", `display_name`="' . $associo_user->first_name . ' ' . $associo_user->last_name . '" WHERE `ID`=' . $associo_user->id . ';';
+			$insert_user = 'UPDATE `nwcua_users` SET `user_login`="' . $associo_user->username . '", `user_pass`="' . md5( $password ) . '", user_nicename`="' . $associo_user->username . '", `user_email`="' . $associo_user->email . '", `display_name`="' . $associo_user->first_name . ' ' . $associo_user->last_name . '" WHERE `ID`=' . $associo_user->id . ';';
 
 			// insert the user
 			$wpdb->query( $update_user );
@@ -137,22 +186,14 @@ function nwcua_authenticate( $username, $password ) {
 			// set updated user role.
 			wp_update_user( array( 'ID' => $associo_user->id, 'role' => ( $associo_user->member ? 'member' : 'subscriber' ) ) );
 
-			// retrieve our new user
-			$user = get_user_by( 'login', $username );
-
 		}
 
-		// one final user retrieval to make sure we have all the fields
+		// retrieve our new user
 		$user = get_user_by( 'login', $username );
 
-		// set the user auth token.
-		wp_set_auth_cookie( $user->ID, 1, 1 );
+		$user->token = $associo_user->token;
 
-		// redirect the user
-		wp_redirect( 'https://app.nwcua.org/api/account/token?token=' . $associo_user->token . '&redirect=' . $redirect_to );
-
-		// since we authenticated the user and redirected them, we'll exit here instead of returning back to the login function
-		exit;
+		return $user;
 
 	} else {
 
@@ -160,8 +201,9 @@ function nwcua_authenticate( $username, $password ) {
 		return false;
 
 	}
-
 }
+
+
 
 
 /*
