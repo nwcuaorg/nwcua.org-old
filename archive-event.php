@@ -24,6 +24,10 @@ if ( isset( $_REQUEST['event_category'] ) && $_REQUEST['event_category']!=0 ) {
 	</div>
 	
 	<div id="content" class="wrap content-wide" role="main">
+		<div class="events-content">
+			<?php print do_shortcode( 'events-calendar-download' ); ?>
+		</div>
+
 		<h3>Search All Events</h3>
 		<form role="search" method="get" id="searchform" class="searchform" action="/" _lpchecked="1">
 			<input type="text" value="<?php print ( isset( $_REQUEST['s'] ) ? $_REQUEST['s'] : '' ) ?>" name="s" id="s" placeholder="Search">
