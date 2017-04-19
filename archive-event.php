@@ -25,7 +25,7 @@ if ( isset( $_REQUEST['event_category'] ) && $_REQUEST['event_category']!=0 ) {
 	
 	<div id="content" class="wrap content-wide" role="main">
 		<div class="events-content">
-			<?php print do_shortcode( 'events-calendar-download' ); ?>
+			<?php print do_shortcode( '[events-calendar-download]' ); ?>
 		</div>
 
 		<h3>Search All Events</h3>
