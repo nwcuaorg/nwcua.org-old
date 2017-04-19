@@ -45,6 +45,8 @@ if ( $request == '/api/auth/generate_auth_cookie/' ) {
 
 
 
+
+
 // add a custom stylesheet so we can customize the login page a bit.
 function nwcua_login_stylesheet() {
     wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/css/login.css' );
@@ -96,6 +98,18 @@ function remove_admin_bar() {
 		show_admin_bar( false );
 	}
 }
+
+
+
+function cal_link() {
+	if ( is_user_logged_in() ) {
+		$user_id = get_current_user_id();
+		$user_info = json_decode( call_associo_api( 'account/' . $user_id ) );
+		return '<a href="https://www.fuzeqna.com/nwcua/membership/consumer/signon.asp?auth=97d85146cf44699ffeb5c8a4691490de&Cookieexpdate=18+Apr+2018&uid=' . $user_info->email . '&email=' . $user_info->email . '&fname=' . $user_info->first_name . '&lname=' . $user_info->last_name . '&redir=http://www.fuzeqna.com/nwcua/consumer/kbdetail.asp?kbid=468&ao=t&fredir=http://www.fuzeqna.com/nwcua/consumer/kbdetail.asp?kbid=468&ao=t" class="btn-arrow">Visit CAL</a>';
+	}
+}
+add_shortcode( 'cal-link', 'cal_link' );
+
 
 
 function update_user_meta_item( $associo_user, $field_label ) {
