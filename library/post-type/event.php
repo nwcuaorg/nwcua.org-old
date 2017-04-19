@@ -205,6 +205,14 @@ function get_month_events( $m, $y, $category='' ) {
 				'compare' => '<='
 			)
 		),
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'event_cat',
+				'field'    => 'slug',
+				'terms'    => 'exclude',
+				'operator' => 'NOT IN',
+			),
+		),
 		'post_type' => 'event',
 		'orderby' => 'name',
 		'posts_per_page' => 100
