@@ -104,9 +104,9 @@ function remove_admin_bar() {
 function cal_link() {
 	if ( is_user_logged_in() ) {
 		$user_id = get_current_user_id();
-		print "<!--" . $user_id . "-->";
+		// print "<!--" . $user_id . "-->";
 		$user_info = json_decode( call_associo_api( 'account/' . $user_id ) );
-		print "<!--" . print_r( $user_info, 1 ) . "-->";
+		// print "<!--" . print_r( $user_info, 1 ) . "-->";
 		return '<a href="https://www.fuzeqna.com/nwcua/membership/consumer/signon.asp?auth=97d85146cf44699ffeb5c8a4691490de&Cookieexpdate=18+Apr+2018&uid=' . $user_info->email . '&email=' . $user_info->email . '&fname=' . $user_info->first_name . '&lname=' . $user_info->last_name . '&redir=http://www.fuzeqna.com/nwcua/consumer/kbdetail.asp?kbid=468&ao=t&fredir=http://www.fuzeqna.com/nwcua/consumer/kbdetail.asp?kbid=468&ao=t" class="btn-arrow">Visit CAL</a>';
 	} else {
 		return "<strong>Please log in to access CAL.</strong>";
@@ -163,6 +163,8 @@ function nwcua_authenticate( $username, $password ) {
 
 // function to authenticate a user against Associo's APIs.
 function associo_authenticate( $username, $password ) {
+
+	global $wpdb;
 
 	// get wp user
 	$user = get_user_by( 'login', $username );
