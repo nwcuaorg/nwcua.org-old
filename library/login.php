@@ -101,21 +101,6 @@ function remove_admin_bar() {
 
 
 
-function cal_link() {
-	if ( is_user_logged_in() ) {
-		$user_id = get_current_user_id();
-		// print "<!--" . $user_id . "-->";
-		$user_info = json_decode( call_associo_api( 'account/' . $user_id ) );
-		// print "<!--" . print_r( $user_info, 1 ) . "-->";
-		return '<a href="https://www.fuzeqna.com/nwcua/membership/consumer/signon.asp?auth=97d85146cf44699ffeb5c8a4691490de&Cookieexpdate=18+Apr+2018&uid=' . $user_info->email . '&email=' . $user_info->email . '&fname=' . $user_info->first_name . '&lname=' . $user_info->last_name . '&redir=http://www.fuzeqna.com/nwcua/consumer/kbdetail.asp?kbid=468&ao=t&fredir=http://www.fuzeqna.com/nwcua/consumer/kbdetail.asp?kbid=468&ao=t" class="btn-arrow">Visit CAL</a>';
-	} else {
-		return "<strong>Please log in to access CAL.</strong>";
-	}
-}
-add_shortcode( 'cal-link', 'cal_link' );
-
-
-
 function update_user_meta_item( $associo_user, $field_label ) {
 	if ( !empty( $associo_user->$field_label ) ) {
 		update_user_meta( $associo_user->id, $field_label, $associo_user->$field_label );
@@ -178,12 +163,42 @@ function associo_authenticate( $username, $password ) {
 	// get response from associo api
 	$associo_user = json_decode( call_associo_api( 'account/authenticate/', $credentials ) );
 
+	// debug WP user
+	// print_r( $user );
+
 	// show what we get from associo without allowing the rest to happen
-	// print_r( $associo_user ); die;
+	// print_r( $associo_user );
+
+	// die so we can see output instead of redirecting.
+	// die;
+
 
 	// if the response is a valid user object
 	if ( isset( $associo_user->username ) ) {
 
+
+		// if the user IDs of the WP and Associo users don't match, let's delete the old WP user.
+		if ( $associo_user->id != $user->ID ) {
+
+			// build a delete query
+			$delete_user = 'DELETE FROM `nwcua_users` WHERE ID=' . $user->ID . ';';
+
+			// delete the old user
+			$wpdb->query( $delete_user );
+
+			// build a delete query
+			$delete_user_meta = 'DELETE FROM `nwcua_usermeta` WHERE user_id=' . $user->ID . ';';
+
+			// delete the old user
+			$wpdb->query( $delete_user_meta );
+
+			// select the associo user ID from WP to see if we have a user for the correct ID
+			$user = get_user_by( 'id', $associo_user->id );
+
+		}
+
+
+		// let's see if the user is empty
 		if ( empty( $user ) ) {
 
 			// build an insert query
@@ -192,27 +207,71 @@ function associo_authenticate( $username, $password ) {
 			// insert the user
 			$wpdb->query( $insert_user );
 
-			// set new user role.
-			wp_update_user( array( 'ID' => $associo_user->id, 'role' => ( $associo_user->member ? 'member' : 'subscriber' ) ) );
+			// get the new user so we can check roles.
+			$user = get_user_by( 'id', $associo_user->id );
+
+			// adjust the roles
+			$roles = $user->roles;
+			if ( $associo_user->member ) {
+
+				// add member role to role array
+				$roles[] = 'member';
+
+				// set new user role
+				wp_update_user( array( 'ID' => $associo_user->id, 'role' => $roles ) );
+
+			}
+
+			// get the new user after we've set the roles.
+			$user = get_user_by( 'id', $associo_user->id );
+
 
 		} else if ( $user->user_login != $associo_user->username ) {
 
-			// build an insert query
-			$insert_user = 'UPDATE `nwcua_users` SET `user_login`="' . $associo_user->username . '", `user_pass`="' . md5( $password ) . '", user_nicename`="' . $associo_user->username . '", `user_email`="' . $associo_user->email . '", `display_name`="' . $associo_user->first_name . ' ' . $associo_user->last_name . '" WHERE `ID`=' . $associo_user->id . ';';
+			// build an update query
+			$update_user = 'UPDATE `nwcua_users` SET 
+				user_login="' . $associo_user->username . '", 
+				user_pass="' . md5( $password ) . '", 
+				user_nicename`="' . $associo_user->username . '", 
+				user_email="' . $associo_user->email . '", 
+				display_name="' . $associo_user->first_name . ' ' . $associo_user->last_name . '" 
+				WHERE ID=' . $associo_user->id . ';';
 
 			// insert the user
 			$wpdb->query( $update_user );
 
-			// set updated user role.
-			wp_update_user( array( 'ID' => $associo_user->id, 'role' => ( $associo_user->member ? 'member' : 'subscriber' ) ) );
+			// re-assemble the user role array
+			$roles = $user->roles;
+			if ( $associo_user->member ) {
+
+				// add role to role array
+				$roles[] = 'member';
+
+				// update the user role
+				wp_update_user( array( 'ID' => $associo_user->id, 'role' => $roles ) );
+
+			}
+
+			// get the user
+			$user = get_user_by( 'login', $associo->username );
+
+		} else if ( !in_array( 'member', $user->roles ) ) {
+
+			// reassemble the user role array
+			$roles = $user->roles;
+			$roles[] = 'member';
+
+			// update the user roles
+			wp_update_user( array( 'ID' => $user->ID, 'role' => $roles ) );
+
+			$user = get_user_by( 'id', $user->ID );
 
 		}
 
-		// retrieve our new user
-		$user = get_user_by( 'login', $username );
-
+		// set the user's Associo token before returning
 		$user->token = $associo_user->token;
 
+		// return the user object
 		return $user;
 
 	} else {
@@ -222,7 +281,6 @@ function associo_authenticate( $username, $password ) {
 
 	}
 }
-
 
 
 
