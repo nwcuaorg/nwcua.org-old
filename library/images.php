@@ -27,7 +27,7 @@ if ( function_exists( 'add_image_size' ) ) {
 function p_is_image( $img_path ) {
 
     // valid image extensions
-    $valid_extensions = array( 'jpg', 'png', 'gif' );
+    $valid_extensions = array( 'jpg', 'jpeg', 'png', 'gif' );
 
     // get file info
     $info = pathinfo( $img_path );
