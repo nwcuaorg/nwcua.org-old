@@ -74,7 +74,7 @@ if ( isset( $_REQUEST['category'] ) ) {
 
 		// get the events
 		// $events = get_upcoming_events( 3, ( isset( $_GET['category'] ) ? implode( ',', $_GET['category'] ) : 0 ) );
-		$events = get_upcoming_events( 3, 0 );
+		$events = get_upcoming_events( 3 );
 
 
 		// get existing query to work from.
