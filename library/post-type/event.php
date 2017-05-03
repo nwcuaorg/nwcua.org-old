@@ -294,6 +294,15 @@ function get_upcoming_events( $limit, $category=0 ) {
 				)
 			);
 		}
+	} else {
+		$args['tax_query'] = array(
+			array(
+				'taxonomy' => 'event_cat',
+				'field'    => 'slug',
+				'terms'    => 'exclude',
+				'operator' => 'NOT IN',
+			),
+		);
 	}
 
 	$event_query = new WP_Query( $args );
