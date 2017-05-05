@@ -17,7 +17,7 @@ if ( $request == '/account/' && !is_user_logged_in() ) {
 // logout and redirect if that's the request
 if ( $request == '/logout' || $request == '/logout/' ) {
 	wp_logout();
-	wp_redirect( '/' );
+	wp_redirect( 'https://app.nwcua.org/logout' );
 	exit;
 }
 
