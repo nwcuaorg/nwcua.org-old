@@ -342,7 +342,7 @@ function login_form_shortcode( $atts, $content = null ) {
 		$form .= wp_login_form( array('echo' => false, 'redirect' => $redirect, 'value_remember' => 1 ) );
 		$form .= '<p><a href="https://app.nwcua.org/forgot_password">Lost/forgotten Password</a></p>';
 	} else {
-		$form .= "You are currently logged in, please visit <a href='" . $account_url . "'>your account</a> for more options.";
+		$form .= "You are currently logged in, please visit <a href='https://apps.nwcua.org/account/'>your account</a> for more options. To log out completely, <a href='/logout'>click here</a>.";
 	}
 
 	return $form;
