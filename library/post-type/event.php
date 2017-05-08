@@ -487,6 +487,8 @@ function filter_by_event_type() {
 			'taxonomy' => 'event_cat',
 			'class' => 'event-category',
 			'exclude' => '7756',
+			'hierarchical' => 1,
+			'depth' => 1,
 			'selected' => ( isset( $_GET['event_category'] ) ? $_GET['event_category'] : 0 )
 		) 
 	);

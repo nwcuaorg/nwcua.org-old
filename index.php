@@ -40,7 +40,7 @@ get_header();
 					<img src="/wp-content/uploads/2011/12/iconnwcua.png">
 				</div>
 				<div class="large-title-text">
-					<h1>Search: <span>'<?php print $_REQUEST["s"]; ?>'</h1>
+					<h1>Search: <span>'<?php print htmlspecialchars( $_REQUEST["s"] ); ?>'</h1>
 				</div>
 			</div>
 		</div>

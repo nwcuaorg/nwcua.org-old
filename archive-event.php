@@ -30,7 +30,7 @@ if ( isset( $_REQUEST['event_category'] ) && $_REQUEST['event_category']!=0 ) {
 
 		<h3>Search All Events</h3>
 		<form role="search" method="get" id="searchform" class="searchform" action="/" _lpchecked="1">
-			<input type="text" value="<?php print ( isset( $_REQUEST['s'] ) ? $_REQUEST['s'] : '' ) ?>" name="s" id="s" placeholder="Search">
+			<input type="text" value="<?php print ( isset( $_REQUEST['s'] ) ? strip_tags( $_REQUEST['s'] ) : '' ) ?>" name="s" id="s" placeholder="Search">
 			<input type="hidden" value="event" name="post_type">
 			<input type="submit" id="searchsubmit" value="Search Events" class="btn-arrow">
 		</form>
