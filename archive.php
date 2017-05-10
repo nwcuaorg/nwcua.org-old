@@ -47,6 +47,7 @@ $color = get_category_color( $category[0]->cat_ID );
 		$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 		$query_args['paged'] = $paged;
 
+		print "<!--" . print_r( $query_args, 1 ) . '-->';
 
 		// run the query
 		$wp_query = new WP_Query( $query_args );
