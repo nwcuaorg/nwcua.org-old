@@ -39,8 +39,8 @@ $color = get_category_color( $category[0]->cat_ID );
 
 		// set our query arguments
 		$query_args['orderby'] = array( 'meta_value_num' => 'DESC', 'date' => 'DESC' );
-		$query_args['meta_key'] = '_p_priority';
 		$query_args['posts_per_page'] = 14;
+		$query_args['meta_key'] = '_p_priority';
 		$query_args['meta_query'] = array(
 			array(
 				'key'=>'_p_priority',
@@ -56,14 +56,14 @@ $color = get_category_color( $category[0]->cat_ID );
 
 
 		// run the query
-		$wp_query = new WP_Query( $query_args );
+		query_posts( $query_args );
 
 
-		if ( $wp_query->have_posts() ) { 
+		if ( have_posts() ) { 
 		
 			// Start the Loop.
 			$count = 0;
-			while ( $wp_query->have_posts() ) : $wp_query->the_post(); 
+			while ( have_posts() ) : the_post(); 
 				?>
 			<div class="entry priority-<?php show_cmb_value( 'priority' ); ?>">
 				<div class="entry-image">
