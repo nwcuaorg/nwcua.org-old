@@ -212,7 +212,7 @@ function associo_authenticate( $username, $password ) {
 
 			// adjust the roles
 			$roles = $user->roles;
-			if ( $associo_user->member ) {
+			if ( $associo_user->member && !in_array( 'administrator', $user->roles ) ) {
 
 				// add member role to role array
 				$roles[] = 'member';
@@ -242,7 +242,7 @@ function associo_authenticate( $username, $password ) {
 
 			// re-assemble the user role array
 			$roles = $user->roles;
-			if ( $associo_user->member ) {
+			if ( $associo_user->member && !in_array( 'administrator', $user->roles ) ) {
 
 				// add role to role array
 				$roles[] = 'member';
