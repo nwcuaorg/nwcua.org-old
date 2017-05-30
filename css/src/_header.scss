@@ -165,12 +165,8 @@ header {
 					a { background: lighten( $grey-dark, 5% ); }
 					ul a:hover { background: lighten( $grey-dark, 10% ); }
 				}
-	
-				&:nth-child(8) ul, &:nth-child(9) ul {
 
-				}
-
-				&:nth-child(9), &:nth-child(9):hover, &:nth-child(9).open {
+				&:nth-child(9):hover, &:nth-child(9).open {
 					a { background: $lime; }
 					ul a:hover { background: lighten( $lime, 5% ); }
 				}
