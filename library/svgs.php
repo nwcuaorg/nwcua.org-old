@@ -237,7 +237,7 @@ add_action( 'wsu_register_inline_svg', 'register_cu4k_map_svg' );
 function register_cu4k_map_svg() {
     ob_start();
     ?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 526.71 387.8">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 526.71 387.8" style="height:700px">
   <defs>
     <style>
           #CU4k {
