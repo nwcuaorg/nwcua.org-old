@@ -110,7 +110,7 @@
 			@include font;
 			font-style: normal;
 			font-size: 1.1em;
-			padding-left: 40px;
+			// padding-left: 40px;
 			position: relative;
 			padding-right: 10px;
 
@@ -118,6 +118,7 @@
 				padding-right: 0;
 			}
 			
+			/*
 			&:before {
 				content: '';
 				position: absolute;
@@ -128,9 +129,12 @@
 				background: $green;
 				border-radius: 10px;
 			}
+			*/
 		}
+		/*
 		&.priority-1 h3:before { background: #e9dc07; }
 		&.priority-2 h3:before { background: #e40d0d; }
+		*/
 
 		p {
 			font-size: .85em;
