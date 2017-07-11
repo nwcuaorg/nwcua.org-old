@@ -14,6 +14,10 @@
 	max-width: 900px;
 	margin: 0 auto;
 	@extend .content-style;
+
+	a {
+		text-decoration: underline;
+	}
 }
 
 .content-wide {
@@ -51,6 +55,12 @@
 .quarter, .third, .half, .two-third, .three-quarter, .three-fifth, .two-fifth {
 	padding: 20px;
 }
+
+
+.three-quarter a {
+	text-decoration: underline;
+}
+
 
 @include respond-to( 768px ) {
 	.quarter, .third, .half, .two-third, .three-quarter, .twenty, .thirty, .three-fifth, .two-fifth {
