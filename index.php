@@ -29,7 +29,7 @@ get_header();
 
 		// if it's a search, display the search term.
 		if ( is_search() ) {
-			$query_args['post_type'] = array( 'post', 'page', 'event', 'job' );
+			$query_args['post_type'] = ( isset( $_REQUEST['post_type'] ) ? $_REQUEST['post_type'] : array( 'post', 'page', 'event', 'job' ) );
 			$query_args['posts_per_page'] = 100;
 			query_posts( $query_args );
 
@@ -45,7 +45,9 @@ get_header();
 			</div>
 		</div>
 		<div id="content" class="wrap content-wide search-list" role="main">
-			<div class="entry quiet total-results">
+			<?php include( 'searchform-advanced.php' ); ?>
+			<hr />
+			<div class="quiet total-results">
 				Found <strong><?php echo $wp_query->found_posts; ?></strong> total results. Showing <strong>100</strong>.
 			</div>
 			<?php
@@ -53,7 +55,7 @@ get_header();
 				$count = 1;
 				while ( have_posts() ) : the_post();
 					?>
-					<div class="entry priority-<?php show_cmb_value( 'priority' ); ?>">
+					<div class="entry priority-<?php show_cmb_value( 'priority' ); ?> <?php print $post->post_type ?>">
 						<div class="entry-image">
 							<a href="<?php the_permalink() ?>">
 							</a>
