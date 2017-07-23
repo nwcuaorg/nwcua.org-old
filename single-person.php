@@ -13,6 +13,7 @@ get_header();
 			<h2><?php the_excerpt(); ?></h2>
 		</div>
 		<div class="quarter sidebar right person-sidebar">
+			<img src="<?php print get_the_post_thumbnail_url( null, 'square' ) ?>" />;
 			<h5>Phone:</h5>
 			<p class="person-value"><?php show_cmb_value( 'person_phone' ); ?></p>
 			<?php if ( has_cmb_value( 'person_phone_tf') ) { ?>
