@@ -16,7 +16,7 @@ function register_chapters_map_svg() {
             *[class*="cls-"] {
               transition:opacity 0.1s;
             }
-            .region:hover *[class*="cls-"] {
+            .region:hover path {
               opacity:.5;
               cursor: pointer;
             }
