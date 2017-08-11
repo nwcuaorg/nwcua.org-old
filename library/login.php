@@ -344,9 +344,16 @@ add_filter ( 'wp_mail_content_type', 'email_mime_type');
 
 
 function current_url_shortcode() {
-	return add_query_arg( '_', false );
+	return get_bloginfo( 'site' ) . add_query_arg( '_', false );
 }
 add_shortcode('current-url', 'current_url_shortcode');
+
+
+
+function current_url_encoded_shortcode() {
+	return urlencode( get_bloginfo( 'site' ) . add_query_arg( '_', false ) );
+}
+add_shortcode('current-url-encoded', 'current_url_encoded_shortcode');
 
 
 
