@@ -178,23 +178,24 @@ function associo_authenticate( $username, $password ) {
 
 
 		// if the user IDs of the WP and Associo users don't match, let's delete the old WP user.
-		if ( $associo_user->id != $user->ID ) {
+		if ( isset( $user->ID ) ) {
+			if ( $associo_user->id != $user->ID ) {
 
-			// build a delete query
-			$delete_user = 'DELETE FROM `nwcua_users` WHERE ID=' . $user->ID . ';';
+				// build a delete query
+				$delete_user = 'DELETE FROM `nwcua_users` WHERE ID=' . $user->ID . ';';
 
-			// delete the old user
-			$wpdb->query( $delete_user );
+				// delete the old user
+				$wpdb->query( $delete_user );
 
-			// build a delete query
-			$delete_user_meta = 'DELETE FROM `nwcua_usermeta` WHERE user_id=' . $user->ID . ';';
+				// build a delete query
+				$delete_user_meta = 'DELETE FROM `nwcua_usermeta` WHERE user_id=' . $user->ID . ';';
 
-			// delete the old user
-			$wpdb->query( $delete_user_meta );
+				// delete the old user
+				$wpdb->query( $delete_user_meta );
 
-			// select the associo user ID from WP to see if we have a user for the correct ID
-			$user = get_user_by( 'id', $associo_user->id );
-
+				// select the associo user ID from WP to see if we have a user for the correct ID
+				$user = get_user_by( 'id', $associo_user->id );
+			}
 		}
 
 
@@ -211,20 +212,12 @@ function associo_authenticate( $username, $password ) {
 			$user = get_user_by( 'id', $associo_user->id );
 
 			// adjust the roles
-			$roles = $user->roles;
-			if ( $associo_user->member && !in_array( 'administrator', $user->roles ) ) {
-
-				// add member role to role array
-				$roles[] = 'member';
-
-				// set new user role
-				wp_update_user( array( 'ID' => $associo_user->id, 'role' => $roles ) );
-
+			if ( $associo_user->member ) {
+				$user->set_role( 'member' );
 			}
 
-			// get the new user after we've set the roles.
+			// get the new user so we can check roles.
 			$user = get_user_by( 'id', $associo_user->id );
-
 
 		} else if ( $user->user_login != $associo_user->username ) {
 
@@ -237,19 +230,12 @@ function associo_authenticate( $username, $password ) {
 				display_name="' . $associo_user->first_name . ' ' . $associo_user->last_name . '" 
 				WHERE ID=' . $associo_user->id . ';';
 
-			// insert the user
+			// update the user
 			$wpdb->query( $update_user );
 
-			// re-assemble the user role array
-			$roles = $user->roles;
-			if ( $associo_user->member && !in_array( 'administrator', $user->roles ) ) {
-
-				// add role to role array
-				$roles[] = 'member';
-
-				// update the user role
-				wp_update_user( array( 'ID' => $associo_user->id, 'role' => $roles ) );
-
+			// adjust the roles
+			if ( $associo_user->member ) {
+				$user->set_role( 'member' );
 			}
 
 			// get the user
@@ -257,12 +243,10 @@ function associo_authenticate( $username, $password ) {
 
 		} else if ( !in_array( 'member', $user->roles ) ) {
 
-			// reassemble the user role array
-			$roles = $user->roles;
-			$roles[] = 'member';
-
-			// update the user roles
-			wp_update_user( array( 'ID' => $user->ID, 'role' => $roles ) );
+			// adjust the roles
+			if ( $associo_user->member ) {
+				$user->set_role( 'member' );
+			}
 
 			$user = get_user_by( 'id', $user->ID );
 
