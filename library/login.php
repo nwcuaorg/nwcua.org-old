@@ -351,7 +351,7 @@ add_shortcode('current-url', 'current_url_shortcode');
 
 
 function current_url_encoded_shortcode() {
-	return get_home_url() . add_query_arg( '_', false ) );
+	return urlencode( get_home_url() . add_query_arg( '_', false ) );
 }
 add_shortcode('current-url-encoded', 'current_url_encoded_shortcode');
 
