@@ -30,8 +30,24 @@ get_header();
 		// if it's a search, display the search term.
 		if ( is_search() ) {
 			$query_args['post_type'] = ( isset( $_REQUEST['post_type'] ) ? $_REQUEST['post_type'] : array( 'post', 'page', 'event', 'job' ) );
-			$query_args['posts_per_page'] = 100;
+			$query_args['posts_per_page'] = 40;
 			query_posts( $query_args );
+
+			if ( $paged > 0 ) {
+				$result_range_start = ( ( $paged - 1 ) * 40 ) + 1;
+				$result_range_end = ( $result_range_start + 39 );
+				if ( $wp_query->found_posts > $result_range_end ) {
+					$result_range = $result_range_start . ' - ' . $result_range_end; 
+				} else {
+					$result_range = $result_range_start . ' - ' . $wp_query->found_posts;
+				}
+			} else {
+				if ( $wp_query->found_posts > 40 ) {
+					$result_range = '1 - 40';
+				} else {
+					$result_range = '1 - ' . $wp_query->found_posts;
+				}
+			}
 
 			?>
 		<div class="large-title bg-grey-dark">
@@ -48,7 +64,7 @@ get_header();
 			<?php include( 'searchform-advanced.php' ); ?>
 			<hr />
 			<div class="quiet total-results">
-				Found <strong><?php echo $wp_query->found_posts; ?></strong> total results. Showing <strong>100</strong>.
+				Found <strong><?php echo $wp_query->found_posts; ?></strong> total results. Showing results <strong><?php print $result_range; ?></strong>.
 			</div>
 			<?php
 			if ( have_posts() ) {
@@ -84,11 +100,16 @@ get_header();
 					<?php
 					$count++;
 				endwhile;
+				?>
+				<?php
 			} else {
 				print "<p>Sadly, your search returned no results. Please try another or navigate using the main menu.</p>";
 			}
 			?>
 		</div><!-- #content -->
+		<div class="pagination">
+			<?php pagination(); ?>
+		</div>
 			<?php 
 		} else {
 			?>
