@@ -132,6 +132,9 @@ if ( isset( $_REQUEST['category'] ) ) {
 								$thumbnail_id = get_post_thumbnail_id();
 								//$thumbnail_url = wp_get_attachment_url( $thumbnail_id );
 								$thumbnail_url = get_the_post_thumbnail_url( $post, 'large' );
+								// $thumbnail_info = get_the_post_thumbnail( $post, 'large' );
+								// print_r( $thumbnail_info ); die;
+
 								if ( !empty( $thumbnail_url ) ) {
 									?>
 								<img src="<?php print $thumbnail_url; ?>" />
