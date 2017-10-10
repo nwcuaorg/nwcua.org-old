@@ -135,9 +135,12 @@ if ( isset( $_REQUEST['category'] ) ) {
 								// $thumbnail_info = get_the_post_thumbnail( $post, 'large' );
 								// print_r( $thumbnail_info ); die;
 
+								$image_alt = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true );
+
+
 								if ( !empty( $thumbnail_url ) ) {
 									?>
-								<img src="<?php print $thumbnail_url; ?>" />
+								<img src="<?php print $thumbnail_url; ?>" alt="<?php print $image_alt; ?>" />
 									<?php
 								} else {
 									?>
