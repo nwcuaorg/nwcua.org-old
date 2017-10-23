@@ -827,4 +827,35 @@ add_filter( 'pre_get_posts', 'rss_event_sort' );
 
 
 
+add_action( 'gform_post_submission_8', 'set_event_timestamp', 10, 2 );
+/**
+ * Create a UNIX timestamp based on Gform date fields
+ * @author Bill Erickson
+ * @link http://www.billerickson.net/code/gravity-forms-unix-timestamp
+ * @link http://www.gravityhelp.com/documentation/page/Gform_post_submission
+ *
+ * 'gform_post_submission' applies to all forms, append form ID to specify
+ *
+ * @param array $entry
+ * @param array $form
+ * @return array
+ */
+function set_event_timestamp( $entry, $form ) {
+	$start = get_post_meta( $entry['post_id'], '_p_event_start_date', true );
+	$start_time = get_post_meta( $entry['post_id'], '_p_event_start_time', true );
+	if ( $start ) {
+		$timestamp = strtotime( $start . ' ' . $start_time );
+		update_post_meta( $entry['post_id'], '_p_event_start', $timestamp );		
+	}
+
+	$end = get_post_meta( $entry['post_id'], '_p_event_end_date', true );
+	$end_time = get_post_meta( $entry['post_id'], '_p_event_end_time', true );
+	if ( $end ) {
+		$timestamp = strtotime( $end . ' ' . $end_time );
+		update_post_meta( $entry['post_id'], '_p_event_end', $timestamp );		
+	}
+}
+
+
+
 ?>
