@@ -723,7 +723,7 @@ class event_widget extends WP_Widget {
 		// list the events
 		if ( !empty( $events ) ) {
 			foreach ( $events as $event ) {
-				print '<h4><a href="' . get_permalink( $event->ID ) . '">' . $event->post_title . '</a></h4>';
+				print '<h4><a href="' . ( !empty( $event->_p_event_website ) ? $event->_p_event_website : get_permalink( $event->ID ) ) . '">' . $event->post_title . '</a></h4>';
 				print date( 'F jS, Y', $event->_p_event_start );
 			}
 		}
