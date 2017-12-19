@@ -668,7 +668,7 @@ function event_shortcode( $event_atts ) {
 		$list .= '<div class="event-list">';
 		foreach ( $events as $event ) {
 			$list .= '<div class="event-item">';
-			$list .= '<h5><a href="' . get_permalink( $event->ID ) . '">' . $event->post_title . '</a></h5>';
+			$list .= '<h5><a href="' . ( !empty( $event->_p_event_website ) ? $event->_p_event_website : get_permalink( $event->ID ) ) . '">' . $event->post_title . '</a></h5>';
 			$list .= '<span class="quiet">' . date( 'F jS, Y', $event->_p_event_start ) . '</span>';
 			if ( $a['show_excerpt'] ) {
 				$list .= $event->post_excerpt;
