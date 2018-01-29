@@ -82,6 +82,10 @@
 		&.job:before {
 			content: 'job';
 		}
+
+		&.unlabeled:before {
+			display: none;
+		}
 	}
 
 	.total-results {
