@@ -103,11 +103,9 @@ $color = get_category_color( $category[0]->cat_ID );
 		</div>
 
 		<div class="cuobsessed-title">
-			<div class="bg-grey-light-light text-navy">
-				<div class="wrap content-pad">
-					<h2>Are you Obsessed?</h2>
-					<p>Sign up for daily or weekly advocacy updates!</p>
-				</div>
+			<div class="wrap">
+				<h2>Are you Obsessed?</h2>
+				<p>Sign up for daily or weekly advocacy updates!</p>
 			</div>
 			<div class="wrap">
 				<!-- Begin MailChimp Signup Form -->
