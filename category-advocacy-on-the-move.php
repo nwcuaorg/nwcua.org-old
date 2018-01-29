@@ -178,7 +178,7 @@ $color = get_category_color( $category[0]->cat_ID );
 						<div class="response" id="mce-success-response" style="display:none"></div>
 					</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
 				    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_c400b6f955643963baa013b6b_bb0b3f82bb" tabindex="-1" value=""></div>
-				    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+				    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button btn"></div>
 				    </div>
 				</form>
 				</div>

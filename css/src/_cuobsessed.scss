@@ -37,13 +37,20 @@
 
 
 .cuobsessed-post {
-	@include respond-to( 500px ) {
-		.size-post-thumbnail {
+	.size-post-thumbnail {
+		@include respond-to( 500px ) {
 			float: right;
-			max-width: 24%;
-			margin: 0 0 0 20px;
+			max-width: 30%;
+			margin: 0 0 20px 20px;
+		}
+
+		@include respond-to( 1024px ) {
+			float: right;
+			max-width: 25%;
+			margin: 0 0 20px 20px;
 		}
 	}
+
 	.quiet {
 		padding: 0;
 	}
