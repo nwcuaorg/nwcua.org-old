@@ -13,14 +13,42 @@ if ( has_cmb_value( 'brand' ) ) {
 
 get_header();
 
-?>
+
+
+if ( have_posts() ) {
+	while ( have_posts() ) {
+		the_post(); 
+		if ( in_category(7850) ) {
+			?>
+	<div class="large-title bg-navy">
+		<div class="wrap">
+			<div class="large-title-icon bg-navy">
+				<img src="/wp-content/uploads/2011/12/iconnwcua.png">
+			</div>
+			<div class="large-title-text">
+				<h1>#CUObsessed</h1>
+			</div>
+		</div>
+	</div>
+	<div class="cuobsessed-title">
+		<div class="wrap">
+			<img src="<?php bloginfo('template_url') ?>/img/cuobsessed.png" class="cuobsessed-logo" alt="CU Obsessed Logo">
+			<h2><?php the_author(); ?> - <?php the_date() ?></h2>
+		</div>
+	</div>
+	<div id="primary" class="site-content wrap">
+		<div id="content" class="site-content content-narrow content-style" role="main">
+			<div class="cuobsessed-post group">
+				<?php the_post_thumbnail(); ?>
+				<?php the_content(); ?>
+			</div>
+		</div><!-- #content -->
+	</div><!-- #primary -->
+					<?php 
+				} else {
+					?>
 	<div id="primary" class="site-content wrap">
 		<div id="content" class="site-content content-two-column content-style" role="main">
-		<?php 
-		if ( have_posts() ) {
-			while ( have_posts() ) {
-				the_post(); 
-				?>
 			<div class="content-header">
 				<h1><?php the_title(); ?></h1>
 				<h2><?php the_excerpt(); ?></h2>
@@ -69,12 +97,13 @@ get_header();
 			<div class="quarter sidebar right">
 			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('sidebar-blog') ) : ?><!-- no sidebar --><?php endif; ?>
 			</div>
-				<?php
-			}
-		}
-		?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
+		<?php
+		}
+	}
+}
+?>
 <?php
 
 get_footer();

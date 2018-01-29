@@ -24,13 +24,23 @@
 
 		@include respond-to( 768px ) {
 			position: absolute;
-			top: 10px;
+			top: 5px;
 			right: 20px;
 		}
 
 		@include respond-to( 1024px ) {
+			top: 0;
 			right: 40px;
 		}
+	}
+}
+
+
+.cuobsessed-post {
+	.size-post-thumbnail {
+		float: right;
+		max-width: 24%;
+		margin: 0 0 0 20px;
 	}
 }
 

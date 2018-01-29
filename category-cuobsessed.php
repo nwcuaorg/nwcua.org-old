@@ -71,17 +71,14 @@ $color = get_category_color( $category[0]->cat_ID );
 			$count = 0;
 			while ( have_posts() ) : the_post(); 
 				?>
-			<div class="entry priority-<?php show_cmb_value( 'priority' ); ?> unlabeled">
-				<div class="entry-image">
-					<a href="<?php the_permalink() ?>">
-					</a>
-				</div>
+			<div class="entry priority-<?php show_cmb_value( 'priority' ); ?> unlabeled group cuobsessed-post<?php print ( in_category(7851) ? ' idaho' : '' ); ?><?php print ( in_category(7852) ? ' oregon' : '' ); ?><?php print ( in_category(7853) ? ' washington' : '' ); ?>">
 				<div class="description">
-					<h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
+					<?php the_post_thumbnail(); ?>
+					<h3><a href="<?php the_permalink() ?>"><?php the_author(); ?> - <?php the_date() ?></a></h3>
 					<?php 
 
 					// strip tags from the excerpt and output it.
-					echo wpautop( wp_trim_words( strip_tags( get_the_excerpt() ), 50 ) ); 
+					the_excerpt(); 
 					
 					?>
 				</div>
