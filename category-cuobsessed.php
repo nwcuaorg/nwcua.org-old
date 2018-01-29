@@ -102,7 +102,7 @@ $color = get_category_color( $category[0]->cat_ID );
 			<?php pagination(); ?>
 		</div>
 
-		<div class="cuobsessed-subscribe">
+		<div class="cuobsessed-title">
 			<div class="bg-grey-light-light text-navy">
 				<div class="wrap content-pad">
 					<h2>Are you Obsessed?</h2>
