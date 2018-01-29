@@ -33,13 +33,14 @@ if ( have_posts() ) {
 	<div class="cuobsessed-title">
 		<div class="wrap">
 			<img src="<?php bloginfo('template_url') ?>/img/cuobsessed.png" class="cuobsessed-logo" alt="CU Obsessed Logo">
-			<h2><?php the_author(); ?> - <?php the_date() ?></h2>
+			<h2>Updates from your NWCUA Advocacy Team</h2>
 		</div>
 	</div>
 	<div id="primary" class="site-content wrap">
 		<div id="content" class="site-content content-narrow content-style" role="main">
 			<div class="cuobsessed-post group">
 				<?php the_post_thumbnail(); ?>
+				<h2><?php the_author(); ?> - <?php the_date() ?></h2>
 				<?php the_content(); ?>
 			</div>
 		</div><!-- #content -->
