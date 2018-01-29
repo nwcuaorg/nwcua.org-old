@@ -74,7 +74,8 @@ $color = get_category_color( $category[0]->cat_ID );
 			<div class="entry priority-<?php show_cmb_value( 'priority' ); ?> unlabeled group cuobsessed-post<?php print ( in_category(7851) ? ' idaho' : '' ); ?><?php print ( in_category(7852) ? ' oregon' : '' ); ?><?php print ( in_category(7853) ? ' washington' : '' ); ?>">
 				<div class="description">
 					<?php the_post_thumbnail(); ?>
-					<h3><a href="<?php the_permalink() ?>"><?php the_author(); ?> - <?php the_date() ?></a></h3>
+					<h3><a href="<?php the_permalink() ?>"><?php the_author(); ?></a></h3>
+					<p class="quiet"><?php the_date() ?></p>
 					<?php 
 
 					// strip tags from the excerpt and output it.
