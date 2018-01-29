@@ -107,6 +107,8 @@ $color = get_category_color( $category[0]->cat_ID );
 				<h2>Are you Obsessed?</h2>
 				<p>Sign up for daily or weekly advocacy updates!</p>
 			</div>
+		</div>
+		<div class="cuobsessed-subscribe">
 			<div class="wrap">
 				<!-- Begin MailChimp Signup Form -->
 				<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
