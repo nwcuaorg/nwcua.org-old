@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 412 413" style="enable-background:new 0 0 412 413;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#83A53E;transition: opacity 400ms ease-in-out;}
+	.st4{fill:#ADB947;transition: opacity 400ms ease-in-out;}
+	.st5{fill:#F7AB4A;transition: opacity 400ms ease-in-out;}
+	.st6{fill:#6E8D58;transition: opacity 400ms ease-in-out;}
+	.st7{fill:#13385E;transition: opacity 400ms ease-in-out;}
+	.st8{fill:#08A2CC;transition: opacity 400ms ease-in-out;}
+	.st9{fill:#53575A;transition: opacity 400ms ease-in-out;}
+	.st2{font-family:'Lato-Medium';}
+	.st3{font-size:26.4117px;}
+	.st10{fill:#FFFFFF;}
+	.st11{font-family:'Lato-Bold';}
+	.st12{font-size:13.8153px;}
+	.st1:hover, .st4:hover, .st5:hover, .st6:hover, .st7:hover, .st8:hover, .st9:hover{opacity: .8;}
+</style>
+<rect x="141.8" y="192.5" class="st0" width="198.1" height="83.3"/>
+<text transform="matrix(1 0 0 1 141.8354 212.0381)" class="st1 st2 st3">COUNCILS</text>
+<a xlink:href="https://www.google.co.uk/" target="_top"><path class="st4" d="M129.7,254.1c-7.3-12.7-11.3-26.5-12.1-40.2H20.4c0.9,30.2,9.1,60.7,25.3,88.7c16.2,28,38.5,50.3,64.2,66.2
+	l48.6-84.1C147,277.1,137,266.8,129.7,254.1L129.7,254.1z"/></a>
+<path class="st5" d="M288.9,162.1c7.3,12.7,11.3,26.5,12.1,40.2h97.2c-0.9-30.2-9.1-60.7-25.3-88.7c-16.2-28-38.5-50.3-64.2-66.2
+	l-48.6,84.1C271.6,139.1,281.6,149.4,288.9,162.1L288.9,162.1z"/>
+<path class="st6" d="M168.4,125.8c26.5-13.2,56.7-12.4,81.8,0l48.6-84.1c-54.1-29-121.2-31-178.9,0L168.4,125.8L168.4,125.8z"/>
+<path class="st7" d="M301,213.9c-1.8,27.9-16.2,54.4-40.9,70.8l48.6,84.1c55.7-34.4,87.5-93.5,89.5-154.9H301L301,213.9z"/>
+<path class="st8" d="M117.5,202.3c1.8-27.9,16.2-54.4,40.9-70.8l-48.6-84.1c-55.7,34.4-87.5,93.5-89.5,154.9H117.5L117.5,202.3z"/>
+<path class="st9" d="M250.2,290.4c-26.5,13.2-56.7,12.4-81.8,0l-48.6,84.1c54.1,29,121.2,31,178.9,0L250.2,290.4L250.2,290.4z"/>
+<rect x="41" y="139.8" class="st0" width="89.2" height="23.9"/>
+<text transform="matrix(1 0 0 1 41.7524 150.0283)" class="st10 st11 st12">Collectors</text>
+<rect x="146.7" y="66.4" class="st0" width="122.2" height="21.3"/>
+<text transform="matrix(1 0 0 1 162.5195 76.6367)" class="st10 st11 st12">Compliance</text>
+<rect x="291.8" y="126.3" class="st0" width="86.1" height="34"/>
+<text transform="matrix(1 0 0 1 318.3643 136.5703)"><tspan x="0" y="0" class="st10 st11 st12">HR &amp; </tspan><tspan x="-16.5" y="16.3" class="st10 st11 st12">TRAINERS</tspan></text>
+<rect x="291.8" y="270.5" class="st0" width="81.1" height="23.2"/>
+<text transform="matrix(1 0 0 1 301.9888 280.7617)" class="st10 st11 st12">Lenders</text>
+<rect x="154.1" y="316.3" class="st0" width="107.7" height="73.1"/>
+<text transform="matrix(1 0 0 1 165.3398 326.5479)"><tspan x="0" y="0" class="st10 st11 st12">Marketing, </tspan><tspan x="14.5" y="16.3" class="st10 st11 st12">Biz Dev, </tspan><tspan x="-1.7" y="32.5" class="st10 st11 st12">Community </tspan><tspan x="4.7" y="48.8" class="st10 st11 st12">Outreach </tspan></text>
+<rect x="35.4" y="263.7" class="st0" width="100.5" height="36.2"/>
+<text transform="matrix(1 0 0 1 39.0488 273.9316)"><tspan x="0" y="0" class="st10 st11 st12">Commercial  </tspan><tspan x="15.2" y="14.2" class="st10 st11 st12">Services</tspan></text>
+</svg>
