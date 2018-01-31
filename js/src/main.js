@@ -37,7 +37,7 @@ jQuery(document).ready(function($){
 	});
 
 	// fluid width videos that maintain aspect ratio
-	$( '.content' ).fitVids();
+	$( '.content' ).fitVids({ignore: '.nofitvid'});
 
 	$( 'button[data-url]' ).click(function(){
 		window.location.href = $( this ).attr( 'data-url' );
