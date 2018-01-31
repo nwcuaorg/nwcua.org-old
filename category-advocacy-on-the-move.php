@@ -35,7 +35,12 @@ $color = get_category_color( $category[0]->cat_ID );
 	</div>
 
 	<section id="primary" class="content-area">
-		<div id="content" class="wrap content-wide search-list" role="main">
+		<div id="content" class="wrap content-wide search-list advocacy-blog" role="main">
+			<div class="filtering">
+				<label><input type="checkbox" name="idaho" value="Idaho" class="idaho-filter" /> Idaho</label>
+				<label><input type="checkbox" name="oregon" value="Oregon" class="oregon-filter" /> Oregon</label>
+				<label><input type="checkbox" name="washington" value="Washington" class="washington-filter" /> Washington</label>
+			</div>
 
 		<?php
 		// get global wp_query
@@ -45,7 +50,7 @@ $color = get_category_color( $category[0]->cat_ID );
 
 		// set our query arguments
 		$query_args['orderby'] = array( 'meta_value_num' => 'DESC', 'date' => 'DESC' );
-		$query_args['posts_per_page'] = 14;
+		$query_args['posts_per_page'] = 40;
 		$query_args['meta_key'] = '_p_priority';
 		$query_args['meta_query'] = array(
 			array(
