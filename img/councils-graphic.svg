@@ -9,10 +9,10 @@
 	.st7{fill:#13385E;transition: opacity 400ms ease-in-out;}
 	.st8{fill:#08A2CC;transition: opacity 400ms ease-in-out;}
 	.st9{fill:#53575A;transition: opacity 400ms ease-in-out;}
-	.st2{font-family:"Lato";}
+	.st2{font-family:"Arial";}
 	.st3{font-size:26.4117px;}
 	.st10{fill:#FFFFFF;}
-	.st11{font-family:"Lato";font-weight:bold;pointer-events:none;}
+	.st11{font-family:"Arial";pointer-events:none;}
 	.st12{font-size:13.8153px;}
 	.st4,.st5,.st6,.st7,.st8,.st9{cursor:pointer;}
 	.st4:hover,.st5:hover,.st6:hover,.st7:hover,.st8:hover,.st9:hover{opacity: .8;}
