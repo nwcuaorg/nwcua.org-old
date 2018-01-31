@@ -14,7 +14,6 @@
 	.st10{fill:#FFFFFF;}
 	.st11{font-family:'Lato-Bold';}
 	.st12{font-size:13.8153px;}
-	.st1:hover, .st4:hover, .st5:hover, .st6:hover, .st7:hover, .st8:hover, .st9:hover{opacity: .8;}
 </style>
 <rect x="141.8" y="192.5" class="st0" width="198.1" height="83.3"/>
 <text transform="matrix(1 0 0 1 141.8354 212.0381)" class="st1 st2 st3">COUNCILS</text>
