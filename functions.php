@@ -54,6 +54,13 @@ add_filter( 'widget_text', array( $wp_embed, 'run_shortcode' ), 8 );
 add_filter( 'widget_text', array( $wp_embed, 'autoembed'), 8 );
 
 
+function exclude_posts_from_recentPostWidget_by_cat() {
+    $exclude = array( 'cat' => '-7850, -7851, -7852, -7853' );
+    return $exclude;
+}
+add_filter('widget_posts_args','exclude_posts_from_recentPostWidget_by_cat');
+
+
 // pagination
 function pagination( $prev = '&laquo;', $next = '&raquo;' ) {
     global $wp_query, $wp_rewrite;
