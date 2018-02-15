@@ -40,7 +40,7 @@ if ( have_posts() ) {
 		<div id="content" class="site-content content-narrow content-style" role="main">
 			<div class="cuobsessed-post group">
 				<?php the_post_thumbnail(); ?>
-				<h2><?php the_author(); ?> - <?php the_date() ?></h2>
+				<h2><?php the_title(); ?> - <?php the_date() ?></h2>
 				<?php the_content(); ?>
 			</div>
 		</div><!-- #content -->
