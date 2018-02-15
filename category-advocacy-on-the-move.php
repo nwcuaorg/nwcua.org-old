@@ -80,6 +80,7 @@ $color = get_category_color( $category[0]->cat_ID );
 				<div class="description">
 					<?php the_post_thumbnail(); ?>
 					<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+					<p class="quiet"><?php the_author(); ?></p>
 					<p class="quiet"><?php the_date(); ?></p>
 					<?php 
 

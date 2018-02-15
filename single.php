@@ -41,6 +41,7 @@ if ( have_posts() ) {
 			<div class="cuobsessed-post group">
 				<?php the_post_thumbnail(); ?>
 				<h2><?php the_title(); ?> - <?php the_date() ?></h2>
+				<p class="quiet"><?php the_author(); ?></p>
 				<?php the_content(); ?>
 			</div>
 		</div><!-- #content -->
