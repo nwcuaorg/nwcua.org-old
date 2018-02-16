@@ -33,9 +33,11 @@ $color = get_category_color( $category[0]->cat_ID );
 			<h2>Updates from your NWCUA Advocacy Team</h2>
 		</div>
 	</div>
-
+	
 	<section id="primary" class="content-area">
 		<div id="content" class="wrap content-wide search-list advocacy-blog" role="main">
+		
+		<?php if ( current_user_can( 'member' ) || current_user_can( 'administrator' ) ) { ?>
 			<div class="filtering">
 				<label><input type="checkbox" name="idaho" value="Idaho" class="idaho-filter" /> Idaho</label>
 				<label><input type="checkbox" name="oregon" value="Oregon" class="oregon-filter" /> Oregon</label>
@@ -70,12 +72,12 @@ $color = get_category_color( $category[0]->cat_ID );
 		query_posts( $query_args );
 
 
-		if ( have_posts() ) { 
-		
-			// Start the Loop.
-			$count = 0;
-			while ( have_posts() ) : the_post(); 
-				?>
+			if ( have_posts() ) { 
+			
+				// Start the Loop.
+				$count = 0;
+				while ( have_posts() ) : the_post(); 
+					?>
 			<div class="entry priority-<?php show_cmb_value( 'priority' ); ?> unlabeled group cuobsessed-post<?php print ( in_category(7851) ? ' idaho' : '' ); ?><?php print ( in_category(7852) ? ' oregon' : '' ); ?><?php print ( in_category(7853) ? ' washington' : '' ); ?>">
 				<div class="description">
 					<?php the_post_thumbnail(); ?>
@@ -90,14 +92,19 @@ $color = get_category_color( $category[0]->cat_ID );
 					?>
 				</div>
 			</div>
-				<?php
-				$count++;
-			endwhile;
+					<?php
+					$count++;
+				endwhile;
 
+
+			} else {
+				print "<p>Sadly, there is no content to show for this categories. Please try another.</p>";
+			}
 
 		} else {
-			print "<p>Sadly, there is no content to show for this categories. Please try another.</p>";
+			print '<p>This content is reserved for NWCUA members only – <a href="https://nwcua.org/account/login/?redirect_to=https://nwcua.org/category/advocacy-on-the-move/">please log in</a> to view page.</p>';
 		}
+
 		?>
 			
 		</div><!-- #content -->
