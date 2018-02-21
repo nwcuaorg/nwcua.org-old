@@ -88,6 +88,7 @@ if ( isset( $_REQUEST['category'] ) ) {
 		$query_args['meta_key'] = '_p_priority';
 		$query_args['orderby'] = array( 'meta_value_num' => 'DESC', 'date' => 'DESC' );
 		$query_args['posts_per_page'] = ( !empty( $events ) ? 13 : 14 );
+		$query_args['exclude'] = '7850,7851,7852,7853',
 		$query_args['meta_query'] = array(
 			array(
 				'key'=>'_p_priority',
