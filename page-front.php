@@ -171,7 +171,8 @@ if ( isset( $_REQUEST['category'] ) ) {
 
 						print "<div class='entry'>";
 						print "<div class='description home-events'>";
-						print "<h3><a href='/events/'>Upcoming Events</a> <a href='https://nwcua.org/wp-content/uploads/2018/03/2018-NWCUA-Events-Handout.pdf'>[PDF]</a></h3>";
+						print "<a href='https://nwcua.org/wp-content/uploads/2018/03/2018-NWCUA-Events-Handout.pdf'>2018 Events Calendar</a>";
+						print "<h3><a href='/events/'>Upcoming Events</a></h3>";
 						// list the events
 						print "<div class='event-list'>";
 						foreach ( $events as $event ) {
