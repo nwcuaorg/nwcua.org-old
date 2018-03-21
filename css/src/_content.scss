@@ -304,19 +304,21 @@ table {
 	}
 	
 	img, .wp-caption {
-		&.alignleft {
-			float: left;
-			margin: 0 10px 10px 0;
-		}
+		@include respond-to( 500px ) {
+			&.alignleft {
+				float: left;
+				margin: 0 10px 10px 0;
+			}
 
-		&.alignright {
-			float: right;
-			margin: 0 0 10px 10px;
-		}
-		
-		&.aligncenter {
-			display: block;
-			margin: 0 auto;
+			&.alignright {
+				float: right;
+				margin: 0 0 10px 10px;
+			}
+			
+			&.aligncenter {
+				display: block;
+				margin: 0 auto;
+			}			
 		}
 	}
 
