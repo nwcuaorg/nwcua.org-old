@@ -93,7 +93,7 @@ if ( isset( $_REQUEST['category'] ) ) {
 			array(
 				'key'=>'_p_priority',
 				'value'=>'-1',
-				'compare'=>'!=',
+				'compare'=>'!='
 			),
 		);
 
