@@ -304,6 +304,10 @@ table {
 	}
 	
 	img, .wp-caption {
+		&.alignleft, &.alignright {
+			display: block;
+		}
+
 		@include respond-to( 768px ) {
 			&.alignleft {
 				float: left;
