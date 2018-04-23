@@ -306,6 +306,7 @@ table {
 	img, .wp-caption {
 		&.alignleft, &.alignright {
 			display: block;
+			margin: 5px 0 10px;
 		}
 
 		@include respond-to( 768px ) {
