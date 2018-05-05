@@ -9,7 +9,7 @@ function post_list_func( $atts ) {
     $a = shortcode_atts( array(
         'category' => '',
         'tag' => '',
-        'posts_per_page' => 5
+        'posts_per_page' => 6
     ), $atts );
 
 
@@ -18,7 +18,7 @@ function post_list_func( $atts ) {
 
 	// The Loop
 	if ( $the_query->have_posts() ) {
-		$post_list_code = '<div class="home-list">';
+		$post_list_code = '<div class="home-list-small">';
 		$post_list_code .= '<ul>';
 		while ( $the_query->have_posts() ) {
 			$the_query->the_post();
