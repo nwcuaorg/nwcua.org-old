@@ -25,6 +25,7 @@ include( "library/scripts.php" );
 include( "library/categories.php" );
 include( "library/svgs.php" );
 include( "library/forums.php" );
+include( "library/post-list.php" );
 
 
 // an extra image manipulation function
