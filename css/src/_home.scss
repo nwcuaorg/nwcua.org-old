@@ -194,7 +194,7 @@
 	}
 
 	@include respond-to( 768px ) {
-		padding: 0 0 8px;
+		padding: 0 0 8px -10px;
 	}
 
 	.entry {
