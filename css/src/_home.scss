@@ -225,6 +225,10 @@
 			// padding-left: 40px;
 			position: relative;
 			padding-right: 10px;
+		
+			a {
+				text-decoration: none;
+			}
 
 			@include respond-to( 768px ) {
 				padding-right: 0;
