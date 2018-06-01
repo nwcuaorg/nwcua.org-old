@@ -7,11 +7,10 @@ function post_list_func( $atts ) {
     
     // get the attributes
     $a = shortcode_atts( array(
-        'category' => '',
+        'cat' => '',
         'tag' => '',
         'posts_per_page' => 6
     ), $atts );
-
 
     // get posts from the database
 	$the_query = new WP_Query( $a );
