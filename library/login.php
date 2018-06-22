@@ -216,6 +216,11 @@ function associo_authenticate( $username, $password ) {
 				$user->set_role( 'member' );
 			}
 
+			// adjust the trial role if applicable.
+			if ( $associo_user->memberships[0]->type_id == 74 ) {
+				$user->set_role( 'trial' );
+			}
+
 			// get the new user so we can check roles.
 			$user = get_user_by( 'id', $associo_user->id );
 
@@ -238,14 +243,37 @@ function associo_authenticate( $username, $password ) {
 				$user->set_role( 'member' );
 			}
 
+			// adjust the trial role if applicable.
+			if ( $associo_user->memberships[0]->type_id == 74 ) {
+				$user->set_role( 'trial' );
+			}
+
 			// get the user
 			$user = get_user_by( 'login', $associo->username );
 
-		} else if ( !in_array( 'member', $user->roles ) ) {
+		}
+
+		if ( !in_array( 'member', $user->roles ) ) {
 
 			// adjust the roles
 			if ( $associo_user->member ) {
 				$user->set_role( 'member' );
+			}
+
+			// adjust the trial role if applicable.
+			if ( $associo_user->memberships[0]->type_id == 74 ) {
+				$user->set_role( 'trial' );
+			}
+
+			$user = get_user_by( 'id', $user->ID );
+
+		}
+
+		if ( !in_array( 'trial', $user->roles ) ) {
+
+			// adjust the trial role if applicable.
+			if ( $associo_user->memberships[0]->type_id == 74 ) {
+				$user->set_role( 'trial' );
 			}
 
 			$user = get_user_by( 'id', $user->ID );
