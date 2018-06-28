@@ -221,6 +221,11 @@ function associo_authenticate( $username, $password ) {
 				$user->set_role( 'trial' );
 			}
 
+			// adjust the regulator role if applicable.
+			if ( $associo_user->memberships[0]->type_id == 38 || $associo_user->memberships[0]->type_id == 76 ) {
+				$user->set_role( 'regulator_compliance_access' );
+			}
+
 			// get the new user so we can check roles.
 			$user = get_user_by( 'id', $associo_user->id );
 
@@ -248,6 +253,12 @@ function associo_authenticate( $username, $password ) {
 				$user->set_role( 'trial' );
 			}
 
+			// adjust the regulator role if applicable.
+			if ( $associo_user->memberships[0]->type_id == 38 || $associo_user->memberships[0]->type_id == 76 ) {
+				$user->set_role( 'regulator_compliance_access' );
+			}
+			
+
 			// get the user
 			$user = get_user_by( 'login', $associo->username );
 
@@ -265,6 +276,11 @@ function associo_authenticate( $username, $password ) {
 				$user->set_role( 'trial' );
 			}
 
+			// adjust the regulator role if applicable.
+			if ( $associo_user->memberships[0]->type_id == 38 || $associo_user->memberships[0]->type_id == 76 ) {
+				$user->set_role( 'regulator_compliance_access' );
+			}
+
 			$user = get_user_by( 'id', $user->ID );
 
 		}
@@ -274,6 +290,17 @@ function associo_authenticate( $username, $password ) {
 			// adjust the trial role if applicable.
 			if ( $associo_user->memberships[0]->type_id == 74 ) {
 				$user->set_role( 'trial' );
+			}
+
+			$user = get_user_by( 'id', $user->ID );
+
+		}
+
+		if ( !in_array( 'regulator_compliance_access', $user->roles ) ) {
+
+			// adjust the regulator role if applicable.
+			if ( $associo_user->memberships[0]->type_id == 38 || $associo_user->memberships[0]->type_id == 76 ) {
+				$user->set_role( 'regulator_compliance_access' );
 			}
 
 			$user = get_user_by( 'id', $user->ID );
