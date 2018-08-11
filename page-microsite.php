@@ -43,7 +43,7 @@ global $is_anthem;
 			<div class="two-third">
 				<h3>The Credit Union Difference </h3>
 				<p><img src="<?php bloginfo('template_url') ?>/img/micro-book.png" class="imageright" />An <span class="text-orange"><strong>independent analysis by economists at ECONorthwest</strong></span> finds Idaho’s cooperative, not-for-profit credit unions delivered $90 million in direct financial benefits to their nearly one million members last year. The analysis measured jobs, economic output, and income and determined Idaho credit unions drove an overall $638 million impact on the state’s economy.</p>
-				<p><a href="#learn" class="text-orange"><strong>Learn more &raquo;</strong></a></p>
+				<p><a href="https://nwcua.org/wp-content/uploads/2018/01/2017-IDAHO-Executive-Summary.pdf" class="text-orange"><strong>Learn more &raquo;</strong></a></p>
 			</div>
 			<div class="third bg-seafoam">
 				<img src="<?php print bloginfo('template_url'); ?>/img/micro-cu-difference.png">
@@ -87,10 +87,10 @@ global $is_anthem;
 			<h4>The cooperative principles are as relevant as ever, while technology and services available to you are convenient and contemporary.</h4>
 		</div>
 		<div class="micro-footer bg-orange text-white">
-			<img src="<?php bloginfo('template_url') ?>/img/micro-footer-search.png" class="imageright" />
+			<a href="http://www.asmarterchoice.org/" target="_blank"><img src="<?php bloginfo('template_url') ?>/img/micro-footer-search.png" class="imageright" /></a>
 			<div class="content">
 				<h4>Credit Unions are Open to Everyone!</h4>
-				<p>Nearly everyone who lives, works, worships, or attends school in Idaho can join a credit union. To find the one that’s ideal for you, visit the A Smarter Choice website.</p>
+				<p>Nearly everyone who lives, works, worships, or attends school in Idaho can join a credit union. To find the one that’s ideal for you, visit the <a href="http://www.asmarterchoice.org/" target="_blank">A Smarter Choice</a> website.</p>
 			</div>
 		</div>
 		<div class="colophon">
