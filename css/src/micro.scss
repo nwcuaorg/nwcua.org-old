@@ -1,0 +1,174 @@
+
+$teal: #0491C1;
+$river: #09416d;
+$navy: #0F4469;
+$orange: #f8981d;
+$lime: #aabb38;
+$forest: #6e8d56;
+$gold: #9baf2c;
+$green: #83a53e;
+$red: #e15829;
+$yellow: #D6CE49;
+$grey: #9C9FA0;
+$grey-dark: #60605b;
+$aqua: #2dc6d2;
+$seafoam: #64cac8;
+$stone: $grey-dark;
+
+$seafoam: #92ACAD;
+$grey-dark: #6D6E71;
+$green: #ABB24F;
+$orange: #F1572B;
+
+
+@import 'reset';
+@import 'mixins';
+@import 'fonts';
+@import 'colors';
+@import 'content';
+@import 'base';
+
+
+body {
+	@include font;
+}
+
+header {
+	img {
+		display: block;
+	}
+}
+
+.page-template-page-microsite {
+	max-width: 1220px;
+	margin: 0 auto;
+	padding: 0;
+
+	.microsite-container {
+		max-width: 1220px;
+		margin: 0 auto;
+		border: 1px solid $grey;
+		border-top: 0;
+		border-bottom: 0; 
+		box-shadow: 0 0 20px rgba( $grey, .2 );
+	}
+
+	.grid-row {
+		@include clearfix;
+	}
+
+	.two-third {
+		@include respond-to( 768px ) {
+			width: 67%;
+			margin: 0;
+			padding: 10px 2%;
+		}
+
+		ol, ul {
+			padding: 2px 0 2px 35px;
+
+			li {
+				padding: 3px 0;
+			}
+
+			&.gform_fields {
+				padding: 5px 0;
+			}
+		}
+
+		ul {
+			list-style-type: disc;
+		}
+
+		ol {
+			list-style-type: decimal;
+		}
+	}
+
+	.third {
+		text-align: center;
+		padding: 10px 20px;
+
+		@include respond-to( 768px ) {
+			width: 33%;
+			margin: 0;
+			padding: 30px 1%;
+			min-height: 300px;
+		}
+
+		@include respond-to( 1024px ) {
+			padding: 40px 1%;
+		}
+	}
+
+	h3 {
+		@include font-bold;
+		padding: 10px 0;
+	}
+
+	p {
+		padding: 10px 0;
+	}
+
+	.imageright {
+		float: right;
+		padding: 0 0 10px 10px;
+	}
+}
+
+.microsite-header {
+
+}
+
+.micro-subfooter {
+	padding: 30px 50px;
+	background: url(../../img/bg-micro-subfooter.png) center center no-repeat;
+	background-size: cover;
+	color: black;
+
+	h4 {
+		@include font-bold;
+		text-align: center;
+		font-size: 2.7em;
+		color: #414042;
+	}
+
+	@include respond-to( 1024px ) {
+		padding: 40px 60px;
+	}
+}
+
+.micro-footer {
+	padding: 10px 40px;
+
+	.imageright {
+		float: right;
+		margin: 0 0 10px 10px;
+	}
+
+	h4 {
+		@include font-bold;
+	}
+
+	@include respond-to( 768px ) {
+		min-height: 180px;
+
+		.content {
+			padding: 20px 0;
+		}
+	}
+}
+
+.colophon {
+	padding: 20px 40px;
+	color: $grey;
+	background: white;
+}
+
+.bg-seafoam {
+	background-color: $seafoam;
+}
+
+.group {
+	@include clearfix;
+}
