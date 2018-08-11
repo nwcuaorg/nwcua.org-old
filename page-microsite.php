@@ -33,7 +33,7 @@ global $is_anthem;
 	<header>
 
 		<div class="wrap microsite-header">
-			<img src="<?php bloginfo('template_url') ?>/img/micro-header.jpg" />
+			<img src="<?php show_cmb_value( 'microsite_header' ) ?>" />
 		</div>
 
 	</header>
@@ -41,60 +41,39 @@ global $is_anthem;
 	<section class="content">
 		<div class="grid-row">
 			<div class="two-third">
-				<h3>The Credit Union Difference </h3>
-				<p><img src="<?php bloginfo('template_url') ?>/img/micro-book.png" class="imageright" />An <span class="text-orange"><strong>independent analysis by economists at ECONorthwest</strong></span> finds Idaho’s cooperative, not-for-profit credit unions delivered $90 million in direct financial benefits to their nearly one million members last year. The analysis measured jobs, economic output, and income and determined Idaho credit unions drove an overall $638 million impact on the state’s economy.</p>
-				<p><a href="https://nwcua.org/wp-content/uploads/2018/01/2017-IDAHO-Executive-Summary.pdf" class="text-orange"><strong>Learn more &raquo;</strong></a></p>
+				<?php show_cmb_value( 'microsite_content_one' ) ?>
 			</div>
 			<div class="third bg-seafoam">
-				<img src="<?php print bloginfo('template_url'); ?>/img/micro-cu-difference.png">
+				<img src="<?php show_cmb_value( 'microsite_image_one' ) ?>">
 			</div>
 		</div>
 		<div class="grid-row bg-grey-light-light-light">
 			<div class="two-third">
-				<h3>The Cooperative Choice</h3>
-				<p>Nearly one million Idaho consumers belong to a credit union – that’s 55 percent of the Gem State’s population. </p>
-				<p>Not-for-profit, cooperative credit unions reinvest in their Idaho members on Main Street. They don’t have stockholders on Wall Street. All earnings in excess of operating expenses and required reserves are returned to members. That’s why fees are often lower, loan rates are usually better, and why members may earn more on their savings. In Idaho, credit unions provided an average direct benefit to each member household of at least $204.* </p>
+				<?php show_cmb_value( 'microsite_content_two' ) ?>
 			</div>
-			<div class="third bg-grey-dark">
-				<img src="<?php print bloginfo('template_url'); ?>/img/micro-cooperative-choice.png">
+			<div class="third bg-grey">
+				<img src="<?php show_cmb_value( 'microsite_image_two' ) ?>">
 			</div>
 		</div>
 		<div class="grid-row">
 			<div class="two-third">
-				<h3>The Cooperative Principles</h3>
-				<div class="half">
-					<ul>
-						<li>Voluntary and Open Membership</li>
-						<li>Democratic Member Control</li>
-						<li>Member Economic Participation</li>
-						<li>Autonomy and Independence</li>
-					</ul>
-				</div>
-				<div class="half">
-					<ul>
-						<li>Education, Training and Information</li>
-						<li>Cooperation among Co-operatives</li>
-						<li>Concern for Community</li>
-					</ul>
-				</div>
-				<p class="group">Not-for-profit, cooperative credit unions exist for one reason: to meet their member-owners' financial services needs.</p>
+				<?php show_cmb_value( 'microsite_content_three' ) ?>
 			</div>
 			<div class="third bg-lime">
-				<img src="<?php print bloginfo('template_url'); ?>/img/micro-nine-billion.png">
+				<img src="<?php show_cmb_value( 'microsite_image_three' ) ?>">
 			</div>
 		</div>
-		<div class="micro-subfooter">
-			<h4>The cooperative principles are as relevant as ever, while technology and services available to you are convenient and contemporary.</h4>
+		<div class="micro-subfooter" style="background-image: url(<?php show_cmb_value( 'microsite_subfooter_bg' ) ?>);">
+			<?php show_cmb_value( 'microsite_subfooter_content' ) ?>
 		</div>
 		<div class="micro-footer bg-orange text-white">
-			<a href="http://www.asmarterchoice.org/" target="_blank"><img src="<?php bloginfo('template_url') ?>/img/micro-footer-search.png" class="imageright" /></a>
+			<a href="<?php show_cmb_value( 'microsite_footer_link' ); ?>" target="_blank"><img src="<?php show_cmb_value( 'microsite_footer_image' ) ?>" class="imageright" /></a>
 			<div class="content">
-				<h4>Credit Unions are Open to Everyone!</h4>
-				<p>Nearly everyone who lives, works, worships, or attends school in Idaho can join a credit union. To find the one that’s ideal for you, visit the <a href="http://www.asmarterchoice.org/" target="_blank">A Smarter Choice</a> website.</p>
+				<?php show_cmb_value( 'microsite_footer_content' ) ?>
 			</div>
 		</div>
 		<div class="colophon">
-			<p>* Source: National Credit Union Administration Data, Credit Union National Association analysis, Datatrac research for 12 months ending December 31, 2017).</p>
+			<?php show_cmb_value( 'microsite_colophon_content' ) ?>
 		</div>
 	</section>
 		

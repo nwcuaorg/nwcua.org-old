@@ -633,84 +633,84 @@ function page_metaboxes( $meta_boxes ) {
 
     $microsite_metabox->add_field( array(
         'name' => 'Header',
-        'id'   => 'microsite_header',
+        'id'   => CMB_PREFIX . 'microsite_header',
         'type' => 'file',
         'preview_size' => array( 30, 30 )
     ) );
 
     $microsite_metabox->add_field( array(
         'name' => 'Content (Row #1)',
-        'id'   => 'microsite_content_one',
+        'id'   => CMB_PREFIX . 'microsite_content_one',
         'type' => 'wysiwyg',
         'options' => array( 'textarea_rows' => 7 )
     ) );
 
     $microsite_metabox->add_field( array(
         'name' => 'Image (Row #1)',
-        'id'   => 'microsite_image_one',
+        'id'   => CMB_PREFIX . 'microsite_image_one',
         'type' => 'file',
         'preview_size' => array( 30, 30 )
     ) );
 
     $microsite_metabox->add_field( array(
         'name' => 'Content (Row #2)',
-        'id'   => 'microsite_content_two',
+        'id'   => CMB_PREFIX . 'microsite_content_two',
         'type' => 'wysiwyg',
         'options' => array( 'textarea_rows' => 7 )
     ) );
 
     $microsite_metabox->add_field( array(
         'name' => 'Image (Row #2)',
-        'id'   => 'microsite_image_two',
+        'id'   => CMB_PREFIX . 'microsite_image_two',
         'type' => 'file',
         'preview_size' => array( 30, 30 )
     ) );
 
     $microsite_metabox->add_field( array(
         'name' => 'Content (Row #3)',
-        'id'   => 'microsite_content_three',
+        'id'   => CMB_PREFIX . 'microsite_content_three',
         'type' => 'wysiwyg',
         'options' => array( 'textarea_rows' => 7 )
     ) );
 
     $microsite_metabox->add_field( array(
         'name' => 'Image (Row #3)',
-        'id'   => 'microsite_image_three',
+        'id'   => CMB_PREFIX . 'microsite_image_three',
         'type' => 'file',
         'preview_size' => array( 30, 30 )
     ) );
 
     $microsite_metabox->add_field( array(
         'name' => 'Subfooter Content',
-        'id'   => 'microsite_subfooter_content',
+        'id'   => CMB_PREFIX . 'microsite_subfooter_content',
         'type' => 'wysiwyg',
         'options' => array( 'textarea_rows' => 7 )
     ) );
 
     $microsite_metabox->add_field( array(
         'name' => 'Subfooter Background',
-        'id'   => 'microsite_subfooter_bg',
+        'id'   => CMB_PREFIX . 'microsite_subfooter_bg',
         'type' => 'file',
         'preview_size' => array( 30, 30 )
     ) );
 
     $microsite_metabox->add_field( array(
         'name' => 'Footer Content',
-        'id'   => 'microsite_footer_content',
+        'id'   => CMB_PREFIX . 'microsite_footer_content',
         'type' => 'wysiwyg',
         'options' => array( 'textarea_rows' => 7 )
     ) );
 
     $microsite_metabox->add_field( array(
         'name' => 'Footer Image',
-        'id'   => 'microsite_footer_image',
+        'id'   => CMB_PREFIX . 'microsite_footer_image',
         'type' => 'file',
         'preview_size' => array( 30, 30 )
     ) );
 
     $microsite_metabox->add_field( array(
         'name' => 'Colophon Content',
-        'id'   => 'microsite_colophon_content',
+        'id'   => CMB_PREFIX . 'microsite_colophon_content',
         'type' => 'wysiwyg',
         'options' => array( 'textarea_rows' => 7 )
     ) );
