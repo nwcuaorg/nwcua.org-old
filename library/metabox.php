@@ -708,7 +708,7 @@ function page_metaboxes( $meta_boxes ) {
         'preview_size' => array( 30, 30 )
     ) );
 
-    $event_metabox->add_field( array(
+    $microsite_metabox->add_field( array(
         'name' => 'Footerlink',
         'id'   => CMB_PREFIX . 'microsite_footer_link',
         'desc' => 'Set a URL for the footer image link.',
