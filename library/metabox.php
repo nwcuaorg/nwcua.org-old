@@ -709,7 +709,7 @@ function page_metaboxes( $meta_boxes ) {
     ) );
 
     $microsite_metabox->add_field( array(
-        'name' => 'Footerlink',
+        'name' => 'Footer Link',
         'id'   => CMB_PREFIX . 'microsite_footer_link',
         'desc' => 'Set a URL for the footer image link.',
         'type' => 'text',
