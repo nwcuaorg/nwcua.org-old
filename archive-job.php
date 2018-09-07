@@ -67,7 +67,7 @@ $job_count = $wp_query->found_posts;
 	<div class="large-title bg-green">
 		<div class="wrap">
 			<div class="large-title-icon bg-green">
-				<img src="/wp-content/uploads/2011/12/iconnwcua.png">
+				<img src="/wp-content/uploads/2011/12/iconnwcua.png" class="NWCUA Jobs Board">
 			</div>
 			<div class="large-title-text">
 				<h1>Career Center</h1>
@@ -80,7 +80,7 @@ $job_count = $wp_query->found_posts;
 			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('page-sidebar-jobssidebar') ) : ?><!-- no sidebar --><?php endif; ?>
 		</div>
 		<div class="three-quarter">
-			<div class="job-search"><input type="text" id="job-search" value="" placeholder="Search Jobs"></div>
+			<div class="job-search"><label for="job-search">Search:</label> <input type="text" id="job-search" value="" placeholder="Search Jobs"></div>
 			<div class="job-count"><strong>Showing <?php print $job_count; ?> Job<?php print ( $job_count == 1 ? '' : 's' ) ?></strong></div>
 			<?php 
 
@@ -95,10 +95,10 @@ $job_count = $wp_query->found_posts;
 				</div>
 				<div class="third job-info">
 					<?php
-					print ( has_cmb_value( 'job_company' ) ? "<p><label>Credit Union:</label><br> " . get_cmb_value( 'job_company' ) . "</p>" : '' );
+					print ( has_cmb_value( 'job_company' ) ? "<p><strong>Credit Union:</strong><br> " . get_cmb_value( 'job_company' ) . "</p>" : '' );
 					?>
 					<?php
-					print ( has_cmb_value( 'job_region' ) ? "<p><label>Region:</label><br> " . get_cmb_value( 'job_region' ) . "</p>" : '' );
+					print ( has_cmb_value( 'job_region' ) ? "<p><strong>Region:</strong><br> " . get_cmb_value( 'job_region' ) . "</p>" : '' );
 					?>
 				</div>
 			</div>

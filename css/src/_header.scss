@@ -225,6 +225,10 @@ header {
 			width: 285px;
 		}
 
+		label {
+			display: none;
+		}
+
 		input[type=text] {
 			display: block;
 			top: 5px;
