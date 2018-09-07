@@ -16,7 +16,7 @@ get_header();
 		<div class="large-title bg-green">
 			<div class="wrap">
 				<div class="large-title-icon bg-green">
-					<img src="/wp-content/uploads/2011/12/iconnwcua.png">
+					<img src="/wp-content/uploads/2011/12/iconnwcua.png" alt="NWCUA Job Listing (Individual)">
 				</div>
 				<div class="large-title-text">
 					<h1><?php the_title(); ?></h1>
@@ -31,26 +31,26 @@ get_header();
 				<div class="third right job-info">
 					<?php
 					// display credit union name
-					print ( has_cmb_value( 'job_company' ) ? "<p><label>Credit Union:</label><br> " . get_cmb_value( 'job_company' ) . "</p>" : '' );
+					print ( has_cmb_value( 'job_company' ) ? "<p><strong>Credit Union:</strong><br> " . get_cmb_value( 'job_company' ) . "</p>" : '' );
 
 					// display region
-					print ( has_cmb_value( 'job_region' ) ? "<p><label>Region:</label> " . get_cmb_value( 'job_region' ) . "</p>" : '' ) ;
+					print ( has_cmb_value( 'job_region' ) ? "<p><strong>Region:</strong> " . get_cmb_value( 'job_region' ) . "</p>" : '' ) ;
 
 					// display job type
-					print ( has_cmb_value( 'job_type' ) ? "<p><label>Type:</label> " . get_cmb_value( 'job_type' ) . "</p>" : '' );
+					print ( has_cmb_value( 'job_type' ) ? "<p><strong>Type:</strong> " . get_cmb_value( 'job_type' ) . "</p>" : '' );
 					?>
 					<?php if ( has_cmb_value( 'job_contact_name' ) ) { ?>
 					<p>
-					<?php print ( has_cmb_value( 'job_contact_name' ) ? "<label>Contact:</label> " . get_cmb_value( 'job_contact_name' ) . '<br>' : '' ); ?>
-					<?php print ( has_cmb_value( 'job_contact_email' ) ? '<label>Email:</label> <a href="' . get_cmb_value( 'job_contact_email' ) . '">' . get_cmb_value( 'job_contact_email' ) . '</a><br>' : '' ); ?>
-					<?php print ( has_cmb_value( 'job_contact_phone' ) ? '<label>Phone:</label> ' . get_cmb_value( 'job_contact_phone' ) . '<br>' : '' ); ?>
-					<?php print ( has_cmb_value( 'job_contact_fax' ) ? "<label>Fax:</label> " . get_cmb_value( 'job_contact_fax' ) . "<br>" : '' ); ?>
+					<?php print ( has_cmb_value( 'job_contact_name' ) ? "<strong>Contact:</strong> " . get_cmb_value( 'job_contact_name' ) . '<br>' : '' ); ?>
+					<?php print ( has_cmb_value( 'job_contact_email' ) ? '<strong>Email:</strong> <a href="' . get_cmb_value( 'job_contact_email' ) . '">' . get_cmb_value( 'job_contact_email' ) . '</a><br>' : '' ); ?>
+					<?php print ( has_cmb_value( 'job_contact_phone' ) ? '<strong>Phone:</strong> ' . get_cmb_value( 'job_contact_phone' ) . '<br>' : '' ); ?>
+					<?php print ( has_cmb_value( 'job_contact_fax' ) ? "<strong>Fax:</strong> " . get_cmb_value( 'job_contact_fax' ) . "<br>" : '' ); ?>
 					</p>
 					<?php } ?>
 
 					<?php
 					// display job type
-					print ( has_cmb_value( 'job_expires' ) ? "<p><label>Closing:</label> " . date( "n/j/Y", strtotime( get_cmb_value( 'job_expires' ) ) ) . "</p>" : '' );
+					print ( has_cmb_value( 'job_expires' ) ? "<p><strong>Closing:</strong> " . date( "n/j/Y", strtotime( get_cmb_value( 'job_expires' ) ) ) . "</p>" : '' );
 					?>
 				</div>
 				<p><strong>Job Description:</strong></p>
