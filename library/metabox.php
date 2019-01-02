@@ -651,6 +651,14 @@ function page_metaboxes( $meta_boxes ) {
         'type' => 'file',
         'preview_size' => array( 30, 30 )
     ) );
+    
+    $microsite_metabox->add_field( array(
+        'name' => 'Sidebar Background Color (Row #1)',
+        'id'   => CMB_PREFIX . 'microsite_color_one',
+        'type' => 'select',
+        'default' => 'seafoam',
+        'options' => $colors
+    ) );
 
     $microsite_metabox->add_field( array(
         'name' => 'Content (Row #2)',
@@ -665,6 +673,14 @@ function page_metaboxes( $meta_boxes ) {
         'type' => 'file',
         'preview_size' => array( 30, 30 )
     ) );
+    
+    $microsite_metabox->add_field( array(
+        'name' => 'Sidebar Background Color (Row #2)',
+        'id'   => CMB_PREFIX . 'microsite_color_two',
+        'type' => 'select',
+        'default' => 'grey-light',
+        'options' => $colors
+    ) );
 
     $microsite_metabox->add_field( array(
         'name' => 'Content (Row #3)',
@@ -678,6 +694,14 @@ function page_metaboxes( $meta_boxes ) {
         'id'   => CMB_PREFIX . 'microsite_image_three',
         'type' => 'file',
         'preview_size' => array( 30, 30 )
+    ) );
+    
+    $microsite_metabox->add_field( array(
+        'name' => 'Sidebar Background Color (Row #3)',
+        'id'   => CMB_PREFIX . 'microsite_color_three',
+        'type' => 'select',
+        'default' => 'lime',
+        'options' => $colors
     ) );
 
     $microsite_metabox->add_field( array(

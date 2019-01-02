@@ -43,7 +43,7 @@ global $is_anthem;
 			<div class="two-third">
 				<?php show_cmb_value( 'microsite_content_one' ) ?>
 			</div>
-			<div class="third bg-seafoam">
+			<div class="third bg-<?php show_cmb_value( 'microsite_color_one' ) ?>">
 				<img src="<?php show_cmb_value( 'microsite_image_one' ) ?>">
 			</div>
 		</div>
@@ -51,7 +51,7 @@ global $is_anthem;
 			<div class="two-third">
 				<?php show_cmb_value( 'microsite_content_two' ) ?>
 			</div>
-			<div class="third bg-grey">
+			<div class="third bg-<?php show_cmb_value( 'microsite_color_two' ) ?>">
 				<img src="<?php show_cmb_value( 'microsite_image_two' ) ?>">
 			</div>
 		</div>
@@ -59,7 +59,7 @@ global $is_anthem;
 			<div class="two-third">
 				<?php show_cmb_value( 'microsite_content_three' ) ?>
 			</div>
-			<div class="third bg-lime">
+			<div class="third bg-<?php show_cmb_value( 'microsite_color_three' ) ?>">
 				<img src="<?php show_cmb_value( 'microsite_image_three' ) ?>">
 			</div>
 		</div>
