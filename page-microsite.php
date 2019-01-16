@@ -47,7 +47,7 @@ global $is_anthem;
 				<img src="<?php show_cmb_value( 'microsite_image_one' ) ?>">
 			</div>
 		</div>
-		<div class="grid-row bg-grey-light-light-light">
+		<div class="grid-row">
 			<div class="two-third">
 				<?php print apply_filters( 'the_content', get_cmb_value( 'microsite_content_two' ) ); ?>
 			</div>
