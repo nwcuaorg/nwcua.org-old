@@ -52,12 +52,14 @@ jQuery(document).ready(function($){
 
 	// handle heights on microsite pages.
 	if ( $( '.microsite-container' ) ) {
-		setTimeout( function(){
-			$( '.microsite-container .grid-row' ).each(function( index ){
-				var height = $( this ).find( '.two-third' ).css( 'height' );
-				$( this ).find( '.third' ).css( 'height', height );
-			});
-		}, 3000);
+		if ( $( window ).width() > 768 ) {
+			setTimeout( function(){
+				$( '.microsite-container .grid-row' ).each(function( index ){
+					var height = $( this ).find( '.two-third' ).css( 'height' );
+					$( this ).find( '.third' ).css( 'height', height );
+				});
+			}, 2000);
+		}
 	}
 
 });
