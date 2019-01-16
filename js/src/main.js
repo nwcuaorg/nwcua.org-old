@@ -50,6 +50,16 @@ jQuery(document).ready(function($){
 	// add lightbox to any link with that class.
 	$( '.photo-gallery a' ).magnificPopup({ 'type': 'image' });
 
+	// handle heights on microsite pages.
+	if ( $( '.microsite-container' ) ) {
+		setTimeout( function(){
+			$( '.microsite-container .grid-row' ).each(function( index ){
+				var height = $( this ).find( '.two-third' ).css( 'height' );
+				$( this ).find( '.third' ).css( 'height', height );
+			});
+		}, 3000);
+	}
+
 });
 
 

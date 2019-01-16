@@ -41,7 +41,7 @@ global $is_anthem;
 	<section class="content">
 		<div class="grid-row">
 			<div class="two-third">
-				<?php show_cmb_value( 'microsite_content_one' ) ?>
+				<?php print apply_filters( 'the_content', get_cmb_value( 'microsite_content_one' ) ); ?>
 			</div>
 			<div class="third bg-<?php show_cmb_value( 'microsite_color_one' ) ?>">
 				<img src="<?php show_cmb_value( 'microsite_image_one' ) ?>">
@@ -49,7 +49,7 @@ global $is_anthem;
 		</div>
 		<div class="grid-row bg-grey-light-light-light">
 			<div class="two-third">
-				<?php show_cmb_value( 'microsite_content_two' ) ?>
+				<?php print apply_filters( 'the_content', get_cmb_value( 'microsite_content_two' ) ); ?>
 			</div>
 			<div class="third bg-<?php show_cmb_value( 'microsite_color_two' ) ?>">
 				<img src="<?php show_cmb_value( 'microsite_image_two' ) ?>">
@@ -57,7 +57,7 @@ global $is_anthem;
 		</div>
 		<div class="grid-row">
 			<div class="two-third">
-				<?php show_cmb_value( 'microsite_content_three' ) ?>
+				<?php print apply_filters( 'the_content', get_cmb_value( 'microsite_content_three' ) ); ?>
 			</div>
 			<div class="third bg-<?php show_cmb_value( 'microsite_color_three' ) ?>">
 				<img src="<?php show_cmb_value( 'microsite_image_three' ) ?>">
