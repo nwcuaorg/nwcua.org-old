@@ -14,7 +14,6 @@ if ( has_cmb_value( 'brand' ) ) {
 get_header();
 
 
-
 if ( have_posts() ) {
 	while ( have_posts() ) {
 		the_post(); 

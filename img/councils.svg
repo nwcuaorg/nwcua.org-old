@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 921.9 98.59">
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="councils-graphic" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 921.9 98.59" xml:space="preserve">
 	<defs>
 		<style>
 			.cls-1{fill:#6d8d58;}
@@ -25,30 +26,29 @@
 		</style>
 	</defs>
 	<title>councils</title>
-	<a href="https://nwcua.org/professional-development/councils/compliance-council/" target="_top" title="Compliance Council">
+	<a xlink:href="https://nwcua.org/professional-development/councils/compliance-council/" target="_top" title="Compliance Council">
 		<polyline class="cls-1" points="124.44 78.59 0 78.59 13.83 39.3 0 0 124.44 0 138.27 39.3 124.44 78.59" />
 	</a>
-	<a href="https://nwcua.org/professional-development/councils/hr-trainers-council/" target="_top" title="HR Trainers Council">
+	<a xlink:href="https://nwcua.org/professional-development/councils/hr-trainers-council/" target="_top" title="HR Trainers Council">
 		<polyline class="cls-2" points="255.05 78.59 130.61 78.59 144.43 39.3 130.61 0 255.05 0 268.87 39.3 255.05 78.59" />
 	</a>
-	<a href="https://nwcua.org/professional-development/councils/lenders-council/" target="_top" title="Lender's Council">
+	<a xlink:href="https://nwcua.org/professional-development/councils/lenders-council/" target="_top" title="Lender's Council">
 		<polyline class="cls-3" points="385.65 78.59 261.21 78.59 275.04 39.3 261.21 0 385.65 0 399.48 39.3 385.65 78.59" />
 	</a>
-	<a href="https://nwcua.org/professional-development/councils/marketing-business-development-community-outreach-council/" target="_top" title="Marketing, Biz Dev, Community Outreach Council">
+	<a xlink:href="https://nwcua.org/professional-development/councils/marketing-business-development-community-outreach-council/" target="_top" title="Marketing, Biz Dev, Community Outreach Council">
 		<polyline class="cls-4" points="646.86 78.59 522.42 78.59 536.25 39.3 522.42 0 646.86 0 660.69 39.3 646.86 78.59" />
 	</a>
-	<a href="https://nwcua.org/professional-development/councils/commercial-services-council/" target="_top" title="Commercial Services Council">
+	<a xlink:href="https://nwcua.org/professional-development/councils/commercial-services-council/" target="_top" title="Commercial Services Council">
 		<polyline class="cls-5" points="777.47 78.59 653.03 78.59 666.86 39.3 653.03 0 777.47 0 791.3 39.3 777.47 78.59" />
 	</a>
-	<a href="https://nwcua.org/councils/risk-management-council/" target="_top" title="Risk Management Council">
+	<a xlink:href="https://nwcua.org/councils/risk-management-council/" target="_top" title="Risk Management Council">
 		<polyline class="cls-6" points="908.08 78.59 783.63 78.59 797.46 39.3 783.63 0 908.08 0 921.9 39.3 908.08 78.59" />
 	</a>
-	<a href="https://nwcua.org/professional-development/councils/collectors-council/" target="_top" title="Collector's Council">
+	<a xlink:href="https://nwcua.org/professional-development/councils/collectors-council/" target="_top" title="Collector's Council">
 		<polyline class="cls-7" points="516.26 78.59 391.82 78.59 405.64 39.3 391.82 0 516.26 0 530.09 39.3 516.26 78.59" />
 	</a>
 	<text class="cls-8" transform="translate(34.23 44.51)">
-		<tspan class="cls-9">C</tspan>
-		<tspan x="7.75" y="0">OMPLIANCE</tspan>
+		<tspan class="cls-9">COMPLIANCE</tspan>
 	</text>
 	<text class="cls-8" transform="translate(159.67 44.51)">
 		HR &amp;
@@ -57,40 +57,20 @@
 	</text>
 	<text class="cls-8" transform="translate(307.9 44.51)">LENDERS</text>
 	<text class="cls-8" transform="translate(426.91 44.51)">
-		<tspan class="cls-9">C</tspan>
-		<tspan x="7.75" y="0">OLL</tspan>
-		<tspan class="cls-11" x="29.92" y="0">E</tspan>
-		<tspan x="36.63" y="0">C</tspan>
-		<tspan class="cls-12" x="44.57" y="0">T</tspan>
-		<tspan x="51.48" y="0">ORS</tspan>
+		<tspan class="cls-9">COLLECTORS</tspan>
 	</text>
 	<text class="cls-8" transform="translate(559.43 23.51)">
 		MARKETING
-		<tspan x="11.64" y="14.4">BIZ DE</tspan>
-		<tspan class="cls-13" x="49.3" y="14.4">V</tspan>
-		<tspan x="56.79" y="14.4">,</tspan>
-		<tspan class="cls-9" x="-2.55" y="28.8">C</tspan>
-		<tspan x="5.2" y="28.8">OMMUNIT</tspan>
-		<tspan class="cls-14" x="66.49" y="28.8">Y</tspan>
-		<tspan x="2.77" y="43.2">OUTRE</tspan>
-		<tspan class="cls-15" x="43.2" y="43.2">A</tspan>
-		<tspan x="51.27" y="43.2">CH</tspan>
+		<tspan x="11.64" y="14.4">BIZ DEV,</tspan>
+		<tspan class="cls-9" x="-2.55" y="28.8">COMMUNITY</tspan>
+		<tspan x="2.77" y="43.2">OUTREACH</tspan>
 	</text>
 	<text class="cls-8" transform="translate(685.29 36.51)">
-		<tspan class="cls-9">C</tspan>
-		<tspan x="7.75" y="0">OMME</tspan>
-		<tspan class="cls-16" x="47.03" y="0">R</tspan>
-		<tspan x="54.62" y="0">CIA</tspan>
-		<tspan class="cls-17" x="74.45" y="0">L</tspan>
-		<tspan x="13.04" y="14.4">SE</tspan>
-		<tspan class="cls-18" x="26.53" y="14.4">R</tspan>
-		<tspan x="33.97" y="14.4">VICES</tspan>
+		<tspan class="cls-9">COMMERCIAL</tspan>
+		<tspan x="13.04" y="14.4">SERVICES</tspan>
 	</text>
 	<text class="cls-8" transform="translate(842.81 34.51)">
 		RISK
-		<tspan x="-30.42" y="14.4">MAN</tspan>
-		<tspan class="cls-15" x="-1.5" y="14.4">A</tspan>
-		<tspan x="6.57" y="14.4">GEMEN</tspan>
-		<tspan class="cls-19" x="49.67" y="14.4">T</tspan>
+		<tspan x="-30.42" y="14.4">MANAGEMENT</tspan>
 	</text>
 </svg>
