@@ -87,10 +87,11 @@ get_header();
 							if ( !empty( $categories ) ) { 
 								$color = get_category_color( $categories[0]->term_id );
 								?>
-							<span class="quiet">Posted in:</span> 
+							<span class="quiet">Posted in </span> 
 							<div class="post-category bg-<?php print $color; ?>">
 								<?php print get_cat_name( $categories[0]->term_id ); ?>
 							</div>
+							<span class="quiet">on <strong><?php print get_the_date( 'F jS, Y' ); ?></strong></span>
 								<?php
 							}
 

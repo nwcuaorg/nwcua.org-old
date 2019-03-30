@@ -1,12 +1,12 @@
 {
-    "name" : "nwcua",
-    "version" : "0.0.1",
-    "devDependencies" : {
-        "grunt" :                       "latest",
-        "grunt-contrib-sass":           "*",
-        "grunt-contrib-uglify":         "*",
-        "grunt-contrib-watch":          "*",
-        "grunt-autoprefixer":           "*",
-        "matchdep":                     "*"
+    "name": "nwcua",
+    "version": "0.0.1",
+    "devDependencies": {
+        "grunt": "latest",
+        "grunt-contrib-sass": "*",
+        "grunt-contrib-uglify": "*",
+        "grunt-contrib-watch": "*",
+        "grunt-autoprefixer": "*",
+        "matchdep": "*"
     }
 }
