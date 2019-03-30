@@ -33,4 +33,3 @@ add_action( 'init', 'add_page_features' );
 
 
 
-?>

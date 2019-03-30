@@ -38,4 +38,3 @@ function p_is_image( $img_path ) {
 }
 
 
-?>

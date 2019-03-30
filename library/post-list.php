@@ -74,4 +74,3 @@ add_shortcode( 'post-list', 'post_list_func' );
 
 
 
-?>

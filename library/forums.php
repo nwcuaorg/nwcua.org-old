@@ -8,4 +8,3 @@ function deregister_bbpress_styles() {
 }
 
 
-?>

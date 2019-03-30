@@ -61,4 +61,3 @@ function the_showcase() {
 }
 
 
-?>

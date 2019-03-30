@@ -24,4 +24,3 @@ function the_large_title() {
 }
 
 
-?>

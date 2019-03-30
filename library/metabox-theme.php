@@ -241,4 +241,3 @@ function pure_get_option( $key = '' ) {
 pure_admin();
 
 
-?>

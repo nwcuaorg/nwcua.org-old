@@ -350,4 +350,3 @@ function register_cu4k_map_svg() {
 }
 
 
-?>

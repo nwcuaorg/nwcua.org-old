@@ -50,4 +50,3 @@ function the_accordion() {
 }
 
 
-?>

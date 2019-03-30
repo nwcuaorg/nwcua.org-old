@@ -89,4 +89,3 @@ function pagination( $prev = '&laquo;', $next = '&raquo;' ) {
     echo paginate_links( $pagination );
 }
 
-?>

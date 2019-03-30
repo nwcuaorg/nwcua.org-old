@@ -67,4 +67,3 @@ add_shortcode( 'cal-link', 'cal_link' );
 
 
 
-?>

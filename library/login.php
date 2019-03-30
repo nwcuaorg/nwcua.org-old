@@ -412,4 +412,3 @@ add_shortcode('current-url-encoded', 'current_url_encoded_shortcode');
 
 
 
-?>

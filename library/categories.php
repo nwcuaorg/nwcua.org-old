@@ -122,5 +122,3 @@ function get_default_thumbnail( $category_id ) {
 }
 
 
-
-?>
