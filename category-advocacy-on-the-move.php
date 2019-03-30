@@ -29,7 +29,6 @@ $color = get_category_color( $category[0]->cat_ID );
 	</div>
 	<div class="cuobsessed-title">
 		<div class="wrap">
-			<img src="<?php bloginfo('template_url') ?>/img/cuobsessed.png" class="cuobsessed-logo" alt="CU Obsessed Logo">
 			<h2>Updates from your NWCUA Advocacy Team</h2>
 		</div>
 	</div>
