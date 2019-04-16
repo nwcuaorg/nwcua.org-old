@@ -1,0 +1,313 @@
+
+
+.map-chapter {
+	position: relative;
+
+	img {
+		display: block;
+		max-width: 1000px;
+		width: 1000px;
+	}
+
+	a {
+		border-radius: 50%;
+		width: 130px;
+		height: 130px;
+		padding: 30px 20px;
+		text-align: center;
+		@include font-bold;
+		font-size: .75em;
+		line-height: 1.2em;
+		text-decoration: none;
+		position: absolute;
+		z-index: 100;
+
+		&:hover {
+			z-index: 200;
+		}
+
+		&.grey, &.orange, &.green {
+			background-color: transparent;
+		}
+
+		&.grey:hover {
+			background-color: lighten( $grey, 15% )
+		}
+
+		&.green:hover {
+			background-color: lighten( $lime, 15% )
+		}
+
+		&.orange:hover {
+			background-color: lighten( $orange, 12% )
+		}
+	}
+
+	.chapter-1 { // eastern
+		top: 130px;
+		left: 380px;
+		padding-top: 40px;
+		color: black;
+	}
+
+	.chapter-2 { // evergreen
+		top: 160px;
+		left: 60px;
+		width: 100px;
+		height: 100px;
+		padding-top: 35px;
+	}
+
+	.chapter-3 { // seattle
+		top: 70px;
+		left: 160px;
+		width: 110px;
+		height: 110px;
+		color: $navy;
+	}
+
+	.chapter-4 { // inland
+		top: 0px;
+		left: 400px;
+		width: 110px;
+		height: 110px;
+		padding-top: 40px;
+		color: $navy;
+	}
+
+	.chapter-5 { // king
+		top: 135px;
+		left: 170px;
+		width: 90px;
+		height: 90px;
+		padding-top: 20px;
+		color: white;
+	}
+	
+	.chapter-6 { // kitsap
+		top: 120px;
+		left: 100px;
+		width: 90px;
+		height: 90px;
+		padding-top: 20px;
+		color: white;
+	}	
+
+	.chapter-7 { // northwest
+		top: -20px;
+		left: 150px;
+		width: 100px;
+		height: 100px;
+		color: white;
+	}
+
+	.chapter-8 { // olympic
+		top: 75px;
+		left: 20px;
+		width: 100px;
+		height: 100px;
+		color: white;
+	}
+
+	.chapter-10 { // pierce
+		top: 190px;
+		left: 130px;
+		width: 90px;
+		height: 90px;
+		padding-top: 20px;
+		color: white;
+	}
+
+	.chapter-11 { // southwest
+		top: 260px;
+		left: 120px;
+		width: 110px;
+		height: 110px;
+		color: white;
+	}
+
+	.chapter-12 { // olympic
+		top: 70px;
+		left: 410px;
+		width: 90px;
+		height: 90px;
+		color: white;
+	}
+
+	.chapter-13 { // western
+		top: 20px;
+		left: 210px;
+		width: 120px;
+		height: 120px;
+		padding-top: 35px;
+		color: black;
+	}	
+
+	.chapter-14 { // capitol or
+		top: 430px;
+		left: 50px;
+		width: 100px;
+		height: 100px;
+		padding-top: 35px;
+		color: white;
+	}	
+
+	.chapter-15 { // cascadia
+		top: 360px;
+		left: 130px;
+		width: 100px;
+		height: 100px;
+		padding-top: 35px;
+		color: white;
+	}	
+
+	.chapter-16 { // central
+		top: 570px;
+		left: 330px;
+		width: 100px;
+		height: 100px;
+		color: white;
+	}	
+
+	.chapter-17 { // portland/vancouver
+		top: 310px;
+		left: 50px;
+		width: 120px;
+		height: 120px;
+		padding-top: 35px;
+		color: black;
+	}	
+
+	.chapter-18 { // southern
+		top: 600px;
+		left: 80px;
+		width: 120px;
+		height: 120px;
+		padding-top: 35px;
+		color: white;
+	}	
+
+	.chapter-19 { // southern ycup
+		top: 605px;
+		left: 210px;
+		width: 100px;
+		height: 100px;
+		color: $navy;
+	}
+
+	.chapter-20 { // willamette
+		top: 500px;
+		left: 80px;
+		width: 100px;
+		height: 100px;
+		color: white;
+	}
+
+	.chapter-21 { // willamette sister
+		top: 530px;
+		left: 160px;
+		width: 120px;
+		height: 120px;
+		padding-top: 35px;
+		color: black;
+	}
+
+	.chapter-22 { // willamette sister
+		top: 320px;
+		left: 440px;
+		width: 150px;
+		height: 150px;
+		padding-top: 50px;
+		color: black;
+	}
+
+	.chapter-23 { // capitol id
+		top: 550px;
+		left: 620px;
+		width: 100px;
+		height: 100px;
+		color: white;
+	}
+
+	.chapter-24 { // climb idaho
+		top: 430px;
+		left: 720px;
+		width: 100px;
+		height: 100px;
+		padding-top: 35px;
+		color: $navy;
+	}
+
+	.chapter-25 { // eastern idaho
+		top: 430px;
+		left: 760px;
+		width: 200px;
+		height: 200px;
+		padding-top: 80px;
+		color: white;
+	}	
+
+	.chapter-26 { // eastern idaho sister
+		top: 540px;
+		left: 850px;
+		width: 120px;
+		height: 120px;
+		padding-top: 45px;
+		color: black;
+	}	
+
+	.chapter-27 { // north central
+		top: 240px;
+		left: 600px;
+		width: 110px;
+		height: 110px;
+		padding-top: 25px;
+		color: white;
+	}	
+
+	.chapter-28 { // north
+		top: 115px;
+		left: 550px;
+		width: 100px;
+		height: 100px;
+		padding-top: 25px;
+		color: white;
+	}	
+
+	.chapter-29 { // north
+		top: 630px;
+		left: 870px;
+		width: 100px;
+		height: 100px;
+		padding-top: 25px;
+		color: white;
+	}	
+
+	.chapter-30 { // south central
+		top: 610px;
+		left: 730px;
+		width: 120px;
+		height: 120px;
+		padding-top: 35px;
+		color: white;
+	}	
+
+	.chapter-31 { // south central
+		top: 400px;
+		left: 600px;
+		width: 120px;
+		height: 120px;
+		padding-top: 35px;
+		color: white;
+	}	
+
+	.chapter-32 { // south central
+		top: 460px;
+		left: 600px;
+		width: 120px;
+		height: 120px;
+		padding-top: 35px;
+		color: black;
+	}	
+}
+
