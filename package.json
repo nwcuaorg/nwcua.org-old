@@ -1,12 +1,12 @@
 {
-    "name": "nwcua",
-    "version": "0.0.1",
     "devDependencies": {
+        "fitvids": "^2.0.0",
         "grunt": "latest",
+        "grunt-autoprefixer": "*",
         "grunt-contrib-sass": "*",
         "grunt-contrib-uglify": "*",
         "grunt-contrib-watch": "*",
-        "grunt-autoprefixer": "*",
+        "magnific-popup": "^1.1.0",
         "matchdep": "*"
     }
 }

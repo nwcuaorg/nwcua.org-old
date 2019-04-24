@@ -1,9 +1,3 @@
 [submodule "library/cmb2"]
 	path = library/cmb2
 	url = https://github.com/WebDevStudios/CMB2.git
-[submodule "js/lib/fitvids"]
-	path = js/lib/fitvids
-	url = https://github.com/davatron5000/FitVids.js.git
-[submodule "js/lib/magnific"]
-	path = js/lib/magnific
-	url = https://github.com/dimsemenov/Magnific-Popup.git
