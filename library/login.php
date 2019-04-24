@@ -310,6 +310,7 @@ function associo_authenticate( $username, $password ) {
 
 		// set the user's Associo token before returning
 		$user->token = $associo_user->token;
+		$user->associo_user = $associo_user;
 
 		// return the user object
 		return $user;
