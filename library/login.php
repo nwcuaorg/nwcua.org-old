@@ -34,7 +34,8 @@ if ( $request == '/api/auth/generate_auth_cookie/' ) {
 	} else {
 
 		$response = array(
-			'user' => $auth_attempt->data
+			'user' => $auth_attempt->data,
+			'all_info' => $auth_attempt
 		);
 		print json_encode( $response );
 		die;
