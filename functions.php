@@ -50,11 +50,14 @@ function p_anchor( $atts, $content = null, $code = "" ) {
 add_shortcode('anchor' , 'p_anchor' );
 
 
-// enable oembed and shortcodes in text widgets
-add_filter( 'widget_text', array( $wp_embed, 'run_shortcode' ), 8 );
-add_filter( 'widget_text', array( $wp_embed, 'autoembed'), 8 );
+// enable oembed and shortcodes in text widgets (only if the object exists)
+if ( isset( $wp_embed ) ) {
+    add_filter( 'widget_text', array( $wp_embed, 'run_shortcode' ), 8 );
+    add_filter( 'widget_text', array( $wp_embed, 'autoembed'), 8 );
+}
 
 
+// exclude some categories.
 function exclude_posts_from_recentPostWidget_by_cat() {
     $exclude = array( 'cat' => '-7850, -7851, -7852, -7853' );
     return $exclude;
