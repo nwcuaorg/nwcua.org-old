@@ -7,11 +7,18 @@ get_header();
 	<?php the_large_title(); ?>
 
 	<?php the_showcase(); ?>
-	
+
+	<?php 
+	if ( have_posts() ) :
+		while ( have_posts() ) : the_post(); 
+			global $post;
+		?>
 	<div id="content" class="wrap group content-area content-two-column <?php print $color; ?> content-style" role="main">
+		<?php if ( !empty( $post->post_excerpt ) ) { ?>
 		<div class="content-header">
 			<h2><?php the_excerpt(); ?></h2>
 		</div>
+		<?php } ?>
 		<div class="quarter sidebar right person-sidebar">
 			<img src="<?php print get_the_post_thumbnail_url( null, 'square' ) ?>" />
 			<h5>Phone:</h5>
@@ -26,13 +33,8 @@ get_header();
 			<?php } ?>
 		</div>
 		<div class="half right">
-			<?php 
-			if ( have_posts() ) :
-				while ( have_posts() ) : the_post(); 
-					the_content();
-				endwhile;
-			endif;
-
+			<?php
+			the_content();
 			the_accordion();
 			?>
 		</div>
@@ -40,6 +42,11 @@ get_header();
 			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('page-sidebar-about') ) : ?><!-- no sidebar --><?php endif; ?>
 		</div>
 	</div><!-- #content -->
+		<?php
+		endwhile;
+	endif;
+	?>
+
 
 <?php
 
