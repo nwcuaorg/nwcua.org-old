@@ -1,10 +1,13 @@
 
 
 .map-container {
-	max-width: calc( 100% + 40px );
+	max-width: calc( 100%);
 	overflow-x: scroll;
 	overflow-y: hidden;
-	margin: -20px;
+
+	@include respond-to( 768px ) {
+		overflow-x: auto;
+	}
 }
 
 .map-chapter {
