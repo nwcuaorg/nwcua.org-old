@@ -102,7 +102,7 @@ $color = get_category_color( $category[0]->cat_ID );
 
 
 		} else {
-			print "<p>Sadly, there is no content to show for this categories. Please try another.</p>";
+			print "<p>Sadly, there is no content to show for this category - please try another.</p>";
 		}
 		?>
 			
