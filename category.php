@@ -108,7 +108,7 @@ $cat_desc = category_description();
 
 
 		} else {
-			print "<p>Sadly, there is no content to show for this category - please try another.</p>";
+			print "<p>No stories have been added to this category yet. Check back soon for more!</p>";
 		}
 		?>
 			
