@@ -112,6 +112,26 @@ function page_metaboxes( $meta_boxes ) {
 
 
     // showcase metabox
+    $top_metabox = new_cmb2_box( array(
+        'id' => 'top_metabox',
+        'title' => 'Top Content',
+        'object_types' => array( 'page' ), // post type
+        'context' => 'normal',
+        'priority' => 'high',
+        'show_names' => false, // Show field names on the left
+    ));
+
+    $top_metabox->add_field( array(
+        'name' => 'Top Content',
+        'description' => 'Content to show below the excerpt, above both columns of the main content area.',
+        'id'   => CMB_PREFIX . 'top_content',
+        'type' => 'wysiwyg',
+        'options' => array( 'textarea_rows' => 7 )
+    ) );
+
+
+
+    // showcase metabox
     $left_metabox = new_cmb2_box( array(
         'id' => 'left_metabox',
         'title' => 'Left Column',
