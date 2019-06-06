@@ -18,6 +18,8 @@ get_header();
 		if ( !empty( $post->post_excerpt ) ) { ?>
 		<div class="content-header">
 			<h2><?php the_excerpt(); ?></h2>
+		</div>
+		<div class="content-top">
 			<?php print apply_filters( 'the_content', get_cmb_value( 'top_content' ) ); ?>
 		</div>
 		<?php } ?>
