@@ -1,5 +1,12 @@
 
 
+.map-container {
+	max-width: calc( 100% + 40px );
+	overflow-x: scroll;
+	overflow-y: hidden;
+	margin: -20px;
+}
+
 .map-chapter {
 	position: relative;
 	height: 730px;
