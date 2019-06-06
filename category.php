@@ -13,8 +13,8 @@ $is_anthem = true;
 
 get_header(); 
 
-$category = get_the_category(); 
-$color = get_category_color( $category[0]->cat_ID );
+$color = get_category_color( $cat );
+$cat_desc = category_description();
 
 ?>
 	<div class="large-title bg-<?php print $color ?>">
@@ -30,6 +30,12 @@ $color = get_category_color( $category[0]->cat_ID );
 
 	<section id="primary" class="content-area">
 		<div id="content" class="wrap content-wide home-list" role="main">
+	
+		<?php if ( !empty( $cat_desc ) ) { ?>
+		<div class="category-description">
+			<?php print $cat_desc; ?>
+		</div>
+		<?php } ?>
 
 		<?php
 		// get global wp_query

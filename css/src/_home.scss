@@ -59,7 +59,7 @@
 
 
 .home-list {
-	padding: 0;
+	padding: 20px;
 	@include clearfix;
 
 	@include respond-to( 768px ) {
@@ -117,6 +117,7 @@
 			font-size: 1.1em;
 			// padding-left: 40px;
 			position: relative;
+			padding-left: 5px;
 			padding-right: 10px;
 
 			@include respond-to( 768px ) {
@@ -143,10 +144,10 @@
 
 		p {
 			font-size: .85em;
-			padding: 7px 20px 7px 40px;
+			padding-left: 5px;
 
 			@include respond-to( 768px ) {
-				padding: 7px 0;
+				padding: 7px 0 7px 5px;
 			}
 		}
 
