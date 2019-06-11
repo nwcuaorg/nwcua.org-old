@@ -3,18 +3,18 @@
 // set colors
 $teal: #0491C1;
 $river: #09416d;
+$aqua: #2dc6d2;
+$seafoam: #64cac8;
 $navy: #0F4469;
 $orange: #f8981d;
 $lime: #aabb38;
 $forest: #6e8d56;
-$gold: #9baf2c;
 $green: #83a53e;
+$gold: #9baf2c;
 $red: #e15829;
 $yellow: #D6CE49;
 $grey: #9C9FA0;
 $grey-dark: #60605b;
-$aqua: #2dc6d2;
-$seafoam: #64cac8;
 $stone: $grey-dark;
 
 // link color
@@ -43,6 +43,7 @@ $link-color: $teal;
 
 // general styles
 @import "title";
+@import "notice";
 @import "showcase";
 @import "content";
 @import "accordion";

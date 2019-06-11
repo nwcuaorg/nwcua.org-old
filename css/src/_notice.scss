@@ -1,0 +1,172 @@
+
+
+.notice-bar-container {
+	background: $grey;
+	padding: 10px 10px 7px 10px;
+	color: $grey-dark;
+	@include clearfix;
+	display: none;
+	position: relative;
+	z-index: 200;
+	border-bottom: 1px solid $grey;
+	text-align: center;
+
+	a {
+		color: $grey;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	&.show {
+		display: block;
+	}
+
+	.fa-close {
+		float: right;
+		margin: 0 0 3px 20px;
+		cursor: pointer;
+	}
+
+	&.teal {
+		background: lighten( $teal, 40% );
+		color: $teal;
+		border-bottom: 1px solid $teal;
+
+		a {
+			color: $teal;
+		}
+	}
+
+	&.river {
+		background: lighten( $river, 40% );
+		color: $river;
+		border-bottom: 1px solid $river;
+
+		a {
+			color: $river;
+		}
+	}
+
+	&.aqua {
+		background: lighten( $aqua, 40% );
+		color: $aqua;
+		border-bottom: 1px solid $aqua;
+
+		a {
+			color: $aqua;
+		}
+	}
+
+	&.seafoam {
+		background: lighten( $seafoam, 20% );
+		color: darken( $seafoam, 20% );
+		border-bottom: 1px solid $seafoam;
+
+		a {
+			color: darken( $seafoam, 20% );
+		}
+	}
+
+	&.navy {
+		background: lighten( $navy, 40% );
+		color: $navy;
+		border-bottom: 1px solid $navy;
+
+		a {
+			color: $navy;
+		}
+	}
+
+	&.orange {
+		background: lighten( $orange, 40% );
+		color: $orange;
+		border-bottom: 1px solid $orange;
+
+		a {
+			color: $orange;
+		}
+	}
+
+	&.lime {
+		background: lighten( $lime, 40% );
+		color: darken( $lime, 10% );
+		border-bottom: 1px solid $lime;
+
+		a {
+			color: darken( $lime, 10% );
+		}
+	}
+
+	&.forest {
+		background: lighten( $forest, 40% );
+		color: $forest;
+		border-bottom: 1px solid $forest;
+
+		a {
+			color: $forest;
+		}
+	}
+
+	&.gold {
+		background: lighten( $gold, 40% );
+		color: $gold;
+		border-bottom: 1px solid $gold;
+
+		a {
+			color: $gold;
+		}
+	}
+
+	&.green {
+		background: lighten( $green, 40% );
+		color: $green;
+		border-bottom: 1px solid $green;
+
+		a {
+			color: $green;
+		}
+	}
+
+	&.red {
+		background: lighten( $red, 40% );
+		color: $red;
+		border-bottom: 1px solid $red;
+
+		a {
+			color: $red;
+		}
+	}
+
+	&.yellow {
+		background: lighten( $yellow, 40% );
+		color: darken( $yellow, 20% );
+		border-bottom: 1px solid $yellow;
+
+		a {
+			color: darken( $yellow, 20% );
+		}
+	}
+
+	&.grey {
+		background: lighten( $grey, 20% );
+		color: darken( $grey, 20% );
+		border-bottom: 1px solid $grey;
+
+		a {
+			color: darken( $grey, 20% );
+		}
+	}
+
+	&.grey-dark {
+		background: lighten( $grey-dark, 20% );
+		color: darken( $grey-dark, 20% );
+		border-bottom: 1px solid $grey-dark;
+
+		a {
+			color: darken( $grey-dark, 20% );
+		}
+	}
+}
+
