@@ -44,9 +44,6 @@ if ( $request == '/api/auth/generate_auth_cookie/' ) {
 
 
 
-
-
-
 // add a custom stylesheet so we can customize the login page a bit.
 function nwcua_login_stylesheet() {
     wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/css/login.css' );
