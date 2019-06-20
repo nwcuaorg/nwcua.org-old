@@ -29,7 +29,7 @@ $cat_desc = category_description();
 	</div>
 
 	<section id="primary" class="content-area">
-		<div id="content" class="wrap content-wide home-list" role="main">
+		<div id="content" class="wrap content-wide" role="main">
 	
 		<?php if ( !empty( $cat_desc ) ) { ?>
 		<div class="category-description">
@@ -37,6 +37,7 @@ $cat_desc = category_description();
 		</div>
 		<?php } ?>
 
+		<div class="home-list">
 		<?php
 		// get global wp_query
 		global $wp_query;
@@ -112,6 +113,7 @@ $cat_desc = category_description();
 		}
 		?>
 			
+		</div><!-- .home-list -->
 		</div><!-- #content -->
 		
 		<div class="pagination group">
