@@ -29,15 +29,12 @@ $cat_desc = category_description();
 	</div>
 
 	<section id="primary" class="content-area">
-		<div id="content" class="wrap content-wide" role="main">
-	
 		<?php if ( !empty( $cat_desc ) ) { ?>
-		<div class="category-description">
+		<div class="wrap content-wide category-description">
 			<?php print $cat_desc; ?>
 		</div>
 		<?php } ?>
-
-		<div class="home-list">
+		<div id="content" class="wrap content-wide home-list" role="main">
 		<?php
 		// get global wp_query
 		global $wp_query;
