@@ -1,12 +1,12 @@
 {
     "devDependencies": {
-        "fitvids": "^2.0.0",
+        "fitvids": "*",
         "grunt": "latest",
         "grunt-autoprefixer": "*",
         "grunt-contrib-sass": "*",
         "grunt-contrib-uglify": "*",
         "grunt-contrib-watch": "*",
-        "magnific-popup": "^1.1.0",
+        "magnific-popup": "*",
         "matchdep": "*"
     }
 }
