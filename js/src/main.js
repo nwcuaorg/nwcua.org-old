@@ -43,6 +43,13 @@ jQuery(document).ready(function($){
 		window.location.href = $( this ).attr( 'data-url' );
 	});
 
+
+	// off-site link handling.
+	$( '.menu-item-8013 a' ).each(function(){
+		$( this ).attr( 'target', '_blank' );
+	});
+
+
 	
 	// add lightbox to any link with that class.
 	$( '.lightbox-iframe' ).magnificPopup({ 'type': 'iframe' });
