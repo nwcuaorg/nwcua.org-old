@@ -6,7 +6,7 @@
 function p_scripts() {
 
 	// add a new javascript enqueue for our main theme stylesheet.
-	wp_enqueue_script( 'p-main-js', get_stylesheet_directory_uri().'/js/main.js?ver=14', array( 'jquery' ), false, true );
+	wp_enqueue_script( 'p-main-js', get_stylesheet_directory_uri().'/js/main.js', array( 'jquery' ), '14', true );
 
 	// load dashicons on the front end.
 	wp_enqueue_style( 'dashicons' );
