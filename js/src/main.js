@@ -45,7 +45,7 @@ jQuery(document).ready(function($){
 
 
 	// off-site link handling.
-	$( '.menu-item-8013 a' ).each(function(){
+	$( '.menu-item-8013 a, .menu-item-8020 a' ).each(function(){
 		$( this ).attr( 'target', '_blank' );
 	});
 
