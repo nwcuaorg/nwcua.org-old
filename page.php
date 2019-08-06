@@ -28,9 +28,7 @@ get_header();
 				<?php
 				the_content();
 
-				if ( members_can_current_user_view_post( $post->ID ) ) {
-					the_accordion();
-				}
+				the_accordion();
 				?>
 			</div>
 			<div class="quarter sidebar right">
