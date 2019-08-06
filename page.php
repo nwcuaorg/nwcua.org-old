@@ -15,26 +15,32 @@ get_header();
 			?>
 	<div id="content" class="wrap group site-content content-two-column content-style" role="main">
 		<?php
-		if ( !empty( $post->post_excerpt ) ) { ?>
-		<div class="content-header">
-			<h2><?php the_excerpt(); ?></h2>
-		</div>
-		<div class="content-top">
-			<?php print apply_filters( 'the_content', get_cmb_value( 'top_content' ) ); ?>
-		</div>
-		<?php } ?>
-		<div class="three-quarter right">
-			<?php
-			the_content();
+		if ( is_member() ) {
+			if ( !empty( $post->post_excerpt ) ) { ?>
+			<div class="content-header">
+				<h2><?php the_excerpt(); ?></h2>
+			</div>
+			<div class="content-top">
+				<?php print apply_filters( 'the_content', get_cmb_value( 'top_content' ) ); ?>
+			</div>
+			<?php } ?>
+			<div class="three-quarter right">
+				<?php
+				the_content();
 
-			if ( members_can_current_user_view_post( $post->ID ) ) {
-				the_accordion();
-			}
-			?>
-		</div>
-		<div class="quarter sidebar right">
-			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('sidebar-generic') ) : ?><!-- no sidebar --><?php endif; ?>
-		</div>
+				if ( members_can_current_user_view_post( $post->ID ) ) {
+					the_accordion();
+				}
+				?>
+			</div>
+			<div class="quarter sidebar right">
+				<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('sidebar-generic') ) : ?><!-- no sidebar --><?php endif; ?>
+			</div>
+			<?php
+		} else {
+			do_member_error();
+		}
+		?>
 	</div><!-- #content -->
 		<?php
 		endwhile;

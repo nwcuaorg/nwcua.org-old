@@ -410,3 +410,55 @@ add_shortcode('current-url-encoded', 'current_url_encoded_shortcode');
 
 
 
+function is_member() {
+
+	// see if there is a member's only value
+	if ( has_cmb_value( 'members-only' ) ) {
+
+		// if the content requires membership
+		if ( get_cmb_value( 'members-only' ) == 'on' ) {
+
+			// get the user
+			$user = wp_get_current_user();
+
+			// see if the user is an admin
+			if ( in_array( 'administrator', $user->roles ) ) return true;
+
+			// see if the user is an editor
+			if ( in_array( 'editor', $user->roles ) ) return true;
+
+			// see if the user is on the board
+			if ( in_array( 'board', $user->roles ) ) return true;
+
+			// see if the user is a member
+			if ( in_array( 'member', $user->roles ) ) return true;
+
+			// see if the user is a trial member
+			if ( in_array( 'trial', $user->roles ) ) return true;
+
+			// they don't have any of the required roles, they can't access it.
+			return false;
+
+		} else {
+
+			// members only checkbox exists and is unchecked, they can access
+			return true;
+		}
+
+	} else {
+
+		// there's no value available for the member's only checkbox, they can access.
+		return true;
+	}
+
+}
+
+
+function do_member_error() {
+	?>
+	<div class="three-quarter">
+		<h3>A membership is required to view this content.</h3>
+	</div>
+	<?php
+}
+

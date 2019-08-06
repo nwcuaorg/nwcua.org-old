@@ -615,6 +615,25 @@ function page_metaboxes( $meta_boxes ) {
 
 
     // brand metabox
+    $access_metabox = new_cmb2_box( array(
+        'id' => 'access_metabox',
+        'title' => 'Access Control',
+        'object_types' => array( 'post', 'page' ), // post type
+        'context' => 'side',
+        'priority' => 'high',
+        'show_names' => false
+    ));
+
+    $access_metabox->add_field( array(
+        'name' => 'Members Only',
+        'desc' => 'Members Only',
+        'id'   => CMB_PREFIX . 'members-only',
+        'type' => 'checkbox'
+    ) );
+
+
+
+    // brand metabox
     $brand_metabox = new_cmb2_box( array(
         'id' => 'brand_metabox',
         'title' => 'Branding',

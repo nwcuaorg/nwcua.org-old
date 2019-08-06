@@ -49,6 +49,8 @@ if ( have_posts() ) {
 					?>
 	<div id="primary" class="site-content wrap">
 		<div id="content" class="site-content content-two-column content-style" role="main">
+			<?php
+			if ( is_member() ) { ?>
 			<div class="content-header">
 				<h1><?php the_title(); ?></h1>
 				<h2><?php the_excerpt(); ?></h2>
@@ -97,6 +99,11 @@ if ( have_posts() ) {
 			<div class="quarter sidebar right">
 			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('sidebar-blog') ) : ?><!-- no sidebar --><?php endif; ?>
 			</div>
+			<?php
+			} else {
+				do_member_error();
+			}
+			?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 		<?php

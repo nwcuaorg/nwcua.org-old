@@ -12,7 +12,8 @@ get_header();
 	<?php the_showcase(); ?>
 	
 	<div id="content" class="wrap group content-narrow" role="main">
-		<?php 
+	<?php 
+	if ( is_member() ) {
 		if ( have_posts() ) :
 			while ( have_posts() ) : the_post(); 
 				the_content();
@@ -23,7 +24,12 @@ get_header();
 
 	<?php if ( has_partner_or_product_accordion() ) { ?>
 	<div class="group">
-		<?php the_accordion(); ?>
+		<?php 
+		the_accordion(); 
+	} else {
+		do_member_error();
+	}
+	?>
 	</div>
 	<?php } ?>
 
