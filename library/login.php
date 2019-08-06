@@ -4,7 +4,11 @@
 // get the request URI and remove the query string
 $request = str_replace( "?" . $_SERVER['QUERY_STRING'], '',  $_SERVER['REQUEST_URI'] );
 
+if ( substr( $request, 0, 5 ) == '/auth' ) {
+	print_r( $_REQUEST ); die;
+}
 
+/*
 // redirect if they go to the account page.
 if ( $request == '/account/' && !is_user_logged_in() ) {
 	header( 'Location: /account/login/?redirect_to=' . urlencode( 'https://app.nwcua.org/account/' ) );
@@ -43,12 +47,12 @@ if ( $request == '/api/auth/generate_auth_cookie/' ) {
 }
 
 
-
 // add a custom stylesheet so we can customize the login page a bit.
 function nwcua_login_stylesheet() {
     wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/css/login.css' );
 }
 add_action( 'login_enqueue_scripts', 'nwcua_login_stylesheet' );
+*/
 
 
 
@@ -87,7 +91,7 @@ function account_button() {
 }
 
 
-
+/*
 // hide the admin toolbar for all users except administrators
 add_action('after_setup_theme', 'remove_admin_bar');
 function remove_admin_bar() {
@@ -95,7 +99,6 @@ function remove_admin_bar() {
 		show_admin_bar( false );
 	}
 }
-
 
 
 function update_user_meta_item( $associo_user, $field_label ) {
@@ -321,20 +324,6 @@ function associo_authenticate( $username, $password ) {
 
 
 
-/*
-// when the user authenticates on NWCUA`, also authenticate them on InfoSight
-function infosight_authenticate() {
-
-	// let's redirect to infosight's login endpoint so that it can authenticate us on there as well.
-    header( "Location: http://fl.leagueinfosight.com/Security__Login_6169.htm?email=" . $_POST['log'] . "&password=" . urlencode( $_POST['pwd'] ) . "&action=login&return_to=" . urlencode( $_POST['redirect_to'] ) );
-    exit;
-
-}
-add_action('wp_login', 'infosight_authenticate');
-*/
-
-
-
 // check for empty username and password when a user is authenticating
 // by default, WP doesn't even treat this as a login attempt, and redirects
 // the user back to the admin login, which we'd like to avoid.
@@ -407,6 +396,7 @@ function current_url_encoded_shortcode() {
 	return urlencode( get_home_url() . add_query_arg( '_', false ) );
 }
 add_shortcode('current-url-encoded', 'current_url_encoded_shortcode');
+*/
 
 
 
