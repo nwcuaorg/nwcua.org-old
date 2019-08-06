@@ -128,12 +128,12 @@ add_action( 'pre_get_posts', 'admin_order_people' );
 
 
 function people_shortcode( $atts = [], $content = null, $tag = '' ) {
+	
     // normalize attribute keys, lowercase
     $atts = array_change_key_case((array)$atts, CASE_LOWER);
  
     // override default attributes with user attributes
     $people_atts = shortcode_atts( [ 'group' => 0 ], $atts, $tag );
-	
 
     // sort by sort value and then last name.
 	$people_args = array(
