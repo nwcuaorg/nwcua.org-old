@@ -412,7 +412,7 @@ function is_member() {
 			$user = wp_get_current_user();
 
 			// see if the user is an admin
-			if ( in_array( 'administrator', $user->roles ) ) return true;
+			//if ( in_array( 'administrator', $user->roles ) ) return true;
 
 			// see if the user is an editor
 			if ( in_array( 'editor', $user->roles ) ) return true;
@@ -421,7 +421,7 @@ function is_member() {
 			if ( in_array( 'board', $user->roles ) ) return true;
 
 			// see if the user is a member
-			if ( in_array( 'member', $user->roles ) ) return true;
+			//if ( in_array( 'member', $user->roles ) ) return true;
 
 			// see if the user is a trial member
 			if ( in_array( 'trial', $user->roles ) ) return true;
