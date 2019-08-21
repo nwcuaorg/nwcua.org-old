@@ -120,10 +120,6 @@ h4{font-size:12px;font-family:Arial}.tablepress-id-2 .row-13 td{background-color
 <label for="s">Search</label><input type="text" value="" name="s" id="s" placeholder="Search">
 <input type="submit" id="searchsubmit" value="Search">
 </form> </div>
-<div class='tools'>
-<a href="https://app.nwcua.org/account/" class='account button'>My Account</a>
-<a href="https://app.nwcua.org/cart" class="button cart">Shopping Cart</a>
-</div>
 </div>
 <nav role="navigation">
 <button class="menu-toggle" alt="Expand/Contract The Menu"><i class="fa fa-bars"></i></button>

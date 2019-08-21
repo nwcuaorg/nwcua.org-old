@@ -62,14 +62,6 @@ function account_button() {
 	// set up a global for the current user info
 	global $current_user;
 
-	// get the account page link.
-    $account_page = get_post( pure_get_option( 'account-page' ) );
-    $account_url = get_permalink( $account_page->ID );
-
-	// get the account page link.
-    $login_page = get_post( pure_get_option( 'login-page' ) );
-    $login_url = get_permalink( $login_page->ID );
-
 	// get the referer
 	$referer = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 
@@ -84,7 +76,7 @@ function account_button() {
 		<?php 
 	} else { 
 		?>
-		<a href="<?php print $login_url ?>?redirect_to=<?php print $referer ?>" class='account button'>Log In</a>
+		<a href="https://staging-nwcua.cs14.force.com/s/login/?ret_url=<?php print $referer ?>" class='account button'>Log In</a>
 		<?php 
 	}
 
