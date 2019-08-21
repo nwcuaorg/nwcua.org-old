@@ -76,7 +76,7 @@ function account_button() {
 		<?php 
 	} else { 
 		?>
-		<a href="https://staging-nwcua.cs14.force.com/s/login/?ret_url=<?php print $referer ?>" class='account button'>Log In</a>
+		<a href="https://staging-nwcua.cs14.force.com/s/login/?url=<?php print $referer ?>" class='account button'>Log In</a>
 		<?php 
 	}
 
