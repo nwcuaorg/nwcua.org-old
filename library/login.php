@@ -70,9 +70,9 @@ function account_button() {
 	}
 
 	// if the user is logged in.
-	if ( is_user_logged_in() ) {
+	if ( isset( $_SESSION['user'] ) ) {
 		?>
-		<a href="https://app.nwcua.org/account/" class='account button'>My Account</a>
+		<a href="https://staging-nwcua.cs14.force.com/s/" class='account button'>My Account</a>
 		<?php 
 	} else { 
 		?>
