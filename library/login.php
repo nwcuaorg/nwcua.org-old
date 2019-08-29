@@ -5,7 +5,8 @@
 $request = str_replace( "?" . $_SERVER['QUERY_STRING'], '',  $_SERVER['REQUEST_URI'] );
 
 if ( substr( $request, 0, 5 ) == '/auth' ) {
-	print_r( $_REQUEST ); die;
+	print_r( $_REQUEST );
+	die;
 }
 
 /*
@@ -65,19 +66,11 @@ function account_button() {
 	// get the referer
 	$referer = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 
-	if ( stristr( $referer, '/log-in/' ) ) {
-		$referer = get_home_url();
-	}
-
 	// if the user is logged in.
-	if ( isset( $_SESSION['user'] ) ) {
-		?>
-		<a href="https://staging-nwcua.cs14.force.com/s/" class='account button'>My Account</a>
-		<?php 
-	} else { 
-		?>
-		<a href="https://staging-nwcua.cs14.force.com/s/login/?url=<?php print $referer ?>" class='account button'>Log In</a>
-		<?php 
+	if ( isset( $_SESSION['sf_user'] ) ) {
+		?><a href="https://staging-nwcua.cs14.force.com/s/" class='account button'>My Account</a><?php
+	} else {
+		?><a href="https://staging-nwcua.cs14.force.com/s/redirect-with-url-params?url=<?php print $referer ?>" class='account button'>Log In</a><?php 
 	}
 
 }
@@ -401,7 +394,7 @@ function is_member() {
 		if ( get_cmb_value( 'members-only' ) == 'on' ) {
 
 			// get the user
-			$user = wp_get_current_user();
+			$user = $_SESSION['sf_user'];
 
 			// see if the user is an admin
 			//if ( in_array( 'administrator', $user->roles ) ) return true;
