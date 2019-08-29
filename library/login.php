@@ -5,8 +5,9 @@
 $request = str_replace( "?" . $_SERVER['QUERY_STRING'], '',  $_SERVER['REQUEST_URI'] );
 
 if ( substr( $request, 0, 5 ) == '/auth' ) {
-	print_r( $_REQUEST );
-	die;
+	$_SESSION['sf_user'] = $_REQUEST;
+	print http_build_query( $_REQUEST );
+	//wp_redirect( 'https://' )
 }
 
 /*
