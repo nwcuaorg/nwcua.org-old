@@ -6,7 +6,7 @@ $request = str_replace( "?" . $_SERVER['QUERY_STRING'], '',  $_SERVER['REQUEST_U
 
 if ( substr( $request, 0, 5 ) == '/auth' ) {
 	$_SESSION['sf_user'] = $_REQUEST;
-	print "User successfully authenticated in WordPress.<br><br>Eventually, this endpoint will redirect to the url passed along with the login request in the 'redirect_url' parameter. <a href='" . $_REQUEST['redirect_url'] . "'>Click here</a> to manually go there for now.<br><br>InfoSight, this is the query string you can expect to receive from us when we redirect to you:<br><br>";
+	print "User successfully authenticated in WordPress.<br><br>Eventually, this endpoint will redirect to InfoSight to authenticate there, and then redirect back to the url passed along with the login request in the 'redirect_url' parameter. <a href='" . $_REQUEST['redirect_url'] . "'>Click here</a> to manually go there for now.<br><br>InfoSight, this is the query string you can expect to receive from us when we redirect to users:<br><br>";
 	print http_build_query( $_REQUEST ); 
 	print "<br><br>Please provide us with a URL to send this query string along to, so that you can authenticate the user and redirect them to the URL we pass through to you as well. Thanks!";
 	die;
