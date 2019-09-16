@@ -1,8 +1,8 @@
 <?php
 
 
-define("SF_CLIENT_ID", "3MVG9sLbBxQYwWqsFCnCBGsG1EdI5wvwRMFY721QRgWBbFjJeo6Y4vZDSwtj2rqB08F9BfjqhJBvMCey5Hv9u");
-define("SF_CLIENT_SECRET", "37592DA53ADFBA6FAEFAEB9800369C132C825854F3DB3EEAFDA84594074EE1DA");
+define("SF_CLIENT_ID", "3MVG9sLbBxQYwWqsFCnCBGsG1EYxC3Wy_e6YOqu8iyVINZ366vFgrjFI3xmLSF6E1moqgrFKAmcXt90WjeurW");
+define("SF_CLIENT_SECRET", "888A32DECF4776D2CA7241DF8E220B7A53D19B0EB68C6F3178211D734EBB3DE6");
 define("SF_REDIRECT_URI", "https://staging.nwcua.org/sfauth");
 define("SF_LOGIN_URI", "https://test.salesforce.com");
 define("SF_USER", "james@jpederson.com.staging");
@@ -21,7 +21,7 @@ function salesforce_auth() {
 	// gather the data we're going to send to Salesforce
 	$postData = array(
 	    'grant_type' => 'password',
-	    'client_ID' => SF_CLIENT_ID,
+	    'client_id' => SF_CLIENT_ID,
 	    'client_secret' => SF_CLIENT_SECRET,
 	    'username' => SF_USER,
 	    'pw' => SF_PWD,
@@ -62,7 +62,7 @@ function salesforce_auth() {
 
 
 // get salesforce events
-function get_salesforce_events() {
+//function get_salesforce_events() {
 	salesforce_auth();
-}
+//}
 
