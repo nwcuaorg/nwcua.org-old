@@ -62,7 +62,7 @@ function salesforce_auth() {
 
 
 // get salesforce events
-//function get_salesforce_events() {
+function get_salesforce_events() {
 	salesforce_auth();
-//}
+}
 
