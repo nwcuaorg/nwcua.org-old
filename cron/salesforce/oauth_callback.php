@@ -1,4 +1,5 @@
 <?php
+
 require_once 'config.php';
 
 session_start();
@@ -49,5 +50,5 @@ if (!isset($instance_url) || $instance_url == "") {
 $_SESSION['access_token'] = $access_token;
 $_SESSION['instance_url'] = $instance_url;
 
-header( 'Location: events.php' ) ;
-?>
+header( 'Location: events.php' );
+
