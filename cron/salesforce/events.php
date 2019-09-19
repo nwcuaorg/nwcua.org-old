@@ -3,6 +3,10 @@
 session_start();
 
 
+// include the database class
+require( "../db.php" );
+
+
 // get the access token and the instance url from the session.
 $access_token = $_SESSION['access_token'];
 $instance_url = $_SESSION['instance_url'];
@@ -19,24 +23,26 @@ if ( empty( $access_token ) || empty( $instance_url ) ) {
 function get_events( $instance_url, $access_token ) {
 
     // set up the query
-    $query = "SELECT Name, Active__c, Associo_Product_ID__c, CreatedById, Description__c, EarlyDate__c, EventEnd__c, EventStart__c, Event_Type__c, Family__c, GLAccount__c, LastModifiedById, LateDate__c, LongName__c, OwnerId, ParentProduct__c, Price__c, ProductFamily__c, ShowOnWebsite__c from Product__c LIMIT 100";
+    $query = "SELECT Id, Name, Active__c, Associo_Product_ID__c, CreatedById, Description__c, EarlyDate__c, EventEnd__c, EventStart__c, Event_Type__c, Family__c, GLAccount__c, LastModifiedById, LateDate__c, LongName__c, OwnerId, ParentProduct__c, Price__c, ProductFamily__c, ShowOnWebsite__c from Product__c LIMIT 100";
 
     // build the URL
     $url = "$instance_url/services/data/v45.0/query?q=" . urlencode($query);
 
+    // set up curl call
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_HEADER, false);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_HTTPHEADER,
             array("Authorization: OAuth $access_token"));
 
+    // run it
     $json_response = curl_exec($curl);
     curl_close($curl);
 
+    // parse the json from the response
     $response = json_decode($json_response, true);
 
-    $total_size = $response['totalSize'];
-
+    // return the records the api gave us.
     return $response['records'];
 }
 
