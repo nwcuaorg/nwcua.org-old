@@ -6,7 +6,7 @@ $token_url = SF_LOGIN_URI . "/services/oauth2/token";
 
 $code = $_GET['code'];
 
-if (!isset($code) || $code == "") {
+if ( !isset($code) || $code == "" ) {
     die("Error - code parameter missing from request!");
 }
 
@@ -15,6 +15,8 @@ $params = "code=" . $code
     . "&client_id=" . SF_CLIENT_ID
     . "&client_secret=" . SF_CLIENT_SECRET
     . "&redirect_uri=" . urlencode( SF_REDIRECT_URI );
+
+print $params; die;
 
 $curl = curl_init($token_url);
 curl_setopt($curl, CURLOPT_HEADER, false);
