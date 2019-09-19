@@ -43,7 +43,7 @@ function get_events( $instance_url, $access_token ) {
 
 // get the events
 $events = get_events( $instance_url, $access_token );
-print_r( $events ); die;
+print "<pre>"; print_r( $events ); print "</pre>"; die;
 
 
 // set meta by post id, key, and value
