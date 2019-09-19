@@ -1,88 +1,34 @@
 <?php
 
 
-// include WordPress
-define('WP_USE_THEMES', false);
-require( '../../../../wp-load.php' );
+require( "sf-config.php" );
 
 
-// get all the events from the API
-$events = get_salesforce_events();
+$access_token = $_SESSION['access_token'];
+$instance_url = $_SESSION['instance_url'];
 
 
-// display events in test before anything else happen
-print_r( $events ); die;
+$query = "SELECT Name, Id from Product2 LIMIT 100";
+$url = "$instance_url/services/data/v39.0/query?q=" . urlencode($query);
 
+$curl = curl_init($url);
+curl_setopt($curl, CURLOPT_HEADER, false);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_HTTPHEADER,
+        array("Authorization: OAuth $access_token"));
 
-// database object
-class db {
-	public $cn='';
-	public $result='';
-	public $show_errors=true;
+$json_response = curl_exec($curl);
+curl_close($curl);
 
-	function db() {
-		$this->cn=mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD, DB_NAME );
-	}
+$response = json_decode($json_response, true);
 
-	function query( $query ) {
-		$select=$this->cn->query( $query );
-		if ( !empty( $select ) ) {
-			while ( $rowselect=$select->fetch_object() ) {
-				$results[]=$rowselect;
-			}
-		}
-		if ( !empty( $results ) ) {
-			return $results;
-		} else {
-			$this->handle_error();
-			return false;
-		}
-	}
+$total_size = $response['totalSize'];
 
-	function query_one( $query ) {
-		$select=$this->cn->query( $query );
-		if ( !empty( $select ) ) {
-			while ( $rowselect=$select->fetch_object() ) {
-				$results[]=$rowselect;
-			}
-		}
-		if ( !empty( $results ) ) {
-			return $results[0];
-		} else {
-			$this->handle_error();
-			return false;
-		}
-	}
-
-	function update( $query ) {
-		$update=$this->cn->query( $query );
-		if ( $update ) {
-			return true;
-		} else {
-			$this->handle_error();
-			return false;
-		}
-	}
-
-	function insert( $query ) {
-		$update=$this->cn->query( $query );
-		if ( $update ) {
-			return $this->cn->insert_id;
-		} else {
-			$this->handle_error();
-			return false;
-		}
-	}
-
-	function handle_error() {
-		if ( !empty( $this->cn->error ) && $this->show_errors ) {
-			print $this->cn->error;
-			die;
-		}
-	}
-
+echo "$total_size record(s) returned<br/><br/>";
+foreach ((array) $response['records'] as $record) {
+    echo $record['Id'] . ", " . $record['Name'] . "<br/>";
 }
-$db = new db;
+echo "<br/>";
 
 
 
@@ -213,4 +159,3 @@ SELECT COUNT(*) FROM nwcua_term_relationships rel
 */
 
 
-?>
