@@ -2,8 +2,6 @@
 
 require( 'sf-config.php' );
 
-session_start();
-
 $token_url = SF_LOGIN_URI . "/services/oauth2/token";
 
 $code = $_GET['code'];
