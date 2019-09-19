@@ -4,7 +4,7 @@ require( 'sf-config.php' );
 
 session_start();
 
-$token_url = LOGIN_URI . "/services/oauth2/token";
+$token_url = SF_LOGIN_URI . "/services/oauth2/token";
 
 $code = $_GET['code'];
 
@@ -14,9 +14,9 @@ if (!isset($code) || $code == "") {
 
 $params = "code=" . $code
     . "&grant_type=authorization_code"
-    . "&client_id=" . CLIENT_ID
-    . "&client_secret=" . CLIENT_SECRET
-    . "&redirect_uri=" . urlencode(REDIRECT_URI);
+    . "&client_id=" . SF_CLIENT_ID
+    . "&client_secret=" . SF_CLIENT_SECRET
+    . "&redirect_uri=" . urlencode( SF_REDIRECT_URI );
 
 $curl = curl_init($token_url);
 curl_setopt($curl, CURLOPT_HEADER, false);
