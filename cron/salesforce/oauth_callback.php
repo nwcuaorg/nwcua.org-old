@@ -1,22 +1,21 @@
 <?php
+require_once 'config.php';
 
-require( 'sf-config.php' );
+session_start();
 
 $token_url = SF_LOGIN_URI . "/services/oauth2/token";
 
 $code = $_GET['code'];
 
-if ( !isset($code) || $code == "" ) {
+if (!isset($code) || $code == "") {
     die("Error - code parameter missing from request!");
 }
 
-$params = "code=" . urlencode( $code )
+$params = "code=" . $code
     . "&grant_type=authorization_code"
     . "&client_id=" . SF_CLIENT_ID
     . "&client_secret=" . SF_CLIENT_SECRET
     . "&redirect_uri=" . urlencode( SF_REDIRECT_URI );
-
-// print $params; die;
 
 $curl = curl_init($token_url);
 curl_setopt($curl, CURLOPT_HEADER, false);
@@ -50,4 +49,5 @@ if (!isset($instance_url) || $instance_url == "") {
 $_SESSION['access_token'] = $access_token;
 $_SESSION['instance_url'] = $instance_url;
 
-header( 'Location: sf-events.php' ) ;
+header( 'Location: demo_rest.php' ) ;
+?>
