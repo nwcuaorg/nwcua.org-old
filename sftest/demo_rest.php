@@ -2,7 +2,7 @@
 session_start();
 
 function show_accounts($instance_url, $access_token) {
-    $query = "SELECT Name, Id from Product2 LIMIT 100";
+    $query = "SELECT * from Product2 LIMIT 100";
     $url = "$instance_url/services/data/v20.0/query?q=" . urlencode($query);
 
     $curl = curl_init($url);
@@ -20,7 +20,8 @@ function show_accounts($instance_url, $access_token) {
 
     echo "$total_size record(s) returned<br/><br/>";
     foreach ((array) $response['records'] as $record) {
-        echo $record['Id'] . ", " . $record['Name'] . "<br/>";
+        print_r( $record );
+        print "<br/>";
     }
     echo "<br/>";
 }
