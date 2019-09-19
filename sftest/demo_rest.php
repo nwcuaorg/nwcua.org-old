@@ -2,7 +2,7 @@
 session_start();
 
 function show_accounts($instance_url, $access_token) {
-    $query = "SELECT * from Product2 LIMIT 100";
+    $query = "SELECT Name, Active__c, Associo_Product_ID__c, CreatedById, Description__c, EarlyDate__c, EventEnd__c, EventStart__c, Event_Type__c, Family__c, GLAccount__c, LastModifiedById, LateDate__c, LongName__c, OwnerId, ParentProduct__c, Price__c, ProductFamily__c, ShowOnWebsite__c from Product__c LIMIT 100";
     $url = "$instance_url/services/data/v20.0/query?q=" . urlencode($query);
 
     $curl = curl_init($url);
