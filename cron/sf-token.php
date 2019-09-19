@@ -10,13 +10,13 @@ if ( !isset($code) || $code == "" ) {
     die("Error - code parameter missing from request!");
 }
 
-$params = "code=" . $code
+$params = "code=" . urlencode( $code )
     . "&grant_type=authorization_code"
     . "&client_id=" . SF_CLIENT_ID
     . "&client_secret=" . SF_CLIENT_SECRET
     . "&redirect_uri=" . urlencode( SF_REDIRECT_URI );
 
-print $params; die;
+// print $params; die;
 
 $curl = curl_init($token_url);
 curl_setopt($curl, CURLOPT_HEADER, false);
