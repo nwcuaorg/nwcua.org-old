@@ -37,7 +37,7 @@ function get_events( $instance_url, $access_token ) {
 
     $total_size = $response['totalSize'];
 
-    return $response['records']
+    return $response['records'];
 }
 
 
