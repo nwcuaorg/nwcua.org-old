@@ -7,7 +7,7 @@ session_start();
 // show errors
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+error_reporting( E_ALL );
 
 
 // include wordpress
@@ -49,7 +49,7 @@ foreach ( $events as $event ) {
         $tz_offset = 0;
         $timezone = ( stristr( $event['EventStart__c'], '-07:00' ) ? 'M' : 'P' );
 
-        $event_id = ( !empty( $event['Associo_Product_ID__c'] ) ? $event['Associo_Product_ID__c'] : $event['Id'] )
+        $event_id = ( !empty( $event['Associo_Product_ID__c'] ) ? $event['Associo_Product_ID__c'] : $event['Id'] );
 
         $slug = sanitize_title( $event['Name'] );
 
