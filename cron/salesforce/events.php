@@ -54,7 +54,7 @@ foreach ( $events as $event ) {
         $slug = sanitize_title( $event['Name'] );
 
         // get a previous post if it exists.
-        $previous_post = $db->query_one( "SELECT * FROM `nwcua_posts` WHERE `old_id`=" . $event_id . ";" );
+        $previous_post = $db->query_one( "SELECT * FROM `nwcua_posts` WHERE `old_id`='" . $event_id . "';" );
         if ( !empty( $previous_post ) ) {
             $update_query = "UPDATE `nwcua_posts` SET 
                 `post_date`=\"" . date( 'Y-m-d H:i:s', strtotime( $event['CreatedDate'] ) ) . "\",
@@ -69,7 +69,7 @@ foreach ( $events as $event ) {
                 `post_type`=\"event\",
                 `post_modified`=\"" . date( 'Y-m-d H:i:s' ) . "\",
                 `post_modified_gmt`=\"" . date( 'Y-m-d H:i:s' ) . "\"
-                WHERE `ID`=" . $previous_post->ID . ";";
+                WHERE `ID`='" . $previous_post->ID . "';";
             if ( $db->update( $update_query ) ) {
                 print 'Existing post updated: ' . $event["Name"] . "\n";
                 print 'Time: ' . $event['EventStart__c'] . "\n";
@@ -108,6 +108,7 @@ foreach ( $events as $event ) {
 }
 
 
+/*
 $db->update( "UPDATE nwcua_term_taxonomy SET count = (
 SELECT COUNT(*) FROM nwcua_term_relationships rel 
     LEFT JOIN nwcua_posts po ON (po.ID = rel.object_id) 
@@ -118,6 +119,6 @@ SELECT COUNT(*) FROM nwcua_term_relationships rel
         AND 
         po.post_status IN ('publish', 'future')
 );" );
-
+*/
 
 print "</pre>"; die;
