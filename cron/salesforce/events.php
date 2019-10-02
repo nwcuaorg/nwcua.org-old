@@ -43,7 +43,6 @@ print "<pre>";
 
 // loop through the events
 foreach ( $events as $event ) {
-    print_r( $event );
     if ( !empty( $event ) ) {
         //$tz_offset = ( 3600 * ( stristr( $event['EventStart__c'], '-07:00' ) ? -1 : 0 ) );
         $tz_offset = 0;
@@ -70,7 +69,8 @@ foreach ( $events as $event ) {
                 `post_modified`=\"" . date( 'Y-m-d H:i:s' ) . "\",
                 `post_modified_gmt`=\"" . date( 'Y-m-d H:i:s' ) . "\"
                 WHERE `ID`='" . $previous_post->ID . "';";
-            print $update_query;
+
+            // run the update query, and if it works, add/update the meta information
             if ( $db->update( $update_query ) ) {
                 print 'Existing post updated: ' . $event["Name"] . "\n";
                 print 'Time: ' . $event['EventStart__c'] . "\n";
@@ -84,14 +84,24 @@ foreach ( $events as $event ) {
                 // set_meta( $previous_post->ID, '_p_event_late_price', $event->late_price );
                 if ( !empty( $event['Event_Type__c'] ) ) set_term( $previous_post->ID, $event['Event_Type__c'] );
             } else {
+
+                // 
                 print 'Existing post - failed.' . $event['Name'] . "\n";
             }
             $post_id = $previous_post->ID;
+
         } else {
+
+            // put together the insert query.
             $insert_query = "INSERT INTO `nwcua_posts` ( `post_author`, `post_modified`, `post_modified_gmt`, `post_date`, `post_date_gmt`, `post_name`, `post_title`, `post_content`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_type`, `to_ping`, `pinged`, `post_content_filtered`, `old_id` ) VALUES ( 1, \"" . date( 'Y-m-d H:i:s' ) . "\", \"" . date( 'Y-m-d H:i:s' ) . "\", \"" . date( 'Y-m-d H:i:s', strtotime( $event['CreatedDate'] )-$tz_offset ) . "\", \"" . date( 'Y-m-d H:i:s', strtotime( $event['CreatedDate'] ) ) . "\", \"" . sanitize_title( $slug ) . "\", \"" . $db->cn->real_escape_string( $event['Name'] ) . "\", \"" . $db->cn->real_escape_string( $event['Description__c'] ) . "\", \"" . $db->cn->real_escape_string( $event['Description__c'] ) . "\", \"publish\", \"open\", \"open\", \"event\", '', '', '', '" . $event_id . "' );";
-            print $insert_query;
+
+            // do the actual insert
             $post_id = $db->insert( $insert_query );
+
+            // if it worked, insert all the meta information
             if ( $post_id ) {
+
+                // it worked
                 print 'New event inserted: ' . $event['Name'] . "\n";
                 print 'Time: ' . $event['EventStart__c'] . "\n";
                 set_meta( $post_id, '_p_event_start', strtotime( $event['EventStart__c'] )+$tz_offset );
@@ -103,15 +113,18 @@ foreach ( $events as $event ) {
                 set_meta( $post_id, '_p_event_late_date', strtotime( $event['LateDate__c'] ) );
                 // set_meta( $post_id, '_p_event_late_price', $event->late_price );
                 if ( !empty( $event['Event_Type__c'] ) ) set_term( $post_id, $event['Event_Type__c'] );
+
             } else {
+
+                // the insertion failed, show a failure message.
                 print 'New post - failed.' . $event['Name'] . "\n";
+                
             }
         }
     }
 }
 
 
-/*
 $db->update( "UPDATE nwcua_term_taxonomy SET count = (
 SELECT COUNT(*) FROM nwcua_term_relationships rel 
     LEFT JOIN nwcua_posts po ON (po.ID = rel.object_id) 
@@ -122,6 +135,6 @@ SELECT COUNT(*) FROM nwcua_term_relationships rel
         AND 
         po.post_status IN ('publish', 'future')
 );" );
-*/
+
 
 print "</pre>"; die;

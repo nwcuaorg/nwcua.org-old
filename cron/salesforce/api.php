@@ -36,10 +36,10 @@ function set_meta( $post_id, $meta_key, $meta_value ) {
         $record_exists = $db->query_one( "SELECT * FROM `nwcua_postmeta` WHERE `post_id`=" . $post_id . " AND `meta_key`=\"" . $meta_key . "\";" );
         if ( !empty( $record_exists ) ) {
             $db->update( "UPDATE `nwcua_postmeta` SET `meta_value`=\"" . $meta_value . "\" WHERE `meta_id`=" . $record_exists->meta_id );
-            print 'postmeta updated (' . $meta_key . '): ' . $meta_value . ".\n";
+            print 'Postmeta updated (' . $meta_key . '): ' . $meta_value . ".\n";
         } else {
             $db->insert( "INSERT INTO `nwcua_postmeta` ( `post_id`, `meta_key`, `meta_value` ) VALUES ( " . $post_id . ", \"" . $meta_key . "\", \"" . $meta_value . "\" )" );
-            print 'postmeta inserted (' . $meta_key . '): ' . $meta_value . ".\n";
+            print 'Postmeta inserted (' . $meta_key . '): ' . $meta_value . ".\n";
         }
     }
 }
@@ -51,10 +51,10 @@ function set_term( $post_id, $slug ) {
     $record_exists = $db->query_one( "SELECT * FROM `nwcua_terms` WHERE `slug`='" . sanitize_title( $slug ) . "';" );
     if ( !empty( $record_exists ) ) {
         $term_id = $record_exists->term_id;
-        print 'term exists: ' . $slug . ".\n";
+        print 'Term exists: ' . $slug . ".\n";
     } else {
         $term_id = $db->insert( "INSERT INTO `nwcua_terms` ( `slug`, `name`, `term_group` ) VALUES ( \"" . sanitize_title( $slug ) . "\", \"" . $slug . "\", 0 )" );
-        print 'term inserted: ' . $slug . ".\n";
+        print 'Term inserted: ' . $slug . ".\n";
     }
 
     $term_taxonomy = $db->query_one( "SELECT * FROM `nwcua_term_taxonomy` WHERE `term_id`=" . $term_id . " AND `taxonomy`='event_cat';" );
@@ -67,7 +67,7 @@ function set_term( $post_id, $slug ) {
     $get_term_relationship = $db->query_one( "SELECT * FROM `nwcua_term_relationships` WHERE `object_id`=\"" . $post_id . "\" AND `term_taxonomy_id`=" . $term_taxonomy_id . ";" );
     if ( empty( $get_term_relationship ) ) {
         if ( $db->insert( "INSERT INTO `nwcua_term_relationships` ( `object_id`, `term_taxonomy_id`, `term_order` ) VALUES ( " . $post_id . ", " . $term_taxonomy_id . ", 0 );" ) ) {
-            print "term and taxonomy connected.\n";
+            print "Term and taxonomy connected.\n";
         }
     }
 }
