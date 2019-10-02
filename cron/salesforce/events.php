@@ -73,7 +73,7 @@ foreach ( $events as $event ) {
             // run the update query, and if it works, add/update the meta information
             if ( $db->update( $update_query ) ) {
                 print 'Existing post updated: ' . $event["Name"] . "\n";
-                print 'Time: ' . $event['EventStart__c'] . "\n";
+                print 'Event DateTime: ' . $event['EventStart__c'] . "\n";
                 set_meta( $previous_post->ID, '_p_event_start', strtotime( $event['EventStart__c'] )+$tz_offset );
                 set_meta( $previous_post->ID, '_p_event_end', strtotime( $event['EventEnd__c'] )+$tz_offset );
                 set_meta( $previous_post->ID, '_p_event_timezone', $timezone );
@@ -103,7 +103,7 @@ foreach ( $events as $event ) {
 
                 // it worked
                 print 'New event inserted: ' . $event['Name'] . "\n";
-                print 'Time: ' . $event['EventStart__c'] . "\n";
+                print 'Event DateTime: ' . $event['EventStart__c'] . "\n";
                 set_meta( $post_id, '_p_event_start', strtotime( $event['EventStart__c'] )+$tz_offset );
                 set_meta( $post_id, '_p_event_end', strtotime( $event['EventEnd__c'] )+$tz_offset );
                 set_meta( $post_id, '_p_event_timezone', $timezone );
