@@ -70,6 +70,7 @@ foreach ( $events as $event ) {
                 `post_modified`=\"" . date( 'Y-m-d H:i:s' ) . "\",
                 `post_modified_gmt`=\"" . date( 'Y-m-d H:i:s' ) . "\"
                 WHERE `ID`='" . $previous_post->ID . "';";
+            print $update_query;
             if ( $db->update( $update_query ) ) {
                 print 'Existing post updated: ' . $event["Name"] . "\n";
                 print 'Time: ' . $event['EventStart__c'] . "\n";
@@ -87,7 +88,9 @@ foreach ( $events as $event ) {
             }
             $post_id = $previous_post->ID;
         } else {
-            $post_id = $db->insert( "INSERT INTO `nwcua_posts` ( `post_author`, `post_modified`, `post_modified_gmt`, `post_date`, `post_date_gmt`, `post_name`, `post_title`, `post_content`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_type`, `to_ping`, `pinged`, `post_content_filtered`, `old_id` ) VALUES ( 1, \"" . date( 'Y-m-d H:i:s' ) . "\", \"" . date( 'Y-m-d H:i:s' ) . "\", \"" . date( 'Y-m-d H:i:s', strtotime( $event['CreatedDate'] )-$tz_offset ) . "\", \"" . date( 'Y-m-d H:i:s', strtotime( $event['CreatedDate'] ) ) . "\", \"" . sanitize_title( $slug ) . "\", \"" . $db->cn->real_escape_string( $event['Name'] ) . "\", \"" . $db->cn->real_escape_string( $event['Description__c'] ) . "\", \"" . $db->cn->real_escape_string( $event['Description__c'] ) . "\", \"publish\", \"open\", \"open\", \"event\", '', '', '', " . $event_id . " );" );
+            $insert_query = "INSERT INTO `nwcua_posts` ( `post_author`, `post_modified`, `post_modified_gmt`, `post_date`, `post_date_gmt`, `post_name`, `post_title`, `post_content`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_type`, `to_ping`, `pinged`, `post_content_filtered`, `old_id` ) VALUES ( 1, \"" . date( 'Y-m-d H:i:s' ) . "\", \"" . date( 'Y-m-d H:i:s' ) . "\", \"" . date( 'Y-m-d H:i:s', strtotime( $event['CreatedDate'] )-$tz_offset ) . "\", \"" . date( 'Y-m-d H:i:s', strtotime( $event['CreatedDate'] ) ) . "\", \"" . sanitize_title( $slug ) . "\", \"" . $db->cn->real_escape_string( $event['Name'] ) . "\", \"" . $db->cn->real_escape_string( $event['Description__c'] ) . "\", \"" . $db->cn->real_escape_string( $event['Description__c'] ) . "\", \"publish\", \"open\", \"open\", \"event\", '', '', '', '" . $event_id . "' );";
+            print $insert_query;
+            $post_id = $db->insert( $insert_query );
             if ( $post_id ) {
                 print 'New event inserted: ' . $event['Name'] . "\n";
                 print 'Time: ' . $event['EventStart__c'] . "\n";
