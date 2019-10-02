@@ -38,9 +38,8 @@ if ( empty( $access_token ) || empty( $instance_url ) ) {
 // get the events
 $events = get_events( $instance_url, $access_token );
 print "<pre>";
-print_r( $events );
+// print_r( $events );
 
-/*
 
 // loop through the events
 foreach ( $events as $event ) {
@@ -77,7 +76,7 @@ foreach ( $events as $event ) {
                 set_meta( $previous_post->ID, '_p_event_start', strtotime( $event['EventStart__c'] )+$tz_offset );
                 set_meta( $previous_post->ID, '_p_event_end', strtotime( $event['EventEnd__c'] )+$tz_offset );
                 set_meta( $previous_post->ID, '_p_event_timezone', $timezone );
-                // set_meta( $previous_post->ID, '_p_event_early_date', strtotime( $event->early_price_until ) );
+                set_meta( $previous_post->ID, '_p_event_early_date', strtotime( $event['EarlyDate__c'] ) );
                 // set_meta( $previous_post->ID, '_p_event_early_price', $event->early_price );
                 set_meta( $previous_post->ID, '_p_event_price', $event['Price__c'] );
                 set_meta( $previous_post->ID, '_p_event_late_date', strtotime( $event['LateDate__c'] ) );
@@ -95,7 +94,7 @@ foreach ( $events as $event ) {
                 set_meta( $post_id, '_p_event_start', strtotime( $event['EventStart__c'] )+$tz_offset );
                 set_meta( $post_id, '_p_event_end', strtotime( $event['EventEnd__c'] )+$tz_offset );
                 set_meta( $post_id, '_p_event_timezone', $timezone );
-                // set_meta( $post_id, '_p_event_early_date', strtotime( $event->early_price_until ) );
+                set_meta( $post_id, '_p_event_early_date', strtotime( $event['EarlyDate__c'] ) );
                 // set_meta( $post_id, '_p_event_early_price', $event->early_price );
                 set_meta( $post_id, '_p_event_price', $event['Price__c'] );
                 set_meta( $post_id, '_p_event_late_date', strtotime( $event['LateDate__c'] ) );
@@ -119,8 +118,6 @@ SELECT COUNT(*) FROM nwcua_term_relationships rel
         AND 
         po.post_status IN ('publish', 'future')
 );" );
-
-*/
 
 
 print "</pre>"; die;

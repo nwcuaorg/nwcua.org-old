@@ -5,7 +5,7 @@
 function get_events( $instance_url, $access_token ) {
 
     // set up the query
-    $query = "SELECT Id, Name, CreatedDate, Active__c, Associo_Product_ID__c, CreatedById, Description__c, EarlyDate__c, EventEnd__c, EventStart__c, Event_Type__c, Family__c, GLAccount__c, LastModifiedById, LateDate__c, LongName__c, OwnerId, ParentProduct__c, Price__c, ProductFamily__c, ShowOnWebsite__c FROM Product__c WHERE ShowOnWebsite__c=true AND Active__c=true LIMIT 200";
+    $query = "SELECT Id, Name, CreatedDate, Active__c, Associo_Product_ID__c, CreatedById, Description__c, EarlyDate__c, EventEnd__c, EventStart__c, Event_Type__c, Family__c, GLAccount__c, LastModifiedById, LateDate__c, LongName__c, OwnerId, ParentProduct__c, Price__c, ProductFamily__c, ShowOnWebsite__c FROM Product__c WHERE ShowOnWebsite__c=true AND Active__c=true AND EventStart__c>" . date('c') . " LIMIT 200";
 
     // build the URL
     $url = "$instance_url/services/data/v45.0/query?q=" . urlencode($query);
