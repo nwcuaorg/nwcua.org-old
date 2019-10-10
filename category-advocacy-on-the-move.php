@@ -114,8 +114,8 @@ $color = get_category_color( $category[0]->cat_ID );
 
 		<div class="cuobsessed-title">
 			<div class="wrap">
-				<h2>Are you Obsessed?</h2>
-				<p>Sign up for daily or weekly advocacy updates!</p>
+				<h2>Stay up to date on Advocacy!</h2>
+				<p>Sign up for daily or weekly updates.</p>
 			</div>
 		</div>
 		<div class="cuobsessed-subscribe">
