@@ -1,7 +1,5 @@
 <?php
 
-print_r( $_SESSION['sf_user'] ); die;
-
 
 // get the request URI and remove the query string
 $request = str_replace( "?" . $_SERVER['QUERY_STRING'], '',  $_SERVER['REQUEST_URI'] );
@@ -414,16 +412,7 @@ function is_member() {
 				//if ( in_array( 'administrator', $user->roles ) ) return true;
 
 				// see if the user is an editor
-				if ( in_array( 'editor', $user->roles ) ) return true;
-
-				// see if the user is on the board
-				if ( in_array( 'board', $user->roles ) ) return true;
-
-				// see if the user is a member
-				//if ( in_array( 'member', $user->roles ) ) return true;
-
-				// see if the user is a trial member
-				if ( in_array( 'trial', $user->roles ) ) return true;
+				if ( !empty( $user['membershiptype'] ) ) return true;
 
 			}
 
