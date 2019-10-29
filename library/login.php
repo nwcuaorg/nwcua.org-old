@@ -392,8 +392,15 @@ add_shortcode('current-url-encoded', 'current_url_encoded_shortcode');
 function is_member() {
 
 	global $post;
+
+	// get old member roles meta data
 	$roles = get_post_meta( $post->ID, '_members_access_role' );
-	if ( !empty( $roles ) ) {
+
+	// check for new member
+	$new_roles = get_cmb_value( 'members-only' );
+
+	// if the old member roles are set, and the new ones aren't, let's automatically fix up the new 'members-only' meta data.
+	if ( !empty( $roles ) && empty( $new_roles ) ) {
 		update_post_meta( $post->ID, CMB_PREFIX . 'members-only', 'on' );
 	}
 
