@@ -15,6 +15,7 @@ if ( substr( $request, 0, 5 ) == '/auth' ) {
 if ( substr( $request, 0, 7 ) == '/logout' ) {
 	unset( $_SESSION['sf_user'] );
 	wp_redirect( '/' );
+	exit;
 }
 
 
