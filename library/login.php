@@ -1,5 +1,7 @@
 <?php
 
+print_r( $_SESSION['sf_user'] ); die;
+
 
 // get the request URI and remove the query string
 $request = str_replace( "?" . $_SERVER['QUERY_STRING'], '',  $_SERVER['REQUEST_URI'] );
@@ -422,6 +424,7 @@ function is_member() {
 
 				// see if the user is a trial member
 				if ( in_array( 'trial', $user->roles ) ) return true;
+
 			}
 
 			// they don't have any of the required roles, they can't access it.
