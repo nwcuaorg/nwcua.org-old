@@ -391,29 +391,38 @@ add_shortcode('current-url-encoded', 'current_url_encoded_shortcode');
 
 function is_member() {
 
+	global $post;
+	$roles = get_post_meta( $post->ID, '_members_access_role' );
+	if ( !empty( $roles ) ) {
+		update_post_meta( $post->ID, CMB_PREFIX . 'members-only', 'on' );
+	}
+
 	// see if there is a member's only value
-	if ( has_cmb_value( 'members-only' ) ) {
+	if ( has_cmb_value( 'members-only' )  ) {
 
 		// if the content requires membership
 		if ( get_cmb_value( 'members-only' ) == 'on' ) {
 
-			// get the user
-			$user = $_SESSION['sf_user'];
+			if ( isset( $_SESSION['sf_user'] ) ) {
 
-			// see if the user is an admin
-			//if ( in_array( 'administrator', $user->roles ) ) return true;
+				// get the user
+				$user = $_SESSION['sf_user'];
 
-			// see if the user is an editor
-			if ( in_array( 'editor', $user->roles ) ) return true;
+				// see if the user is an admin
+				//if ( in_array( 'administrator', $user->roles ) ) return true;
 
-			// see if the user is on the board
-			if ( in_array( 'board', $user->roles ) ) return true;
+				// see if the user is an editor
+				if ( in_array( 'editor', $user->roles ) ) return true;
 
-			// see if the user is a member
-			//if ( in_array( 'member', $user->roles ) ) return true;
+				// see if the user is on the board
+				if ( in_array( 'board', $user->roles ) ) return true;
 
-			// see if the user is a trial member
-			if ( in_array( 'trial', $user->roles ) ) return true;
+				// see if the user is a member
+				//if ( in_array( 'member', $user->roles ) ) return true;
+
+				// see if the user is a trial member
+				if ( in_array( 'trial', $user->roles ) ) return true;
+			}
 
 			// they don't have any of the required roles, they can't access it.
 			return false;
