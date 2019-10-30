@@ -234,6 +234,12 @@ function page_metaboxes( $meta_boxes ) {
         'date_format' => "Y-m-d"
     ) );
 
+    $job_metabox->add_field( array(
+        'name' => 'Job Creator',
+        'id'   => CMB_PREFIX . 'job_creator',
+        'type' => 'text'
+    ) );
+
 
 
     // person metabox

@@ -19,6 +19,26 @@ if ( substr( $request, 0, 7 ) == '/logout' ) {
 }
 
 
+
+// temporary jobs update code
+if ( substr( $request, 0, 11 ) == '/jobsupdate' ) {
+	$posts = get_posts(array(
+		'post_type' => 'job'
+	));
+
+	foreach ( $posts as $a_post ) {
+		print "Found job: " . $a_post->post_title . "<br>";
+		$user_info = get_user_by( 'id', $a_post->post_author );
+		print "Retrieved user: " . $user_info->user_email . "<br>";
+		update_post_meta( $a_post->ID, CMB_PREFIX . "job_creator", $user_info->user_email );
+		print "Set job creator email.<br>";
+	} 
+
+	die;
+}
+
+
+
 // display the my account/login links based on user state.
 function account_button() {
 
