@@ -8,12 +8,6 @@ if ( session_id() == '' ) session_start();
 define( "CMB_PREFIX", "_p_" );
 
 
-// include the login library
-// include( "library/associo.php" );
-// include( "library/salesforce.php" );
-include( "library/login.php" );
-
-
 // include the content type
 include( "library/post-type/job.php" );
 include( "library/post-type/event.php" );
@@ -44,6 +38,10 @@ include( "library/title.php" );
 include( "library/showcase.php" );
 include( "library/accordion.php" );
 
+// include the login library
+// include( "library/associo.php" );
+// include( "library/salesforce.php" );
+include( "library/login.php" );
 
 // [anchor] shortcode
 function p_anchor( $atts, $content = null, $code = "" ) {
