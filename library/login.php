@@ -24,14 +24,15 @@ if ( substr( $request, 0, 7 ) == '/logout' ) {
 if ( substr( $request, 0, 11 ) == '/jobsupdate' ) {
 	$posts = get_posts(array(
 		'post_type' => 'job',
-		'numberposts' => -1
+		'numberposts' => -1,
+		'post_status' => array( 'publish', 'pending' )
 	));
 
 	foreach ( $posts as $a_post ) {
 		print "Found job: " . $a_post->post_title . "<br>";
 		$user_info = get_user_by( 'id', $a_post->post_author );
 		print "Retrieved user: " . $user_info->user_email . "<br>";
-		update_post_meta( $a_post->ID, '_p_job_creator', $user_info->user_email );
+		update_post_meta( $a_post->ID, CMB_PREFIX . 'job_creator', $user_info->user_email );
 		print "Set job creator email.<br>";
 	} 
 
