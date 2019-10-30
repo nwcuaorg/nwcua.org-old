@@ -23,7 +23,8 @@ if ( substr( $request, 0, 7 ) == '/logout' ) {
 // temporary jobs update code
 if ( substr( $request, 0, 11 ) == '/jobsupdate' ) {
 	$posts = get_posts(array(
-		'post_type' => 'job'
+		'post_type' => 'job',
+		'numberposts' => -1
 	));
 
 	foreach ( $posts as $a_post ) {
