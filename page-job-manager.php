@@ -4,9 +4,6 @@
 Template Name: Job Manager
 */
 
-print_r( $_SESSION ); die;
-
-
 global $post;
 $job_mgr_url = '/' . $post->post_name . '/';
 
@@ -16,7 +13,7 @@ if ( isset( $_GET['del'] ) ) {
 	$the_post = get_post( $_GET['del'] );
 
 	if ( !empty( $the_post ) ) {
-		if ( $the_post->post_type == 'job' && ( $the_post->post_author == get_current_user_id() || current_user_can( 'administrator' ) ) ) {
+		if ( $_SESSION['sf_user']['email'] == get_cmb_value( 'job_creator' ) ) {
 			wp_delete_post( $the_post->ID );
 		}
 	}
@@ -40,7 +37,7 @@ $args = array(
     'meta_query' => array(
         'state_clause' => array(
             'key' => '_p_job_creator',
-            'value' => $_SESSION['user']['email'],
+            'value' => $_SESSION['sf_user']['email'],
         ),
     ),
 );
