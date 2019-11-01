@@ -48,7 +48,7 @@ $the_query = new WP_Query( $args );
 
 
 // get job count
-$job_count = $wp_query->found_posts;
+$job_count = $the_query->found_posts;
 
 ?>
 	<div class="large-title bg-green">
