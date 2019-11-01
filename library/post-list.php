@@ -1,8 +1,7 @@
 <?php
 
 
-
-// calculator shortcode
+// function to show a post list.
 function post_list_func( $atts ) {
     
     // get the attributes
