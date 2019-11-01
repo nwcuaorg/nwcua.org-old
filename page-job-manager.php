@@ -4,6 +4,8 @@
 Template Name: Job Manager
 */
 
+print_r( $_SESSION ); die;
+
 
 global $post;
 $job_mgr_url = '/' . $post->post_name . '/';
@@ -35,12 +37,17 @@ $args = array(
 	'order' => 'ASC',
 	'meta_key' => '_p_job_expires',
 	'posts_per_page' => 1000,
-	'author' => get_current_user_id(),
+    'meta_query' => array(
+        'state_clause' => array(
+            'key' => '_p_job_creator',
+            'value' => $_SESSION['user']['email'],
+        ),
+    ),
 );
 
 
 // query the posts
-query_posts( $args );
+$the_query = WP_Query( $args );
 
 
 // get job count
@@ -67,9 +74,9 @@ $job_count = $wp_query->found_posts;
 			<div class="job-count"><strong>Showing <?php print $job_count; ?> Job<?php print ( $job_count == 1 ? '' : 's' ) ?></strong></div>
 			<?php 
 
-			if ( have_posts() ) : 
+			if ( $the_query->have_posts() ) : 
 				// Start the Loop.
-				while ( have_posts() ) : the_post(); 
+				while ( $the_query->have_posts() ) : $the_query->the_post(); 
 					global $post;
 					?>
 			<div class="entry-job group">
