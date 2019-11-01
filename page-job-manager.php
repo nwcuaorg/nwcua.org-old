@@ -11,11 +11,12 @@ $job_mgr_url = '/' . $post->post_name . '/';
 // delete a job based on the request variable in the URL.
 if ( isset( $_GET['del'] ) ) {
 	$the_post = get_post( $_GET['del'] );
-	print_r( $the_post ); die;
 
 	if ( !empty( $the_post ) ) {
 		if ( $_SESSION['sf_user']['email'] == get_cmb_value( 'job_creator' ) ) {
-			wp_delete_post( $the_post->ID );
+			wp_delete_post( $the_post->ID, 1 );
+			print 'deleted.';
+			die;
 		}
 	}
 }
