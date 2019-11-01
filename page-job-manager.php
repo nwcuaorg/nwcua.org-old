@@ -13,6 +13,7 @@ if ( isset( $_GET['del'] ) ) {
 	$the_post = get_post( $_GET['del'] );
 
 	if ( !empty( $the_post ) ) {
+		print 'post exists.'; die;
 		if ( $_SESSION['sf_user']['email'] == get_cmb_value( 'job_creator' ) ) {
 			wp_delete_post( $the_post->ID, 1 );
 			print 'deleted.';
