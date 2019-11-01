@@ -44,7 +44,7 @@ $args = array(
 
 
 // query the posts
-$the_query = WP_Query( $args );
+$the_query = new WP_Query( $args );
 
 
 // get job count
