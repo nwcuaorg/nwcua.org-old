@@ -231,3 +231,4 @@ h4{font-size:12px;font-family:Arial}.tablepress-id-2 .row-13 td{background-color
 </ul></div> </nav>
 </header>
 <section class="content">
+	<div class="content-wide">

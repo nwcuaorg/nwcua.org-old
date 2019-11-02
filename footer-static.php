@@ -1,4 +1,5 @@
 <?php header( "Access-Control-Allow-Origin: *" ); ?>
+	</div>
 </section>
 <footer class="footer">
 <div class="wrap">
