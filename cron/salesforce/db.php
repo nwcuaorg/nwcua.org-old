@@ -13,7 +13,7 @@ class db {
 	}
 
 	function query( $query ) {
-		$select = mysqli_query( $this->cn, $query );
+		$select = mysqli_real_query( $this->cn, $query );
 		if ( !empty( $select ) ) {
 			while ( $rowselect = mysqli_fetch_object( $select ) ) {
 				$results[] = $rowselect;
@@ -29,7 +29,7 @@ class db {
 	}
 
 	function query_one( $query ) {
-		$select = mysqli_query( $this->cn, $query );
+		$select = mysqli_real_query( $this->cn, $query );
 		if ( !empty( $select ) ) {
 			while ( $rowselect = mysqli_fetch_object( $select ) ) {
 				$results[]=$rowselect;
@@ -45,7 +45,7 @@ class db {
 	}
 
 	function update( $query ) {
-		$update = $this->cn->query( $query );
+		$update = mysqli_real_query( $this->cn, $query );
 		if ( $update ) {
 			return true;
 		} else {
@@ -55,7 +55,7 @@ class db {
 	}
 
 	function insert( $query ) {
-		$update = $this->cn->query( $query );
+		$update = mysqli_real_query( $this->cn, $query );
 		if ( $update ) {
 			return $this->cn->insert_id;
 		} else {
