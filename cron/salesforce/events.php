@@ -38,7 +38,7 @@ if ( empty( $access_token ) || empty( $instance_url ) ) {
 // get the events
 $events = get_events( $instance_url, $access_token );
 print "<pre>";
-print_r( $events ); die;
+// print_r( $events ); die;
 
 
 // loop through the events
@@ -74,6 +74,7 @@ foreach ( $events as $event ) {
             if ( $db->update( $update_query ) ) {
                 print 'Existing post updated: ' . $event["Name"] . "\n";
                 print 'Event DateTime: ' . $event['EventStart__c'] . "\n";
+                set_meta( $previous_post->ID, '_p_event_id', $event['Id'] );
                 set_meta( $previous_post->ID, '_p_event_start', strtotime( $event['EventStart__c'] )+$tz_offset );
                 set_meta( $previous_post->ID, '_p_event_end', strtotime( $event['EventEnd__c'] )+$tz_offset );
                 set_meta( $previous_post->ID, '_p_event_timezone', $timezone );
@@ -104,6 +105,7 @@ foreach ( $events as $event ) {
                 // it worked
                 print 'New event inserted: ' . $event['Name'] . "\n";
                 print 'Event DateTime: ' . $event['EventStart__c'] . "\n";
+                set_meta( $post_id, '_p_event_id', $event['Id'] );
                 set_meta( $post_id, '_p_event_start', strtotime( $event['EventStart__c'] )+$tz_offset );
                 set_meta( $post_id, '_p_event_end', strtotime( $event['EventEnd__c'] )+$tz_offset );
                 set_meta( $post_id, '_p_event_timezone', $timezone );
