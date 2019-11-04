@@ -122,8 +122,9 @@ function do_member_error() {
 		<?php
 		if ( isset( $_SESSION['sf_user'] ) ) {
 			?>
-		<h3>Your membership need approval.</h3>
-		<p>You've successfully created your account, but association staff still needs to approve your membership. Get in touch with us to get assistance accessing our member resources.</p>
+		<h3>Your membership still needs approval.</h3>
+		<p>You've successfully created your account and logged in, but association staff still needs to approve your membership. Get in touch with us to get assistance accessing our member resources.</p>
+		<p>To check and see if your membership has been approved, please <a href="/logout">log out</a> and back in.</p>
 			<?php
 		} else {
 			?>
