@@ -7,6 +7,7 @@ $request = str_replace( "?" . $_SERVER['QUERY_STRING'], '',  $_SERVER['REQUEST_U
 // check if this is an auth request.
 if ( substr( $request, 0, 5 ) == '/auth' ) {
 	$_SESSION['sf_user'] = $_REQUEST;
+	print_r( $_SESSION ); print session_id(); die;
 	wp_redirect( 'https://nwcua.leagueinfosight.com/admin/client/is/frontend/nwcua_sso.php?' . http_build_query( $_REQUEST ) );
 	exit;
 }
@@ -51,7 +52,7 @@ function account_button() {
 	$referer = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 
 	// if the user is logged in.
-	print_r( $_SESSION ); die;
+	print_r( $_SESSION ); print session_id(); die;
 	if ( isset( $_SESSION['sf_user'] ) ) {
 		?><a href="https://nwcua.force.com/s/my-account" class='account button'>My Account</a><?php
 	} else {
