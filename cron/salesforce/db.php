@@ -9,14 +9,14 @@ class db {
 	public $show_errors=true;
 
 	function db() {
-		$this->cn=mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD, DB_NAME );
+		$this->cn = mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD, DB_NAME );
 	}
 
 	function query( $query ) {
-		$select=mysqli_query( $this->cn, $query );
+		$select = mysqli_query( $this->cn, $query );
 		if ( !empty( $select ) ) {
-			while ( $rowselect=$select->fetch_object() ) {
-				$results[]=$rowselect;
+			while ( $rowselect = mysqli_fetch_object( $select ) ) {
+				$results[] = $rowselect;
 			}
 		}
 		mysqli_free_result( $select );
@@ -29,9 +29,9 @@ class db {
 	}
 
 	function query_one( $query ) {
-		$select=mysqli_query( $this->cn, $query );
+		$select = mysqli_query( $this->cn, $query );
 		if ( !empty( $select ) ) {
-			while ( $rowselect=$select->fetch_object() ) {
+			while ( $rowselect = mysqli_fetch_object( $select ) ) {
 				$results[]=$rowselect;
 			}
 		}
@@ -45,7 +45,7 @@ class db {
 	}
 
 	function update( $query ) {
-		$update=$this->cn->query( $query );
+		$update = $this->cn->query( $query );
 		if ( $update ) {
 			return true;
 		} else {
@@ -55,7 +55,7 @@ class db {
 	}
 
 	function insert( $query ) {
-		$update=$this->cn->query( $query );
+		$update = $this->cn->query( $query );
 		if ( $update ) {
 			return $this->cn->insert_id;
 		} else {
