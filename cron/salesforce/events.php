@@ -125,6 +125,7 @@ foreach ( $events as $event ) {
             }
         }
         $db->close();
+        unset( $db );
     }
 }
 
