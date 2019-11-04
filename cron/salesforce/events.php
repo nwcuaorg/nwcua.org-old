@@ -38,7 +38,7 @@ if ( empty( $access_token ) || empty( $instance_url ) ) {
 // get the events
 $events = get_events( $instance_url, $access_token );
 print "<pre>";
-// print_r( $events );
+print_r( $events ); die;
 
 
 // loop through the events
