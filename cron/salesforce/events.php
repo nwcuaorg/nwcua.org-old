@@ -130,6 +130,7 @@ foreach ( $events as $event ) {
 }
 
 
+$db = new db;
 $db->update( "UPDATE nwcua_term_taxonomy SET count = (
 SELECT COUNT(*) FROM nwcua_term_relationships rel 
     LEFT JOIN nwcua_posts po ON (po.ID = rel.object_id) 
@@ -140,6 +141,8 @@ SELECT COUNT(*) FROM nwcua_term_relationships rel
         AND 
         po.post_status IN ('publish', 'future')
 );" );
+$db->close();
+unset( $db );
 
 
 print "</pre>"; die;
