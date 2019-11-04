@@ -1,5 +1,9 @@
 <?php
 
+// increase the memory limit
+ini_set( 'memory_limit', '256M' );
+
+
 // start the session
 session_start();
 
