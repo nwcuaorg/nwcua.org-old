@@ -1,7 +1,7 @@
 <?php
 
 
-ini_set( 'memory_limit', '16M' );
+ini_set( 'memory_limit', '20M' );
 
 
 // database object
