@@ -1,7 +1,7 @@
 <?php
 
 // start a session
-session_set_cookie_params ( 1440, '/', '.nwcua.org', 1, 0 );
+// session_set_cookie_params ( 1440, '/', '.nwcua.org', 1, 0 );
 session_start(); 
 
 
