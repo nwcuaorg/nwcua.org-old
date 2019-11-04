@@ -45,14 +45,11 @@ if ( substr( $request, 0, 11 ) == '/jobsupdate' ) {
 // display the my account/login links based on user state.
 function account_button() {
 
-	// set up a global for the current user info
-	global $current_user;
-
 	// get the referer
 	$referer = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 
 	// if the user is logged in.
-	if ( isset( $_COOKIE['sf_user'] ) ) {
+	if ( isset( $_SESSION['sf_user'] ) ) {
 		?><a href="https://nwcua.force.com/s/my-account" class='account button'>My Account</a><?php
 	} else {
 		?><a href="https://nwcua.force.com/s/redirect-with-url-params?url=<?php print $referer ?>" class='account button'>Log In</a><?php 
