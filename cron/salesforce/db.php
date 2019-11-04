@@ -13,13 +13,13 @@ class db {
 	}
 
 	function query( $query ) {
-		$select=$this->cn->query( $query );
+		$select=mysqli_query( $this->cn, $query );
 		if ( !empty( $select ) ) {
 			while ( $rowselect=$select->fetch_object() ) {
 				$results[]=$rowselect;
 			}
 		}
-		$select->free();
+		mysqli_free_result( $select );
 		if ( !empty( $results ) ) {
 			return $results;
 		} else {
@@ -29,13 +29,13 @@ class db {
 	}
 
 	function query_one( $query ) {
-		$select=$this->cn->query( $query );
+		$select=mysqli_query( $this->cn, $query );
 		if ( !empty( $select ) ) {
 			while ( $rowselect=$select->fetch_object() ) {
 				$results[]=$rowselect;
 			}
 		}
-		$select->free();
+		mysqli_free_result( $select );
 		if ( !empty( $results ) ) {
 			return $results[0];
 		} else {
