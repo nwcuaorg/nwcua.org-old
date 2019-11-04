@@ -52,12 +52,12 @@ function account_button() {
 	$referer = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 
 	// if the user is logged in.
-	print_r( $_SESSION ); print session_id(); die;
 	if ( isset( $_SESSION['sf_user'] ) ) {
 		?><a href="https://nwcua.force.com/s/my-account" class='account button'>My Account</a><?php
 	} else {
 		?><a href="https://nwcua.force.com/s/redirect-with-url-params?url=<?php print $referer ?>" class='account button'>Log In</a><?php 
 	}
+	print_r( $_SESSION ); print session_id(); die;
 
 }
 
