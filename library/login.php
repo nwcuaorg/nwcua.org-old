@@ -115,16 +115,20 @@ function is_member() {
 
 // member error
 function do_member_error() {
+	
+	$referer = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 	?>
 	<div class="three-quarter">
 		<?php
 		if ( isset( $_SESSION['sf_user'] ) ) {
 			?>
-		<h3>A membership is required to view this content.</h3>
+		<h3>Your membership need approval.</h3>
+		<p>You've successfully created your account, but association staff still needs to approve your membership. Get in touch with us to get assistance accessing our member resources.</p>
 			<?php
 		} else {
 			?>
 		<h3>A membership is required to view this content.</h3>
+		<p>Please <a href="https://nwcua.force.com/s/redirect-with-url-params?url=<?php print $referer ?>">log in</a> to view this content.</p>
 			<?php
 		}
 		?> 
