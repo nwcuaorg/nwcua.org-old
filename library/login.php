@@ -6,14 +6,15 @@ $request = str_replace( "?" . $_SERVER['QUERY_STRING'], '',  $_SERVER['REQUEST_U
 
 // check if this is an auth request.
 if ( substr( $request, 0, 5 ) == '/auth' ) {
-	setrawcookie( 'sf_user', $_REQUEST, 1440 );
+	setrawcookie( 'sf_user', $_REQUEST, 1440, '/', 'nwcua.org' );
 	wp_redirect( 'https://nwcua.leagueinfosight.com/admin/client/is/frontend/nwcua_sso.php?' . http_build_query( $_REQUEST ) );
 	exit;
 }
 
 // handle logout requests
 if ( substr( $request, 0, 7 ) == '/logout' ) {
-	unset( $_COOKIE['sf_user'] );
+	setrawcookie( 'sf_user', '', 1440, '/', 'nwcua.org' );
+	// unset( $_COOKIE['sf_user'] );
 	wp_redirect( '/' );
 	exit;
 }
@@ -56,6 +57,7 @@ function account_button() {
 	} else {
 		?><a href="https://nwcua.force.com/s/redirect-with-url-params?url=<?php print $referer ?>" class='account button'>Log In</a><?php 
 	}
+	print_r( $_COOKIE ); die;
 
 }
 
