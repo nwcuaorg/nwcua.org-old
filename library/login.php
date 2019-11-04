@@ -7,6 +7,7 @@ $request = str_replace( "?" . $_SERVER['QUERY_STRING'], '',  $_SERVER['REQUEST_U
 // check if this is an auth request.
 if ( substr( $request, 0, 5 ) == '/auth' ) {
 	$_SESSION['sf_user'] = $_REQUEST;
+	print_r( $_SESSION['sf_user'] ); die;
 	wp_redirect( 'https://nwcua.leagueinfosight.com/admin/client/is/frontend/nwcua_sso.php?' . http_build_query( $_REQUEST ) );
 	exit;
 }
@@ -89,7 +90,7 @@ function is_member() {
 				//if ( in_array( 'administrator', $user->roles ) ) return true;
 
 				// see if the user is an editor
-				if ( !empty( $user['membershiptype'] ) ) return true;
+				if ( $user['membershiptype'] != 'Non Member' ) return true;
 
 			}
 
@@ -116,7 +117,17 @@ function is_member() {
 function do_member_error() {
 	?>
 	<div class="three-quarter">
+		<?php
+		if ( isset( $_SESSION['sf_user'] ) ) {
+			?>
 		<h3>A membership is required to view this content.</h3>
+			<?php
+		} else {
+			?>
+		<h3>A membership is required to view this content.</h3>
+			<?php
+		}
+		?> 
 	</div>
 	<?php
 }
