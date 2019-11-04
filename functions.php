@@ -1,7 +1,8 @@
 <?php
 
 // start a session
-if ( session_id() == '' ) session_start(); 
+session_set_cookie_params ( 1440, '/', '.nwcua.org', 1, 0 );
+session_start(); 
 
 
 // set a custom field prefix
