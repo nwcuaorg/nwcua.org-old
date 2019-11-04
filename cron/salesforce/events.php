@@ -1,9 +1,5 @@
 <?php
 
-// increase the memory limit
-ini_set( 'memory_limit', '256M' );
-
-
 // start the session
 session_start();
 
@@ -57,6 +53,7 @@ foreach ( $events as $event ) {
         $slug = sanitize_title( $event['Name'] );
 
         // get a previous post if it exists.
+        $db = new db;
         $previous_post = $db->query_one( "SELECT * FROM `nwcua_posts` WHERE `old_id`='" . $event_id . "';" );
         if ( !empty( $previous_post ) ) {
             $update_query = "UPDATE `nwcua_posts` SET 
@@ -127,6 +124,7 @@ foreach ( $events as $event ) {
                 
             }
         }
+        $db->close();
     }
 }
 

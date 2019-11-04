@@ -64,6 +64,10 @@ class db {
 		}
 	}
 
+	function close() {
+		mysqli_close( $this->cn );
+	}
+
 	function handle_error() {
 		if ( !empty( $this->cn->error ) && $this->show_errors ) {
 			print $this->cn->error;
@@ -72,9 +76,5 @@ class db {
 	}
 
 }
-
-
-// instantiate
-$db = new db;
 
 
