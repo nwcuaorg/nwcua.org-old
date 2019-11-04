@@ -54,7 +54,7 @@ foreach ( $events as $event ) {
 
         // get a previous post if it exists.
         $db = new db;
-        $previous_post = $db->query_one( "SELECT * FROM `nwcua_posts` WHERE `old_id`='" . $event_id . "';" );
+        $previous_post = $db->query_one( "SELECT * FROM `nwcua_posts` WHERE `old_id`='" . $event_id . "' LIMIT 1;" );
         if ( !empty( $previous_post ) ) {
             $update_query = "UPDATE `nwcua_posts` SET 
                 `post_date`=\"" . date( 'Y-m-d H:i:s', strtotime( $event['CreatedDate'] ) ) . "\",
