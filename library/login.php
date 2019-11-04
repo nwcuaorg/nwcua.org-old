@@ -58,7 +58,7 @@ function account_button() {
 	} else {
 		?><a href="https://nwcua.force.com/s/redirect-with-url-params?url=<?php print $referer ?>" class='account button'>Log In</a><?php 
 	}
-	print_r( $_SESSION ); print session_id(); die;
+	// print_r( $_SESSION ); print session_id(); die;
 
 }
 
