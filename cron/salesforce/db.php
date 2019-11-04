@@ -21,6 +21,7 @@ class db {
 				$results[]=$rowselect;
 			}
 		}
+		mysqli_free_result( $select );
 		if ( !empty( $results ) ) {
 			return $results;
 		} else {
@@ -36,6 +37,7 @@ class db {
 				$results[]=$rowselect;
 			}
 		}
+		mysqli_free_result( $select );
 		if ( !empty( $results ) ) {
 			return $results[0];
 		} else {
