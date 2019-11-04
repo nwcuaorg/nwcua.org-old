@@ -6,14 +6,14 @@ $request = str_replace( "?" . $_SERVER['QUERY_STRING'], '',  $_SERVER['REQUEST_U
 
 // check if this is an auth request.
 if ( substr( $request, 0, 5 ) == '/auth' ) {
-	$_SESSION['sf_user'] = $_REQUEST;
+	setrawcookie( 'sf_user', $_REQUEST, 1440 );
 	wp_redirect( 'https://nwcua.leagueinfosight.com/admin/client/is/frontend/nwcua_sso.php?' . http_build_query( $_REQUEST ) );
 	exit;
 }
 
 // handle logout requests
 if ( substr( $request, 0, 7 ) == '/logout' ) {
-	unset( $_SESSION['sf_user'] );
+	unset( $_COOKIE['sf_user'] );
 	wp_redirect( '/' );
 	exit;
 }
@@ -51,7 +51,7 @@ function account_button() {
 	$referer = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 
 	// if the user is logged in.
-	if ( isset( $_SESSION['sf_user'] ) ) {
+	if ( isset( $_COOKIE['sf_user'] ) ) {
 		?><a href="https://nwcua.force.com/s/my-account" class='account button'>My Account</a><?php
 	} else {
 		?><a href="https://nwcua.force.com/s/redirect-with-url-params?url=<?php print $referer ?>" class='account button'>Log In</a><?php 
@@ -83,10 +83,10 @@ function is_member() {
 		// if the content requires membership
 		if ( get_cmb_value( 'members-only' ) == 'on' ) {
 
-			if ( isset( $_SESSION['sf_user'] ) ) {
+			if ( isset( $_COOKIE['sf_user'] ) ) {
 
 				// get the user
-				$user = $_SESSION['sf_user'];
+				$user = $_COOKIE['sf_user'];
 
 				// see if the user is an admin
 				//if ( in_array( 'administrator', $user->roles ) ) return true;
