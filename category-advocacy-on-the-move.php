@@ -97,7 +97,7 @@ $color = get_category_color( $category[0]->cat_ID );
 
 
 			} else {
-				print "<div id='content' class='wrap content-wide search-list advocacy-blog'><p>Sadly, there is no content to show for this categories. Please try another.</p></div>";
+				print "<p>Sadly, there is no content to show for this categories. Please try another.</p>";
 			}
 		?>
 			
@@ -108,7 +108,7 @@ $color = get_category_color( $category[0]->cat_ID );
 		</div>
 		<?php
 		} else {
-			print '<p>This content is reserved for NWCUA members only – <a href="https://nwcua.force.com/s/redirect-with-url-params?url=https://nwcua.org/category/advocacy-on-the-move">please log in</a> to view page.</p>';
+			print '<div id="content" class="wrap content-wide search-list advocacy-blog"><p>This content is reserved for NWCUA members only – <a href="https://nwcua.force.com/s/redirect-with-url-params?url=https://nwcua.org/category/advocacy-on-the-move">please log in</a> to view page.</p></div>';
 		}
 		?>
 
