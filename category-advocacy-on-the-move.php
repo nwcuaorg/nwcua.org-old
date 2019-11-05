@@ -108,7 +108,7 @@ $color = get_category_color( $category[0]->cat_ID );
 		</div>
 		<?php
 		} else {
-			print '<p>This content is reserved for NWCUA members only – <a href="https://nwcua.org/account/login/?redirect_to=https://nwcua.org/category/advocacy-on-the-move/">please log in</a> to view page.</p>';
+			print '<p>This content is reserved for NWCUA members only – <a href="https://nwcua.force.com/s/redirect-with-url-params?url=https://nwcua.org/category/advocacy-on-the-move">please log in</a> to view page.</p>';
 		}
 		?>
 
