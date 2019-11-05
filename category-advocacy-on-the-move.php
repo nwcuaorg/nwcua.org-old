@@ -97,7 +97,7 @@ $color = get_category_color( $category[0]->cat_ID );
 
 
 			} else {
-				print "<p>Sadly, there is no content to show for this categories. Please try another.</p>";
+				print "<div id='content' class='wrap content-wide search-list advocacy-blog'><p>Sadly, there is no content to show for this categories. Please try another.</p></div>";
 			}
 		?>
 			
