@@ -36,7 +36,7 @@ $color = get_category_color( $category[0]->cat_ID );
 	<section id="primary" class="content-area">
 		<div id="content" class="wrap content-wide search-list advocacy-blog" role="main">
 		
-		<?php if ( current_user_can( 'member' ) || current_user_can( 'trial' ) || current_user_can( 'administrator' ) ) { ?>
+		<?php if ( is_member() ) { ?>
 			<div class="filtering">
 				<label><input type="checkbox" name="idaho" value="Idaho" class="idaho-filter" /> Idaho</label>
 				<label><input type="checkbox" name="oregon" value="Oregon" class="oregon-filter" /> Oregon</label>
