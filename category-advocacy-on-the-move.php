@@ -34,9 +34,9 @@ $color = get_category_color( $category[0]->cat_ID );
 	</div>
 	
 	<section id="primary" class="content-area">
+		<?php if ( user_has_membership() ) { ?>
 		<div id="content" class="wrap content-wide search-list advocacy-blog" role="main">
 		
-		<?php if ( is_member() ) { ?>
 			<div class="filtering">
 				<label><input type="checkbox" name="idaho" value="Idaho" class="idaho-filter" /> Idaho</label>
 				<label><input type="checkbox" name="oregon" value="Oregon" class="oregon-filter" /> Oregon</label>
@@ -99,11 +99,6 @@ $color = get_category_color( $category[0]->cat_ID );
 			} else {
 				print "<p>Sadly, there is no content to show for this categories. Please try another.</p>";
 			}
-
-		} else {
-			print '<p>This content is reserved for NWCUA members only – <a href="https://nwcua.org/account/login/?redirect_to=https://nwcua.org/category/advocacy-on-the-move/">please log in</a> to view page.</p>';
-		}
-
 		?>
 			
 		</div><!-- #content -->
@@ -111,6 +106,11 @@ $color = get_category_color( $category[0]->cat_ID );
 		<div class="pagination group">
 			<?php pagination(); ?>
 		</div>
+		<?php
+		} else {
+			print '<p>This content is reserved for NWCUA members only – <a href="https://nwcua.org/account/login/?redirect_to=https://nwcua.org/category/advocacy-on-the-move/">please log in</a> to view page.</p>';
+		}
+		?>
 
 		<div class="cuobsessed-title">
 			<div class="wrap">

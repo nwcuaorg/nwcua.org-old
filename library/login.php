@@ -80,18 +80,7 @@ function is_member() {
 		// if the content requires membership
 		if ( get_cmb_value( 'members-only' ) == 'on' ) {
 
-			if ( isset( $_SESSION['sf_user'] ) ) {
-
-				// get the user
-				$user = $_SESSION['sf_user'];
-
-				// see if the user is an admin
-				//if ( in_array( 'administrator', $user->roles ) ) return true;
-
-				// see if the user is an editor
-				if ( $user['membershiptype'] != 'Non Member' ) return true;
-
-			}
+			return user_has_membership();
 
 			// they don't have any of the required roles, they can't access it.
 			return false;
@@ -110,6 +99,21 @@ function is_member() {
 
 }
 
+
+
+// new function to determine if the currently logged in user has a membership.
+function user_has_membership() {
+	if ( isset( $_SESSION['sf_user'] ) ) {
+
+		// get the user
+		$user = $_SESSION['sf_user'];
+
+		// see if the user is an editor
+		if ( $user['membershiptype'] != 'Non Member' ) return true;
+
+	}
+	return false;
+}
 
 
 // member error
