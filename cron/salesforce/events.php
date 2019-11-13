@@ -28,8 +28,10 @@ $access_token = $_SESSION['access_token'];
 $instance_url = $_SESSION['instance_url'];
 
 
+print_r( $_SESSION ); die;
+
 // if we don't have a token or url, redirect to authenticate
-if ( empty( $access_token ) || empty( $instance_url ) ) {
+if ( !isset( $_SESSION['access_token'] ) || !isset( $_SESSION['instance_url'] ) ) {
     header( "Location: oauth.php" );
     exit;
 }
