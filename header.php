@@ -52,7 +52,7 @@
 		
 		<div class='tools'>
 			<?php account_button(); ?>
-			<a href="https://nwcua.force.com/s/" class="button cart">Shopping Cart</a>
+			<!--<a href="https://nwcua.force.com/s/" class="button cart">Shopping Cart</a>-->
 		</div>
 
 	</div>
