@@ -52,7 +52,7 @@
 		
 		<div class='tools'>
 			<?php account_button(); ?>
-			<!--<a href="https://nwcua.force.com/s/" class="button cart">Shopping Cart</a>-->
+			<?php if ( isset( $_SESSION['sf_user'] ) ) { ?><a href="/logout" class="account button">Logout</a><?php } ?>
 		</div>
 
 	</div>
