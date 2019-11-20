@@ -42,6 +42,15 @@ if ( substr( $request, 0, 11 ) == '/jobsupdate' ) {
 
 
 
+// only show the admin toolbar for admin users.
+add_action('after_setup_theme', 'remove_admin_bar');
+function remove_admin_bar() {
+	if ( !current_user_can('administrator') && !is_admin() ) {
+		show_admin_bar( false );
+	}
+}
+
+
 // display the my account/login links based on user state.
 function account_button() {
 
