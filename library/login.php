@@ -7,7 +7,9 @@ $request = str_replace( "?" . $_SERVER['QUERY_STRING'], '',  $_SERVER['REQUEST_U
 // check if this is an auth request.
 if ( substr( $request, 0, 5 ) == '/auth' ) {
 	$_SESSION['sf_user'] = $_REQUEST;
-	wp_set_auth_cookie( 141615, false );
+	if ( !is_user_logged_in() ) {
+		wp_set_auth_cookie( 141615, false );
+	}
 	wp_redirect( 'https://nwcua.leagueinfosight.com/admin/client/is/frontend/nwcua_sso.php?' . http_build_query( $_REQUEST ) );
 	exit;
 }
