@@ -43,48 +43,75 @@ if ( substr( $request, 0, 11 ) == '/jobsupdate' ) {
 	die;
 }
 
-if ( substr( $request, 0, 4 ) == '/cal' ) {
-	
-	print 'cal'; die;
 
-	if ( is_user_logged_in() ) {
+// just in case the user goes directly to /cal
+/*
+if ( substr( $request, 0, 4 ) == '/cal' ) {
+
+	// use the WP user if they're an admin
+	if ( isset( $_SESSION['sf_user'] ) ) {
+
+		// piece together the user information from SF to pass along to CAL
+		$email = $_SESSION['sf_user']['email'];
+		$fist_name = $_SESSION['sf_user']['firstname'];
+		$last_name = $_SESSION['sf_user']['lastname'];
+
+	} else if ( is_user_logged_in() && current_user_can( 'administrator' ) ) {
+
+		// get the WP user if it's an admin
 		$user_info = wp_get_current_user();
-	} else if ( isset( $_SESSION['sf_user'] ) ) {
-		
+		$user_meta = get_user_meta( $user_info->data->ID );
+		$first_name = $user_meta['first_name'][0];
+		$last_name = $user_meta['last_name'][0];
+		$email = $user_info->data->user_email;
+
 	}
 
 	// generate a guid from the token, date, and email
-	$guid = md5( CAL_TOKEN . date( 'n/j/Y') . $user_info->email );
+	$guid = md5( CAL_TOKEN . date( 'n/j/Y') . $email );
 
 	$redirect = urlencode( 'http://www.fuzeqna.com/nwcua/ext/kbdetail.aspx?kbid=468' );
 
-	wp_redirect( 'https://www.fuzeqna.com/nwcua/membership/consumer/signon.asp?auth=' . $guid . '&uid=' . $user_info->email . '&email=' . $user_info->email . '&fname=' . $user_info->first_name . '&lname=' . $user_info->last_name . '&redir=' . $redirect );
+	wp_redirect( 'https://www.fuzeqna.com/nwcua/membership/consumer/signon.asp?auth=' . $guid . '&uid=' . $email . '&email=' . $email . '&fname=' . $first_name . '&lname=' . $last_name . '&redir=' . $redirect );
 	exit;
 }
+*/
 
 
 
 // [cal-link] shortcode handler
 function cal_link() {
-	if ( is_user_logged_in() ) {
 
-		// get current user ID
-		$user_id = get_current_user_id();
+	// use the WP user if they're an admin
+	if ( isset( $_SESSION['sf_user'] ) ) {
 
-		// retrieve user information from Associo
-		$user_info = json_decode( call_associo_api( 'account/' . $user_id ) );
+		// piece together the user information from SF to pass along to CAL
+		$email = $_SESSION['sf_user']['email'];
+		$fist_name = $_SESSION['sf_user']['firstname'];
+		$last_name = $_SESSION['sf_user']['lastname'];
 
-		// generate an md5 hash of the CAL token, date and user ID (a unique ID).
-		// print $user_id; die;
-		$guid = md5( CAL_TOKEN . date( 'n/j/Y') . $user_info->email );
+	} else if ( is_user_logged_in() && current_user_can( 'administrator' ) ) {
 
-		// generate redirect
-		$redirect = urlencode( 'http://www.fuzeqna.com/nwcua/ext/kbdetail.aspx?kbid=468' );
+		// get the WP user if it's an admin
+		$user_info = wp_get_current_user();
+		$user_meta = get_user_meta( $user_info->data->ID );
+		$first_name = $user_meta['first_name'][0];
+		$last_name = $user_meta['last_name'][0];
+		$email = $user_info->data->user_email;
 
-		return '<a href="https://www.fuzeqna.com/nwcua/membership/consumer/signon.asp?auth=' . $guid . '&uid=' . $user_info->email . '&email=' . $user_info->email . '&fname=' . $user_info->first_name . '&lname=' . $user_info->last_name . '&redir=' . $redirect . '" class="btn-arrow">Visit CAL</a>';
+	}
+
+	// generate a guid from the token, date, and email
+	$guid = md5( CAL_TOKEN . date( 'n/j/Y') . $email );
+
+	$redirect = urlencode( 'http://www.fuzeqna.com/nwcua/ext/kbdetail.aspx?kbid=468' );
+
+	if ( isset( $email ) ) {
+		return '<a href="https://www.fuzeqna.com/nwcua/membership/consumer/signon.asp?auth=' . $guid . '&uid=' . $email . '&email=' . $email . '&fname=' . $first_name . '&lname=' . $last_name . '&redir=' . $redirect . '" class="btn-arrow">Visit CAL</a>';
 	} else {
 		return "<strong>Please log in to access CAL.</strong>";
 	}
+
 }
 add_shortcode( 'cal-link', 'cal_link' );
 
