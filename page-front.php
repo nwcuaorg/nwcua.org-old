@@ -202,4 +202,8 @@ if ( isset( $_REQUEST['category'] ) ) {
 
 get_footer();
 
+print "<!--";
+print_r( $_SESSION['sf_user'] );
+print "-->";
+
 ?>
