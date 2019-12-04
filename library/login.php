@@ -2,7 +2,7 @@
 
 
 // get the request URI and remove the query string
-$request = str_replace( "?" . $_SERVER['QUERY_STRING'], '',  $_SERVER['REQUEST_URI'] );
+$request = ( isset( $_SERVER['QUERY_STRING'] ) ? str_replace( "?" . $_SERVER['QUERY_STRING'], '',  $_SERVER['REQUEST_URI'] ) : $_SERVER['REQUEST_URI'] );
 
 
 // check if this is an auth request.
