@@ -1,6 +1,6 @@
 {
     "devDependencies": {
-        "fitvids": "*",
+        "fitvids": "^2.1.1",
         "grunt": "latest",
         "grunt-autoprefixer": "*",
         "grunt-contrib-sass": "*",
