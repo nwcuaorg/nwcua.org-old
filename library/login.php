@@ -199,6 +199,11 @@ function user_has_membership() {
 		// get the user
 		$user = $_SESSION['sf_user'];
 
+		// override so administrator accounts can view all content.
+		if ( current_user_can( 'administrator' ) ) { 
+			return true;
+		}
+
 		// see if the user is an editor
 		if ( $user['membershiptype'] != 'Non Member' ) return true;
 
