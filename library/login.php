@@ -186,7 +186,6 @@ function is_member() {
 }
 
 
-
 // new function to determine if the currently logged in user has a membership.
 function user_has_membership() {
 
