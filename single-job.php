@@ -68,7 +68,7 @@ get_header();
 						print apply_filters( 'the_content', get_cmb_value( 'job_comments' ) ) . "<br>";
 					}
 
-					edit_job_form();
+					// edit_job_form();
 
 					?>
 	
