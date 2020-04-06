@@ -145,14 +145,14 @@ function people_shortcode( $atts = [], $content = null, $tag = '' ) {
 				'key' => '_p_person_lname',
 				'orderby' => 'meta_value',
 			),
-			'sort_value' => array(
-				'key' => '_p_person_sort',
-				'orderby' => 'meta_value_num',
+			'sort_fname' => array(
+				'key' => '_p_person_fname',
+				'orderby' => 'meta_value',
 			),
 		),
 		'orderby' => array(
-			'sort_value' => 'ASC',
-			'sort_lname' => 'ASC'
+			'sort_lname' => 'ASC',
+			'sort_fname' => 'ASC'
 		),
 	);
 
