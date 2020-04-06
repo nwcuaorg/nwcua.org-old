@@ -141,13 +141,13 @@ function people_shortcode( $atts = [], $content = null, $tag = '' ) {
 		'posts_per_page' => '-1',
 		'meta_query' => array(
 			'relation' => 'AND',
-			'sort_value' => array(
-				'key' => '_p_person_sort',
-				'orderby' => 'meta_value_num',
-			),
 			'sort_lname' => array(
 				'key' => '_p_person_lname',
 				'orderby' => 'meta_value',
+			),
+			'sort_value' => array(
+				'key' => '_p_person_sort',
+				'orderby' => 'meta_value_num',
 			),
 		),
 		'orderby' => array(
