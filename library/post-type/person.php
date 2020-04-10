@@ -110,6 +110,7 @@ register_taxonomy( 'person_cat',
 
 
 
+/*
 function admin_order_people( $query ){
     if( !is_admin() )
         return;
@@ -124,6 +125,7 @@ function admin_order_people( $query ){
     }
 }
 add_action( 'pre_get_posts', 'admin_order_people' );
+*/
 
 
 
@@ -149,8 +151,13 @@ function people_shortcode( $atts = [], $content = null, $tag = '' ) {
 				'key' => '_p_person_fname',
 				'orderby' => 'meta_value',
 			),
+			'sort_sort' => array(
+				'key' => '_p_person_sort',
+				'orderby' => 'meta_value_num',
+			),
 		),
 		'orderby' => array(
+			'sort_sort' => 'ASC',
 			'sort_lname' => 'ASC',
 			'sort_fname' => 'ASC'
 		),
