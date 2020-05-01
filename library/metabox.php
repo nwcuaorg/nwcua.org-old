@@ -315,7 +315,6 @@ function page_metaboxes( $meta_boxes ) {
         'type' => 'checkbox',
     ) );
 
-    /*
     $person_metabox->add_field( array(
         'name' => 'sort',
         'desc' => 'Sort Value',
@@ -323,7 +322,6 @@ function page_metaboxes( $meta_boxes ) {
         'type' => 'text_small',
         'default' => 99
     ) );
-    */
 
 
 
