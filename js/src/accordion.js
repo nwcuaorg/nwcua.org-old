@@ -4,7 +4,8 @@
 jQuery(document).ready(function($){
 
 	$( '.accordion-box-title' ).click(function(){
-		$( this ).parent( '.accordion-box' ).children( '.accordion-box-content' ).slideToggle( 600 );
+		// $( this ).parent( '.accordion-box' ).children( '.accordion-box-content' ).slideToggle( 600 );
+		$( this ).parent( '.accordion-box' ).toggleClass('open');
 	});
 
 	$( ".site-content .expandable.handle").click(function(){
@@ -18,6 +19,7 @@ jQuery(document).ready(function($){
 			var accordion = $( '.accordion-box:nth-child('+expand+')' );
 			if ( accordion.children( '.accordion-box-content' ).is(':hidden') ) {
 				accordion.children( '.accordion-box-content' ).slideDown( 600 );
+				accordion.addClass('open');
 			}
 			$('html, body').animate({
 				scrollTop: accordion.offset().top - 20

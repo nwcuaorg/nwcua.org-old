@@ -24,6 +24,21 @@
 		background-size: cover;
 		cursor: pointer;
 
+		&:before {
+			content: '\203A';
+			position: absolute;
+			right: 20px;
+			top: 50%;
+			margin-top: -20px;
+			color: white;
+			font-size: 40px;
+			height: 40px;
+			width: 40px;
+			vertical-align: middle;
+			text-align: center;
+			transform: rotate(90deg);
+		}
+
 		.wrap {
 			position: relative;
 		}
@@ -77,8 +92,16 @@
 		}
 	}
 
-	.accordion-box.open .accordion-box-content {
-		display: block;
+	.accordion-box.open {
+		.accordion-box-title:before {
+			transform: rotate(270deg);
+			right: 10px;
+			margin-top: -24px;
+		}
+
+		.accordion-box-content {
+			display: block;
+		}
 	}
 
 	.accordion-box {
