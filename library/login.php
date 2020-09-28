@@ -150,14 +150,14 @@ function is_member() {
 	global $post;
 
 	// get old member roles meta data
-	$roles = get_post_meta( $post->ID, '_members_access_role' );
+	//$roles = get_post_meta( $post->ID, '_members_access_role' );
 
 	// check for new member
-	$new_roles = get_cmb_value( 'members-only' );
+	//$new_roles = get_cmb_value( 'members-only' );
 
 	// if the old member roles are set, and the new ones aren't, let's automatically fix up the new 'members-only' meta data.
 	if ( !empty( $roles ) && empty( $new_roles ) ) {
-		update_post_meta( $post->ID, CMB_PREFIX . 'members-only', 'on' );
+		// update_post_meta( $post->ID, CMB_PREFIX . 'members-only', 'on' );
 	}
 
 	// see if there is a member's only value
