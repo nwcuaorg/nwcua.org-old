@@ -7,6 +7,7 @@ jQuery(document).ready(function($){
 			var show_idaho = $( '.idaho-filter' ).is(':checked');
 			var show_oregon = $( '.oregon-filter' ).is(':checked');
 			var show_washington = $( '.washington-filter' ).is(':checked');
+			var show_regulatory = $( '.regulatory-filter' ).is(':checked');
 
 			var advocacy_blog = $( '.advocacy-blog' );
 			advocacy_blog.find('.cuobsessed-post').each(function(){
@@ -20,9 +21,12 @@ jQuery(document).ready(function($){
 				if ( show_oregon && $(this).hasClass( 'oregon' ) ) {
 					$(this).show();
 				}
+				if ( show_regulatory && $(this).hasClass( 'regulatory' ) ) {
+					$(this).show();
+				}
 			});
 
-			if ( !show_idaho && !show_oregon && !show_washington ) {
+			if ( !show_idaho && !show_oregon && !show_washington && !show_regulatory ) {
 				advocacy_blog.find('.cuobsessed-post').show();
 			}
 		}
@@ -30,6 +34,7 @@ jQuery(document).ready(function($){
 		$( '.idaho-filter' ).change( do_filtering );
 		$( '.oregon-filter' ).change( do_filtering );
 		$( '.washington-filter' ).change( do_filtering );
+		$( '.regulatory-filter' ).change( do_filtering );
 	}
 });
 

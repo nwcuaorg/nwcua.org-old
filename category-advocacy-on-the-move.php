@@ -41,6 +41,7 @@ $color = get_category_color( $category[0]->cat_ID );
 				<label><input type="checkbox" name="idaho" value="Idaho" class="idaho-filter" /> Idaho</label>
 				<label><input type="checkbox" name="oregon" value="Oregon" class="oregon-filter" /> Oregon</label>
 				<label><input type="checkbox" name="washington" value="Washington" class="washington-filter" /> Washington</label>
+				<label><input type="checkbox" name="regulatory" value="Regulatory" class="regulatory-filter" /> Regulatory</label>
 			</div>
 
 		<?php
@@ -77,7 +78,7 @@ $color = get_category_color( $category[0]->cat_ID );
 				$count = 0;
 				while ( have_posts() ) : the_post(); 
 					?>
-			<div class="entry priority-<?php show_cmb_value( 'priority' ); ?> unlabeled group cuobsessed-post<?php print ( in_category(7851) ? ' idaho' : '' ); ?><?php print ( in_category(7852) ? ' oregon' : '' ); ?><?php print ( in_category(7853) ? ' washington' : '' ); ?>">
+			<div class="entry priority-<?php show_cmb_value( 'priority' ); ?> unlabeled group cuobsessed-post<?php print ( in_category(7851) ? ' idaho' : '' ); ?><?php print ( in_category(7852) ? ' oregon' : '' ); ?><?php print ( in_category(7853) ? ' washington' : '' ); ?><?php print ( in_category(7960) ? ' regulatory' : '' ); ?>">
 				<div class="description">
 					<?php the_post_thumbnail(); ?>
 					<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
