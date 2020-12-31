@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1053.9 98.59" xml:space="preserve">
+	<defs>
+		<style>
+		.cls-2{
+		    font-size: 12px;
+		    fill: #fff;
+		    font-family: Lato-Bold, Lato;
+		    font-weight: 700;
+		}
+		.cls-1{
+		    fill: #49948c;
+		}
+		.cls-9{
+		    fill:#333;
+		}
+		.cls-12{
+		    fill:#adb947;
+		}
+		.cls-16{
+		    fill:#53575a;
+		}
+		.cls-18{
+		    fill:#06a2cc;
+		}
+		.cls-20{
+		    fill:#13385e;
+		}
+		.cls-21{
+		    fill:#f7ac49;
+		}
+		.cls-23{
+		    fill:#6d8d58;
+		}
+		a {
+			transition: 400ms opacity ease-in-out;
+		}
+		a:hover {
+			opacity: .8;
+		}
+		</style>
+	</defs>
+	<a xlink:href="https://nwcua.org/professional-development/councils/compliance-council" title="Compliance" target="_top">
+		<g id="compliance">
+			<polyline class="cls-23" points="124.44 78.59 0 78.59 13.83 39.3 0 0 124.44 0 138.27 39.3 124.44 78.59"/>
+			<text class="cls-2" transform="translate(34.23 44.51)">
+				<tspan class="cls-13">COMPLIANCE</tspan>
+			</text>
+		</g>
+	</a>
+	<a xlink:href="https://nwcua.org/professional-development/councils/hr-trainers-council" title="HR Trainers" target="_top">
+		<g id="hr">
+			<polyline class="cls-21" points="255.05 78.59 130.61 78.59 144.43 39.3 130.61 0 255.05 0 268.87 39.3 255.05 78.59"/>
+			<text class="cls-2" transform="translate(159.67 44.51)">HR &amp;
+				<tspan class="cls-22" x="28.56" y="0"></tspan>
+				<tspan x="31.11" y="0">TRAINERS</tspan>
+			</text>
+		</g>
+	</a>
+	<a xlink:href="https://nwcua.org/professional-development/councils/lenders-council" title="Lenders" target="_top">
+		<g id="lenders">
+			<polyline class="cls-20" points="385.65 78.59 261.21 78.59 275.04 39.3 261.21 0 385.65 0 399.48 39.3 385.65 78.59"/>
+			<text class="cls-2" transform="translate(307.9 44.51)">LENDERS</text>
+		</g>
+	</a>
+	<a xlink:href="https://nwcua.org/professional-development/councils/collectors-council" title="Collectors Council" target="_top">
+		<g id="collectors">
+			<polyline class="cls-18" points="516.26 78.59 391.82 78.59 405.64 39.3 391.82 0 516.26 0 530.09 39.3 516.26 78.59"/>
+			<text class="cls-2" transform="translate(426.91 44.51)">
+				<tspan class="cls-13">COLLECTORS</tspan>
+			</text>
+		</g>
+	</a>
+	<a xlink:href="https://nwcua.org/professional-development/councils/marketing-business-development-community-outreach-council/" target="_top" title="Marketing, Biz Dev, Community Outreach Council">
+		<g id="marketing">
+			<polyline class="cls-16" points="646.86 78.59 522.42 78.59 536.25 39.3 522.42 0 646.86 0 660.69 39.3 646.86 78.59"/>
+			<text class="cls-2" transform="translate(558.43 21.51)">MARKETING
+				<tspan x="11.64" y="14.4">BIZ DEV,</tspan>
+				<tspan class="cls-13" x="-2.55" y="28.8">COMMUNITY</tspan>
+				<tspan x="2.77" y="43.2">OUTREACH</tspan>
+			</text>
+		</g>
+	</a>
+	<a xlink:href="https://nwcua.org/professional-development/councils/commercial-services-council" title="Commercial Services" target="_top">
+		<g id="commercial-services">
+		<polyline class="cls-12" points="777.47 78.59 653.03 78.59 666.86 39.3 653.03 0 777.47 0 791.3 39.3 777.47 78.59"/>
+		<text class="cls-2" transform="translate(685.29 36.51)">
+			<tspan class="cls-13">COMMERCIAL</tspan>
+			<tspan x="13.04" y="14.4">SERVICES</tspan>
+		</text>
+		</g>
+	</a>
+	<a xlink:href="https://nwcua.org/councils/risk-management-council/" target="_top" title="Risk Management Council">
+		<g id="risk-management">
+			<polyline class="cls-9" points="908.08 78.59 783.63 78.59 797.46 39.3 783.63 0 908.08 0 921.9 39.3 908.08 78.59"/>
+			<text class="cls-2" transform="translate(842.81 34.51)">RISK 
+				<tspan x="-30.42" y="14.4">MANAGEMENT</tspan>
+			</text>
+		</g>
+	</a>
+	<a xlink:href="https://nwcua.org/councils/financial-strategy/" target="_top" title="Risk Management Council">
+		<g id="financial-strategy">
+			<polyline class="cls-1" points="1040.08 78.59 915.63 78.59 929.46 39.3 915.63 0 1040.08 0 1053.9 39.3 1040.08 78.59"/>
+			<text class="cls-2" transform="translate(956.41 34.51)">FINANCIAL
+				<tspan x="62.88" y="0"></tspan>
+				<tspan x="2.11" y="14.4">STRATEGY</tspan>
+			</text>
+		</g>
+	</a>
+</svg>
