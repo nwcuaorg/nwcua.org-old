@@ -8,6 +8,11 @@ session_start();
 define( "CMB_PREFIX", "_p_" );
 
 
+// include environment code if it exists
+if ( file_exists( 'library/env.php' ) ) {
+    include( 'library/env.php' );
+}
+
 // include the content type
 include( "library/post-type/job.php" );
 include( "library/post-type/event.php" );
@@ -22,6 +27,7 @@ include( "library/svgs.php" );
 include( "library/forums.php" );
 include( "library/post-list.php" );
 include( "library/notice.php" );
+include( "library/button.php");
 
 
 // an extra image manipulation function

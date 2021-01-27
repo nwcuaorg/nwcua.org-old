@@ -36,10 +36,11 @@ $link-color: $teal;
 // base text and element styles
 @import "base";
 
-
 // header styles
 @import "header";
 
+// button styles
+@import "button";
 
 // general styles
 @import "title";
@@ -55,25 +56,18 @@ $link-color: $teal;
 @import "cuobsessed";
 @import "maps";
 
-
 // sidebar styles
 @import "sidebar";
 
-
 // footer styles
 @import "footer";
-
 
 // home-specific styles
 @import "home";
 @import "search";
 
-
 // include magnific popup styles
 @import "magnific";
 
-
 // salesforce specific styles
 @import "salesforce";
-
-

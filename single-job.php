@@ -44,7 +44,6 @@ get_header();
 					<?php print ( has_cmb_value( 'job_contact_name' ) ? "<strong>Contact:</strong> " . get_cmb_value( 'job_contact_name' ) . '<br>' : '' ); ?>
 					<?php print ( has_cmb_value( 'job_contact_email' ) ? '<strong>Email:</strong> <a href="mailto:' . get_cmb_value( 'job_contact_email' ) . '" target="_blank">' . get_cmb_value( 'job_contact_email' ) . '</a><br>' : '' ); ?>
 					<?php print ( has_cmb_value( 'job_contact_phone' ) ? '<strong>Phone:</strong> ' . get_cmb_value( 'job_contact_phone' ) . '<br>' : '' ); ?>
-					<?php print ( has_cmb_value( 'job_contact_fax' ) ? "<strong>Fax:</strong> " . get_cmb_value( 'job_contact_fax' ) . "<br>" : '' ); ?>
 					</p>
 					<?php } ?>
 
@@ -55,22 +54,19 @@ get_header();
 				</div>
 				<p><strong>Job Description:</strong></p>
 				<?php the_content(); ?>
-				<br>
-					<?php
-					
-					if ( has_cmb_value( 'job_education' ) ) { 
-						print "<p><strong>Education/Experience Required:</strong></p>";
-						print apply_filters( 'the_content', get_cmb_value( 'job_education' ) ) . "<br>";
-					}
 
-					if ( has_cmb_value( 'job_comments' ) ) { 
-						print "<p><strong>Additional Comments:</strong></p>";
-						print apply_filters( 'the_content', get_cmb_value( 'job_comments' ) ) . "<br>";
-					}
+				<div class="buttons">
+				<?php 
+				if ( has_cmb_value( 'job_apply_link' ) ) {
+					echo do_shortcode( '[button url="' . get_cmb_value( 'job_apply_link' ) . '" target="_blank"]Apply Online[/button]');
+				}
+				if ( has_cmb_value( 'job_apply_email' ) ) {
+					echo do_shortcode( '[button url="mailto:' . get_cmb_value( 'job_apply_email' ) . '"]Apply by Email[/button]');
+				}
+				?>
+				</div>
 
-					// edit_job_form();
-
-					?>
+				<?php // edit_job_form(); ?>
 	
 			</div>
 		</div><!-- #content -->

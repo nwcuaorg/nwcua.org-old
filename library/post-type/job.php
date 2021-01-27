@@ -115,8 +115,12 @@ add_action( 'admin_init', 'add_job_caps');
 function edit_job_form() {
 	global $post;
 
+	// job creator
+	$creator = get_post_meta( $post->ID, CMB_PREFIX . 'job_creator', 1 );
+
+	// get wp user (if applicable)
 	$user = get_current_user_id();
-	if ( $post->post_author == $user || current_user_can( 'administrator' ) ) {
+	if ( $post->post_author == $user || current_user_can( 'administrator' ) || $creator == $_SESSION['sf_user']['email'] ) {
 		print "<hr />";
 
 		//even though they are not the author
@@ -128,6 +132,13 @@ function edit_job_form() {
 		//actual form
 		echo gravity_form( 6, false, false );
 	}
+}
+
+
+
+// edit job form
+function create_job_form() {
+	echo gravity_form( 1, false, false );
 }
 
 
@@ -263,6 +274,7 @@ add_action( 'gform_post_submission_17', 'job_expiry_timestamp', 10, 2 );
  * @param array $form
  * @return array
  */
+/*
 function job_expiry_timestamp( $entry, $form ) {
 	$start_date = get_post_meta( $entry['post_id'], '_p_job_expires_date', true );
 	if( $start_date ) {
@@ -270,7 +282,14 @@ function job_expiry_timestamp( $entry, $form ) {
 		update_post_meta( $entry['post_id'], '_p_job_expires', $timestamp );		
 	}
 }
+*/
 
 
 
-?>
+// set the job creator field value to the salesforce user
+add_filter( 'gform_field_value_user', 'set_user_in_form' );
+function set_user_in_form( $value ) {
+    return $_SESSION['sf_user'];
+}
+
+

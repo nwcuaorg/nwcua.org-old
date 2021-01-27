@@ -25,6 +25,7 @@ if ( substr( $request, 0, 7 ) == '/logout' ) {
 
 
 // temporary jobs update code
+/*
 if ( substr( $request, 0, 11 ) == '/jobsupdate' ) {
 	$posts = get_posts(array(
 		'post_type' => 'job',
@@ -42,6 +43,7 @@ if ( substr( $request, 0, 11 ) == '/jobsupdate' ) {
 
 	die;
 }
+*/
 
 
 // just in case the user goes directly to /cal

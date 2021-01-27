@@ -1,0 +1,97 @@
+
+
+.buttons {
+	padding: 25px 0;
+}
+
+.btn {
+	@include font-bold;
+	font-size: 1.1em;
+	padding: 10px 15px;
+	margin: 0 15px 0 0;
+	transition: opacity 400ms ease-in-out;
+	text-transform: uppercase;
+	text-decoration: none !important;
+	background: $lime;
+	color: white;
+	box-shadow: 0 0 15px rgba( black, .2 );
+
+	&:hover {
+		opacity: .8;
+	}
+
+	&.navy {
+		background: $navy;
+		color: white;
+	}
+
+	&.teal {
+		background: $teal;
+		color: white;
+	}
+
+	&.river {
+		background: $river;
+		color: white;
+	}
+
+	&.river {
+		background: $river;
+		color: white;
+	}
+
+	&.aqua {
+		background: $aqua;
+		color: white;
+	}
+
+	&.seafoam {
+		background: $seafoam;
+		color: white;
+	}
+
+	&.orange {
+		background: $orange;
+		color: white;
+	}
+
+	&.green {
+		background: $green;
+		color: white;
+	}
+
+	&.forest {
+		background: $forest;
+		color: white;
+	}
+
+	&.gold {
+		background: $gold;
+		color: white;
+	}
+
+	&.red {
+		background: $red;
+		color: white;
+	}
+
+	&.yellow {
+		background: $yellow;
+		color: black;
+	}
+
+	&.grey {
+		background: $grey;
+		color: white;
+	}
+
+	&.grey-dark {
+		background: $grey-dark;
+		color: white;
+	}
+
+	&.stone {
+		background: $stone;
+		color: white;
+	}
+}

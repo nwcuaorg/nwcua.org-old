@@ -204,12 +204,6 @@ function page_metaboxes( $meta_boxes ) {
     ) );
 
     $job_metabox->add_field( array(
-        'name' => 'Contact Title',
-        'id'   => CMB_PREFIX . 'job_contact_title',
-        'type' => 'text'
-    ) );
-
-    $job_metabox->add_field( array(
         'name' => 'Contact Email',
         'id'   => CMB_PREFIX . 'job_contact_email',
         'type' => 'text_email'
@@ -222,8 +216,14 @@ function page_metaboxes( $meta_boxes ) {
     ) );
 
     $job_metabox->add_field( array(
-        'name' => 'Contact Fax',
-        'id'   => CMB_PREFIX . 'job_contact_fax',
+        'name' => 'Apply Email',
+        'id'   => CMB_PREFIX . 'job_apply_email',
+        'type' => 'text'
+    ) );
+
+    $job_metabox->add_field( array(
+        'name' => 'Apply Link',
+        'id'   => CMB_PREFIX . 'job_apply_link',
         'type' => 'text'
     ) );
 
