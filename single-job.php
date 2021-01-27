@@ -58,10 +58,10 @@ get_header();
 				<div class="buttons">
 				<?php 
 				if ( has_cmb_value( 'job_apply_link' ) ) {
-					echo do_shortcode( '[button url="' . get_cmb_value( 'job_apply_link' ) . '" target="_blank"]Apply Online[/button]');
+					echo do_shortcode( '[button url="' . get_cmb_value( 'job_apply_link' ) . '" class="green" target="_blank"]Apply Online[/button]');
 				}
 				if ( has_cmb_value( 'job_apply_email' ) ) {
-					echo do_shortcode( '[button url="mailto:' . get_cmb_value( 'job_apply_email' ) . '"]Apply by Email[/button]');
+					echo do_shortcode( '[button url="mailto:' . get_cmb_value( 'job_apply_email' ) . '" class="green"]Apply by Email[/button]');
 				}
 				?>
 				</div>
