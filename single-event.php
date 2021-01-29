@@ -58,15 +58,15 @@ get_header();
 
 				// display price
 				$early_date = get_cmb_value( 'event_early_date' );
-				// $early_price = get_cmb_value( 'event_early_price' );
+				$early_price = get_cmb_value( 'event_early_price' );
 				$regular_price = get_cmb_value( 'event_price' );
 				$late_date = get_cmb_value( 'event_late_date' );
-				// $late_price = get_cmb_value( 'event_late_price' );
+				$late_price = get_cmb_value( 'event_late_price' );
 				$is_early = ( time() <= $early_date ? 1 : 0);
 				$is_late = ( time() >= $late_date ? 1 : 0 );
-				$current_price_test = ( $is_early ? $early_price : ( $is_late ? $late_price : $regular_price ) );
-				print "<!--" . $current_price_test . "-->";
-				$current_price = $regular_price;
+				$current_price = ( $is_early ? $early_price : ( $is_late ? $late_price : $regular_price ) );
+				//print "<!--" . $current_price_test . "-->";
+				//$current_price = $regular_price;
 				if ( !empty( $current_price ) ) {
 					print "<p><label>Price:</label><br>$" . $current_price . ( $is_early ? ' (early bird price)' : ( $is_late ? ' (late registration price)' : '' ) ) . "</p>";
 				}
