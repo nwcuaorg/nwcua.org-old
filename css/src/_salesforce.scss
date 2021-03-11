@@ -6,3 +6,10 @@
 	}
 }
 
+
+.slds-scope .slds-form-element__label {
+	@include font-title;
+	font-size: 1.8em;
+	font-style: italic;
+}
+
