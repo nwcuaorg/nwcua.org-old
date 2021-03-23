@@ -2,6 +2,7 @@
 <svg version="1.1" id="councils-graphic" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 921.9 98.59" xml:space="preserve">
 	<defs>
 		<style>
+
 			.cls-1{fill:#6d8d58;}
 			.cls-2{fill:#f7ac49;}
 			.cls-3{fill:#13385e;}
@@ -9,7 +10,7 @@
 			.cls-5{fill:#adb947;}
 			.cls-6{fill:#333;}
 			.cls-7{fill:#06a2cc;}
-			.cls-8{font-size:12px;fill:#fff;font-family:"Lato Bold", Lato, Arial;font-weight:700;text-transform: uppercase;}
+			.cls-8{font-size:12px;fill:#fff;font-family:Arial, sans-serif;font-weight:700;text-transform: uppercase;}
 			.cls-9{letter-spacing:-0.02em;}.cls-10{letter-spacing:-0.03em;}
 			.cls-11{letter-spacing:-0.02em;}
 			.cls-12{letter-spacing:-0.02em;}
@@ -20,7 +21,7 @@
 			.cls-17{letter-spacing:-0.03em;}
 			.cls-18{letter-spacing:-0.02em;}
 			.cls-19{letter-spacing:-0.03em;}
-			text{pointer-events:none;}
+			text{pointer-events:none;font-family:Arial, sans-serif;}
 			a{transition: opacity 400ms ease-in-out;}
 			a:hover{opacity:0.8}
 		</style>

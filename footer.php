@@ -39,14 +39,6 @@
 					'menu_class' => 'nav-menu' ) 
 				); ?>
 			</div>
-			<!--
-			<div class="column quarter">
-				<h3>Customize
-				<br>Your Experience</h3>
-				<p>Sign up for our Anthem Newsletter, and other alerts, updates, and marketing messages.</p>
-				<p><a href="/assets_site/ajax/subscribe-form.htm" class="btn-arrow lightbox-iframe" style="background-color: #aabb38;">Subscribe</a></p>
-			</div>
-			-->
 		</div>
 	</footer><!-- #colophon -->
 	<div class='wrapper'>
