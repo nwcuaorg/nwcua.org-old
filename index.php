@@ -18,13 +18,7 @@ get_header();
 		$query_args = $wp_query->query;
 		$query_args['orderby'] = array( 'meta_value_num' => 'DESC', 'date' => 'DESC' );
 		$query_args['meta_key'] = '_p_priority';
-		$query_arts['meta_query'] = array(
-			array(
-				'key'=>'_p_priority',
-				'value'=>'-1',
-				'compare'=>'!=',
-			),
-		);
+		$query_args['cat'] = '-83,-88';
 
 		// if it's a search, display the search term.
 		if ( is_search() ) {
